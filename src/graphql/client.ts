@@ -3,9 +3,10 @@ import { ApolloClient, InMemoryCache, HttpLink, from } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { onError } from "@apollo/client/link/error";
 import { AUTH_TOKEN } from "src/constants";
+import.meta.env.GRAPHQL_API_URLGRAPHQL_API_URL;
 
 const httpLink = new HttpLink({
-    uri: import.meta.env.VITE_GRAPHQL_URL as string,
+    uri: process.env.GRAPHQL_API_URL,
 });
 
 const authLink = setContext((_, { headers }) => {
