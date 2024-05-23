@@ -7,6 +7,7 @@ const Form = <T extends FieldValues>({
     onSubmit,
     children,
     defaultValues,
+    ...props
 }: FormProps<T>) => {
     const formMethods = useForm({
         resolver: zodResolver(schema),
@@ -19,6 +20,7 @@ const Form = <T extends FieldValues>({
                 onSubmit={() => {
                     formMethods.handleSubmit(onSubmit);
                 }}
+                {...props}
             >
                 {children}
             </form>
