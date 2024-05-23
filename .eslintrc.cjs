@@ -3,7 +3,11 @@ module.exports = {
         browser: true,
         es2021: true,
     },
-    extends: ["plugin:@typescript-eslint/recommended-type-checked", "plugin:@typescript-eslint/stylistic-type-checked", "prettier"],
+    extends: [
+        "plugin:@typescript-eslint/recommended-type-checked",
+        "plugin:@typescript-eslint/stylistic-type-checked",
+        "prettier",
+    ],
     overrides: [
         {
             env: {
@@ -17,9 +21,9 @@ module.exports = {
     ],
     parser: "@typescript-eslint/parser",
     parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        project: ['./tsconfig.json', './tsconfig.node.json'],
+        ecmaVersion: "latest",
+        sourceType: "module",
+        project: ["./tsconfig.json", "./tsconfig.node.json"],
         tsconfigRootDir: __dirname,
     },
     plugins: ["@typescript-eslint", "prettier"],
