@@ -1,5 +1,5 @@
 import { useFormContext } from "react-hook-form";
-import { FormInputProps } from "./form-text-field.types.ts";
+import { FormInputProps } from "./form-text-field.types";
 import { Input, Form } from "antd";
 
 const FormTextField = ({

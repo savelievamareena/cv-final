@@ -1,1 +1,1 @@
-export { default as Form } from "./form.tsx";
+export { default as Form } from "./form";
