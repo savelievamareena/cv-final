@@ -3,7 +3,7 @@ import {
     generateDeleteMutation,
     generateCreateMutation,
     generateUpdateMutation,
-} from "../helpers/queries";
+} from "@/Api/helpers/queries";
 
 const query = "department";
 
