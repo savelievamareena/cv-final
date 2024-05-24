@@ -7,9 +7,11 @@ import { AUTH_TOKEN } from "src/constants";
 const httpLink = new HttpLink({
     uri: import.meta.env.VITE_GRAPHQL_URL as string,
 });
+console.log(httpLink);
 
 const authLink = setContext((_, { headers }) => {
     const authToken = localStorage.getItem(AUTH_TOKEN);
+
     return {
         headers: {
             ...headers,
