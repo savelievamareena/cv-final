@@ -55,9 +55,10 @@ const TableTemplate: React.FC<{ searchQuery: string }> = ({ searchQuery }) => {
         },
 
         {
-            title: "Action",
+            title: "",
             dataIndex: "",
             key: "x",
+            width: "5%",
             render: () => <ActionsMenu actionProps={menuProps} />,
         },
     ];
@@ -82,12 +83,15 @@ const TableTemplate: React.FC<{ searchQuery: string }> = ({ searchQuery }) => {
             >
                 Click me!
             </button> */}
-            <Table
-                columns={columns}
-                dataSource={filteredData}
-                pagination={{ hideOnSinglePage: true }}
-                loading={loading}
-            />
+            <div style={{ width: "80vw", margin: "0 auto" }}>
+                <Table
+                    columns={columns}
+                    dataSource={filteredData}
+                    pagination={{ hideOnSinglePage: true }}
+                    loading={loading}
+                    rowKey='key'
+                />
+            </div>
         </>
     );
 };
