@@ -5,7 +5,7 @@ import {
     Department,
     UpdateDepartmentInput,
 } from "cv-graphql";
-import { getQuery, createMutation, deleteMutation, updateMutation } from "../apis/departments";
+import { getQuery, createMutation, deleteMutation, updateMutation } from "../api/departments";
 
 interface DepartmentsResult {
     departments: Department[];

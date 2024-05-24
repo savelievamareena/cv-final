@@ -3,7 +3,7 @@ import {
     generateDeleteMutation,
     generateCreateMutation,
     generateUpdateMutation,
-} from "@/Api/helpers/queries";
+} from "@/api/helpers/queries";
 
 const query = "project";
 
