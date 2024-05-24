@@ -1,10 +1,11 @@
-import React, { ComponentProps } from "react";
+import { ReactNode } from "react";
 import { DefaultValues, FieldValues, SubmitHandler } from "react-hook-form";
+import { FormProps } from "antd";
 import { ZodSchema } from "zod";
 
-export interface FormProps<T extends FieldValues> extends Omit<ComponentProps<"form">, "onSubmit"> {
+export interface HookFormProps<T extends FieldValues> extends FormProps {
     schema: ZodSchema<T>;
     onSubmit: SubmitHandler<T>;
-    children: React.ReactNode;
+    children: ReactNode;
     defaultValues: DefaultValues<T>;
 }

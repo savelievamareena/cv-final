@@ -1,8 +1,15 @@
 import { useFormContext } from "react-hook-form";
 import { FormInputProps } from "./form-text-field.types.ts";
-import { Input } from "antd";
+import { Input, Form } from "antd";
 
-const FormTextField = ({ name, ...props }: FormInputProps) => {
+const FormTextField = ({
+    name,
+    label,
+    required,
+    labelCol,
+    wrapperCol,
+    ...props
+}: FormInputProps) => {
     const {
         register,
         formState: { errors },
@@ -12,10 +19,17 @@ const FormTextField = ({ name, ...props }: FormInputProps) => {
     const helperText = typeof errorMessage === "string" ? errorMessage : "";
 
     return (
-        <div>
-            <Input {...register(name)} {...props} status={helperText ? "error" : ""} />
-            {helperText && <div style={{ color: "red", marginTop: "5px" }}>{helperText}</div>}
-        </div>
+        <Form.Item
+            validateStatus={helperText ? "error" : ""}
+            help={helperText}
+            name={name}
+            label={label}
+            labelCol={labelCol}
+            wrapperCol={wrapperCol}
+            required={required}
+        >
+            <Input {...register(name)} {...props} />
+        </Form.Item>
     );
 };
 
