@@ -1,6 +1,6 @@
 import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { HookFormProps } from "./form.types.ts";
+import { FormProps } from "./form.types.ts";
 import { Form as AntdForm } from "antd";
 
 const Form = <T extends FieldValues>({
@@ -9,7 +9,7 @@ const Form = <T extends FieldValues>({
     children,
     defaultValues,
     ...props
-}: HookFormProps<T>) => {
+}: FormProps<T>) => {
     const formMethods = useForm({
         resolver: zodResolver(schema),
         defaultValues: defaultValues,
