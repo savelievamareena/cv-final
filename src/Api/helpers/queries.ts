@@ -4,6 +4,7 @@ const capitalizeFirstLetter = (str: string) => str.charAt(0).toUpperCase() + str
 
 const generateGetQuery = (queryName: string, fields: string[]) => {
     const capitalizedTypeName = capitalizeFirstLetter(queryName);
+
     return gql`
         query Get${capitalizedTypeName}s {
             ${queryName}s {
@@ -15,6 +16,7 @@ const generateGetQuery = (queryName: string, fields: string[]) => {
 
 const generateDeleteMutation = (queryName: string) => {
     const capitalizedStr = capitalizeFirstLetter(queryName);
+
     return gql`
         mutation Delete${capitalizedStr}Mutation($${queryName}Id: ID!) {
             delete${capitalizedStr}(${queryName}: { ${queryName}Id: $${queryName}Id }) {
@@ -37,6 +39,7 @@ const generateCreateMutation = (queryName: string, fields: string[], args: strin
         }
     `;
 };
+
 const generateUpdateMutation = (queryName: string, fields: string[], args: string[]) => {
     const capitalizedStr = capitalizeFirstLetter(queryName);
     const variables = args
@@ -51,4 +54,5 @@ const generateUpdateMutation = (queryName: string, fields: string[], args: strin
         }
     `;
 };
+
 export { generateGetQuery, generateDeleteMutation, generateCreateMutation, generateUpdateMutation };

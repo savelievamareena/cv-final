@@ -8,6 +8,7 @@ import {
 const query = "cv";
 
 const fields = ["id", "created_at", "name", "education", "description", "user"];
+
 const createArgs = [
     "name",
     "internal_name",
@@ -17,6 +18,7 @@ const createArgs = [
     "end_date",
     "team_size",
 ];
+
 const updateArgs = [
     "projectId",
     "name",

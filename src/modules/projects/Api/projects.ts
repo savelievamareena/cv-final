@@ -18,6 +18,7 @@ const fields = [
     "end_date",
     "team_size",
 ];
+
 const createArgs = [
     "name",
     "internal_name",
@@ -27,6 +28,7 @@ const createArgs = [
     "end_date",
     "team_size",
 ];
+
 const updateArgs = [
     "projectId",
     "name",
