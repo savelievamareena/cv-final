@@ -16,16 +16,24 @@ import { Table, TableColumnsType } from "antd";
 // `;
 
 const TableTemplate: React.FC<{ searchQuery: string }> = ({ searchQuery }) => {
-    const { departments } = useDepartments();
+    const { departments, loading } = useDepartments();
+    // const [getUser] = useLazyQuery(LOGIN, {
+    //     variables: {
+    //         auth: {
+    //             email: "aaklimkov@gmail.com",
+    //             password: "qweasd",
+    //         },
+    //     },
+    // });
 
     const menuProps = [
         {
             tittle: "delete",
-            onClick: () => console.log(departments),
+            onClick: () => console.log("delete"),
         },
         {
             tittle: "update",
-            onClick: () => console.log(departments),
+            onClick: () => console.log("update"),
         },
     ];
 
@@ -62,11 +70,25 @@ const TableTemplate: React.FC<{ searchQuery: string }> = ({ searchQuery }) => {
         }));
 
     return (
-        <Table
-            columns={columns}
-            dataSource={filteredData}
-            pagination={{ hideOnSinglePage: true }}
-        />
+        <>
+            {/* <button
+                onClick={() => {
+                    getUser({
+                        onCompleted: (data) => {
+                            localStorage.setItem("auth-token", data.login.access_token);
+                        },
+                    });
+                }}
+            >
+                Click me!
+            </button> */}
+            <Table
+                columns={columns}
+                dataSource={filteredData}
+                pagination={{ hideOnSinglePage: true }}
+                loading={loading}
+            />
+        </>
     );
 };
 

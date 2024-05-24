@@ -7,10 +7,7 @@ const PageTamplate = () => {
     const [searchQuery, setSearchQuery] = useState("");
     return (
         <>
-            <InputTemplate
-                placeholder='search department'
-                onChange={(e) => setSearchQuery(e.target.value)}
-            />
+            <InputTemplate onChange={(e) => setSearchQuery(e.target.value)} />
             <ButtonTemplate tittle='add department' onClick={() => console.log(12)} />
             <TableTemplate searchQuery={searchQuery} />
         </>
