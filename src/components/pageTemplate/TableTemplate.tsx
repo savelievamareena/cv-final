@@ -41,7 +41,7 @@ const TableTemplate = <T extends { id: React.Key }>({
     // });
     const createColumnsAndData = (columnNames: (keyof T)[], data: T[]) => {
         const columns: TableColumnsType<DynamicDataType<T>> = columnNames.map((name) => ({
-            title: name.toString().charAt(0).toUpperCase() + name.toString().slice(1), // Capitalize the first letter
+            title: name.toString().charAt(0).toUpperCase() + name.toString().slice(1),
             dataIndex: name as string,
             key: name as string,
             sorter: (a, b) => {

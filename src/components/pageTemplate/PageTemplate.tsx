@@ -1,28 +1,29 @@
-import { useState } from "react";
 import ButtonTemplate from "./ButtonTemplate";
 import InputTemplate from "./InputTemplate";
 import TableTemplate from "./TableTemplate";
 import { useTranslation } from "react-i18next";
 import { Action } from "./ActionsMenu";
-import { useDepartments } from "src/Api/mutation/departments";
-import { Department } from "cv-graphql";
 
-const PageTamplate = () => {
+interface PageTemplateProps<T> {
+    menuProps: Action[];
+    columnNames: (keyof T)[];
+    searchQuery: string;
+    displayData: T[];
+    loading: boolean;
+    setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const PageTemplate: React.FC<PageTemplateProps<any>> = ({
+    menuProps,
+    columnNames,
+    searchQuery,
+    displayData,
+    loading,
+    setSearchQuery,
+}) => {
     const { t } = useTranslation();
-    const { departments, loading } = useDepartments();
-    const [searchQuery, setSearchQuery] = useState("");
-    const menuProps: Action[] = [
-        {
-            tittle: "delete",
-            onClick: () => console.log("delete"),
-        },
-        {
-            tittle: "update",
-            onClick: () => console.log("update"),
-        },
-    ];
 
-    const columnNames: (keyof Department)[] = ["name"];
     return (
         <div style={{ width: "100vw" }}>
             <InputTemplate onChange={(e) => setSearchQuery(e.target.value)} />
@@ -31,11 +32,11 @@ const PageTamplate = () => {
                 searchQuery={searchQuery}
                 menuProps={menuProps}
                 columnNames={columnNames}
-                data={departments}
+                data={displayData}
                 loading={loading}
             />
         </div>
     );
 };
 
-export default PageTamplate;
+export default PageTemplate;

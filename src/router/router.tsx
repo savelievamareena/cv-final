@@ -1,9 +1,14 @@
+import DepartmentsPage from "@/modules/departments/ui/Departments.page";
+import SkillsPage from "@/modules/skills/ui/Skills.page";
 import { createBrowserRouter } from "react-router-dom";
-import PageTamplate from "src/components/pageTemplate/PageTemplate";
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <PageTamplate />,
+        element: <DepartmentsPage />,
+    },
+    {
+        path: "/skills",
+        element: <SkillsPage />,
     },
 ]);
