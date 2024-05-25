@@ -3,13 +3,13 @@ import {
     generateDeleteMutation,
     generateCreateMutation,
     generateUpdateMutation,
-} from "../helpers/queries";
+} from "@/api/helpers/queries";
 
-const query = "skill";
+const query = "department";
 
-const fields = ["id", "created_at", "name", "category"];
-const createArgs = ["name", "category"];
-const updateArgs = ["departmentId", "name", "category"];
+const fields = ["id", "created_at", "name"];
+const createArgs = ["name"];
+const updateArgs = ["departmentId", "name"];
 
 const getQuery = generateGetQuery(query, fields);
 const createMutation = generateCreateMutation(query, fields, createArgs);

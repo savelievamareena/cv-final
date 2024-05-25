@@ -5,7 +5,7 @@ import {
     Department,
     UpdateDepartmentInput,
 } from "cv-graphql";
-import { getQuery, createMutation, deleteMutation, updateMutation } from "../queries/departments";
+import { getQuery, createMutation, deleteMutation, updateMutation } from "../api/departments";
 
 interface DepartmentsResult {
     departments: Department[];
@@ -18,7 +18,6 @@ export const useDepartments = () => {
 };
 
 export const useDepartmentCreate = () => {
-    ``;
     return useMutation<Department, { department: CreateDepartmentInput }>(createMutation, {
         refetchQueries: [getQuery],
     });
