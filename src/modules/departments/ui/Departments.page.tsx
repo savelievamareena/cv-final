@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Department } from "cv-graphql";
 import PageTemplate from "@/components/pageTemplate/PageTemplate";
 import { Action } from "@/components/pageTemplate/ActionsMenu";
+import { t } from "i18next";
 
 const DepartmentsPage = () => {
     const { departments, loading } = useDepartments();
@@ -23,6 +24,8 @@ const DepartmentsPage = () => {
 
     return (
         <PageTemplate
+            pageTitle={t("Add departent")}
+            onButtonClick={() => console.log(12)}
             menuProps={menuProps}
             columnNames={columnNames}
             searchQuery={searchQuery}
