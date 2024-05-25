@@ -1,22 +1,36 @@
-import { useDepartments } from "src/Api/mutation/departments";
-import ActionsMenu from "./ActionsMenu";
+import ActionsMenu, { Action } from "./ActionsMenu";
 // import { gql, useLazyQuery } from "@apollo/client";
 import { Table, TableColumnsType } from "antd";
 
-// const LOGIN = gql`
-//     query Login($auth: AuthInput!) {
-//         login(auth: $auth) {
-//             user {
-//                 id
-//                 email
-//             }
-//             access_token
-//         }
-//     }
-// `;
+interface TableTemplateProps<T extends { id: React.Key }> {
+    searchQuery: string;
+    menuProps: Action[];
+    columnNames: (keyof T)[];
+    data: T[];
+    loading: boolean;
+}
 
-const TableTemplate: React.FC<{ searchQuery: string }> = ({ searchQuery }) => {
-    const { departments, loading } = useDepartments();
+type DynamicDataType<T> = T & { key: React.Key };
+
+const TableTemplate = <T extends { id: React.Key }>({
+    searchQuery,
+    menuProps,
+    columnNames,
+    data,
+    loading,
+}: TableTemplateProps<T>) => {
+    // const LOGIN = gql`
+    //     query Login($auth: AuthInput!) {
+    //         login(auth: $auth) {
+    //             user {
+    //                 id
+    //                 email
+    //             }
+    //             access_token
+    //         }
+    //     }
+    // `;
+
     // const [getUser] = useLazyQuery(LOGIN, {
     //     variables: {
     //         auth: {
@@ -25,50 +39,41 @@ const TableTemplate: React.FC<{ searchQuery: string }> = ({ searchQuery }) => {
     //         },
     //     },
     // });
-
-    const menuProps = [
-        {
-            tittle: "delete",
-            onClick: () => console.log("delete"),
-        },
-        {
-            tittle: "update",
-            onClick: () => console.log("update"),
-        },
-    ];
-
-    interface DataType {
-        key: React.Key;
-        name: string;
-    }
-
-    const columns: TableColumnsType<DataType> = [
-        {
-            title: "Name",
-            dataIndex: "name",
-            key: "name",
+    const createColumnsAndData = (columnNames: (keyof T)[], data: T[]) => {
+        const columns: TableColumnsType<DynamicDataType<T>> = columnNames.map((name) => ({
+            title: name.toString().charAt(0).toUpperCase() + name.toString().slice(1), // Capitalize the first letter
+            dataIndex: name as string,
+            key: name as string,
             sorter: (a, b) => {
-                if (a.name < b.name) return -1;
-                if (a.name > b.name) return 1;
+                if (a[name] < b[name]) return -1;
+                if (a[name] > b[name]) return 1;
                 return 0;
             },
-        },
+        }));
 
-        {
+        columns.push({
             title: "",
             dataIndex: "",
             key: "x",
             width: "5%",
             render: () => <ActionsMenu actionProps={menuProps} />,
-        },
-    ];
+        });
 
-    const filteredData: DataType[] = departments
-        .filter((department) => department.name.toLowerCase().includes(searchQuery.toLowerCase()))
-        .map((department) => ({
-            key: department.id,
-            name: department.name,
-        }));
+        const filteredData: DynamicDataType<T>[] = data
+            .filter((item) =>
+                columnNames.some((col) =>
+                    item[col]?.toString().toLowerCase().includes(searchQuery.toLowerCase()),
+                ),
+            )
+            .map((item) => ({
+                key: item.id,
+                ...item,
+            }));
+
+        return { columns, data: filteredData };
+    };
+
+    const { columns, data: filteredData } = createColumnsAndData(columnNames, data);
 
     return (
         <>
