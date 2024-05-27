@@ -11,27 +11,33 @@ const authRoutes = {
     verification: "/auth/verification",
 };
 
+export const enum RouteParams {
+    CvId = "cvId",
+    UserId = "userId",
+    ProjectId = "projectId",
+}
+
 const userRoutes = {
     root: "/users",
-    userById: "/users/:userId",
-    profile: `/users/:userId/${RelativePaths.Profile}`,
-    skills: "/users/:userId/skills",
-    languages: "/users/:userId/languages",
-    cvs: "/users/:userId/cvs",
+    userById: (userId: string) => `/users/${userId}`,
+    profile: (userId: string) => `/users/${userId}/${RelativePaths.Profile}`,
+    skills: (userId: string) => `/users/${userId}/skills`,
+    languages: (userId: string) => `/users/${userId}/languages`,
+    cvs: (userId: string) => `/users/${userId}/cvs`,
 };
 
 const CVRoutes = {
     root: "/cvs",
-    cvById: "/cvs/:cvId",
-    details: `/cvs/:cvId/${RelativePaths.Details}`,
-    skills: "/cvs/:cvId/skills",
-    projects: "/cvs/:cvId/projects",
-    preview: "/cvs/:cvId/preview",
+    cvById: (cvId: string) => `/cvs/${cvId}`,
+    details: (cvId: string) => `/cvs/${cvId}/${RelativePaths.Details}`,
+    skills: (cvId: string) => `/cvs/${cvId}/skills`,
+    projects: (cvId: string) => `/cvs/${cvId}/projects`,
+    preview: (cvId: string) => `/cvs/${cvId}/preview`,
 };
 
 const projectRoutes = {
     root: "/projects",
-    details: "/projects/:projectId",
+    details: (projectId: string) => `/projects/${projectId}`,
 };
 
 export const routes = {
