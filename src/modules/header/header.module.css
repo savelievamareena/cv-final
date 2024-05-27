@@ -1,0 +1,23 @@
+.red {
+    color: #C63031;
+}
+
+.grey {
+    color: #767676;
+}
+
+.white {
+    color: white;
+}
+
+.big {
+    font-size: 1.2em;
+}
+
+.small {
+    font-size: 1em;
+}
+
+.header_icons {
+    cursor: pointer;
+}
