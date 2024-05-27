@@ -1,10 +1,9 @@
+import { Dispatch, FC, SetStateAction } from "react";
 import { Department, Skill } from "cv-graphql";
-import { Input } from "antd";
+import { Button, Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import TableTemplate, { ColumnConfig } from "./table-template";
 import { Action } from "./actions-menu";
-import { Button } from "antd";
-import { Dispatch, FC, SetStateAction } from "react";
 
 interface PageTemplateProps<T> {
     pageTitle: string;
