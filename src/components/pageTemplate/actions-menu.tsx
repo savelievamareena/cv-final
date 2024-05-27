@@ -3,7 +3,7 @@ import { Space, Dropdown } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
 
 export interface Action {
-    tittle: string;
+    title: string;
     onClick: () => void;
 }
 
@@ -14,7 +14,7 @@ export interface ActionsMenuProps {
 const ActionsMenu = ({ actionProps }: ActionsMenuProps) => {
     const items = actionProps.map((item, index) => ({
         key: index.toString(),
-        label: (<div onClick={item.onClick}>{item.tittle}</div>) as ReactNode,
+        label: (<div onClick={item.onClick}>{item.title}</div>) as ReactNode,
     }));
 
     return (

@@ -1,9 +1,10 @@
-import { useDepartments } from "../mutation/departments";
 import { useState } from "react";
 import { Department } from "cv-graphql";
-import PageTemplate from "@/components/pageTemplate/PageTemplate";
-import { Action } from "@/components/pageTemplate/ActionsMenu";
 import { t } from "i18next";
+import { useDepartments } from "../mutation/departments";
+import PageTemplate from "@/components/pageTemplate/page-template";
+import { Action } from "@/components/pageTemplate/actions-menu";
+import { ColumnConfig } from "@/components/pageTemplate/table-template";
 
 const DepartmentsPage = () => {
     const { departments, loading } = useDepartments();
@@ -11,23 +12,23 @@ const DepartmentsPage = () => {
 
     const menuProps: Action[] = [
         {
-            tittle: "Delete",
+            title: "Delete",
             onClick: () => console.log("Delete department"),
         },
         {
-            tittle: "Update",
+            title: "Update",
             onClick: () => console.log("Update department"),
         },
     ];
 
-    const columnNames: (keyof Department)[] = ["name"];
+    const columnConfigs: ColumnConfig<Department>[] = [{ name: "name", isSorted: true }];
 
     return (
         <PageTemplate
             pageTitle={t("Add departent")}
             onButtonClick={() => console.log(12)}
             menuProps={menuProps}
-            columnNames={columnNames}
+            columnConfigs={columnConfigs}
             searchQuery={searchQuery}
             displayData={departments}
             loading={loading}

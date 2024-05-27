@@ -1,21 +1,27 @@
-import ActionsMenu, { Action } from "./ActionsMenu";
+import { Key } from "react";
+import ActionsMenu, { Action } from "./actions-menu";
 // import { gql, useLazyQuery } from "@apollo/client";
 import { Table, TableColumnsType } from "antd";
+
+export interface ColumnConfig<T> {
+    name: keyof T;
+    isSorted: boolean;
+}
 
 interface TableTemplateProps<T extends { id: React.Key }> {
     searchQuery: string;
     menuProps: Action[];
-    columnNames: (keyof T)[];
+    columnConfigs: ColumnConfig<T>[];
     data: T[];
     loading: boolean;
 }
 
-type DynamicDataType<T> = T & { key: React.Key };
+type DynamicDataType<T> = T & { key: Key };
 
-const TableTemplate = <T extends { id: React.Key }>({
+const TableTemplate = <T extends { id: Key }>({
     searchQuery,
     menuProps,
-    columnNames,
+    columnConfigs,
     data,
     loading,
 }: TableTemplateProps<T>) => {
@@ -39,16 +45,18 @@ const TableTemplate = <T extends { id: React.Key }>({
     //         },
     //     },
     // });
-    const createColumnsAndData = (columnNames: (keyof T)[], data: T[]) => {
-        const columns: TableColumnsType<DynamicDataType<T>> = columnNames.map((name) => ({
-            title: name.toString().charAt(0).toUpperCase() + name.toString().slice(1),
-            dataIndex: name as string,
-            key: name as string,
-            sorter: (a, b) => {
-                if (a[name] < b[name]) return -1;
-                if (a[name] > b[name]) return 1;
-                return 0;
-            },
+    const createColumnsAndData = (columnConfigs: ColumnConfig<T>[], data: T[]) => {
+        const columns: TableColumnsType<DynamicDataType<T>> = columnConfigs.map((config) => ({
+            title: config.name.toString().charAt(0).toUpperCase() + config.name.toString().slice(1),
+            dataIndex: config.name as string,
+            key: config.name as string,
+            sorter: config.isSorted
+                ? (a, b) => {
+                      if (a[config.name] < b[config.name]) return -1;
+                      if (a[config.name] > b[config.name]) return 1;
+                      return 0;
+                  }
+                : undefined,
         }));
 
         columns.push({
@@ -60,11 +68,13 @@ const TableTemplate = <T extends { id: React.Key }>({
         });
 
         const filteredData: DynamicDataType<T>[] = data
-            .filter((item) =>
-                columnNames.some((col) =>
-                    item[col]?.toString().toLowerCase().includes(searchQuery.toLowerCase()),
-                ),
-            )
+            .filter((item) => {
+                const firstColumnName = columnConfigs[0].name;
+                return item[firstColumnName]
+                    ?.toString()
+                    .toLowerCase()
+                    .includes(searchQuery.toLowerCase());
+            })
             .map((item) => ({
                 key: item.id,
                 ...item,
@@ -73,7 +83,7 @@ const TableTemplate = <T extends { id: React.Key }>({
         return { columns, data: filteredData };
     };
 
-    const { columns, data: filteredData } = createColumnsAndData(columnNames, data);
+    const { columns, data: filteredData } = createColumnsAndData(columnConfigs, data);
 
     return (
         <>
