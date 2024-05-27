@@ -1,21 +1,34 @@
 import { memo, ReactNode } from "react";
 import { Space, Dropdown } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
+import { t } from "i18next";
 
 export interface Action {
-    title: string;
-    onClick: () => void;
+    onUpdate: () => void;
+    onDelete: () => void;
 }
 
-export interface ActionsMenuProps {
-    actionProps: Action[];
-}
+type ActionProps = Action & { pageName: string };
 
-const ActionsMenu = ({ actionProps }: ActionsMenuProps) => {
-    const items = actionProps.map((item, index) => ({
-        key: index.toString(),
-        label: (<div onClick={item.onClick}>{item.title}</div>) as ReactNode,
-    }));
+const ActionsMenu = ({ onUpdate, onDelete, pageName }: ActionProps) => {
+    const items = [
+        {
+            key: 0,
+            label: (
+                <div onClick={onUpdate}>
+                    {t("update")} {pageName}
+                </div>
+            ) as ReactNode,
+        },
+        {
+            key: 1,
+            label: (
+                <div onClick={onDelete}>
+                    {t("delete")} {pageName}
+                </div>
+            ) as ReactNode,
+        },
+    ];
 
     return (
         <Dropdown menu={{ items }} trigger={["click"]}>

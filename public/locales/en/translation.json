@@ -1,5 +1,15 @@
 {
   "Login": "Login",
   "Signup": "Signup",
-  "Welcome Back": "Welcome Back"
+  "Welcome Back": "Welcome Back", 
+
+  "add": "Add",
+  "delete": "Delete",
+  "update":"Update",
+  "search": "Search",
+
+  "departent": "deparment",
+
+  "skill": "skill"
+
 }

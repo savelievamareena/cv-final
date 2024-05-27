@@ -4,34 +4,23 @@ import { t } from "i18next";
 import PageTemplate from "@/components/pageTemplate/page-template";
 import { Action } from "@/components/pageTemplate/actions-menu";
 import { ColumnConfig } from "@/components/pageTemplate/table-template";
-import { useSkills } from "../mutation/skills";
+import { useSkills } from "@/modules/skills/mutation/skills";
 
 const SkillsPage = () => {
     const { skills, loading } = useSkills();
     const [searchQuery, setSearchQuery] = useState("");
 
-    const menuProps: Action[] = [
-        {
-            title: "delete",
-            onClick: () => console.log("delete"),
-        },
-        {
-            title: "update",
-            onClick: () => console.log("update"),
-        },
-        {
-            title: "view",
-            onClick: () => console.log("view"),
-        },
-    ];
-
+    const menuProps: Action = {
+        onDelete: () => console.log("delete"),
+        onUpdate: () => console.log("update"),
+    };
     const columnConfigs: ColumnConfig<Skill>[] = [
         { name: "name", isSorted: true },
         { name: "category", isSorted: true },
     ];
     return (
         <PageTemplate
-            pageTitle={t("Add skill")}
+            pageName={t("Add skill")}
             onButtonClick={() => console.log(12)}
             menuProps={menuProps}
             columnConfigs={columnConfigs}

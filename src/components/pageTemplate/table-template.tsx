@@ -10,10 +10,11 @@ export interface ColumnConfig<T> {
 
 interface TableTemplateProps<T extends { id: React.Key }> {
     searchQuery: string;
-    menuProps: Action[];
+    menuProps: Action;
     columnConfigs: ColumnConfig<T>[];
     data: T[];
     loading: boolean;
+    pageName: string;
 }
 
 type DynamicDataType<T> = T & { key: Key };
@@ -24,6 +25,7 @@ const TableTemplate = <T extends { id: Key }>({
     columnConfigs,
     data,
     loading,
+    pageName,
 }: TableTemplateProps<T>) => {
     // const LOGIN = gql`
     //     query Login($auth: AuthInput!) {
@@ -64,7 +66,13 @@ const TableTemplate = <T extends { id: Key }>({
             dataIndex: "",
             key: "x",
             width: "5%",
-            render: () => <ActionsMenu actionProps={menuProps} />,
+            render: () => (
+                <ActionsMenu
+                    pageName={pageName}
+                    onDelete={menuProps.onDelete}
+                    onUpdate={menuProps.onUpdate}
+                />
+            ),
         });
 
         const filteredData: DynamicDataType<T>[] = data

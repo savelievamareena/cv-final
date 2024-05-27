@@ -1,14 +1,15 @@
 import { Dispatch, FC, SetStateAction } from "react";
 import { Department, Skill } from "cv-graphql";
 import { Button, Input } from "antd";
+import { t } from "i18next";
 import { SearchOutlined } from "@ant-design/icons";
 import TableTemplate, { ColumnConfig } from "./table-template";
 import { Action } from "./actions-menu";
 
 interface PageTemplateProps<T> {
-    pageTitle: string;
+    pageName: string;
     onButtonClick: () => void;
-    menuProps: Action[];
+    menuProps: Action;
     columnConfigs: ColumnConfig<T>[];
     searchQuery: string;
     displayData: T[];
@@ -17,7 +18,7 @@ interface PageTemplateProps<T> {
 }
 
 const PageTemplate: FC<PageTemplateProps<Skill | Department>> = ({
-    pageTitle,
+    pageName,
     onButtonClick,
     menuProps,
     columnConfigs,
@@ -29,12 +30,12 @@ const PageTemplate: FC<PageTemplateProps<Skill | Department>> = ({
     return (
         <div style={{ width: "100vw" }}>
             <Input
-                placeholder='Search'
+                placeholder={t("search")}
                 onChange={() => setSearchQuery}
                 prefix={<SearchOutlined />}
             />
             <Button type='primary' danger ghost onClick={onButtonClick}>
-                {pageTitle}
+                {t("add")} {pageName}
             </Button>
             <TableTemplate
                 searchQuery={searchQuery}
@@ -42,6 +43,7 @@ const PageTemplate: FC<PageTemplateProps<Skill | Department>> = ({
                 columnConfigs={columnConfigs}
                 data={displayData}
                 loading={loading}
+                pageName={pageName}
             />
         </div>
     );
