@@ -1,6 +1,5 @@
 import { Key } from "react";
 import ActionsMenu, { Action } from "./actions-menu";
-// import { gql, useLazyQuery } from "@apollo/client";
 import { Table, TableColumnsType } from "antd";
 
 export interface ColumnConfig<T> {
@@ -27,26 +26,6 @@ const TableTemplate = <T extends { id: Key }>({
     loading,
     pageName,
 }: TableTemplateProps<T>) => {
-    // const LOGIN = gql`
-    //     query Login($auth: AuthInput!) {
-    //         login(auth: $auth) {
-    //             user {
-    //                 id
-    //                 email
-    //             }
-    //             access_token
-    //         }
-    //     }
-    // `;
-
-    // const [getUser] = useLazyQuery(LOGIN, {
-    //     variables: {
-    //         auth: {
-    //             email: "aaklimkov@gmail.com",
-    //             password: "qweasd",
-    //         },
-    //     },
-    // });
     const createColumnsAndData = (columnConfigs: ColumnConfig<T>[], data: T[]) => {
         const columns: TableColumnsType<DynamicDataType<T>> = columnConfigs.map((config) => ({
             title: config.name.toString().charAt(0).toUpperCase() + config.name.toString().slice(1),
@@ -95,17 +74,6 @@ const TableTemplate = <T extends { id: Key }>({
 
     return (
         <>
-            {/* <button
-                onClick={() => {
-                    getUser({
-                        onCompleted: (data) => {
-                            localStorage.setItem("auth-token", data.login.access_token);
-                        },
-                    });
-                }}
-            >
-                Click me!
-            </button> */}
             <div style={{ width: "80vw", margin: "0 auto" }}>
                 <Table
                     columns={columns}
