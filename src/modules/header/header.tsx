@@ -1,5 +1,8 @@
 import classNames from "classnames";
-import { Flex, Layout } from "antd";
+import { Dropdown, Flex, Layout, MenuProps } from "antd";
+import { ProfilePicture } from "./components/profile-picture";
+import { useState } from "react";
+import { Navigation } from "@/modules/header/components/navigation";
 import {
     CaretDownOutlined,
     GlobalOutlined,
@@ -7,52 +10,82 @@ import {
     CaretUpOutlined,
 } from "@ant-design/icons";
 import styles from "./header.module.css";
-import { ProfilePicture } from "./components/profile-picture";
-import { useState } from "react";
+
+type LanguageType = "EN" | "DE" | "RU";
 
 const Header = () => {
     const { Header: AntdHeader } = Layout;
-    const [isMenuOpen, setMenuOpen] = useState(false);
+    const [isLanguagesOpen, setLanguagesOpen] = useState(false);
+    const [isDrawerOpen, setDrawerOpen] = useState(false);
+    const [language, setLanguage] = useState<LanguageType>("EN");
+
+    const handleMenuClick: MenuProps["onClick"] = ({ key }) => {
+        const langToSet = key as LanguageType;
+        setLanguage(langToSet);
+        setLanguagesOpen(false);
+    };
+
+    const handleLanguageToggle = () => {
+        setLanguagesOpen((prevState) => !prevState);
+    };
+
+    const languages = [
+        {
+            label: <span style={{ padding: "12px", fontSize: "18px" }}>English</span>,
+            key: "EN",
+        },
+        {
+            label: <span style={{ padding: "12px", fontSize: "18px" }}>Deutsch</span>,
+            key: "DE",
+        },
+        {
+            label: <span style={{ padding: "12px", fontSize: "18px" }}>Русский</span>,
+            key: "RU",
+        },
+    ];
+
+    const menuProps: MenuProps = {
+        items: languages,
+        onClick: handleMenuClick,
+    };
 
     return (
         <>
-            <AntdHeader
-                style={{
-                    boxShadow: "0px 1px 10px 0px #2E2E2E",
-                    display: "flex",
-                    justifyContent: "space-between",
-                }}
-            >
-                <MenuOutlined className={classNames(styles.header_icons, styles.red, styles.big)} />
+            <AntdHeader className={styles.header_wrapper}>
+                <MenuOutlined
+                    className={classNames(styles.header_icons, styles.red, styles.big)}
+                    onClick={() => setDrawerOpen(true)}
+                />
                 <Flex gap={"large"} justify={"space-between"} style={{ width: "25%" }}>
                     <Flex gap={"small"}>
                         <GlobalOutlined
                             className={classNames(styles.header_icons, styles.grey, styles.big)}
                         />
-                        <div>EN</div>
-                        {isMenuOpen ? (
-                            <CaretUpOutlined
-                                className={classNames(
-                                    styles.header_icons,
-                                    styles.white,
-                                    styles.small,
+                        <Dropdown menu={menuProps} trigger={["click"]} placement='bottom'>
+                            <div
+                                style={{ cursor: "pointer", display: "flex", gap: "8px" }}
+                                onClick={handleLanguageToggle}
+                            >
+                                <div>{language}</div>
+                                {isLanguagesOpen ? (
+                                    <CaretUpOutlined
+                                        className={classNames(
+                                            styles.header_icons,
+                                            styles.white,
+                                            styles.small,
+                                        )}
+                                    />
+                                ) : (
+                                    <CaretDownOutlined
+                                        className={classNames(
+                                            styles.header_icons,
+                                            styles.white,
+                                            styles.small,
+                                        )}
+                                    />
                                 )}
-                                onClick={() => {
-                                    setMenuOpen(false);
-                                }}
-                            />
-                        ) : (
-                            <CaretDownOutlined
-                                className={classNames(
-                                    styles.header_icons,
-                                    styles.white,
-                                    styles.small,
-                                )}
-                                onClick={() => {
-                                    setMenuOpen(true);
-                                }}
-                            />
-                        )}
+                            </div>
+                        </Dropdown>
                     </Flex>
                     <Flex gap={"small"}>
                         {/*get current user*/}
@@ -61,6 +94,8 @@ const Header = () => {
                     </Flex>
                 </Flex>
             </AntdHeader>
+
+            <Navigation isDrawerOpen={isDrawerOpen} setDrawerOpen={setDrawerOpen} />
         </>
     );
 };
