@@ -1,7 +1,7 @@
 import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
 import { RelativePaths, RouteParams, routes } from "./constants";
-import { ErrorComponent } from "@/components/error-component";
-import { MainLayout } from "@/components/main-layout";
+import { MainLayout } from "src/components/main-layout";
+import { ErrorComponent } from "src/components/error-component";
 import { AuthLayout } from "@/modules/auth/components/auth-layout/auth-layout";
 import { Login } from "@/pages/login";
 import { SignUp } from "@/pages/sign-up";

@@ -11,9 +11,7 @@ export const MainLayout = () => {
     return (
         <>
             <header>Header</header>
-            <main>
-                <Outlet />
-            </main>
+            <Outlet />
         </>
     );
 };
