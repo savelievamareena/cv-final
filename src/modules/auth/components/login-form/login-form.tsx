@@ -11,13 +11,17 @@ import styles from "./login-form.module.scss";
 export const LoginForm = () => {
     const [login] = useLogin();
 
+    const handleLogin = async (email: string, password: string) => {
+        const { data } = await login({ variables: { authData: { email, password } } });
+
+        if (data) authService.login(data.login.user, data.login.access_token);
+    };
+
     return (
         <Form
             className={styles.form}
-            onSubmit={async ({ email, password }) => {
-                const { data } = await login({ variables: { authData: { email, password } } });
-
-                if (data) authService.login(data.login.user, data.login.access_token);
+            onSubmit={({ email, password }) => {
+                handleLogin(email, password).catch((err) => console.error(err));
             }}
             schema={loginFormSchema}
         >

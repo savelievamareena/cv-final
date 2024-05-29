@@ -8,18 +8,17 @@ import { FormTextField } from "@/components/form-text-field";
 import styles from "./verify-form.module.scss";
 
 export const VerifyMailForm = () => {
-    const [
-        verifyMail,
-        //{loading, error, data}
-    ] = useVerifyMail();
+    const [verifyMail] = useVerifyMail();
 
     return (
         <Form
             className={styles.form}
-            onSubmit={async ({ otp }) => {
-                await verifyMail({ variables: { verifyMailInput: { otp } } });
-
-                authService.verify();
+            onSubmit={({ otp }) => {
+                verifyMail({ variables: { verifyMailInput: { otp } } })
+                    .then(() => {
+                        authService.verify();
+                    })
+                    .catch((err) => console.error(err));
             }}
             schema={verifyMailFormSchema}
         >
