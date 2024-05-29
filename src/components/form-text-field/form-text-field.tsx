@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { useFormContext } from "react-hook-form";
 import { FormInputProps } from "./form-text-field.types";
 import { Input, Form } from "antd";
+import { useEffect } from "react";
 
 const FormTextField = ({
     name,
@@ -12,10 +14,17 @@ const FormTextField = ({
 }: FormInputProps) => {
     const {
         register,
-        formState: { errors },
+        formState: { errors, defaultValues },
+        setValue,
     } = useFormContext();
 
+    useEffect(() => {
+        register(name);
+    }, []);
+
     const errorMessage = errors[name]?.message;
+    const defaultValue = defaultValues?.[name];
+
     const helperText = typeof errorMessage === "string" ? errorMessage : "";
 
     return (
@@ -27,8 +36,9 @@ const FormTextField = ({
             labelCol={labelCol}
             wrapperCol={wrapperCol}
             required={required}
+            initialValue={defaultValue}
         >
-            <Input {...register(name)} {...props} />
+            <Input {...props} onChange={(ev) => setValue(name, ev.target.value)} />
         </Form.Item>
     );
 };

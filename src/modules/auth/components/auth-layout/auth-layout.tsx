@@ -1,4 +1,4 @@
-import { NavLink, Navigate, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Navigate, Outlet } from "react-router-dom";
 
 import styles from "./auth-layout.module.scss";
 import { routes } from "@/router";
@@ -6,19 +6,10 @@ import { authService } from "@/services";
 import { useReactiveVar } from "@apollo/client";
 
 export const AuthLayout = () => {
-    const location = useLocation();
-
     const user = useReactiveVar(authService.user);
 
-    if (user) {
-        const shouldRedirectToVerify =
-            !user.is_verified && location.pathname !== routes.auth.verification;
-
-        return shouldRedirectToVerify ? (
-            <Navigate to={routes.auth.verification} />
-        ) : (
-            <Navigate to={routes.root} />
-        );
+    if (user?.is_verified) {
+        return <Navigate to={routes.root} />;
     }
 
     return (

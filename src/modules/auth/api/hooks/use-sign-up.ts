@@ -3,7 +3,7 @@ import type { AuthInput, AuthResult } from "cv-graphql";
 import { SIGN_UP } from "../queries";
 
 export interface SignUpArgs {
-    auth: AuthInput;
+    authData: AuthInput;
 }
 
 export interface SignUpResult {

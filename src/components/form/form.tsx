@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProps } from "./form.types";
@@ -12,18 +13,12 @@ const Form = <T extends FieldValues>({
 }: FormProps<T>) => {
     const formMethods = useForm({
         resolver: zodResolver(schema),
-        defaultValues: defaultValues,
+        defaultValues,
     });
 
     return (
         <FormProvider {...formMethods}>
-            <AntdForm
-                onFinish={(ev) => {
-                    console.log(ev);
-                    formMethods.handleSubmit(onSubmit);
-                }}
-                {...props}
-            >
+            <AntdForm onFinish={formMethods.handleSubmit(onSubmit)} {...props}>
                 {children}
             </AntdForm>
         </FormProvider>

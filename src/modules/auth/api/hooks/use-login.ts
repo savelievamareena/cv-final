@@ -3,7 +3,7 @@ import type { AuthInput, AuthResult } from "cv-graphql";
 import { LOGIN } from "../queries";
 
 export interface LoginArgs {
-    auth: AuthInput;
+    authData: AuthInput;
 }
 
 export interface LoginResult {
