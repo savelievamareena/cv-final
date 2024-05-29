@@ -18,7 +18,8 @@ const Form = <T extends FieldValues>({
     return (
         <FormProvider {...formMethods}>
             <AntdForm
-                onFinish={() => {
+                onFinish={(ev) => {
+                    console.log(ev);
                     formMethods.handleSubmit(onSubmit);
                 }}
                 {...props}
