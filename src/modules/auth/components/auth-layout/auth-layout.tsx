@@ -1,12 +1,12 @@
 import { NavLink, Navigate, Outlet } from "react-router-dom";
 
-import styles from "./auth-layout.module.scss";
 import { routes } from "@/router";
-import { authService } from "@/services";
-import { useReactiveVar } from "@apollo/client";
+import { useAuthUser } from "@/services/auth-service";
+
+import styles from "./auth-layout.module.scss";
 
 export const AuthLayout = () => {
-    const user = useReactiveVar(authService.user);
+    const user = useAuthUser();
 
     if (user?.is_verified) {
         return <Navigate to={routes.root} />;

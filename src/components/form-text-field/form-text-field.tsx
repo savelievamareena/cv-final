@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { useFormContext } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import { FormInputProps } from "./form-text-field.types";
 import { Input, Form } from "antd";
-import { useEffect } from "react";
 
 const FormTextField = ({
     name,
@@ -13,14 +12,9 @@ const FormTextField = ({
     ...props
 }: FormInputProps) => {
     const {
-        register,
+        control,
         formState: { errors, defaultValues },
-        setValue,
     } = useFormContext();
-
-    useEffect(() => {
-        register(name);
-    }, []);
 
     const errorMessage = errors[name]?.message;
     const defaultValue = defaultValues?.[name];
@@ -28,18 +22,27 @@ const FormTextField = ({
     const helperText = typeof errorMessage === "string" ? errorMessage : "";
 
     return (
-        <Form.Item
-            validateStatus={helperText ? "error" : ""}
-            help={helperText}
+        <Controller
+            control={control}
+            defaultValue={defaultValue}
             name={name}
-            label={label}
-            labelCol={labelCol}
-            wrapperCol={wrapperCol}
-            required={required}
-            initialValue={defaultValue}
-        >
-            <Input {...props} onChange={(ev) => setValue(name, ev.target.value)} />
-        </Form.Item>
+            render={({ field: { value, onChange } }) => {
+                return (
+                    <Form.Item
+                        validateStatus={helperText ? "error" : ""}
+                        help={helperText}
+                        name={name}
+                        label={label}
+                        labelCol={labelCol}
+                        wrapperCol={wrapperCol}
+                        required={required}
+                        initialValue={defaultValue}
+                    >
+                        <Input {...props} value={value} onChange={onChange} />
+                    </Form.Item>
+                );
+            }}
+        />
     );
 };
 

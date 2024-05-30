@@ -1,10 +1,10 @@
-import { routes } from "@/router";
-import { authService } from "@/services";
-import { useReactiveVar } from "@apollo/client";
 import { Navigate, Outlet } from "react-router-dom";
 
+import { routes } from "@/router";
+import { useAuthUser } from "@/services/auth-service";
+
 export const MainLayout = () => {
-    const user = useReactiveVar(authService.user);
+    const user = useAuthUser();
 
     if (!user?.is_verified) return <Navigate to={routes.auth.root} />;
 
