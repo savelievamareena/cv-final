@@ -1,12 +1,12 @@
+import i18n from "@/i18n";
 import { z } from "zod";
 
-export const getLoginFormSchema = (t: (arg: string) => string) =>
-    z.object({
-        email: z
-            .string()
-            .min(1, { message: t("auth.fieldErrors.emailRequired") })
-            .email(t("auth.fieldErrors.emailGeneric")),
-        password: z.string().min(6, { message: t("auth.fieldErrors.passwordMinLength") }),
-    });
+export const loginFormSchema = z.object({
+    email: z
+        .string()
+        .min(1, { message: i18n.t("auth.fieldErrors.emailRequired") })
+        .email(i18n.t("auth.fieldErrors.emailGeneric")),
+    password: z.string().min(6, { message: i18n.t("auth.fieldErrors.passwordMinLength") }),
+});
 
-export type LoginFormSchemaType = z.infer<ReturnType<typeof getLoginFormSchema>>;
+export type LoginFormSchemaType = z.infer<typeof loginFormSchema>;

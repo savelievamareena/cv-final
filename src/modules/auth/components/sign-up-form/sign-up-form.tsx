@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { useSignUp } from "../../api";
-import { getSignUpFormSchema } from "../../schemas";
+import { signUpFormSchema } from "../../schemas";
 import { FormTextField } from "@/components/form-text-field";
 import { Form } from "@/components/form";
 import { PasswordInput } from "../password-input";
@@ -34,7 +34,7 @@ export const SignUpForm = () => {
                     navigate(routes.auth.verification);
                 });
             }}
-            schema={getSignUpFormSchema(t)}
+            schema={signUpFormSchema}
         >
             <h2>{t("auth.signup")}</h2>
             <FormTextField type='text' label={t("auth.fieldLabels.email")} name='email' />

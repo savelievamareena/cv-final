@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import { useTranslation } from "react-i18next";
 
-import { getLoginFormSchema } from "../../schemas";
+import { loginFormSchema } from "../../schemas";
 import { useLogin } from "../../api";
 import { FormTextField } from "@/components/form-text-field";
 import { Form } from "@/components/form";
@@ -21,7 +21,7 @@ export const LoginForm = () => {
             onSubmit={({ email, password }) => {
                 void login({ variables: { authData: { email, password } } });
             }}
-            schema={getLoginFormSchema(t)}
+            schema={loginFormSchema}
         >
             <h2>{t("auth.login")}</h2>
             <FormTextField type='text' label={t("auth.fieldLabels.email")} name='email' />

@@ -26,7 +26,7 @@ const FormTextField = ({
             control={control}
             defaultValue={defaultValue}
             name={name}
-            render={({ field: { value, onChange } }) => {
+            render={({ field }) => {
                 return (
                     <Form.Item
                         validateStatus={helperText ? "error" : ""}
@@ -38,7 +38,7 @@ const FormTextField = ({
                         required={required}
                         initialValue={defaultValue}
                     >
-                        <Input {...props} value={value} onChange={onChange} />
+                        <Input {...props} {...field} />
                     </Form.Item>
                 );
             }}
