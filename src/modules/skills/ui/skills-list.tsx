@@ -6,7 +6,7 @@ import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useSkills } from "@/modules/skills/mutation/skills";
 
-const SkillsPage = () => {
+const SkillsList = () => {
     const { skills, loading } = useSkills();
     const [searchQuery, setSearchQuery] = useState("");
 
@@ -32,4 +32,4 @@ const SkillsPage = () => {
     );
 };
 
-export default SkillsPage;
+export default SkillsList;

@@ -6,7 +6,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import TableTemplate, { ColumnConfig } from "./table-template";
 import { Action } from "./actions-menu";
 
-interface PageTemplateProps<T> {
+interface ListTemplateProps<T> {
     pageName: string;
     onButtonClick: () => void;
     menuProps: Action;
@@ -17,7 +17,7 @@ interface PageTemplateProps<T> {
     setSearchQuery: Dispatch<SetStateAction<string>>;
 }
 
-const PageTemplate = ({
+const ListTemplate = ({
     pageName,
     onButtonClick,
     menuProps,
@@ -26,7 +26,7 @@ const PageTemplate = ({
     displayData,
     loading,
     setSearchQuery,
-}: PageTemplateProps<Skill | Department>) => {
+}: ListTemplateProps<Skill | Department>) => {
     return (
         <div style={{ width: "100vw" }}>
             <Input
@@ -49,4 +49,4 @@ const PageTemplate = ({
     );
 };
 
-export default PageTemplate;
+export default ListTemplate;
