@@ -4,24 +4,27 @@ import { useTranslation } from "react-i18next";
 
 interface ConfirmDialogProps {
     title: string;
-    isOpen: boolean;
-    onCancel: () => void;
     onConfirm: () => void;
+    onClose: () => void;
 }
 
-const ConfirmDialog = ({ title, isOpen, onConfirm, onCancel }: ConfirmDialogProps) => {
+const ConfirmDialog = ({ title, onConfirm, onClose }: ConfirmDialogProps) => {
     const { t } = useTranslation("dialog");
+    const handleConfirm = () => {
+        onConfirm();
+        onClose();
+    };
 
     return (
         <Modal
-            open={isOpen}
+            open={true}
             title={title}
-            onCancel={onCancel}
+            onCancel={onClose}
             footer={[
-                <Button key='cancel' onClick={onCancel}>
+                <Button key='cancel' onClick={onClose}>
                     {t("cancel")}
                 </Button>,
-                <Button key='confirm' type='primary' onClick={onConfirm}>
+                <Button key='confirm' type='primary' onClick={handleConfirm}>
                     {t("confirm")}
                 </Button>,
             ]}

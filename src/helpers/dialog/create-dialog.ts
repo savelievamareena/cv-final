@@ -6,8 +6,8 @@ export const createDialogHook =
     <T>(Component: FC<T>) =>
     () => {
         const idRef = useRef<string>();
-
         const closeDialog = useCallback(() => {
+            console.log(dialogsService.dialogs());
             if (!idRef.current) return;
 
             dialogsService.closeDialog(idRef.current);

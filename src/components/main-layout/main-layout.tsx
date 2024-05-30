@@ -1,3 +1,4 @@
+import { DialogsContainer } from "@/helpers/dialog/dialog-container";
 import { Outlet } from "react-router-dom";
 
 export const MainLayout = () => {
@@ -7,6 +8,8 @@ export const MainLayout = () => {
         <>
             <header>Header</header>
             <Outlet />
+
+            <DialogsContainer />
         </>
     );
 };

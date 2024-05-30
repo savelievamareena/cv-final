@@ -14,7 +14,12 @@ const DepartmentsList = () => {
     const [openConfirm] = useConfirm();
 
     const menuProps: Action = {
-        onDelete: openConfirm,
+        onDelete: () =>
+            openConfirm({
+                title: t("delete confirmation"),
+                onConfirm: () => console.log("delete confirm"),
+            }),
+
         onUpdate: () => console.log("update"),
     };
 

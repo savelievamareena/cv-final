@@ -2,6 +2,7 @@ import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
 import { RelativePaths, RouteParams, routes } from "./constants";
 import { MainLayout } from "src/components/main-layout";
 import { ErrorComponent } from "src/components/error-component";
+import { DepartmentsPage } from "@/pages/Departments";
 
 export const router = createBrowserRouter([
     {
@@ -165,7 +166,7 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 path: routes.departments,
-                element: <div>Departments page content (table)</div>,
+                element: <DepartmentsPage />,
             },
             {
                 errorElement: <ErrorComponent />,
