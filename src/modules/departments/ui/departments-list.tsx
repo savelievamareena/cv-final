@@ -5,23 +5,16 @@ import ListTemplate from "@/components/list-lemplate/list-template";
 import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useDepartments } from "@/modules/departments/mutation/departments";
-import ConfirmDialog from "@/components/confirg-dialog/confirm-dialog";
-import useDialog from "@/helpers/create-dialog";
+import { useConfirm } from "@/components/confirg-dialog/confirm-dialog";
 
 const DepartmentsList = () => {
     const { departments, loading } = useDepartments();
     const [searchQuery, setSearchQuery] = useState("");
 
-    const { openDialog, DialogComponent } = useDialog({
-        dialog: ConfirmDialog,
-        dialogProps: {
-            title: t("Delete department?"),
-            onConfirm: () => console.log("delete"),
-        },
-    });
+    const [openConfirm] = useConfirm();
 
     const menuProps: Action = {
-        onDelete: openDialog,
+        onDelete: openConfirm,
         onUpdate: () => console.log("update"),
     };
 
@@ -39,7 +32,6 @@ const DepartmentsList = () => {
                 loading={loading}
                 setSearchQuery={setSearchQuery}
             />
-            {DialogComponent}
         </>
     );
 };

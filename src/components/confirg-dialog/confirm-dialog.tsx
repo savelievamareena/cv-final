@@ -1,10 +1,12 @@
-import { DialogProps } from "@/helpers/create-dialog";
+import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { Button, Modal } from "antd";
 import { useTranslation } from "react-i18next";
 
-interface ConfirmDialogProps extends DialogProps {
+interface ConfirmDialogProps {
     title: string;
     isOpen: boolean;
+    onCancel: () => void;
+    onConfirm: () => void;
 }
 
 const ConfirmDialog = ({ title, isOpen, onConfirm, onCancel }: ConfirmDialogProps) => {
@@ -27,4 +29,6 @@ const ConfirmDialog = ({ title, isOpen, onConfirm, onCancel }: ConfirmDialogProp
     );
 };
 
-export default ConfirmDialog;
+export const useConfirm = createDialogHook<ConfirmDialogProps>((props) => (
+    <ConfirmDialog {...props} />
+));
