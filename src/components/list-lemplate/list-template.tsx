@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { Department, Skill } from "cv-graphql";
 import { Button, Input } from "antd";
 import { t } from "i18next";
@@ -17,7 +17,7 @@ interface PageTemplateProps<T> {
     setSearchQuery: Dispatch<SetStateAction<string>>;
 }
 
-const PageTemplate: FC<PageTemplateProps<Skill | Department>> = ({
+const PageTemplate = ({
     pageName,
     onButtonClick,
     menuProps,
@@ -26,7 +26,7 @@ const PageTemplate: FC<PageTemplateProps<Skill | Department>> = ({
     displayData,
     loading,
     setSearchQuery,
-}) => {
+}: PageTemplateProps<Skill | Department>) => {
     return (
         <div style={{ width: "100vw" }}>
             <Input
