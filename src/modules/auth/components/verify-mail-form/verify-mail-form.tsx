@@ -1,7 +1,8 @@
 import { Button } from "antd";
+import { useTranslation } from "react-i18next";
 
 import { useVerifyMail } from "../../api";
-import { verifyMailFormSchema } from "../../schemas";
+import { getVerifyMailFormSchema } from "../../schemas";
 import { Form } from "@/components/form";
 import { FormTextField } from "@/components/form-text-field";
 
@@ -10,6 +11,8 @@ import styles from "./verify-form.module.scss";
 export const VerifyMailForm = () => {
     const [verifyMail, { loading }] = useVerifyMail();
 
+    const { t } = useTranslation();
+
     return (
         <Form
             disabled={loading}
@@ -17,12 +20,12 @@ export const VerifyMailForm = () => {
             onSubmit={({ otp }) => {
                 void verifyMail({ variables: { verifyMailInput: { otp } } });
             }}
-            schema={verifyMailFormSchema}
+            schema={getVerifyMailFormSchema(t)}
         >
-            <h2>Verify Mail</h2>
-            <FormTextField type='text' name='otp' label='OTP' maxLength={6} />
+            <h2>{t("auth.verifyMail")}</h2>
+            <FormTextField type='text' name='otp' label={t("auth.fieldLabels.otp")} maxLength={6} />
             <Button disabled={loading} htmlType='submit'>
-                Submit
+                {t("submit")}
             </Button>
         </Form>
     );

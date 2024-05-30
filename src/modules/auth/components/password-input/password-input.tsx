@@ -24,8 +24,6 @@ export const PasswordInput = ({
         <FormTextField
             {...props}
             type={visible ? "text" : "password"}
-            label='Password'
-            name='password'
             prefix={
                 <Button
                     htmlType='button'

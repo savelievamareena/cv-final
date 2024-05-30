@@ -7,3 +7,14 @@
     align-items: center;
     justify-content: center;
 }
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    gap: 1rem;
+}

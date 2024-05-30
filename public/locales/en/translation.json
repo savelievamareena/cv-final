@@ -1,0 +1,22 @@
+{
+  "auth": {
+    "fieldLabels": {
+      "password":"Password",
+      "email":"Email",
+      "otp":"OTP"
+    },
+    "fieldErrors": {
+      "emailRequired":"Email is required",
+      "emailGeneric":"Invalid email address",
+      "passwordMinLength":"Password must be at least 6 characters long",
+      "otpLength":"OTP must be 6 characters long"
+    },
+    "login": "Login",
+    "signup": "Sign Up",
+    "verifyMail": "Verify Mail"
+  },
+
+  "submit":"Submit",
+  
+  "Welcome Back": "Welcome Back"
+}

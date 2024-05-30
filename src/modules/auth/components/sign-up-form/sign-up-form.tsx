@@ -1,8 +1,9 @@
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { useSignUp } from "../../api";
-import { signUpFormSchema } from "../../schemas";
+import { getSignUpFormSchema } from "../../schemas";
 import { FormTextField } from "@/components/form-text-field";
 import { Form } from "@/components/form";
 import { PasswordInput } from "../password-input";
@@ -14,6 +15,8 @@ export const SignUpForm = () => {
     const [signUp, { loading }] = useSignUp();
 
     const navigate = useNavigate();
+
+    const { t } = useTranslation();
 
     return (
         <Form
@@ -31,13 +34,13 @@ export const SignUpForm = () => {
                     navigate(routes.auth.verification);
                 });
             }}
-            schema={signUpFormSchema}
+            schema={getSignUpFormSchema(t)}
         >
-            <h2>Sign Up</h2>
-            <FormTextField type='text' label='Email' name='email' />
-            <PasswordInput label='Password' name='password' />
+            <h2>{t("auth.signup")}</h2>
+            <FormTextField type='text' label={t("auth.fieldLabels.email")} name='email' />
+            <PasswordInput label={t("auth.fieldLabels.password")} name='password' />
             <Button disabled={loading} htmlType='submit'>
-                Submit
+                {t("submit")}
             </Button>
         </Form>
     );
