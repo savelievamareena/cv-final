@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Department } from "cv-graphql";
 import { t } from "i18next";
-import PageTemplate from "@/components/pageTemplate/page-template";
-import { Action } from "@/components/pageTemplate/actions-menu";
-import { ColumnConfig } from "@/components/pageTemplate/table-template";
+import ListTemplate from "@/components/list-lemplate/list-template";
+import { Action } from "@/components/list-lemplate/actions-menu";
+import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useDepartments } from "@/modules/departments/mutation/departments";
 import useDialog from "@/helpers/create-dialog";
 import ConfirmDialog from "@/components/confirg-dialog/confirm-dialog";
@@ -29,7 +29,7 @@ const DepartmentsPage = () => {
 
     return (
         <>
-            <PageTemplate
+            <ListTemplate
                 pageName={t("departent")}
                 onButtonClick={() => console.log(12)}
                 menuProps={menuProps}

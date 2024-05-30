@@ -1,5 +1,5 @@
 import { memo, ReactNode } from "react";
-import { Space, Dropdown } from "antd";
+import { Space, Dropdown, Menu } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
 import { t } from "i18next";
 
@@ -13,19 +13,19 @@ type ActionProps = Action & { pageName: string };
 const ActionsMenu = ({ onUpdate, onDelete, pageName }: ActionProps) => {
     const items = [
         {
-            key: 0,
+            key: "0",
             label: (
-                <div onClick={onUpdate}>
+                <Menu.Item key='update' onClick={onUpdate}>
                     {t("update")} {pageName}
-                </div>
+                </Menu.Item>
             ) as ReactNode,
         },
         {
-            key: 1,
+            key: "1",
             label: (
-                <div onClick={onDelete}>
+                <Menu.Item key='delete' onClick={onDelete}>
                     {t("delete")} {pageName}
-                </div>
+                </Menu.Item>
             ) as ReactNode,
         },
     ];
