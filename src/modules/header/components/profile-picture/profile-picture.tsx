@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Image } from "antd";
-import styles from "./profile-picture.module.css";
+import { Avatar } from "antd";
 
 const ProfilePicture = () => {
     const [avatarLink, setAvatarLink] = useState("");
@@ -8,12 +7,12 @@ const ProfilePicture = () => {
     useEffect(() => {
         // get and setAvatarLink avatar link for the current user
         setAvatarLink("");
-    });
+    }, []);
 
-    return avatarLink !== "" ? (
-        <Image width={40} src={avatarLink} />
-    ) : (
-        <div className={styles.profile_picture_filler}></div>
+    return (
+        <Avatar src={avatarLink} size='large'>
+            U
+        </Avatar>
     );
 };
 

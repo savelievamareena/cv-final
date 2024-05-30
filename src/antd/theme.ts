@@ -2,6 +2,7 @@ const antdTheme = {
     token: {
         colorPrimary: "#C63031",
         colorBgContainer: "#f6ffed",
+        colorTextPlaceholder: "#C63031",
     },
     components: {
         Layout: {
@@ -10,6 +11,7 @@ const antdTheme = {
             headerColor: "#F5F5F7",
             headerPadding: "0 10%",
         },
+        Avatar: { containerSizeLG: 44 },
     },
 };
 

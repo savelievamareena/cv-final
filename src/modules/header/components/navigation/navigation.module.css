@@ -3,7 +3,6 @@
 }
 
 .menu_item {
-    display: flex;
     justify-content: flex-start;
     gap: 26px;
     align-items: center;
@@ -26,9 +25,6 @@
 }
 
 .nav_header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
     background-color: #2e2e2e;
     height: 64px;
 }
@@ -39,4 +35,8 @@
     color: #c63031;
     margin-right: 44px;
     font-weight: bold;
+}
+
+.nav_icon {
+    font-size: 20px;
 }

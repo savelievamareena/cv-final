@@ -1,41 +1,41 @@
-import { useState } from "react";
-import classNames from "classnames";
+import { useEffect, useState } from "react";
+import classNames from "classnames/bind";
 import { Flex, Layout } from "antd";
 import { Navigation } from "@/modules/header/components/navigation";
+import { LanguagesSelect } from "./languages-select";
+import { UserDropdownMenu } from "./user-dropdown-menu";
 import { GlobalOutlined, MenuOutlined } from "@ant-design/icons";
-import { DropdownLanguages } from "./dropdown-languages";
-import { DropdownUser } from "./dropdown-user";
 import styles from "./header.module.css";
 
 const Header = () => {
-    const { Header: AntdHeader } = Layout;
+    const cx = classNames.bind(styles);
     const [isDrawerOpen, setDrawerOpen] = useState(false);
+    const [currentUser, setCurrentUser] = useState("");
+
+    useEffect(() => {
+        //get logged in user email and profile pic
+        setCurrentUser("user.email@gmail.com");
+    }, []);
 
     return (
-        <>
-            <AntdHeader className={styles.header_wrapper}>
-                <MenuOutlined
-                    className={classNames(styles.header_icons, styles.red, styles.big)}
-                    onClick={() => setDrawerOpen(true)}
-                />
-                <Flex gap={"large"} justify={"space-between"} style={{ width: "25%" }}>
-                    <Flex gap={"small"}>
-                        <GlobalOutlined
-                            className={classNames(styles.header_icons, styles.grey, styles.big)}
-                        />
+        <Layout.Header className={cx("header_wrapper")}>
+            <MenuOutlined
+                className={cx("header_icons", "red", "big")}
+                onClick={() => setDrawerOpen(true)}
+            />
+            <Flex gap={80}>
+                <Flex gap={"small"}>
+                    <GlobalOutlined className={cx("header_icons", "grey", "big")} />
 
-                        <DropdownLanguages />
-                    </Flex>
-                    <Flex gap={"small"}>
-                        {/*get current user*/}
-                        <div>user.email@gmail.com</div>
-                        <DropdownUser />
-                    </Flex>
+                    <LanguagesSelect />
                 </Flex>
-            </AntdHeader>
-
+                <Flex gap={"middle"}>
+                    <div>{currentUser}</div>
+                    <UserDropdownMenu />
+                </Flex>
+            </Flex>
             <Navigation isDrawerOpen={isDrawerOpen} setDrawerOpen={setDrawerOpen} />
-        </>
+        </Layout.Header>
     );
 };
 

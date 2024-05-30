@@ -1,5 +1,5 @@
-import classNames from "classnames";
-import { Drawer } from "antd";
+import classNames from "classnames/bind";
+import { Drawer, Flex } from "antd";
 import {
     ApartmentOutlined,
     AuditOutlined,
@@ -12,13 +12,15 @@ import {
     UserOutlined,
 } from "@ant-design/icons";
 import styles from "./navigation.module.css";
+import { Link } from "react-router-dom";
 
-interface NavigationTypes {
+interface NavigationProps {
     isDrawerOpen: boolean;
     setDrawerOpen: (arg1: boolean) => void;
 }
 
-const Navigation = ({ isDrawerOpen, setDrawerOpen }: NavigationTypes) => {
+const Navigation = ({ isDrawerOpen, setDrawerOpen }: NavigationProps) => {
+    const cx = classNames.bind(styles);
     const onClose = () => {
         setDrawerOpen(false);
     };
@@ -27,6 +29,7 @@ const Navigation = ({ isDrawerOpen, setDrawerOpen }: NavigationTypes) => {
         <Drawer
             placement='left'
             closable={false}
+            onClose={onClose}
             open={isDrawerOpen}
             width={250}
             styles={{
@@ -34,35 +37,51 @@ const Navigation = ({ isDrawerOpen, setDrawerOpen }: NavigationTypes) => {
                 body: { padding: 0 },
             }}
         >
-            <div className={styles.nav_header}>
-                <CloseOutlined onClick={onClose} className={styles.close_icon} />
-            </div>
-            <div className={styles.drawerContent}>
-                <div className={classNames(styles.menu_item, styles.border_bottom, styles.active)}>
-                    <HomeFilled style={{ fontSize: "20px" }} /> Home
-                </div>
-                <div className={styles.menu_item}>
-                    <UserOutlined style={{ fontSize: "20px" }} /> Employees
-                </div>
-                <div className={styles.menu_item}>
-                    <FolderOutlined style={{ fontSize: "20px" }} /> Projects
-                </div>
-                <div className={classNames(styles.menu_item, styles.border_bottom)}>
-                    <AuditOutlined style={{ fontSize: "20px" }} /> CVs
-                </div>
-                <div className={styles.menu_item}>
-                    <ApartmentOutlined style={{ fontSize: "20px" }} /> Departments
-                </div>
-                <div className={styles.menu_item}>
-                    <ContactsOutlined style={{ fontSize: "20px" }} /> Positions
-                </div>
-                <div className={styles.menu_item}>
-                    <RiseOutlined style={{ fontSize: "20px" }} /> Skills
-                </div>
-                <div className={styles.menu_item}>
-                    <GlobalOutlined style={{ fontSize: "20px" }} /> Languages
-                </div>
-            </div>
+            <Flex justify={"flex-end"} align={"center"} className={cx("nav_header")}>
+                <CloseOutlined onClick={onClose} className={cx("close_icon")} />
+            </Flex>
+            <Flex vertical>
+                <Link to='/'>
+                    <Flex className={cx("menu_item", "border_bottom")}>
+                        <HomeFilled className={cx("nav_icon")} /> Home
+                    </Flex>
+                </Link>
+                <Link to='/'>
+                    <Flex className={cx("menu_item", "active")}>
+                        <UserOutlined className={cx("nav_icon")} /> Employees
+                    </Flex>
+                </Link>
+                <Link to='/'>
+                    <Flex className={cx("menu_item")}>
+                        <FolderOutlined className={cx("nav_icon")} /> Projects
+                    </Flex>
+                </Link>
+                <Link to='/'>
+                    <Flex className={cx("menu_item", "border_bottom")}>
+                        <AuditOutlined className={cx("nav_icon")} /> CVs
+                    </Flex>
+                </Link>
+                <Link to='/'>
+                    <Flex className={cx("menu_item")}>
+                        <ApartmentOutlined className={cx("nav_icon")} /> Departments
+                    </Flex>
+                </Link>
+                <Link to='/'>
+                    <Flex className={cx("menu_item")}>
+                        <ContactsOutlined className={cx("nav_icon")} /> Positions
+                    </Flex>
+                </Link>
+                <Link to='/'>
+                    <Flex className={cx("menu_item")}>
+                        <RiseOutlined className={cx("nav_icon")} /> Skills
+                    </Flex>
+                </Link>
+                <Link to='/'>
+                    <Flex className={cx("menu_item")}>
+                        <GlobalOutlined className={cx("nav_icon")} /> Languages
+                    </Flex>
+                </Link>
+            </Flex>
         </Drawer>
     );
 };

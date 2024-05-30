@@ -6,16 +6,8 @@
     color: #767676;
 }
 
-.white {
-    color: white;
-}
-
 .big {
     font-size: 1.2em;
-}
-
-.small {
-    font-size: 1em;
 }
 
 .header_wrapper {
@@ -23,4 +15,22 @@
     display: flex;
     justify-content: space-between;
     z-index: 999;
+}
+
+.dropdown_menu {
+    padding: 4px 12px;
+    font-size: 18px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.user_pic {
+    cursor: pointer;
+    margin: auto 0;
+}
+
+.user_pic span {
+    font-size: 24px;
 }
