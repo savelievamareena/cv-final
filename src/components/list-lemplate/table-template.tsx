@@ -1,6 +1,7 @@
 import { Key } from "react";
 import ActionsMenu, { Action } from "./actions-menu";
 import { Table, TableColumnsType } from "antd";
+// import { gql, useLazyQuery } from "@apollo/client";
 
 export interface ColumnConfig<T> {
     name: keyof T;
@@ -70,10 +71,42 @@ const TableTemplate = <T extends { id: Key }>({
         return { columns, data: filteredData };
     };
 
+    // const LOGIN = gql`
+    //     query Login($auth: AuthInput!) {
+    //         login(auth: $auth) {
+    //             user {
+    //                 id
+    //                 email
+    //             }
+    //             access_token
+    //         }
+    //     }
+    // `;
+
+    // const [getUser] = useLazyQuery(LOGIN, {
+    //     variables: {
+    //         auth: {
+    //             email: "aaklimkov@gmail.com",
+    //             password: "qweasd",
+    //         },
+    //     },
+    // });
+
     const { columns, data: filteredData } = createColumnsAndData(columnConfigs, data);
 
     return (
         <>
+            {/* <button
+                onClick={() => {
+                    getUser({
+                        onCompleted: (data) => {
+                            localStorage.setItem("auth-token", data.login.access_token);
+                        },
+                    });
+                }}
+            >
+                Click me!
+            </button> */}
             <div style={{ width: "80vw", margin: "0 auto" }}>
                 <Table
                     columns={columns}

@@ -1,7 +1,7 @@
 import SkillsList from "@/modules/skills/ui/skills-list";
 
-const DepartmentsPage = () => {
+const SkillsPage = () => {
     return <SkillsList />;
 };
 
-export default DepartmentsPage;
+export default SkillsPage;
