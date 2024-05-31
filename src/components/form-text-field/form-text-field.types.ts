@@ -1,4 +1,6 @@
-import { InputProps } from "antd";
+import { Input } from "antd";
+
+import { ComponentProps } from "react";
 
 interface ColSpanType {
     span?: number;
@@ -16,7 +18,7 @@ interface ResponsiveColType {
 
 type WrapperType = ColSpanType | ResponsiveColType;
 
-export interface FormInputProps extends InputProps {
+export interface FormInputProps extends ComponentProps<typeof Input> {
     name: string;
     label?: string;
     required?: boolean;

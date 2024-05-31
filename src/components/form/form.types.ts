@@ -7,5 +7,5 @@ export interface FormProps<T extends FieldValues> extends AntdFormProps {
     schema: ZodSchema<T>;
     onSubmit: SubmitHandler<T>;
     children: ReactNode;
-    defaultValues: DefaultValues<T>;
+    defaultValues?: DefaultValues<T>;
 }

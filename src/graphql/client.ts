@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
+import { authService } from "@/services/auth-service";
 import { ApolloClient, InMemoryCache, HttpLink, from } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { onError } from "@apollo/client/link/error";
-import { AUTH_TOKEN } from "src/constants";
 
 const httpLink = new HttpLink({
     uri: import.meta.env.VITE_GRAPHQL_URL as string,
 });
 
 const authLink = setContext((_, { headers }) => {
-    const authToken = localStorage.getItem(AUTH_TOKEN);
+    const authToken = authService.accessToken();
 
     return {
         headers: {
@@ -28,7 +29,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
                 // some toast or message
             } else if (message === "Unauthorized") {
                 // some toast or message
-                // TODO: Add proper logging out functionality
+                authService.logout();
             } else {
                 // some toast or message
             }

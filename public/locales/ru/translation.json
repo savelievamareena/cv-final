@@ -1,6 +1,23 @@
 {
-  "Login": "Войти",
-  "Signup": "Создать",
+  "auth": {
+    "fieldLabels": {
+      "password":"Пароль",
+      "email":"Email",
+      "otp":"OTP"
+    },
+    "fieldErrors": {
+      "emailRequired":"Email обязателен",
+      "emailGeneric":"Некорректный Email",
+      "passwordMinLength":"Пароль должен содержать минимум 6 символов",
+      "otpLength":"OTP должен состоять из 6 символов"
+    },
+    "login": "Вход",
+    "signup": "Регистрация",
+    "verifyMail": "Подверждение Email"
+  },
+
+  "submit":"Подтвердить",
+  
   "Welcome Back": "С Возвращением",
 
   "add": "Добавить",
@@ -10,7 +27,7 @@
   "cancel":"Отмена",
   "confirm":"Подтвердить",
 
-  "departent": "отдел",
+  "department": "отдел",
 
   "skill": "навык"
 }

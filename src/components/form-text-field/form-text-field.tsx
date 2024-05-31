@@ -1,4 +1,4 @@
-import { useFormContext } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import { FormInputProps } from "./form-text-field.types";
 import { Input, Form } from "antd";
 
@@ -11,25 +11,37 @@ const FormTextField = ({
     ...props
 }: FormInputProps) => {
     const {
-        register,
-        formState: { errors },
+        control,
+        formState: { errors, defaultValues },
     } = useFormContext();
 
     const errorMessage = errors[name]?.message;
+    const defaultValue = defaultValues?.[name] as string;
+
     const helperText = typeof errorMessage === "string" ? errorMessage : "";
 
     return (
-        <Form.Item
-            validateStatus={helperText ? "error" : ""}
-            help={helperText}
+        <Controller
+            control={control}
+            defaultValue={defaultValue}
             name={name}
-            label={label}
-            labelCol={labelCol}
-            wrapperCol={wrapperCol}
-            required={required}
-        >
-            <Input {...register(name)} {...props} />
-        </Form.Item>
+            render={({ field }) => {
+                return (
+                    <Form.Item
+                        validateStatus={helperText ? "error" : ""}
+                        help={helperText}
+                        name={name}
+                        label={label}
+                        labelCol={labelCol}
+                        wrapperCol={wrapperCol}
+                        required={required}
+                        initialValue={defaultValue}
+                    >
+                        <Input {...props} {...field} />
+                    </Form.Item>
+                );
+            }}
+        />
     );
 };
 

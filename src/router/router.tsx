@@ -1,34 +1,34 @@
 import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
+
 import { RelativePaths, RouteParams, routes } from "./constants";
 import { MainLayout } from "src/components/main-layout";
 import { ErrorComponent } from "src/components/error-component";
+import { AuthLayout } from "@/modules/auth/components/auth-layout";
+import { Login } from "@/pages/login";
+import { SignUp } from "@/pages/sign-up";
+import { VerifyMail } from "@/pages/verify-mail";
 import { DepartmentsPage } from "@/pages/Departments";
 
 export const router = createBrowserRouter([
     {
         path: routes.auth.root,
-        element: (
-            <div>
-                Auth layout (has Outlet and a redirect for already authorised users)
-                <Outlet />
-            </div>
-        ),
+        element: <AuthLayout />,
         errorElement: <ErrorComponent />,
         children: [
             {
                 errorElement: <ErrorComponent />,
                 path: routes.auth.login,
-                element: <div>Logging In stuff</div>,
+                element: <Login />,
             },
             {
                 errorElement: <ErrorComponent />,
                 path: routes.auth.signUp,
-                element: <div>Signing Up stuff</div>,
+                element: <SignUp />,
             },
             {
                 errorElement: <ErrorComponent />,
                 path: routes.auth.verification,
-                element: <div>Verification stuff</div>,
+                element: <VerifyMail />,
             },
             {
                 index: true,

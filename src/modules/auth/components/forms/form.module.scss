@@ -1,0 +1,22 @@
+@use "../../../../scss" as *;
+
+.form {
+    display: flex;
+
+    flex-direction: column;
+
+    label[for] {
+        color: currentColor;
+    }
+
+    gap: 0.5rem;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+}
+
+.button {
+    width: 100%;
+}
