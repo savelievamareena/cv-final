@@ -73,17 +73,15 @@ const TableTemplate = <T extends { id: Key }>({
     const { columns, data: filteredData } = createColumnsAndData(columnConfigs, data);
 
     return (
-        <>
-            <div style={{ width: "80vw", margin: "0 auto" }}>
-                <Table
-                    columns={columns}
-                    dataSource={filteredData}
-                    pagination={{ hideOnSinglePage: true }}
-                    loading={loading}
-                    rowKey='key'
-                />
-            </div>
-        </>
+        <div style={{ width: "80vw", margin: "0 auto" }}>
+            <Table
+                columns={columns}
+                dataSource={filteredData}
+                pagination={{ hideOnSinglePage: true }}
+                loading={loading}
+                rowKey='key'
+            />
+        </div>
     );
 };
 
