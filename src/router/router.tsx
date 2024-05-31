@@ -43,6 +43,7 @@ export const router = createBrowserRouter([
         errorElement: <ErrorComponent />,
         children: [
             {
+                errorElement: <ErrorComponent />,
                 index: true,
                 element: <div>Users page content (table)</div>,
             },
