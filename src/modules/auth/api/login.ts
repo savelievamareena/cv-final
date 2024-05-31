@@ -25,10 +25,10 @@ interface LoginResult {
 
 export const useLogin = () => {
     return useLazyQuery<LoginResult, LoginArgs>(LOGIN, {
-        onError(error) {
+        onError: (error) => {
             console.error(error.message);
         },
-        onCompleted(data) {
+        onCompleted: (data) => {
             authService.login(data.login.user, data.login.access_token);
         },
     });

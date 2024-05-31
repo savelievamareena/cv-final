@@ -14,10 +14,10 @@ interface VerifyMailArgs {
 
 export const useVerifyMail = () => {
     return useMutation<void, VerifyMailArgs>(VERIFY_MAIL, {
-        onError(error) {
+        onError: (error) => {
             console.error(error.message);
         },
-        onCompleted() {
+        onCompleted: () => {
             authService.verify();
         },
     });

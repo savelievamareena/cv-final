@@ -8,16 +8,16 @@ import styles from "../header.module.css";
 const LanguagesSelect = () => {
     const cx = classNames.bind(styles);
     const [isLanguagesOpen, setLanguagesOpen] = useState(false);
-    const [language, setLanguage] = useState<Languages>(Languages.En);
+    const [language, setLanguage] = useState(Languages.En.toUpperCase());
 
     const languages: MenuProps["items"] = [
         {
             label: <span className={cx("dropdown_menu")}>English</span>,
-            key: Languages.En,
+            key: Languages.En.toUpperCase(),
         },
         {
             label: <span className={cx("dropdown_menu")}>Русский</span>,
-            key: Languages.Ru,
+            key: Languages.Ru.toUpperCase(),
         },
     ];
 
