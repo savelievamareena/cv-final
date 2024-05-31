@@ -1,14 +1,12 @@
 @use "../../../../scss" as *;
 
 .form {
-    color: $clr-secondary;
-
     display: flex;
 
     flex-direction: column;
 
     label[for] {
-        color: $clr-secondary;
+        color: currentColor;
     }
 
     gap: 0.5rem;

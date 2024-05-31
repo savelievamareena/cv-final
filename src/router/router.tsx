@@ -7,6 +7,7 @@ import { AuthLayout } from "@/modules/auth/components/auth-layout";
 import { Login } from "@/pages/login";
 import { SignUp } from "@/pages/sign-up";
 import { VerifyMail } from "@/pages/verify-mail";
+import { DepartmentsPage } from "@/pages/Departments";
 
 export const router = createBrowserRouter([
     {
@@ -165,7 +166,7 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 path: routes.departments,
-                element: <div>Departments page content (table)</div>,
+                element: <DepartmentsPage />,
             },
             {
                 errorElement: <ErrorComponent />,

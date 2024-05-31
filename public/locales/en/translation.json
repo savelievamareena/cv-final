@@ -17,6 +17,18 @@
   },
 
   "submit":"Submit",
-  
-  "Welcome Back": "Welcome Back"
+
+  "Welcome Back": "Welcome Back", 
+
+  "add": "Add",
+  "delete": "Delete",
+  "update":"Update",
+  "search": "Search",
+  "cancel":"Cancel",
+  "confirm":"Confirm",
+
+  "department": "department",
+
+  "skill": "skill"
+
 }

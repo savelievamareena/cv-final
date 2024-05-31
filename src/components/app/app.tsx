@@ -1,10 +1,14 @@
-import { AppRouterProvider } from "../../router";
-import { AppAPIProvider } from "../../graphql";
+import { AppRouterProvider } from "@/router";
+import { AppAPIProvider } from "@/graphql";
+import { ConfigProvider } from "antd";
+import { antdTheme } from "@/antd";
 
 export const App = () => {
     return (
         <AppAPIProvider>
-            <AppRouterProvider />
+            <ConfigProvider theme={antdTheme}>
+                <AppRouterProvider></AppRouterProvider>
+            </ConfigProvider>
         </AppAPIProvider>
     );
 };

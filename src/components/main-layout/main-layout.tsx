@@ -2,6 +2,8 @@ import { Navigate, Outlet } from "react-router-dom";
 
 import { routes } from "@/router";
 import { useAuthUser } from "@/services/auth-service";
+import { DialogsContainer } from "@/helpers/dialog/dialog-container";
+import { Header } from "@/modules/header";
 
 export const MainLayout = () => {
     const user = useAuthUser();
@@ -10,8 +12,9 @@ export const MainLayout = () => {
 
     return (
         <>
-            <header>Header</header>
+            <Header />
             <Outlet />
+            <DialogsContainer />
         </>
     );
 };

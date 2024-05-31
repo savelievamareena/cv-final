@@ -1,0 +1,36 @@
+.red {
+    color: #c63031;
+}
+
+.grey {
+    color: #767676;
+}
+
+.big {
+    font-size: 1.2em;
+}
+
+.header_wrapper {
+    box-shadow: 0 1px 10px 0 #2e2e2e;
+    display: flex;
+    justify-content: space-between;
+    z-index: 999;
+}
+
+.dropdown_menu {
+    padding: 4px 12px;
+    font-size: 18px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.user_pic {
+    cursor: pointer;
+    margin: auto 0;
+}
+
+.user_pic span {
+    font-size: 24px;
+}
