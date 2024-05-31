@@ -13,11 +13,13 @@
         "prepare": "husky install"
     },
     "dependencies": {
+        "@ant-design/icons": "^5.3.7",
         "@apollo/client": "^3.10.4",
         "@hookform/resolvers": "^3.4.2",
         "@types/i18next": "^13.0.0",
         "@types/react-i18next": "^8.1.0",
         "antd": "^5.17.3",
+        "classnames": "^2.5.1",
         "cv-graphql": "^2.6.1",
         "graphql": "^16.8.1",
         "i18n": "^0.15.1",
