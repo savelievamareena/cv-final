@@ -3,8 +3,9 @@ import { Department, Skill } from "cv-graphql";
 import { Button, Input } from "antd";
 import { t } from "i18next";
 import { SearchOutlined } from "@ant-design/icons";
-import TableTemplate, { ColumnConfig } from "./table-template";
-import { Action } from "./actions-menu";
+import TableTemplate from "./table-template";
+import { Action } from "./action-menu.types";
+import { ColumnConfig } from "./list-template.types";
 
 interface ListTemplateProps<T> {
     pageName: string;

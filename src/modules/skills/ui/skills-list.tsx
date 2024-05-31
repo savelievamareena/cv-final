@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Skill } from "cv-graphql";
 import { t } from "i18next";
 import PageTemplate from "@/components/list-template/list-template";
-import { Action } from "@/components/list-template/actions-menu";
-import { ColumnConfig } from "@/components/list-template/table-template";
 import { useSkills } from "@/modules/skills/mutation/skills";
+import { Action } from "@/components/list-template/action-menu.types";
+import { ColumnConfig } from "@/components/list-template/list-template.types";
 
 const SkillsList = () => {
     const { skills, loading } = useSkills();

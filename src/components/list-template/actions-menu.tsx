@@ -2,11 +2,7 @@ import { memo, ReactNode } from "react";
 import { Space, Dropdown, Menu } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
 import { t } from "i18next";
-
-export interface Action {
-    onUpdate: () => void;
-    onDelete: () => void;
-}
+import { Action } from "./action-menu.types";
 
 type ActionProps = Action & { pageName: string };
 

@@ -1,11 +1,8 @@
 import { Key } from "react";
-import ActionsMenu, { Action } from "./actions-menu";
 import { Table, TableColumnsType } from "antd";
-
-export interface ColumnConfig<T> {
-    name: keyof T;
-    isSorted: boolean;
-}
+import ActionsMenu from "./actions-menu";
+import { ColumnConfig } from "./list-template.types";
+import { Action } from "./action-menu.types";
 
 interface TableTemplateProps<T extends { id: React.Key }> {
     searchQuery: string;

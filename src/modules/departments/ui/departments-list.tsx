@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Department } from "cv-graphql";
 import { t } from "i18next";
 import ListTemplate from "@/components/list-template/list-template";
-import { Action } from "@/components/list-template/actions-menu";
-import { ColumnConfig } from "@/components/list-template/table-template";
 import { useDepartments } from "@/modules/departments/mutation/departments";
 import { useConfirm } from "@/components/confirm-dialog/confirm-dialog";
+import { Action } from "@/components/list-template/action-menu.types";
+import { ColumnConfig } from "@/components/list-template/list-template.types";
 
 const DepartmentsList = () => {
     const { departments, loading } = useDepartments();
