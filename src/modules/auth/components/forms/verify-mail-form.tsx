@@ -6,7 +6,7 @@ import { getVerifyMailFormSchema } from "../../schemas";
 import { Form } from "@/components/form";
 import { FormTextField } from "@/components/form-text-field";
 
-import styles from "./verify-form.module.scss";
+import styles from "./form.module.scss";
 
 export const VerifyMailForm = () => {
     const [verifyMail, { loading }] = useVerifyMail();
@@ -22,9 +22,9 @@ export const VerifyMailForm = () => {
             }}
             schema={getVerifyMailFormSchema()}
         >
-            <h2>{t("auth.verifyMail")}</h2>
+            <h2 className={styles.title}>{t("auth.verifyMail")}</h2>
             <FormTextField type='text' name='otp' label={t("auth.fieldLabels.otp")} maxLength={6} />
-            <Button disabled={loading} htmlType='submit'>
+            <Button className={styles.button} disabled={loading} htmlType='submit'>
                 {t("submit")}
             </Button>
         </Form>

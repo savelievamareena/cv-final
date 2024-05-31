@@ -9,7 +9,7 @@ import { Form } from "@/components/form";
 import { PasswordInput } from "../password-input";
 import { routes } from "@/router";
 
-import styles from "./sign-up-form.module.scss";
+import styles from "./form.module.scss";
 
 export const SignUpForm = () => {
     const [signUp, { loading }] = useSignUp();
@@ -36,10 +36,10 @@ export const SignUpForm = () => {
             }}
             schema={getSignUpFormSchema()}
         >
-            <h2>{t("auth.signup")}</h2>
+            <h2 className={styles.title}>{t("auth.signup")}</h2>
             <FormTextField type='text' label={t("auth.fieldLabels.email")} name='email' />
             <PasswordInput label={t("auth.fieldLabels.password")} name='password' />
-            <Button disabled={loading} htmlType='submit'>
+            <Button className={styles.button} disabled={loading} htmlType='submit'>
                 {t("submit")}
             </Button>
         </Form>

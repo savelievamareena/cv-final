@@ -7,7 +7,7 @@ import { FormTextField } from "@/components/form-text-field";
 import { Form } from "@/components/form";
 import { PasswordInput } from "../password-input";
 
-import styles from "./login-form.module.scss";
+import styles from "./form.module.scss";
 
 export const LoginForm = () => {
     const [login, { loading }] = useLogin();
@@ -23,10 +23,10 @@ export const LoginForm = () => {
             }}
             schema={getLoginFormSchema()}
         >
-            <h2>{t("auth.login")}</h2>
+            <h2 className={styles.title}>{t("auth.login")}</h2>
             <FormTextField type='text' label={t("auth.fieldLabels.email")} name='email' />
             <PasswordInput label={t("auth.fieldLabels.password")} name='password' />
-            <Button disabled={loading} htmlType='submit'>
+            <Button className={styles.button} disabled={loading} htmlType='submit'>
                 {t("submit")}
             </Button>
         </Form>
