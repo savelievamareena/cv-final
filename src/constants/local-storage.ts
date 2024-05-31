@@ -1,2 +1,4 @@
-export const AUTH_TOKEN = "auth-token";
-export const USER = "user";
+export const enum StorageKeys {
+    AuthToken = "auth-token",
+    User = "user",
+}

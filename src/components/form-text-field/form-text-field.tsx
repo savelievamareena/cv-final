@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Controller, useFormContext } from "react-hook-form";
 import { FormInputProps } from "./form-text-field.types";
 import { Input, Form } from "antd";
@@ -17,7 +16,7 @@ const FormTextField = ({
     } = useFormContext();
 
     const errorMessage = errors[name]?.message;
-    const defaultValue = defaultValues?.[name];
+    const defaultValue = defaultValues?.[name] as string;
 
     const helperText = typeof errorMessage === "string" ? errorMessage : "";
 

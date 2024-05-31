@@ -1,4 +1,4 @@
-import { USER, AUTH_TOKEN } from "@/constants";
+import { StorageKeys } from "@/constants";
 import { makeVar } from "@apollo/client";
 import { User } from "cv-graphql";
 import { IAuthService } from "./auth-service.types";
@@ -9,8 +9,8 @@ class AuthService implements IAuthService {
     accessToken = makeVar("");
 
     constructor() {
-        const user = localStorageService.getItem(USER);
-        const accessToken = localStorageService.getItem(AUTH_TOKEN);
+        const user = localStorageService.getItem(StorageKeys.User);
+        const accessToken = localStorageService.getItem(StorageKeys.AuthToken);
 
         if (user && accessToken) {
             this.accessToken(accessToken);
@@ -22,15 +22,15 @@ class AuthService implements IAuthService {
         this.user(user);
         this.accessToken(accessToken);
 
-        localStorageService.setItem(USER, JSON.stringify(user));
-        localStorageService.setItem(AUTH_TOKEN, accessToken);
+        localStorageService.setItem(StorageKeys.User, JSON.stringify(user));
+        localStorageService.setItem(StorageKeys.AuthToken, accessToken);
     }
 
     verify() {
         if (this.user()) {
             const verifiedUserData = { ...this.user(), is_verified: true } as User;
 
-            localStorageService.setItem(USER, JSON.stringify(verifiedUserData));
+            localStorageService.setItem(StorageKeys.User, JSON.stringify(verifiedUserData));
             this.user(verifiedUserData);
         }
     }
@@ -39,8 +39,8 @@ class AuthService implements IAuthService {
         this.user(null);
         this.accessToken("");
 
-        localStorageService.removeItem(USER);
-        localStorageService.removeItem(AUTH_TOKEN);
+        localStorageService.removeItem(StorageKeys.User);
+        localStorageService.removeItem(StorageKeys.AuthToken);
     }
 }
 
