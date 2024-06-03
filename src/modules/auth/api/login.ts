@@ -1,3 +1,4 @@
+import { showNotification } from "@/helpers/notification";
 import { authService } from "@/services/auth-service";
 import { gql, useLazyQuery } from "@apollo/client";
 import { AuthInput, AuthResult } from "cv-graphql";
@@ -26,7 +27,7 @@ interface LoginResult {
 export const useLogin = () => {
     return useLazyQuery<LoginResult, LoginArgs>(LOGIN, {
         onError(error) {
-            console.error(error.message);
+            showNotification("error", error.message, error.name);
         },
         onCompleted(data) {
             authService.login(data.login.user, data.login.access_token);
