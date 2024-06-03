@@ -43,8 +43,9 @@ export const router = createBrowserRouter([
         errorElement: <ErrorComponent />,
         children: [
             {
+                errorElement: <ErrorComponent />,
                 index: true,
-                element: <Navigate to={routes.cvs.root} replace />,
+                element: <div>Users page content (table)</div>,
             },
             {
                 path: routes.cvs.root,
@@ -180,13 +181,18 @@ export const router = createBrowserRouter([
             },
             {
                 errorElement: <ErrorComponent />,
+                path: routes.positions,
+                element: <div>Positions page content (table)</div>,
+            },
+            {
+                errorElement: <ErrorComponent />,
                 path: routes.settings,
                 element: <div>Settings page content</div>,
             },
             {
                 index: true,
                 path: "*",
-                element: <Navigate to={routes.cvs.root} replace />,
+                element: <Navigate to='' replace />,
             },
         ],
     },
