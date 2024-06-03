@@ -1,6 +1,9 @@
 import { Key } from "react";
 import ActionsMenu, { Action } from "./actions-menu";
 import { Table, TableColumnsType } from "antd";
+import { StorageKeys } from "@/constants";
+import { localStorageService } from "@/services/storage-service";
+import { User, UserRole } from "cv-graphql";
 
 export interface ColumnConfig<T> {
     name: keyof T;
@@ -26,6 +29,8 @@ const TableTemplate = <T extends { id: Key }>({
     loading,
     pageName,
 }: TableTemplateProps<T>) => {
+    const user = localStorageService.getItem(StorageKeys.User);
+    const isAdmin = user ? (JSON.parse(user) as User).role === UserRole.Admin : null;
     const createColumnsAndData = (columnConfigs: ColumnConfig<T>[], data: T[]) => {
         const columns: TableColumnsType<DynamicDataType<T>> = columnConfigs.map((config) => ({
             title: config.name.toString().charAt(0).toUpperCase() + config.name.toString().slice(1),
@@ -39,20 +44,21 @@ const TableTemplate = <T extends { id: Key }>({
                   }
                 : undefined,
         }));
-
-        columns.push({
-            title: "",
-            dataIndex: "",
-            key: "x",
-            width: "5%",
-            render: () => (
-                <ActionsMenu
-                    pageName={pageName}
-                    onDelete={menuProps.onDelete}
-                    onUpdate={menuProps.onUpdate}
-                />
-            ),
-        });
+        if (isAdmin) {
+            columns.push({
+                title: "",
+                dataIndex: "",
+                key: "x",
+                width: "5%",
+                render: () => (
+                    <ActionsMenu
+                        pageName={pageName}
+                        onDelete={menuProps.onDelete}
+                        onUpdate={menuProps.onUpdate}
+                    />
+                ),
+            });
+        }
 
         const filteredData: DynamicDataType<T>[] = data
             .filter((item) => {

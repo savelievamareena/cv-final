@@ -20,6 +20,8 @@ class AuthService implements IAuthService {
 
     login(user: User, accessToken: string) {
         this.user(user);
+        console.log(user);
+
         this.accessToken(accessToken);
 
         localStorageService.setItem(StorageKeys.User, JSON.stringify(user));

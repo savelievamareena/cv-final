@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { useReactiveVar } from "@apollo/client";
-import { dialogsService } from "./dialog-servise";
+import { dialogsService } from "@/services/dialog-service/dialog-servise";
 
 export const DialogsContainer = () => {
     const dialogs = useReactiveVar(dialogsService.dialogs);
