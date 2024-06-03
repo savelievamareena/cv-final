@@ -6,12 +6,14 @@ import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useDepartments } from "@/modules/departments/mutation/departments";
 import { useConfirm } from "@/components/confirg-dialog/confirm-dialog";
+import { useAddDepartment } from "./departments-dialog";
 
 const DepartmentsList = () => {
     const { departments, loading } = useDepartments();
     const [searchQuery, setSearchQuery] = useState("");
 
     const [openConfirm] = useConfirm();
+    const [openAddDepartment] = useAddDepartment();
 
     const menuProps: Action = {
         onDelete: () =>
@@ -23,13 +25,19 @@ const DepartmentsList = () => {
         onUpdate: () => console.log("update"),
     };
 
+    const openDepartment = () =>
+        openAddDepartment({
+            title: t("delete confirmation"),
+            onConfirm: () => console.log("delete confirm"),
+        });
+
     const columnConfigs: ColumnConfig<Department>[] = [{ name: "name", isSorted: true }];
 
     return (
         <>
             <ListTemplate
                 pageName={t("departent")}
-                onButtonClick={() => console.log(12)}
+                onButtonClick={openDepartment}
                 menuProps={menuProps}
                 columnConfigs={columnConfigs}
                 searchQuery={searchQuery}

@@ -8,12 +8,7 @@ interface ConfirmDialogProps {
 }
 
 const ConfirmDialog = ({ title, onConfirm, onClose }: ConfirmDialogProps) => {
-    const handleConfirm = () => {
-        onConfirm();
-        onClose();
-    };
-
-    return <BaseDialog title={title} onConfirm={handleConfirm} onClose={onClose} />;
+    return <BaseDialog title={title} onConfirm={onConfirm} onClose={onClose} />;
 };
 
 export const useConfirm = createDialogHook<ConfirmDialogProps>((props) => (
