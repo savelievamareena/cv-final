@@ -18,7 +18,7 @@ export const useVerifyMail = () => {
 
     return useMutation<void, VerifyMailArgs>(VERIFY_MAIL, {
         onError(error) {
-            showNotification("error", error.message, error.name);
+            showNotification("error", error.message, error.message);
         },
         onCompleted() {
             authService.verify();

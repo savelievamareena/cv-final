@@ -1,6 +1,6 @@
 import { notification } from "antd";
 import { NotificationType } from "./notification.types";
-import { PropsWithChildren, createContext } from "react";
+import { PropsWithChildren, createContext, useCallback, useMemo } from "react";
 
 const initialValue = {
     showNotification: (type: NotificationType, message: string, key?: string | number) => {
@@ -25,22 +25,30 @@ export const NotificationContextProvider = ({ children }: PropsWithChildren) => 
         placement: "bottomRight",
     });
 
-    const showNotification = (type: NotificationType, message: string, key?: string | number) => {
-        api.open({
-            type,
-            message,
-            key,
-        });
-    };
+    const showNotification = useCallback(
+        (type: NotificationType, message: string, key?: string | number) => {
+            api.open({
+                type,
+                message,
+                key,
+            });
+        },
+        [],
+    );
 
-    const closeNotification = (key?: string | number) => {
+    const closeNotification = useCallback((key?: string | number) => {
         api.destroy(key);
-    };
+    }, []);
+
+    const contextValue = useMemo(
+        () => ({ showNotification, closeNotification }),
+        [showNotification, closeNotification],
+    );
 
     return (
         <>
             {contextHolder}
-            <NotificationContext.Provider value={{ showNotification, closeNotification }}>
+            <NotificationContext.Provider value={contextValue}>
                 {children}
             </NotificationContext.Provider>
         </>

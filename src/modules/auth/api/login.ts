@@ -29,7 +29,7 @@ export const useLogin = () => {
 
     return useLazyQuery<LoginResult, LoginArgs>(LOGIN, {
         onError(error) {
-            showNotification("error", error.message, error.name);
+            showNotification("error", error.message, error.message);
         },
         onCompleted(data) {
             authService.login(data.login.user, data.login.access_token);
