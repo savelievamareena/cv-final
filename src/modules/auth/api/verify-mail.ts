@@ -1,4 +1,3 @@
-import { showNotification } from "@/helpers/notification";
 import { authService } from "@/services/auth-service";
 import { gql, useMutation } from "@apollo/client";
 import { VerifyMailInput } from "cv-graphql";
@@ -13,10 +12,12 @@ interface VerifyMailArgs {
     verifyMailInput: VerifyMailInput;
 }
 
-export const useVerifyMail = () => {
+type ErrorHandler = (message: string, key: string | number) => void;
+
+export const useVerifyMail = (errorHandler: ErrorHandler) => {
     return useMutation<void, VerifyMailArgs>(VERIFY_MAIL, {
         onError(error) {
-            showNotification("error", error.message, error.name);
+            errorHandler(error.message, error.name);
         },
         onCompleted() {
             authService.verify();
