@@ -8,17 +8,11 @@ import { FormTextField } from "@/components/form-text-field";
 import { Form } from "@/components/form";
 import { PasswordInput } from "../password-input";
 import { routes } from "@/router";
-import { useNotificationContext } from "@/helpers/notification";
 
 import styles from "./form.module.scss";
 
 export const SignUpForm = () => {
-    const { showNotification } = useNotificationContext();
-
-    const errorHandler = (message: string, key: string | number) =>
-        showNotification("error", message, key);
-
-    const [signUp, { loading }] = useSignUp(errorHandler);
+    const [signUp, { loading }] = useSignUp();
 
     const navigate = useNavigate();
 

@@ -7,15 +7,9 @@ import { Form } from "@/components/form";
 import { FormTextField } from "@/components/form-text-field";
 
 import styles from "./form.module.scss";
-import { useNotificationContext } from "@/helpers/notification";
 
 export const VerifyMailForm = () => {
-    const { showNotification } = useNotificationContext();
-
-    const errorHandler = (message: string, key: string | number) =>
-        showNotification("error", message, key);
-
-    const [verifyMail, { loading }] = useVerifyMail(errorHandler);
+    const [verifyMail, { loading }] = useVerifyMail();
 
     const { t } = useTranslation();
 

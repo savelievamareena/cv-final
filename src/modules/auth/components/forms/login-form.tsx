@@ -6,17 +6,11 @@ import { useLogin } from "../../api";
 import { FormTextField } from "@/components/form-text-field";
 import { Form } from "@/components/form";
 import { PasswordInput } from "../password-input";
-import { useNotificationContext } from "@/helpers/notification/notification.hooks";
 
 import styles from "./form.module.scss";
 
 export const LoginForm = () => {
-    const { showNotification } = useNotificationContext();
-
-    const errorHandler = (message: string, key: string | number) =>
-        showNotification("error", message, key);
-
-    const [login, { loading }] = useLogin(errorHandler);
+    const [login, { loading }] = useLogin();
 
     const { t } = useTranslation();
 
