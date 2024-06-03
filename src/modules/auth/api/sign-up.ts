@@ -29,7 +29,7 @@ export const useSignUp = () => {
 
     return useMutation<SignUpResult, SignUpArgs>(SIGN_UP, {
         onError(error) {
-            showNotification("error", error.message, error.message);
+            showNotification("error", error.message);
         },
         onCompleted(data) {
             authService.login(data.signup.user, data.signup.access_token);

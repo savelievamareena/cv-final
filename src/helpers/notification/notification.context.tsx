@@ -1,9 +1,9 @@
-import { notification } from "antd";
-import { NotificationType } from "./notification.types";
 import { PropsWithChildren, createContext, useCallback, useMemo } from "react";
+import { notification } from "antd";
+import { IconType } from "antd/es/notification/interface";
 
 const initialValue = {
-    showNotification: (type: NotificationType, message: string, key?: string | number) => {
+    showNotification: (type: IconType, message: string, key?: string | number) => {
         console.log({
             type,
             message,
@@ -26,19 +26,22 @@ export const NotificationContextProvider = ({ children }: PropsWithChildren) => 
     });
 
     const showNotification = useCallback(
-        (type: NotificationType, message: string, key?: string | number) => {
+        (type: IconType, message: string, key?: string | number) => {
             api.open({
                 type,
                 message,
-                key,
+                key: key ?? message,
             });
         },
-        [],
+        [api],
     );
 
-    const closeNotification = useCallback((key?: string | number) => {
-        api.destroy(key);
-    }, []);
+    const closeNotification = useCallback(
+        (key?: string | number) => {
+            api.destroy(key);
+        },
+        [api],
+    );
 
     const contextValue = useMemo(
         () => ({ showNotification, closeNotification }),
