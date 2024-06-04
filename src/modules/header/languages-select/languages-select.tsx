@@ -1,14 +1,22 @@
 import { useState } from "react";
 import { Dropdown, DropdownProps, Flex, MenuProps } from "antd";
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
 import { Languages } from "@/i18n.ts";
 import classNames from "classnames/bind";
 import styles from "../header.module.css";
 
 const LanguagesSelect = () => {
     const cx = classNames.bind(styles);
-    const [isLanguagesOpen, setLanguagesOpen] = useState(false);
-    const [language, setLanguage] = useState(Languages.En.toUpperCase());
+    const { i18n } = useTranslation();
+    const [isLanguagesOpen, setIsLanguagesOpen] = useState(false);
+    const [language, setLanguage] = useState<Languages>(
+        (i18n.resolvedLanguage as Languages) ?? Languages.En
+    );
+
+    const changeLanguage = (lang: Languages) => {
+        void i18n.changeLanguage(lang);
+    };
 
     const languages: MenuProps["items"] = [
         {
@@ -22,12 +30,13 @@ const LanguagesSelect = () => {
     ];
 
     const handleOpenLangChange: DropdownProps["onOpenChange"] = (nextOpen) => {
-        setLanguagesOpen(nextOpen);
+        setIsLanguagesOpen(nextOpen);
     };
 
     const handleSelectLanguage: MenuProps["onClick"] = ({ key }) => {
-        setLanguage(key.toUpperCase() as Languages);
-        setLanguagesOpen(false);
+        setLanguage(key as Languages);
+        changeLanguage(key as Languages);
+        setIsLanguagesOpen(false);
     };
 
     return (
@@ -35,19 +44,25 @@ const LanguagesSelect = () => {
             menu={{
                 items: languages,
                 selectable: true,
-                defaultSelectedKeys: [Languages.En],
+                defaultSelectedKeys: [language],
                 onClick: handleSelectLanguage,
             }}
             onOpenChange={handleOpenLangChange}
             placement={"bottom"}
             trigger={["click"]}
         >
-            <Flex gap={10} className={cx("pointer")}>
-                <div>{language}</div>
+            <Flex gap='0.5rem' className={cx("pointer")}>
+                <div>{language.toUpperCase()}</div>
                 {isLanguagesOpen ? (
-                    <CaretUpOutlined className={cx("header_icons")} />
+                    <CaretUpOutlined
+                        aria-label='Close language menu'
+                        className={cx("header_icons")}
+                    />
                 ) : (
-                    <CaretDownOutlined className={cx("header_icons")} />
+                    <CaretDownOutlined
+                        aria-label='Open language menu'
+                        className={cx("header_icons")}
+                    />
                 )}
             </Flex>
         </Dropdown>
