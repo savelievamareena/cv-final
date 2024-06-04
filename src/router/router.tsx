@@ -8,6 +8,8 @@ import { Login } from "@/pages/login";
 import { SignUp } from "@/pages/sign-up";
 import { VerifyMail } from "@/pages/verify-mail";
 import { DepartmentsPage } from "@/pages/Departments";
+import { UserLayout } from "@/modules/user/components/user-layout";
+import { Profile } from "@/pages/user-profile";
 
 export const router = createBrowserRouter([
     {
@@ -106,17 +108,12 @@ export const router = createBrowserRouter([
                     {
                         errorElement: <ErrorComponent />,
                         path: routes.users.userById(`:${RouteParams.UserId}`),
-                        element: (
-                            <div>
-                                Common User-by-ID layout (has Outlet)
-                                <Outlet />
-                            </div>
-                        ),
+                        element: <UserLayout />,
                         children: [
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.users.profile(`:${RouteParams.UserId}`),
-                                element: <div>User profile content</div>,
+                                element: <Profile />,
                             },
                             {
                                 errorElement: <ErrorComponent />,

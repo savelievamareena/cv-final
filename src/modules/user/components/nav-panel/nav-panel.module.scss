@@ -1,0 +1,34 @@
+.navPanel {
+    display: flex;
+    gap: 1rem;
+    padding: 0.25rem;
+}
+
+.navLink {
+    padding: 0.2rem 0.25rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+
+    outline: none;
+
+    border-bottom: 2px solid currentColor;
+
+    transition: all 0.25s;
+
+    &:hover {
+        color: lighten($color: #000000, $amount: 50);
+    }
+
+    &_active {
+        color: #c63031;
+
+        &:hover {
+            color: lighten($color: #c63031, $amount: 25);
+        }
+    }
+
+    &:focus-visible {
+        color: lighten($color: #c63031, $amount: 15);
+    }
+}
