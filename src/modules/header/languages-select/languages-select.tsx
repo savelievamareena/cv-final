@@ -13,11 +13,11 @@ const LanguagesSelect = () => {
     const languages: MenuProps["items"] = [
         {
             label: <span className={cx("dropdown_menu")}>English</span>,
-            key: Languages.En.toUpperCase(),
+            key: Languages.En,
         },
         {
             label: <span className={cx("dropdown_menu")}>Русский</span>,
-            key: Languages.Ru.toUpperCase(),
+            key: Languages.Ru,
         },
     ];
 
@@ -26,7 +26,7 @@ const LanguagesSelect = () => {
     };
 
     const handleSelectLanguage: MenuProps["onClick"] = ({ key }) => {
-        setLanguage(key as Languages);
+        setLanguage(key.toUpperCase() as Languages);
         setLanguagesOpen(false);
     };
 
@@ -35,7 +35,7 @@ const LanguagesSelect = () => {
             menu={{
                 items: languages,
                 selectable: true,
-                defaultSelectedKeys: [language],
+                defaultSelectedKeys: [Languages.En],
                 onClick: handleSelectLanguage,
             }}
             onOpenChange={handleOpenLangChange}

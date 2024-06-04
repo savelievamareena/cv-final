@@ -4,11 +4,11 @@
 
 .menu_item {
     justify-content: flex-start;
-    gap: 26px;
+    gap: 1.6rem;
     align-items: center;
     padding: 16px 22px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .close_icon {
-    font-size: 18px;
+    font-size: 1.2rem;
     cursor: pointer;
     color: #c63031;
     margin-right: 44px;
@@ -38,5 +38,5 @@
 }
 
 .nav_icon {
-    font-size: 20px;
+    font-size: 1.3rem;
 }

@@ -20,7 +20,7 @@ const Header = () => {
                 className={cx("header_icons", "red", "big")}
                 onClick={() => setDrawerOpen(true)}
             />
-            <Flex gap={80}>
+            <Flex gap='4rem'>
                 <Flex gap='small'>
                     <GlobalOutlined className={cx("header_icons", "grey", "big")} />
 
