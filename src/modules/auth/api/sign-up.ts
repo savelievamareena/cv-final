@@ -25,10 +25,10 @@ interface SignUpResult {
 
 export const useSignUp = () => {
     return useMutation<SignUpResult, SignUpArgs>(SIGN_UP, {
-        onError(error) {
+        onError: (error) => {
             console.error(error.message);
         },
-        onCompleted(data) {
+        onCompleted: (data) => {
             authService.login(data.signup.user, data.signup.access_token);
         },
     });
