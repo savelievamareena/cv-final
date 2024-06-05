@@ -1,17 +1,14 @@
-import { useEffect, useState } from "react";
 import { Avatar } from "antd";
 
-const ProfilePicture = () => {
-    const [avatarLink, setAvatarLink] = useState("");
+interface ProfilePictureProps {
+    profileLetter?: string;
+    avatar?: string | null;
+}
 
-    useEffect(() => {
-        // get and setAvatarLink avatar link for the current user
-        setAvatarLink("");
-    }, []);
-
+const ProfilePicture = ({ profileLetter, avatar }: ProfilePictureProps) => {
     return (
-        <Avatar src={avatarLink} size='large'>
-            U
+        <Avatar src={avatar} size='large'>
+            {avatar ? "" : profileLetter}
         </Avatar>
     );
 };

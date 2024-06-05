@@ -28,10 +28,10 @@ export const useSignUp = () => {
     const { showNotification } = useNotificationContext();
 
     return useMutation<SignUpResult, SignUpArgs>(SIGN_UP, {
-        onError(error) {
+        onError: (error) => {
             showNotification("error", error.message);
         },
-        onCompleted(data) {
+        onCompleted: (data) => {
             authService.login(data.signup.user, data.signup.access_token);
         },
     });

@@ -17,10 +17,10 @@ export const useVerifyMail = () => {
     const { showNotification } = useNotificationContext();
 
     return useMutation<void, VerifyMailArgs>(VERIFY_MAIL, {
-        onError(error) {
+        onError: (error) => {
             showNotification("error", error.message);
         },
-        onCompleted() {
+        onCompleted: () => {
             authService.verify();
         },
     });

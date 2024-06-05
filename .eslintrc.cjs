@@ -26,10 +26,16 @@ module.exports = {
         project: ["./tsconfig.json", "./tsconfig.node.json"],
         tsconfigRootDir: __dirname,
     },
-    plugins: ["@typescript-eslint", "prettier"],
+    plugins: ["@typescript-eslint", "prettier", "prefer-arrow"],
     rules: {
-        "prettier/prettier": "error",
+        "prettier/prettier": [
+            "error",
+            {
+                trailingComma: "es5",
+            },
+        ],
         "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",
+        "prefer-arrow/prefer-arrow-functions": "error",
     },
 };

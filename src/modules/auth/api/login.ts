@@ -28,10 +28,10 @@ export const useLogin = () => {
     const { showNotification } = useNotificationContext();
 
     return useLazyQuery<LoginResult, LoginArgs>(LOGIN, {
-        onError(error) {
+        onError: (error) => {
             showNotification("error", error.message);
         },
-        onCompleted(data) {
+        onCompleted: (data) => {
             authService.login(data.login.user, data.login.access_token);
         },
     });
