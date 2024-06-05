@@ -6,6 +6,7 @@ import { routes } from "@/router";
 import classNames from "classnames/bind";
 import styles from "@/modules/header/header.module.css";
 import { authService } from "@/services/auth-service";
+import { useTranslation } from "react-i18next";
 
 interface UserDropdownMenuProps {
     userId?: string;
@@ -15,6 +16,7 @@ interface UserDropdownMenuProps {
 
 const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuProps) => {
     const cx = classNames.bind(styles);
+    const { t } = useTranslation();
 
     const handleLogout = () => {
         authService.logout();
@@ -30,9 +32,9 @@ const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuPro
         {
             label: (
                 <Link to={userProfileUrl}>
-                    <Flex gap={15} className={cx("dropdown_menu")}>
+                    <Flex gap='1rem' className={cx("dropdown_menu")}>
                         <UserOutlined />
-                        Profile
+                        {t("Profile")}
                     </Flex>
                 </Link>
             ),
@@ -41,9 +43,9 @@ const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuPro
         {
             label: (
                 <Link to={routes.settings}>
-                    <Flex gap={15} className={cx("dropdown_menu")}>
+                    <Flex gap='1rem' className={cx("dropdown_menu")}>
                         <SettingOutlined />
-                        Settings
+                        {t("Settings")}
                     </Flex>
                 </Link>
             ),
@@ -55,9 +57,9 @@ const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuPro
         {
             label: (
                 <Link to={routes.auth.root} onClick={handleLogout}>
-                    <Flex gap={15} className={cx("dropdown_menu")}>
+                    <Flex gap='1rem' className={cx("dropdown_menu")}>
                         <LogoutOutlined />
-                        Logout
+                        {t("Logout")}
                     </Flex>
                 </Link>
             ),

@@ -1,33 +1,39 @@
 {
-  "auth": {
-    "fieldLabels": {
-      "password":"Пароль",
-      "email":"Email",
-      "otp":"OTP"
+    "auth": {
+        "fieldLabels": {
+            "password": "Пароль",
+            "email": "Email",
+            "otp": "OTP"
+        },
+        "fieldErrors": {
+            "emailRequired": "Email обязателен",
+            "emailGeneric": "Некорректный Email",
+            "passwordMinLength": "Пароль должен содержать минимум 6 символов",
+            "otpLength": "OTP должен состоять из 6 символов"
+        },
+        "login": "Вход",
+        "signup": "Регистрация",
+        "verifyMail": "Подверждение Email"
     },
-    "fieldErrors": {
-      "emailRequired":"Email обязателен",
-      "emailGeneric":"Некорректный Email",
-      "passwordMinLength":"Пароль должен содержать минимум 6 символов",
-      "otpLength":"OTP должен состоять из 6 символов"
-    },
-    "login": "Вход",
-    "signup": "Регистрация",
-    "verifyMail": "Подверждение Email"
-  },
-
-  "submit":"Подтвердить",
-  
-  "Welcome Back": "С Возвращением",
-
-  "add": "Добавить",
-  "delete": "Удалить",
-  "update":"Обновить",
-  "search": "Поиск",
-  "cancel":"Отмена",
-  "confirm":"Подтвердить",
-
-  "department": "отдел",
-
-  "skill": "навык"
+    "submit": "Подтвердить",
+    "Welcome Back": "С Возвращением",
+    "add": "Добавить",
+    "delete": "Удалить",
+    "update": "Обновить",
+    "search": "Поиск",
+    "cancel": "Отмена",
+    "confirm": "Подтвердить",
+    "department": "отдел",
+    "skill": "навык",
+    "Profile": "Профиль",
+    "Settings": "Настройки",
+    "Logout": "Выйти",
+    "Home": "Главная",
+    "Employees": "Сотрудники",
+    "Projects": "Проекты",
+    "CVs": "Резюме",
+    "Departments": "Отделы",
+    "Positions": "Должности",
+    "Skills": "Навыки",
+    "Languages": "Языки"
 }
