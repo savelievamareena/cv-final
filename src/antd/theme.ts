@@ -2,7 +2,6 @@ const antdTheme = {
     token: {
         colorPrimary: "#C63031",
         colorBgContainer: "#ffffff",
-        colorTextPlaceholder: "#C63031",
     },
     components: {
         Layout: {
@@ -14,10 +13,10 @@ const antdTheme = {
         Avatar: { containerSizeLG: 44 },
         Button: {
             contentFontSize: 16,
-            // defaultBg: "#C63031",
-            // defaultColor: "#ffffff",
-            // defaultHoverColor: "#ffffff",
-            // defaultHoverBg: "#8A2122",
+            defaultBg: "#C63031",
+            defaultColor: "#ffffff",
+            defaultHoverColor: "#ffffff",
+            defaultHoverBg: "#8A2122",
         },
     },
 };
