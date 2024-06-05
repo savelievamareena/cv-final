@@ -24,9 +24,9 @@ export const LoginForm = () => {
             schema={getLoginFormSchema()}
         >
             <h2 className={styles.title}>{t("auth.login")}</h2>
-            <FormTextField type='text' label={t("auth.fieldLabels.email")} name='email' />
-            <PasswordInput label={t("auth.fieldLabels.password")} name='password' />
-            <Button className={styles.button} disabled={loading} htmlType='submit'>
+            <FormTextField type="text" label={t("auth.fieldLabels.email")} name="email" />
+            <PasswordInput label={t("auth.fieldLabels.password")} name="password" />
+            <Button className={styles.button} disabled={loading} htmlType="submit">
                 {t("submit")}
             </Button>
         </Form>

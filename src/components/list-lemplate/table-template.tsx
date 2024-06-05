@@ -84,7 +84,7 @@ const TableTemplate = <T extends { id: Key }>({
                 dataSource={filteredData}
                 pagination={{ hideOnSinglePage: true }}
                 loading={loading}
-                rowKey='key'
+                rowKey="key"
             />
         </div>
     );

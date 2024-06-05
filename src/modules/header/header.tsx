@@ -20,13 +20,13 @@ const Header = () => {
                 className={cx("header_icons", "red", "big")}
                 onClick={() => setDrawerOpen(true)}
             />
-            <Flex gap='4rem'>
-                <Flex gap='small'>
+            <Flex gap="4rem">
+                <Flex gap="small">
                     <GlobalOutlined className={cx("header_icons", "grey", "big")} />
 
                     <LanguagesSelect />
                 </Flex>
-                <Flex gap='middle'>
+                <Flex gap="middle">
                     <div>{getUserNameToDisplay(user)}</div>
                     <UserDropdownMenu
                         userId={user?.id}

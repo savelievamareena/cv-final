@@ -39,11 +39,11 @@ const DepartmentDialog = ({ title, onConfirm, onClose, defaultValues }: Departme
                 initialValues={initialValues}
                 schema={getDepartmentFormSchema()}
             >
-                <FormTextField type='text' label={t("department")} name='department' />
-                <Button htmlType='button' onClick={onClose}>
+                <FormTextField type="text" label={t("department")} name="department" />
+                <Button htmlType="button" onClick={onClose}>
                     {t("cancel")}
                 </Button>
-                <Button htmlType='submit'>{t("submit")}</Button>
+                <Button htmlType="submit">{t("submit")}</Button>
             </Form>
         </BaseDialog>
     );

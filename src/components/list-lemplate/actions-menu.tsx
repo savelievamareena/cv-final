@@ -23,7 +23,7 @@ const ActionsMenu = ({ onUpdate, onDelete, pageName, record }: ActionProps) => {
         {
             key: "0",
             label: (
-                <Content key='update' onClick={onHandleUpdate}>
+                <Content key="update" onClick={onHandleUpdate}>
                     {t("update")} {pageName}
                 </Content>
             ) as ReactNode,
@@ -31,7 +31,7 @@ const ActionsMenu = ({ onUpdate, onDelete, pageName, record }: ActionProps) => {
         {
             key: "1",
             label: (
-                <Content key='delete' onClick={onHandleDelete}>
+                <Content key="delete" onClick={onHandleDelete}>
                     {t("delete")} {pageName}
                 </Content>
             ) as ReactNode,

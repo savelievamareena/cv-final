@@ -42,7 +42,7 @@ const ListTemplate = ({
                 prefix={<SearchOutlined />}
             />
             {isAdmin && (
-                <Button type='primary' danger ghost onClick={onButtonClick}>
+                <Button type="primary" danger ghost onClick={onButtonClick}>
                     {t("add")} {pageName}
                 </Button>
             )}
