@@ -8,7 +8,7 @@ import styles from "../header.module.css";
 const LanguagesSelect = () => {
     const cx = classNames.bind(styles);
     const [isLanguagesOpen, setLanguagesOpen] = useState(false);
-    const [language, setLanguage] = useState<Languages>(Languages.En);
+    const [language, setLanguage] = useState(Languages.En.toUpperCase());
 
     const languages: MenuProps["items"] = [
         {
@@ -26,7 +26,7 @@ const LanguagesSelect = () => {
     };
 
     const handleSelectLanguage: MenuProps["onClick"] = ({ key }) => {
-        setLanguage(key as Languages);
+        setLanguage(key.toUpperCase() as Languages);
         setLanguagesOpen(false);
     };
 
@@ -35,7 +35,7 @@ const LanguagesSelect = () => {
             menu={{
                 items: languages,
                 selectable: true,
-                defaultSelectedKeys: [language],
+                defaultSelectedKeys: [Languages.En],
                 onClick: handleSelectLanguage,
             }}
             onOpenChange={handleOpenLangChange}
