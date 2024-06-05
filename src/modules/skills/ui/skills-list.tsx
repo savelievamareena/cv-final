@@ -4,7 +4,7 @@ import { t } from "i18next";
 import PageTemplate from "@/components/list-lemplate/list-template";
 import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
-import { useSkills } from "@/modules/skills/mutation/skills";
+import { useSkills } from "@/modules/skills/mutation";
 
 const SkillsList = () => {
     const { skills, loading } = useSkills();

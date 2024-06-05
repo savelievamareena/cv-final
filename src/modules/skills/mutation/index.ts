@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { CreateSkillInput, DeleteSkillInput, Skill, UpdateSkillInput } from "cv-graphql";
-import { getQuery, createMutation, deleteMutation, updateMutation } from "../api/skills";
+import { getQuery, createMutation, deleteMutation, updateMutation } from "../api";
 
 interface SkillsResult {
     skills: Skill[];
