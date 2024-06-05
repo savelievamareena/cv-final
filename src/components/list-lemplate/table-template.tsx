@@ -1,9 +1,6 @@
 import { Key } from "react";
 import ActionsMenu, { Action } from "./actions-menu";
 import { Table, TableColumnsType } from "antd";
-import { StorageKeys } from "@/constants";
-import { localStorageService } from "@/services/storage-service";
-import { User, UserRole } from "cv-graphql";
 
 export interface ColumnConfig<T> {
     name: keyof T;
@@ -17,6 +14,7 @@ interface TableTemplateProps<T extends { id: React.Key }> {
     data: T[];
     loading: boolean;
     pageName: string;
+    isAdmin: boolean;
 }
 
 type DynamicDataType<T> = T & { key: Key };
@@ -28,10 +26,8 @@ const TableTemplate = <T extends { id: Key }>({
     data,
     loading,
     pageName,
+    isAdmin,
 }: TableTemplateProps<T>) => {
-    const user = localStorageService.getItem(StorageKeys.User);
-    const isAdmin = user ? (JSON.parse(user) as User).role === UserRole.Admin : null;
-
     const createColumnsAndData = (columnConfigs: ColumnConfig<T>[], data: T[]) => {
         const columns: TableColumnsType<DynamicDataType<T>> = columnConfigs.map((config) => ({
             title: config.name.toString().charAt(0).toUpperCase() + config.name.toString().slice(1),

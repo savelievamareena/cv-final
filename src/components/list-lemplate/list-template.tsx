@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction } from "react";
-import { Department, Skill, User, UserRole } from "cv-graphql";
+import { Department, Skill, UserRole } from "cv-graphql";
 import { Button, Input } from "antd";
-import { t } from "i18next";
 import { SearchOutlined } from "@ant-design/icons";
 import TableTemplate, { ColumnConfig } from "./table-template";
 import { Action } from "./actions-menu";
-import { localStorageService } from "@/services/storage-service";
-import { StorageKeys } from "@/constants";
+
+import { useTranslation } from "react-i18next";
+import { useAuthUser } from "@/services/auth-service";
 
 interface ListTemplateProps<T> {
     pageName: string;
@@ -29,8 +29,10 @@ const ListTemplate = ({
     loading,
     setSearchQuery,
 }: ListTemplateProps<Skill | Department>) => {
-    const user = localStorageService.getItem(StorageKeys.User);
-    const isAdmin = user ? (JSON.parse(user) as User).role === UserRole.Admin : null;
+    const user = useAuthUser();
+    const isAdmin = user ? user.role === UserRole.Admin : false;
+
+    const { t } = useTranslation();
 
     return (
         <div style={{ width: "100vw" }}>
@@ -51,6 +53,7 @@ const ListTemplate = ({
                 data={displayData}
                 loading={loading}
                 pageName={pageName}
+                isAdmin={isAdmin}
             />
         </div>
     );
