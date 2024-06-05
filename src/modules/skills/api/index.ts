@@ -1,19 +1,39 @@
-import {
-    generateGetQuery,
-    generateDeleteMutation,
-    generateCreateMutation,
-    generateUpdateMutation,
-} from "@/api/helpers/queries";
+import { gql } from "@apollo/client";
 
-const query = "skill";
+export const SKILLS = gql`
+    query Skills {
+        skills {
+            id
+            name
+            category
+        }
+    }
+`;
 
-const fields = ["id", "created_at", "name", "category"];
-const createArgs = ["name", "category"];
-const updateArgs = ["departmentId", "name", "category"];
+export const CREATE_SKILL = gql`
+    mutation CreateSkill($skill: CreateSkillInput!) {
+        createSkill(skill: $skill) {
+            id
+            name
+            category
+        }
+    }
+`;
 
-const getQuery = generateGetQuery(query, fields);
-const createMutation = generateCreateMutation(query, fields, createArgs);
-const deleteMutation = generateDeleteMutation(query);
-const updateMutation = generateUpdateMutation(query, fields, updateArgs);
+export const UPDATE_SKILL = gql`
+    mutation UpdateSkill($skill: UpdateSkillInput!) {
+        updateSkill(skill: $skill) {
+            id
+            name
+            category
+        }
+    }
+`;
 
-export { getQuery, createMutation, deleteMutation, updateMutation };
+export const DELETE_SKILL = gql`
+    mutation DeleteSkill($skill: DeleteSkillInput!) {
+        deleteSkill(skill: $skill) {
+            affected
+        }
+    }
+`;
