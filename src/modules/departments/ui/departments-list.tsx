@@ -4,7 +4,7 @@ import { t } from "i18next";
 import ListTemplate from "@/components/list-lemplate/list-template";
 import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
-import { useDepartments } from "@/modules/departments/mutation/departments";
+import { useDepartments } from "@/modules/departments/mutation";
 import { useConfirm } from "@/components/confirg-dialog/confirm-dialog";
 
 const DepartmentsList = () => {
