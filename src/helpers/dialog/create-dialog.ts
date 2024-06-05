@@ -18,10 +18,10 @@ export const createDialogHook =
                 idRef.current = v4();
 
                 dialogsService.openDialog(idRef.current, () =>
-                    Component({ ...props, onClose: closeDialog } as T),
+                    Component({ ...props, onClose: closeDialog } as T)
                 );
             },
-            [closeDialog],
+            [closeDialog]
         );
 
         return [openDialog, closeDialog];
