@@ -41,7 +41,7 @@ export const ProfileForm = ({ user, profile }: ProfileFormProps) => {
             }}
             schema={profileFormSchema()}
             onSubmit={async (data) => {
-                await Promise.all([
+                return await Promise.all([
                     updateProfileData({
                         variables: {
                             profile: {
@@ -77,7 +77,7 @@ export const ProfileForm = ({ user, profile }: ProfileFormProps) => {
                 loading={loadingPositions}
                 options={positionOptions}
             />
-            <FormSubmitButton>Submit</FormSubmitButton>
+            <FormSubmitButton disableIfNotDirty>Submit</FormSubmitButton>
         </Form>
     );
 };

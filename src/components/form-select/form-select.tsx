@@ -17,6 +17,7 @@ export const FormSelect = ({ name, label, ...props }: FormSelectProps) => {
         <Controller
             control={control}
             name={name}
+            defaultValue={defaultValue}
             render={({ field }) => (
                 <Form.Item
                     validateStatus={helperText ? "error" : ""}
