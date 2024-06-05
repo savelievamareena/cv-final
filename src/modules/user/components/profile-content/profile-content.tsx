@@ -1,31 +1,38 @@
 import { useParams } from "react-router-dom";
 import { Avatar } from "antd";
 import { RouteParams } from "@/router";
-import { useProfile } from "../../api";
+import { useProfile, useUser } from "../../api";
 
 import styles from "./profile-content.module.scss";
+import { ProfileForm } from "../profile-form/profile-form";
 
 export const ProfileContent = () => {
     const { [RouteParams.UserId]: userId } = useParams();
 
-    const { loading, data } = useProfile({ userId: userId! });
+    const { loading: loadingProfile, data: profileData } = useProfile({ userId: userId! });
+    const { loading: loadingUser, data: userData } = useUser({ userId: userId! });
+
+    const loading = loadingProfile || loadingUser;
+
+    const hasData = !!profileData && !!userData;
 
     return (
         <>
-            {loading && !data && <div>Loading</div>}
-            {data && (
+            {loading && !hasData && <div>Loading</div>}
+            {hasData && (
                 <>
                     <Avatar
                         className={styles.avatar}
-                        src={data.user.profile.avatar ?? undefined}
+                        src={profileData.profile.avatar ?? undefined}
                         alt='user-avatar'
                     >
-                        {!data.user.profile.avatar && data.user.email[0].toUpperCase()}
+                        {!profileData.profile.avatar && userData.user.email[0].toUpperCase()}
                     </Avatar>
                     <p>
-                        <span>{data.user.email}</span>
-                        {data.user.is_verified && <span>✔️</span>}
+                        <span>{userData.user.email}</span>
+                        {userData.user.is_verified && <span>✔️</span>}
                     </p>
+                    {hasData && <ProfileForm user={userData.user} profile={profileData.profile} />}
                 </>
             )}
         </>
