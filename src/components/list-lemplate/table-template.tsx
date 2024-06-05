@@ -31,6 +31,7 @@ const TableTemplate = <T extends { id: Key }>({
 }: TableTemplateProps<T>) => {
     const user = localStorageService.getItem(StorageKeys.User);
     const isAdmin = user ? (JSON.parse(user) as User).role === UserRole.Admin : null;
+
     const createColumnsAndData = (columnConfigs: ColumnConfig<T>[], data: T[]) => {
         const columns: TableColumnsType<DynamicDataType<T>> = columnConfigs.map((config) => ({
             title: config.name.toString().charAt(0).toUpperCase() + config.name.toString().slice(1),
@@ -44,17 +45,19 @@ const TableTemplate = <T extends { id: Key }>({
                   }
                 : undefined,
         }));
+
         if (isAdmin) {
             columns.push({
                 title: "",
                 dataIndex: "",
                 key: "x",
                 width: "5%",
-                render: () => (
+                render: (record: { id: string }) => (
                     <ActionsMenu
                         pageName={pageName}
                         onDelete={menuProps.onDelete}
                         onUpdate={menuProps.onUpdate}
+                        record={record}
                     />
                 ),
             });

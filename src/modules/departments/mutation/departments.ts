@@ -5,35 +5,31 @@ import {
     Department,
     UpdateDepartmentInput,
 } from "cv-graphql";
-import { getQuery, createMutation, deleteMutation, updateMutation } from "../api/departments";
-
-interface DepartmentsResult {
-    departments: Department[];
-}
+import { CREATE_DEPARTMENT, DELETE_DEPARTMENT, DEPARTMENTS, UPDATE_DEPARTMENT } from "../api";
+import { CreateDepartmentResult, DepartmentsResult } from "../api/departments.types";
 
 export const useDepartments = () => {
-    const query = useQuery<DepartmentsResult>(getQuery);
+    const query = useQuery<DepartmentsResult>(DEPARTMENTS);
 
     return { departments: query.data?.departments ?? [], ...query };
 };
 
 export const useDepartmentCreate = () => {
-    return useMutation<Department, { department: CreateDepartmentInput }>(createMutation, {
-        refetchQueries: [getQuery],
+    return useMutation<CreateDepartmentResult, { department: CreateDepartmentInput }>(
+        CREATE_DEPARTMENT,
+        {
+            refetchQueries: [DEPARTMENTS],
+        },
+    );
+};
+export const useDepartmentDelete = () => {
+    return useMutation<null, { department: DeleteDepartmentInput }>(DELETE_DEPARTMENT, {
+        refetchQueries: [DEPARTMENTS],
     });
 };
 
 export const useDepartmentUpdate = () => {
-    return useMutation<Department, { department: UpdateDepartmentInput }>(updateMutation, {
-        refetchQueries: [getQuery],
-    });
-};
-
-export const useDepartmentDelete = (departmentId: string) => {
-    return useMutation<null, { department: DeleteDepartmentInput }>(deleteMutation, {
-        variables: {
-            department: { departmentId },
-        },
-        refetchQueries: [getQuery],
+    return useMutation<Department, { department: UpdateDepartmentInput }>(UPDATE_DEPARTMENT, {
+        refetchQueries: [DEPARTMENTS],
     });
 };

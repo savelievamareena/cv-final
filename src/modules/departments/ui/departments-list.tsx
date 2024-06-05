@@ -4,9 +4,18 @@ import { t } from "i18next";
 import ListTemplate from "@/components/list-lemplate/list-template";
 import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
-import { useDepartments } from "@/modules/departments/mutation/departments";
+import {
+    useDepartmentCreate,
+    useDepartmentDelete,
+    useDepartments,
+    useDepartmentUpdate,
+} from "@/modules/departments/mutation/departments";
 import { useConfirm } from "@/components/confirg-dialog/confirm-dialog";
 import { useAddDepartment } from "./departments-dialog";
+
+interface FormData {
+    department: string;
+}
 
 const DepartmentsList = () => {
     const { departments, loading } = useDepartments();
@@ -14,21 +23,48 @@ const DepartmentsList = () => {
 
     const [openConfirm] = useConfirm();
     const [openAddDepartment] = useAddDepartment();
+    const [createDepartment] = useDepartmentCreate();
+    const [deleteDepartment] = useDepartmentDelete();
+    const [updateDepartment] = useDepartmentUpdate();
 
     const menuProps: Action = {
-        onDelete: () =>
+        onDelete: (id: string) =>
             openConfirm({
                 title: t("delete confirmation"),
-                onConfirm: () => console.log("delete confirm"),
+                onConfirm: () =>
+                    void deleteDepartment({ variables: { department: { departmentId: id } } }),
             }),
 
-        onUpdate: () => console.log("update"),
+        onUpdate: (id: string) =>
+            openAddDepartment({
+                title: t("Update department"),
+                onConfirm: (formData: FormData) =>
+                    void updateDepartment({
+                        variables: {
+                            department: {
+                                name: formData.department,
+                                departmentId: id,
+                            },
+                        },
+                    }),
+                defaultValue: {
+                    name: departments.find((department) => department.id === id)?.name ?? "",
+                },
+            }),
     };
 
     const openDepartment = () =>
         openAddDepartment({
-            title: t("delete confirmation"),
-            onConfirm: () => console.log("delete confirm"),
+            title: t("Add department"),
+            onConfirm: (formData: FormData) =>
+                void createDepartment({
+                    variables: {
+                        department: {
+                            name: formData.department,
+                        },
+                    },
+                }),
+            defaultValue: { name: "" },
         });
 
     const columnConfigs: ColumnConfig<Department>[] = [{ name: "name", isSorted: true }];
