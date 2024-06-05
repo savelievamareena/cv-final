@@ -1,39 +1,41 @@
 import { useMutation, useQuery } from "@apollo/client";
+import { CreateDepartmentInput, DeleteDepartmentInput, UpdateDepartmentInput } from "cv-graphql";
+import { DEPARTMENTS, CREATE_DEPARTMENT, UPDATE_DEPARTMENT, DELETE_DEPARTMENT } from "../api";
 import {
-    CreateDepartmentInput,
-    DeleteDepartmentInput,
-    Department,
-    UpdateDepartmentInput,
-} from "cv-graphql";
-import { getQuery, createMutation, deleteMutation, updateMutation } from "../api";
-
-interface DepartmentsResult {
-    departments: Department[];
-}
+    CreateDepartmentResult,
+    DepartmentsResult,
+    UpdateDepartmentResult,
+} from "../api/departments.types";
 
 export const useDepartments = () => {
-    const query = useQuery<DepartmentsResult>(getQuery);
+    const query = useQuery<DepartmentsResult>(DEPARTMENTS);
 
     return { departments: query.data?.departments ?? [], ...query };
 };
 
 export const useDepartmentCreate = () => {
-    return useMutation<Department, { department: CreateDepartmentInput }>(createMutation, {
-        refetchQueries: [getQuery],
-    });
+    return useMutation<CreateDepartmentResult, { department: CreateDepartmentInput }>(
+        CREATE_DEPARTMENT,
+        {
+            refetchQueries: [DEPARTMENTS],
+        }
+    );
 };
 
 export const useDepartmentUpdate = () => {
-    return useMutation<Department, { department: UpdateDepartmentInput }>(updateMutation, {
-        refetchQueries: [getQuery],
-    });
+    return useMutation<UpdateDepartmentResult, { department: UpdateDepartmentInput }>(
+        UPDATE_DEPARTMENT,
+        {
+            refetchQueries: [DEPARTMENTS],
+        }
+    );
 };
 
 export const useDepartmentDelete = (departmentId: string) => {
-    return useMutation<null, { department: DeleteDepartmentInput }>(deleteMutation, {
+    return useMutation<null, { department: DeleteDepartmentInput }>(DELETE_DEPARTMENT, {
         variables: {
             department: { departmentId },
         },
-        refetchQueries: [getQuery],
+        refetchQueries: [DEPARTMENTS],
     });
 };
