@@ -2,6 +2,7 @@ import { memo, ReactNode } from "react";
 import { Space, Dropdown } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
 import { t } from "i18next";
+import { Content } from "antd/es/layout/layout";
 
 export interface Action {
     onUpdate: (id: string) => void;
@@ -22,17 +23,17 @@ const ActionsMenu = ({ onUpdate, onDelete, pageName, record }: ActionProps) => {
         {
             key: "0",
             label: (
-                <div key='update' onClick={onHandlUpdate}>
+                <Content key='update' onClick={onHandlUpdate}>
                     {t("update")} {pageName}
-                </div>
+                </Content>
             ) as ReactNode,
         },
         {
             key: "1",
             label: (
-                <div key='delete' onClick={onHandleDelete}>
+                <Content key='delete' onClick={onHandleDelete}>
                     {t("delete")} {pageName}
-                </div>
+                </Content>
             ) as ReactNode,
         },
     ];

@@ -47,7 +47,7 @@ const DepartmentsList = () => {
                             },
                         },
                     }),
-                defaultValue: {
+                defaultValues: {
                     name: departments.find((department) => department.id === id)?.name ?? "",
                 },
             }),
@@ -64,7 +64,7 @@ const DepartmentsList = () => {
                         },
                     },
                 }),
-            defaultValue: { name: "" },
+            defaultValues: { name: "" },
         });
 
     const columnConfigs: ColumnConfig<Department>[] = [{ name: "name", isSorted: true }];

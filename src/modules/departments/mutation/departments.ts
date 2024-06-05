@@ -19,7 +19,7 @@ export const useDepartmentCreate = () => {
         CREATE_DEPARTMENT,
         {
             refetchQueries: [DEPARTMENTS],
-        },
+        }
     );
 };
 export const useDepartmentDelete = () => {

@@ -33,19 +33,19 @@ export const NotificationContextProvider = ({ children }: PropsWithChildren) => 
                 key: key ?? message,
             });
         },
-        [api],
+        [api]
     );
 
     const closeNotification = useCallback(
         (key?: string | number) => {
             api.destroy(key);
         },
-        [api],
+        [api]
     );
 
     const contextValue = useMemo(
         () => ({ showNotification, closeNotification }),
-        [showNotification, closeNotification],
+        [showNotification, closeNotification]
     );
 
     return (

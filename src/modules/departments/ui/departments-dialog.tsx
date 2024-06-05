@@ -5,6 +5,7 @@ import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { useTranslation } from "react-i18next";
 import { getDepartmentFormSchema } from "../shemas/department";
 import { Button } from "antd";
+import { useEffect, useState } from "react";
 
 interface FormData {
     department: string;
@@ -13,25 +14,32 @@ interface DepartmentDialogProps {
     title: string;
     onConfirm: (formData: FormData) => void;
     onClose: () => void;
-    defaultValue: { name: string };
+    defaultValues: { name: string };
 }
-
-const DepartmentDialog = ({ title, onConfirm, onClose, defaultValue }: DepartmentDialogProps) => {
+const DepartmentDialog = ({ title, onConfirm, onClose, defaultValues }: DepartmentDialogProps) => {
     const { t } = useTranslation();
+
+    const [initialValues, setInitialValues] = useState<FormData>({
+        department: defaultValues.name,
+    });
+
+    useEffect(() => {
+        setInitialValues({ department: defaultValues.name });
+    }, [defaultValues]);
 
     const handleConfirm = (formData: FormData) => {
         onConfirm(formData);
         onClose();
     };
+
     return (
         <BaseDialog title={title} onClose={onClose}>
-            <Form onSubmit={handleConfirm} schema={getDepartmentFormSchema()}>
-                <FormTextField
-                    type='text'
-                    label={t("department")}
-                    name='department'
-                    defaultValue={defaultValue.name}
-                />
+            <Form
+                onSubmit={handleConfirm}
+                initialValues={initialValues}
+                schema={getDepartmentFormSchema()}
+            >
+                <FormTextField type='text' label={t("department")} name='department' />
                 <Button htmlType='button' onClick={onClose}>
                     {t("cancel")}
                 </Button>
