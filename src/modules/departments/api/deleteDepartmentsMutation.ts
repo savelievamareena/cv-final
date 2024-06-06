@@ -10,11 +10,8 @@ export const DELETE_DEPARTMENT = gql`
     }
 `;
 
-export const useDepartmentDelete = (departmentId: string) => {
+export const useDepartmentDelete = () => {
     return useMutation<null, { department: DeleteDepartmentInput }>(DELETE_DEPARTMENT, {
-        variables: {
-            department: { departmentId },
-        },
         refetchQueries: [DEPARTMENTS_QUERY],
     });
 };

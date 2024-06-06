@@ -10,13 +10,8 @@ export const DELETE_CV = gql`
     }
 `;
 
-export const useCvDelete = (cvId: string) => {
+export const useCvDelete = () => {
     return useMutation<null, { cv: DeleteCvInput }>(DELETE_CV, {
-        variables: {
-            cv: {
-                cvId,
-            },
-        },
         refetchQueries: [CVS_QUERY],
     });
 };

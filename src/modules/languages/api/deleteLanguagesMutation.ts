@@ -10,11 +10,8 @@ export const DELETE_LANGUAGE = gql`
     }
 `;
 
-export const useLanguageDelete = (languageId: string) => {
+export const useLanguageDelete = () => {
     const [deleteLanguage] = useMutation<null, { language: DeleteLanguageInput }>(DELETE_LANGUAGE, {
-        variables: {
-            language: { languageId },
-        },
         refetchQueries: [LANGUAGES_QUERY],
     });
     return [deleteLanguage];
