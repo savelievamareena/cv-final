@@ -37,8 +37,8 @@ export const SignUpForm = () => {
             schema={getSignUpFormSchema()}
         >
             <h2 className={styles.title}>{t("auth.signup")}</h2>
-            <FormTextField type='text' label={t("auth.fieldLabels.email")} name='email' />
-            <PasswordInput label={t("auth.fieldLabels.password")} name='password' />
+            <FormTextField type="text" label={t("auth.fieldLabels.email")} name="email" />
+            <PasswordInput label={t("auth.fieldLabels.password")} name="password" />
             <FormSubmitButton>{t("submit")}</FormSubmitButton>
         </Form>
     );

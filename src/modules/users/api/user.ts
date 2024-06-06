@@ -40,11 +40,8 @@ export const useUser = ({ userId }: QueryArgs) => {
         variables: {
             userId,
         },
-        onError(error) {
+        onError: (error) => {
             console.error(error.message);
-        },
-        onCompleted(data) {
-            console.log(data);
         },
     });
 };
@@ -52,11 +49,8 @@ export const useUser = ({ userId }: QueryArgs) => {
 export const useUpdateUser = () => {
     return useMutation<UserResult, { user: UpdateUserInput }>(UPDATE_USER, {
         refetchQueries: [USER],
-        onError(error) {
+        onError: (error) => {
             console.error(error.message);
-        },
-        onCompleted(data) {
-            console.log(data);
         },
     });
 };

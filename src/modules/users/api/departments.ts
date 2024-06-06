@@ -16,7 +16,7 @@ interface DepartmentsResult {
 
 export const useDepartments = () => {
     return useQuery<DepartmentsResult>(DEPARTMENTS, {
-        onError(error) {
+        onError: (error) => {
             console.error(error.message);
         },
     });

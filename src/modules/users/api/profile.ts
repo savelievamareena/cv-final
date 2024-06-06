@@ -35,11 +35,8 @@ export const useProfile = ({ userId }: QueryArgs) => {
         variables: {
             userId,
         },
-        onError(error) {
+        onError: (error) => {
             console.error(error.message);
-        },
-        onCompleted(data) {
-            console.log(data);
         },
     });
 };
@@ -47,11 +44,8 @@ export const useProfile = ({ userId }: QueryArgs) => {
 export const useUpdateProfile = () => {
     return useMutation<ProfileResult, { profile: UpdateProfileInput }>(UPDATE_PROFILE, {
         refetchQueries: [PROFILE],
-        onError(error) {
+        onError: (error) => {
             console.error(error.message);
-        },
-        onCompleted(data) {
-            console.log(data);
         },
     });
 };

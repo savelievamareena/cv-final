@@ -15,7 +15,7 @@ export const ProfileAvatar = ({
 }) => {
     return (
         <div className={styles.avatarWrapper}>
-            <Avatar className={styles.avatar} src={profile.avatar ?? undefined} alt='user-avatar'>
+            <Avatar className={styles.avatar} src={profile.avatar ?? undefined} alt="user-avatar">
                 {!profile.avatar && user.email[0].toUpperCase()}
             </Avatar>
             {canEdit && profile.avatar && (

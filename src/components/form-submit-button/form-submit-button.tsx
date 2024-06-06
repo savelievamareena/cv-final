@@ -13,7 +13,7 @@ export const FormSubmitButton = ({
     return (
         <Button
             {...props}
-            htmlType='submit'
+            htmlType="submit"
             disabled={(disableIfNotDirty && !formState.isDirty) || formState.disabled || disabled}
         >
             {children}

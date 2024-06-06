@@ -13,9 +13,8 @@ void i18n
     .use(LanguageDetector)
     .use(Backend)
     .init({
-        supportedLngs: [Languages.En, Languages.Ru],
-
         fallbackLng: Languages.En,
+        supportedLngs: [Languages.En, Languages.Ru],
     });
 
 export default i18n;

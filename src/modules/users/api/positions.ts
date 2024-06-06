@@ -16,7 +16,7 @@ interface PositionsResult {
 
 export const usePositions = () => {
     return useQuery<PositionsResult>(POSITIONS, {
-        onError(error) {
+        onError: (error) => {
             console.error(error.message);
         },
     });

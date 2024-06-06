@@ -1,3 +1,4 @@
+import { useNotificationContext } from "@/helpers/notification";
 import { authService } from "@/services/auth-service";
 import { gql, useMutation } from "@apollo/client";
 import { AuthInput, AuthResult } from "cv-graphql";
@@ -25,11 +26,13 @@ interface SignUpResult {
 }
 
 export const useSignUp = () => {
+    const { showNotification } = useNotificationContext();
+
     return useMutation<SignUpResult, SignUpArgs>(SIGN_UP, {
-        onError(error) {
-            console.error(error.message);
+        onError: (error) => {
+            showNotification("error", error.message);
         },
-        onCompleted(data) {
+        onCompleted: (data) => {
             authService.login(data.signup.user, data.signup.access_token);
         },
     });

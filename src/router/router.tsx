@@ -155,7 +155,7 @@ export const router = createBrowserRouter([
                             {
                                 index: true,
                                 path: "*",
-                                element: <Navigate to='' replace />,
+                                element: <Navigate to="" replace />,
                             },
                         ],
                     },
@@ -189,7 +189,7 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 path: "*",
-                element: <Navigate to='' replace />,
+                element: <Navigate to="" replace />,
             },
         ],
     },

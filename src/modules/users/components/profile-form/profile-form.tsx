@@ -62,17 +62,17 @@ export const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
                 ]);
             }}
         >
-            <FormTextField name='firstName' label='firstName' />
-            <FormTextField name='lastName' label='lastName' />
+            <FormTextField name="firstName" label="firstName" />
+            <FormTextField name="lastName" label="lastName" />
             <FormSelect
-                name='department'
-                label='department'
+                name="department"
+                label="department"
                 loading={loadingDepartments}
                 options={departmentOptions}
             />
             <FormSelect
-                name='position'
-                label='position'
+                name="position"
+                label="position"
                 loading={loadingPositions}
                 options={positionOptions}
             />
