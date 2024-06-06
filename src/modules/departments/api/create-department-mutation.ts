@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { CreateDepartmentInput } from "cv-graphql";
 import { CreateDepartmentResult } from "./departments.types";
-import { DEPARTMENTS_QUERY } from "./get-departments-query";
+import { GET_DEPARTMENTS_QUERY } from "./get-departments-query";
 
 export const CREATE_DEPARTMENT = gql`
     mutation CreateDepartment($department: CreateDepartmentInput!) {
@@ -16,7 +16,7 @@ export const useDepartmentCreate = () => {
     return useMutation<CreateDepartmentResult, { department: CreateDepartmentInput }>(
         CREATE_DEPARTMENT,
         {
-            refetchQueries: [DEPARTMENTS_QUERY],
+            refetchQueries: [GET_DEPARTMENTS_QUERY],
         }
     );
 };

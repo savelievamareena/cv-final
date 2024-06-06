@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { LanguagesResult } from "./languages.types";
 
-export const LANGUAGES_QUERY = gql`
+export const GET_LANGUAGES_QUERY = gql`
     query Languages {
         languages {
             id
@@ -12,6 +12,6 @@ export const LANGUAGES_QUERY = gql`
     }
 `;
 export const useLanguagesQuery = () => {
-    const query = useQuery<LanguagesResult>(LANGUAGES_QUERY);
+    const query = useQuery<LanguagesResult>(GET_LANGUAGES_QUERY);
     return { languages: query.data?.languages ?? [], ...query };
 };

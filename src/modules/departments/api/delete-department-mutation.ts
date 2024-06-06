@@ -1,6 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { DeleteDepartmentInput } from "cv-graphql";
-import { DEPARTMENTS_QUERY } from "./get-departments-query";
+import { GET_DEPARTMENTS_QUERY } from "./get-departments-query";
 
 export const DELETE_DEPARTMENT = gql`
     mutation DeleteDepartment($department: DeleteDepartmentInput!) {
@@ -12,6 +12,6 @@ export const DELETE_DEPARTMENT = gql`
 
 export const useDepartmentDelete = () => {
     return useMutation<null, { department: DeleteDepartmentInput }>(DELETE_DEPARTMENT, {
-        refetchQueries: [DEPARTMENTS_QUERY],
+        refetchQueries: [GET_DEPARTMENTS_QUERY],
     });
 };

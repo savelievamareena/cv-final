@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { UsersResult } from "./users.types";
 
-export const USERS_QUERY = gql`
+export const GET_USERS_QUERY = gql`
     query Users {
         users {
             id
@@ -27,6 +27,6 @@ export const USERS_QUERY = gql`
 `;
 
 export const useUsersQuery = () => {
-    const query = useQuery<UsersResult>(USERS_QUERY);
+    const query = useQuery<UsersResult>(GET_USERS_QUERY);
     return { users: query.data?.users ?? [], ...query };
 };

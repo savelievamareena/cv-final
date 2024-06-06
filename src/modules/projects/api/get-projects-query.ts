@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { ProjectsResult } from "./projects.types";
 
-export const PROJECTS_QUERY = gql`
+export const GET_PROJECTS_QUERY = gql`
     query Projects {
         projects {
             id
@@ -17,6 +17,6 @@ export const PROJECTS_QUERY = gql`
 `;
 
 export const useProjectsQuery = () => {
-    const query = useQuery<ProjectsResult>(PROJECTS_QUERY);
+    const query = useQuery<ProjectsResult>(GET_PROJECTS_QUERY);
     return { projects: query.data?.projects ?? [], ...query };
 };

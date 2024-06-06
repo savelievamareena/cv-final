@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { USERS_QUERY } from "./get-users-query";
+import { GET_USERS_QUERY } from "./get-users-query";
 
 export const DELETE_USER = gql`
     mutation DeleteUser($userId: ID!) {
@@ -14,6 +14,6 @@ export const useUserDelete = (userId: string) => {
         variables: {
             userId,
         },
-        refetchQueries: [USERS_QUERY],
+        refetchQueries: [GET_USERS_QUERY],
     });
 };

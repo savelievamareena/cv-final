@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { UpdateLanguageInput } from "cv-graphql";
-import { LANGUAGES_QUERY } from "./get-languages-query";
 import { UpdateLanguageResult } from "./languages.types";
+import { GET_LANGUAGES_QUERY } from "./get-languages-query";
 
 export const UPDATE_LANGUAGE = gql`
     mutation UpdateLanguage($language: UpdateLanguageInput!) {
@@ -16,6 +16,6 @@ export const UPDATE_LANGUAGE = gql`
 
 export const useLanguageUpdate = () => {
     return useMutation<UpdateLanguageResult, { language: UpdateLanguageInput }>(UPDATE_LANGUAGE, {
-        refetchQueries: [LANGUAGES_QUERY],
+        refetchQueries: [GET_LANGUAGES_QUERY],
     });
 };

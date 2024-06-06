@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { PROJECTS_QUERY } from "./get-projects-query";
+import { GET_PROJECTS_QUERY } from "./get-projects-query";
 
 export const DELETE_PROJECT = gql`
     mutation DeleteProject($project: DeleteProjectInput!) {
@@ -11,6 +11,6 @@ export const DELETE_PROJECT = gql`
 
 export const useProjectDelete = () => {
     return useMutation(DELETE_PROJECT, {
-        refetchQueries: [PROJECTS_QUERY],
+        refetchQueries: [GET_PROJECTS_QUERY],
     });
 };

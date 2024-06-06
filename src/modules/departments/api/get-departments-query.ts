@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { DepartmentsResult } from "./departments.types";
 
-export const DEPARTMENTS_QUERY = gql`
+export const GET_DEPARTMENTS_QUERY = gql`
     query Departments {
         departments {
             id
@@ -11,7 +11,7 @@ export const DEPARTMENTS_QUERY = gql`
 `;
 
 export const useDepartmentsQuery = () => {
-    const query = useQuery<DepartmentsResult>(DEPARTMENTS_QUERY);
+    const query = useQuery<DepartmentsResult>(GET_DEPARTMENTS_QUERY);
 
     return { departments: query.data?.departments ?? [], ...query };
 };

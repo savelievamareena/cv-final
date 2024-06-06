@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { UpdatePositionInput } from "cv-graphql";
-import { POSITIONS_QUERY } from "./get-positions-query";
 import { UpdatePositionResult } from "./positions.types";
+import { GET_POSITIONS_QUERY } from "./get-positions-query";
 
 export const UPDATE_POSITION = gql`
     mutation UpdatePosition($position: UpdatePositionInput!) {
@@ -14,6 +14,6 @@ export const UPDATE_POSITION = gql`
 
 export const usePositionUpdate = () => {
     return useMutation<UpdatePositionResult, { position: UpdatePositionInput }>(UPDATE_POSITION, {
-        refetchQueries: [POSITIONS_QUERY],
+        refetchQueries: [GET_POSITIONS_QUERY],
     });
 };

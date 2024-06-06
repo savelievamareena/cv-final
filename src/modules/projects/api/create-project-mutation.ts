@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { CreateProjectInput } from "cv-graphql";
 import { CreateProjectResult } from "./projects.types";
-import { PROJECTS_QUERY } from "./get-projects-query";
+import { GET_PROJECTS_QUERY } from "./get-projects-query";
 
 export const CREATE_PROJECT = gql`
     mutation CreateProject($project: CreateProjectInput!) {
@@ -20,6 +20,6 @@ export const CREATE_PROJECT = gql`
 
 export const useProjectCreate = () => {
     return useMutation<CreateProjectResult, { project: CreateProjectInput }>(CREATE_PROJECT, {
-        refetchQueries: [PROJECTS_QUERY],
+        refetchQueries: [GET_PROJECTS_QUERY],
     });
 };

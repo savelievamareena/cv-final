@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { PositionsResult } from "./positions.types";
 
-export const POSITIONS_QUERY = gql`
+export const GET_POSITIONS_QUERY = gql`
     query Positions {
         positions {
             id
@@ -11,7 +11,7 @@ export const POSITIONS_QUERY = gql`
 `;
 
 export const usePositionsQuery = () => {
-    const query = useQuery<PositionsResult>(POSITIONS_QUERY);
+    const query = useQuery<PositionsResult>(GET_POSITIONS_QUERY);
 
     return { positions: query.data?.positions ?? [], ...query };
 };
