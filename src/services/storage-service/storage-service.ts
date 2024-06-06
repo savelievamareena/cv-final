@@ -1,13 +1,13 @@
 import { IStorageService } from "./storage-service.types";
 
-class StorageService<T> implements IStorageService<T> {
+class StorageService implements IStorageService {
     constructor(private readonly storage: Storage) {}
 
-    setItem(key: string, item: T) {
+    setItem<T>(key: string, item: T) {
         this.storage.setItem(key, JSON.stringify(item));
     }
 
-    getItem(key: string): T | null {
+    getItem<T>(key: string): T | null {
         const item = this.storage.getItem(key);
         if (item) {
             return JSON.parse(item) as T;
@@ -20,4 +20,4 @@ class StorageService<T> implements IStorageService<T> {
     }
 }
 
-export const localStorageService = new StorageService<string>(localStorage);
+export const localStorageService = new StorageService(localStorage);
