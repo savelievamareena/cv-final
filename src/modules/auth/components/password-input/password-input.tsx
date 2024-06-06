@@ -26,7 +26,7 @@ export const PasswordInput = ({
             type={visible ? "text" : "password"}
             prefix={
                 <Button
-                    htmlType='button'
+                    htmlType="button"
                     className={styles.toggleButton}
                     onClick={(ev) => {
                         ev.stopPropagation();

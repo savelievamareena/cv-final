@@ -32,6 +32,8 @@ module.exports = {
             "error",
             {
                 trailingComma: "es5",
+                jsxSingleQuote: false,
+                singleQuote: false,
             },
         ],
         "react/prop-types": "off",

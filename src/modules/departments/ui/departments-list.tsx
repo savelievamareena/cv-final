@@ -4,11 +4,11 @@ import { t } from "i18next";
 import ListTemplate from "@/components/list-lemplate/list-template";
 import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
-import { useDepartments } from "@/modules/departments/mutation/departments";
-import { useConfirm } from "@/components/confirg-dialog/confirm-dialog";
+import { useConfirm } from "@/components/confirm-dialog/confirm-dialog";
+import { useDepartmentsQuery } from "../api";
 
 const DepartmentsList = () => {
-    const { departments, loading } = useDepartments();
+    const { departments, loading } = useDepartmentsQuery();
     const [searchQuery, setSearchQuery] = useState("");
 
     const [openConfirm] = useConfirm();
