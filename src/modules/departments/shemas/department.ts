@@ -1,5 +1,5 @@
-import i18n from "@/i18n";
 import { z } from "zod";
+import i18n from "@/i18n";
 
 export const getDepartmentFormSchema = () =>
     z.object({

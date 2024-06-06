@@ -30,7 +30,7 @@ const ListTemplate = ({
     setSearchQuery,
 }: ListTemplateProps<Skill | Department>) => {
     const user = useAuthUser();
-    const isAdmin = user ? user.role === UserRole.Admin : false;
+    const isAdmin = user?.role === UserRole.Admin;
 
     const { t } = useTranslation();
 

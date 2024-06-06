@@ -1,11 +1,11 @@
-import BaseDialog from "@/components/dialog/base-dialog";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Button } from "antd";
 import { Form } from "@/components/form";
 import { FormTextField } from "@/components/form-text-field";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
-import { useTranslation } from "react-i18next";
+import BaseDialog from "@/components/dialog/base-dialog";
 import { getDepartmentFormSchema } from "../shemas/department";
-import { Button } from "antd";
-import { useEffect, useState } from "react";
 
 interface FormData {
     department: string;
