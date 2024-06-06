@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { CreateLanguageInput } from "cv-graphql";
 import { CreateLanguageResult } from "./languages.types";
-import { LANGUAGES_QUERY } from "./getLanguagesQuery";
+import { LANGUAGES_QUERY } from "./get-languages-query";
 
 export const CREATE_LANGUAGE = gql`
     mutation CreateLanguage($language: CreateLanguageInput!) {

@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { UpdateProjectInput } from "cv-graphql";
 import { UpdateProjectResult } from "./projects.types";
-import { PROJECTS_QUERY } from "./getProjectsQuery";
+import { PROJECTS_QUERY } from "./get-projects-query";
 
 export const UPDATE_PROJECT = gql`
     mutation UpdateProject($project: UpdateProjectInput!) {

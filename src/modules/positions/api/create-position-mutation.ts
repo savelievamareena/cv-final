@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { CreatePositionInput } from "cv-graphql";
 import { CreatePositionResult } from "./positions.types";
-import { POSITIONS_QUERY } from "./getPositionsQuery";
+import { POSITIONS_QUERY } from "./get-positions-query";
 
 export const CREATE_POSITION = gql`
     mutation CreatePosition($position: CreatePositionInput!) {

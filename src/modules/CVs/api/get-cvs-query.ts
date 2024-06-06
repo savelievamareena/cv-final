@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { CVsResult } from "./CVs.types";
+import { CVsResult } from "./cvs.types";
 
 export const CVS_QUERY = gql`
     query Cvs {

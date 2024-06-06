@@ -1,6 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { DeleteCvInput } from "cv-graphql";
-import { CVS_QUERY } from "./getCVsQuery";
+import { CVS_QUERY } from "./get-cvs-query";
 
 export const DELETE_CV = gql`
     mutation DeleteCv($cv: DeleteCvInput!) {

@@ -1,6 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { UpdateLanguageInput } from "cv-graphql";
-import { LANGUAGES_QUERY } from "./getLanguagesQuery";
+import { LANGUAGES_QUERY } from "./get-languages-query";
 import { UpdateLanguageResult } from "./languages.types";
 
 export const UPDATE_LANGUAGE = gql`

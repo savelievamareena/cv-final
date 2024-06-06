@@ -1,6 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { DeletePositionInput } from "cv-graphql";
-import { POSITIONS_QUERY } from "./getPositionsQuery";
+import { POSITIONS_QUERY } from "./get-positions-query";
 
 export const DELETE_POSITION = gql`
     mutation DeletePosition($position: DeletePositionInput!) {

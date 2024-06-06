@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { UpdateSkillInput } from "cv-graphql";
 import { UpdateSkillResult } from "./skills.types";
-import { SKILLS_QUERY } from "./getSkillsQuery";
+import { SKILLS_QUERY } from "./get-skills-query";
 
 export const UPDATE_SKILL = gql`
     mutation UpdateSkill($skill: UpdateSkillInput!) {
