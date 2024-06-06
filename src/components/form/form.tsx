@@ -9,6 +9,8 @@ const Form = <T extends FieldValues>({
     onSubmit,
     children,
     defaultValues,
+    resetAfterSubmit = true,
+    updateDefaultsAfterSubmit = true,
     ...props
 }: FormProps<T>) => {
     const formMethods = useForm({
@@ -18,7 +20,24 @@ const Form = <T extends FieldValues>({
 
     return (
         <FormProvider {...formMethods}>
-            <AntdForm onFinish={formMethods.handleSubmit(onSubmit)} {...props}>
+            <AntdForm
+                onFinish={formMethods.handleSubmit((data) => {
+                    const onSubmitReturn = onSubmit(data);
+
+                    if (!resetAfterSubmit) return;
+
+                    if (onSubmitReturn instanceof Promise) {
+                        onSubmitReturn
+                            .then(() => {
+                                formMethods.reset(updateDefaultsAfterSubmit ? data : undefined);
+                            })
+                            .catch((err) => console.error(err));
+                    } else {
+                        formMethods.reset(updateDefaultsAfterSubmit ? data : undefined);
+                    }
+                })}
+                {...props}
+            >
                 {children}
             </AntdForm>
         </FormProvider>

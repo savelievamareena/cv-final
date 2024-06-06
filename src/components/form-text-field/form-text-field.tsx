@@ -23,8 +23,8 @@ const FormTextField = ({
     return (
         <Controller
             control={control}
-            defaultValue={defaultValue}
             name={name}
+            defaultValue={defaultValue}
             render={({ field }) => {
                 return (
                     <Form.Item
