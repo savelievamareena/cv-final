@@ -5,16 +5,15 @@ import { profileFormSchema } from "../schemas";
 import { FormTextField } from "@/components/form-text-field";
 import { FormSelect } from "@/components/form-select";
 import { FormSubmitButton } from "@/components/form-submit-button/form-submit-button";
-import { useDepartments } from "../../api/departments";
-import { usePositions } from "../../api/positions";
-import { useUpdateProfile, useUpdateUser } from "../../api";
+import { useUpdateProfile, useUpdateUser, useDepartments, usePositions } from "../../api";
 
 interface ProfileFormProps {
     profile: Profile;
     user: User;
+    canEdit: boolean;
 }
 
-export const ProfileForm = ({ user, profile }: ProfileFormProps) => {
+export const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
     const { data: positionsData, loading: loadingPositions } = usePositions();
     const { data: departmentsData, loading: loadingDepartments } = useDepartments();
 
@@ -32,7 +31,7 @@ export const ProfileForm = ({ user, profile }: ProfileFormProps) => {
 
     return (
         <Form
-            disabled={loadingUserUpdate || loadingProfileUpdate}
+            disabled={!canEdit || loadingUserUpdate || loadingProfileUpdate}
             defaultValues={{
                 firstName: profile.first_name ?? "",
                 lastName: profile.last_name ?? "",
@@ -77,7 +76,7 @@ export const ProfileForm = ({ user, profile }: ProfileFormProps) => {
                 loading={loadingPositions}
                 options={positionOptions}
             />
-            <FormSubmitButton disableIfNotDirty>Submit</FormSubmitButton>
+            {canEdit && <FormSubmitButton disableIfNotDirty>Submit</FormSubmitButton>}
         </Form>
     );
 };

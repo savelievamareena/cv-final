@@ -8,7 +8,7 @@ import { Login } from "@/pages/login";
 import { SignUp } from "@/pages/sign-up";
 import { VerifyMail } from "@/pages/verify-mail";
 import { DepartmentsPage } from "@/pages/Departments";
-import { UserLayout } from "@/modules/user/components/user-layout";
+import { UserLayout } from "@/modules/users/components/user-layout";
 import { Profile } from "@/pages/user-profile";
 
 export const router = createBrowserRouter([

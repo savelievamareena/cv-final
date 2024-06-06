@@ -9,6 +9,7 @@ const LOGIN = gql`
                 id
                 email
                 is_verified
+                role
             }
             access_token
         }

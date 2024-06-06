@@ -1,4 +1,4 @@
-import { ProfileContent } from "@/modules/user/components/profile-content";
+import { ProfileContent } from "@/modules/users/components/profile-content";
 
 export const Profile = () => {
     return <ProfileContent />;
