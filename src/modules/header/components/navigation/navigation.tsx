@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import classNames from "classnames/bind";
+import { useTranslation } from "react-i18next";
 import { Drawer, Flex } from "antd";
 import { routes } from "@/router/constants";
 import {
@@ -14,7 +16,6 @@ import {
     UserOutlined,
 } from "@ant-design/icons";
 import styles from "./navigation.module.css";
-import { useEffect } from "react";
 
 interface NavigationProps {
     isDrawerOpen: boolean;
@@ -23,6 +24,7 @@ interface NavigationProps {
 
 const Navigation = ({ isDrawerOpen, setDrawerOpen }: NavigationProps) => {
     const cx = classNames.bind(styles);
+    const { t } = useTranslation();
     const onClose = () => {
         setDrawerOpen(false);
     };
@@ -51,7 +53,7 @@ const Navigation = ({ isDrawerOpen, setDrawerOpen }: NavigationProps) => {
             <Flex vertical>
                 <NavLink to={routes.root} className={({ isActive }) => cx({ active: isActive })}>
                     <Flex className={cx("menu_item", "border_bottom")}>
-                        <HomeFilled className={cx("nav_icon")} /> Home
+                        <HomeFilled className={cx("nav_icon")} /> {t("Home")}
                     </Flex>
                 </NavLink>
                 <NavLink
@@ -59,7 +61,7 @@ const Navigation = ({ isDrawerOpen, setDrawerOpen }: NavigationProps) => {
                     className={({ isActive }) => cx({ active: isActive })}
                 >
                     <Flex className={cx("menu_item")}>
-                        <UserOutlined className={cx("nav_icon")} /> Employees
+                        <UserOutlined className={cx("nav_icon")} /> {t("Employees")}
                     </Flex>
                 </NavLink>
                 <NavLink
@@ -67,7 +69,7 @@ const Navigation = ({ isDrawerOpen, setDrawerOpen }: NavigationProps) => {
                     className={({ isActive }) => cx({ active: isActive })}
                 >
                     <Flex className={cx("menu_item")}>
-                        <FolderOutlined className={cx("nav_icon")} /> Projects
+                        <FolderOutlined className={cx("nav_icon")} /> {t("Projects")}
                     </Flex>
                 </NavLink>
                 <NavLink
@@ -75,7 +77,7 @@ const Navigation = ({ isDrawerOpen, setDrawerOpen }: NavigationProps) => {
                     className={({ isActive }) => cx({ active: isActive })}
                 >
                     <Flex className={cx("menu_item", "border_bottom")}>
-                        <AuditOutlined className={cx("nav_icon")} /> CVs
+                        <AuditOutlined className={cx("nav_icon")} /> {t("CVs")}
                     </Flex>
                 </NavLink>
                 <NavLink
@@ -83,7 +85,7 @@ const Navigation = ({ isDrawerOpen, setDrawerOpen }: NavigationProps) => {
                     className={({ isActive }) => cx({ active: isActive })}
                 >
                     <Flex className={cx("menu_item")}>
-                        <ApartmentOutlined className={cx("nav_icon")} /> Departments
+                        <ApartmentOutlined className={cx("nav_icon")} /> {t("Departments")}
                     </Flex>
                 </NavLink>
                 <NavLink
@@ -91,12 +93,12 @@ const Navigation = ({ isDrawerOpen, setDrawerOpen }: NavigationProps) => {
                     className={({ isActive }) => cx({ active: isActive })}
                 >
                     <Flex className={cx("menu_item")}>
-                        <ContactsOutlined className={cx("nav_icon")} /> Positions
+                        <ContactsOutlined className={cx("nav_icon")} /> {t("Positions")}
                     </Flex>
                 </NavLink>
                 <NavLink to={routes.skills} className={({ isActive }) => cx({ active: isActive })}>
                     <Flex className={cx("menu_item")}>
-                        <RiseOutlined className={cx("nav_icon")} /> Skills
+                        <RiseOutlined className={cx("nav_icon")} /> {t("Skills")}
                     </Flex>
                 </NavLink>
                 <NavLink
@@ -104,7 +106,7 @@ const Navigation = ({ isDrawerOpen, setDrawerOpen }: NavigationProps) => {
                     className={({ isActive }) => cx({ active: isActive })}
                 >
                     <Flex className={cx("menu_item")}>
-                        <GlobalOutlined className={cx("nav_icon")} /> Languages
+                        <GlobalOutlined className={cx("nav_icon")} /> {t("Languages")}
                     </Flex>
                 </NavLink>
             </Flex>
