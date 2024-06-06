@@ -34,7 +34,7 @@ const ListTemplate = ({
                 onChange={() => setSearchQuery}
                 prefix={<SearchOutlined />}
             />
-            <Button type='primary' danger ghost onClick={onButtonClick}>
+            <Button type="primary" danger ghost onClick={onButtonClick}>
                 {t("add")} {pageName}
             </Button>
             <TableTemplate

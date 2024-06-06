@@ -35,7 +35,7 @@ const Navigation = ({ isDrawerOpen, setDrawerOpen }: NavigationProps) => {
 
     return (
         <Drawer
-            placement='left'
+            placement="left"
             closable={false}
             onClose={onClose}
             open={isDrawerOpen}

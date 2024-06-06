@@ -1,6 +1,6 @@
-import { USER_CVS } from "@/modules/users/api";
 import { gql, useMutation } from "@apollo/client";
 import { CreateCvInput } from "cv-graphql";
+import { USER_CVS } from "@/modules/users/api";
 import { CreateCvResult } from "./CVs.types";
 import { CVS_QUERY } from "./getCVsQuery";
 

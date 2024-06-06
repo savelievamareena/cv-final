@@ -23,8 +23,8 @@ export const VerifyMailForm = () => {
             schema={getVerifyMailFormSchema()}
         >
             <h2 className={styles.title}>{t("auth.verifyMail")}</h2>
-            <FormTextField type='text' name='otp' label={t("auth.fieldLabels.otp")} maxLength={6} />
-            <Button className={styles.button} disabled={loading} htmlType='submit'>
+            <FormTextField type="text" name="otp" label={t("auth.fieldLabels.otp")} maxLength={6} />
+            <Button className={styles.button} disabled={loading} htmlType="submit">
                 {t("submit")}
             </Button>
         </Form>
