@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "antd";
 import { Form } from "@/components/form";
@@ -14,18 +13,11 @@ interface DepartmentDialogProps {
     title: string;
     onConfirm: (formData: FormData) => void;
     onClose: () => void;
-    defaultValues: { name: string };
+    initialValues: { department: string };
 }
-const DepartmentDialog = ({ title, onConfirm, onClose, defaultValues }: DepartmentDialogProps) => {
+const DepartmentDialog = ({ title, onConfirm, onClose, initialValues }: DepartmentDialogProps) => {
     const { t } = useTranslation();
-
-    const [initialValues, setInitialValues] = useState<FormData>({
-        department: defaultValues.name,
-    });
-
-    useEffect(() => {
-        setInitialValues({ department: defaultValues.name });
-    }, [defaultValues]);
+    const { department } = initialValues;
 
     const handleConfirm = (formData: FormData) => {
         onConfirm(formData);
@@ -36,7 +28,7 @@ const DepartmentDialog = ({ title, onConfirm, onClose, defaultValues }: Departme
         <BaseDialog title={title} onClose={onClose}>
             <Form
                 onSubmit={handleConfirm}
-                initialValues={initialValues}
+                initialValues={{ department }}
                 schema={getDepartmentFormSchema()}
             >
                 <FormTextField type="text" label={t("department")} name="department" />

@@ -9,7 +9,7 @@ interface dialogProps {
 
 const BaseDialog = ({ title, onClose, children }: dialogProps) => {
     return (
-        <Modal open={true} title={title} onCancel={onClose}>
+        <Modal open={true} title={title} onCancel={onClose} footer={null}>
             {children}
         </Modal>
     );
