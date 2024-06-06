@@ -12,7 +12,7 @@ const Form = <T extends FieldValues>({
     ...props
 }: FormProps<T>) => {
     const formMethods = useForm({
-        resolver: schema ? zodResolver(schema) : undefined,
+        resolver: zodResolver(schema),
         defaultValues,
     });
 
