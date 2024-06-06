@@ -9,12 +9,12 @@ class AuthService implements IAuthService {
     accessToken = makeVar("");
 
     constructor() {
-        const user = localStorageService.getItem(StorageKeys.User);
-        const accessToken = localStorageService.getItem(StorageKeys.AuthToken);
+        const user = localStorageService.getItem<User>(StorageKeys.User);
+        const accessToken = localStorageService.getItem<string>(StorageKeys.AuthToken);
 
         if (user && accessToken) {
             this.accessToken(accessToken);
-            this.user(JSON.parse(user) as User);
+            this.user(user);
         }
     }
 
@@ -23,7 +23,7 @@ class AuthService implements IAuthService {
 
         this.accessToken(accessToken);
 
-        localStorageService.setItem(StorageKeys.User, JSON.stringify(user));
+        localStorageService.setItem(StorageKeys.User, user);
         localStorageService.setItem(StorageKeys.AuthToken, accessToken);
     }
 
@@ -31,7 +31,7 @@ class AuthService implements IAuthService {
         if (this.user()) {
             const verifiedUserData = { ...this.user(), is_verified: true } as User;
 
-            localStorageService.setItem(StorageKeys.User, JSON.stringify(verifiedUserData));
+            localStorageService.setItem(StorageKeys.User, verifiedUserData);
             this.user(verifiedUserData);
         }
     }
