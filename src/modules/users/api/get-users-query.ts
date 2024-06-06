@@ -26,7 +26,7 @@ export const USERS_QUERY = gql`
     }
 `;
 
-export const useUsers = () => {
+export const useUsersQuery = () => {
     const query = useQuery<UsersResult>(USERS_QUERY);
     return { users: query.data?.users ?? [], ...query };
 };

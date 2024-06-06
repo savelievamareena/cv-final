@@ -10,7 +10,7 @@ export const DEPARTMENTS_QUERY = gql`
     }
 `;
 
-export const useDepartments = () => {
+export const useDepartmentsQuery = () => {
     const query = useQuery<DepartmentsResult>(DEPARTMENTS_QUERY);
 
     return { departments: query.data?.departments ?? [], ...query };

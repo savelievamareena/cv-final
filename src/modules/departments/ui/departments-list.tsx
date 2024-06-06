@@ -5,10 +5,10 @@ import ListTemplate from "@/components/list-lemplate/list-template";
 import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useConfirm } from "@/components/confirg-dialog/confirm-dialog";
-import { useDepartments } from "../api";
+import { useDepartmentsQuery } from "../api";
 
 const DepartmentsList = () => {
-    const { departments, loading } = useDepartments();
+    const { departments, loading } = useDepartmentsQuery();
     const [searchQuery, setSearchQuery] = useState("");
 
     const [openConfirm] = useConfirm();

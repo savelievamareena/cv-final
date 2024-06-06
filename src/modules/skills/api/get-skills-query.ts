@@ -11,7 +11,7 @@ export const SKILLS_QUERY = gql`
     }
 `;
 
-export const useSkills = () => {
+export const useSkillsQuery = () => {
     const query = useQuery<SkillsResult>(SKILLS_QUERY);
     return { skills: query.data?.skills ?? [], ...query };
 };

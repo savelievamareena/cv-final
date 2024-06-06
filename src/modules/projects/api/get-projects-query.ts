@@ -16,7 +16,7 @@ export const PROJECTS_QUERY = gql`
     }
 `;
 
-export const useProjects = () => {
+export const useProjectsQuery = () => {
     const query = useQuery<ProjectsResult>(PROJECTS_QUERY);
     return { projects: query.data?.projects ?? [], ...query };
 };

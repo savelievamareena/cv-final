@@ -15,7 +15,7 @@ export const CVS_QUERY = gql`
     }
 `;
 
-export const useCvs = () => {
+export const useCvsQuery = () => {
     const query = useQuery<CVsResult>(CVS_QUERY);
     return { cvs: query.data?.cvs ?? [], ...query };
 };
