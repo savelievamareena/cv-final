@@ -1,0 +1,11 @@
+.form {
+    width: min(95%, 48rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.submitButton {
+    align-self: flex-end;
+}

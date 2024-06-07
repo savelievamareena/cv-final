@@ -6,6 +6,9 @@ import { FormTextField } from "@/components/form-text-field";
 import { FormSelect } from "@/components/form-select";
 import { FormSubmitButton } from "@/components/form-submit-button/form-submit-button";
 import { useUpdateProfile, useUpdateUser, useDepartments, usePositions } from "../../api";
+import { Col, Row } from "antd";
+
+import styles from "./profile-form.module.scss";
 
 interface ProfileFormProps {
     profile: Profile;
@@ -31,6 +34,7 @@ export const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
 
     return (
         <Form
+            className={styles.form}
             disabled={!canEdit || loadingUserUpdate || loadingProfileUpdate}
             defaultValues={{
                 firstName: profile.first_name ?? "",
@@ -62,21 +66,37 @@ export const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
                 ]);
             }}
         >
-            <FormTextField name="firstName" label="firstName" />
-            <FormTextField name="lastName" label="lastName" />
-            <FormSelect
-                name="department"
-                label="department"
-                loading={loadingDepartments}
-                options={departmentOptions}
-            />
-            <FormSelect
-                name="position"
-                label="position"
-                loading={loadingPositions}
-                options={positionOptions}
-            />
-            {canEdit && <FormSubmitButton disableIfNotDirty>Submit</FormSubmitButton>}
+            <Row justify="space-between" gutter={16}>
+                <Col span={"12rem"}>
+                    <FormTextField name="firstName" label="firstName" />
+                </Col>
+                <Col span={"12rem"}>
+                    <FormTextField name="lastName" label="lastName" />
+                </Col>
+            </Row>
+            <Row justify="space-between" gutter={16}>
+                <Col span={"12rem"}>
+                    <FormSelect
+                        name="department"
+                        label="department"
+                        loading={loadingDepartments}
+                        options={departmentOptions}
+                    />
+                </Col>
+                <Col span={"12rem"}>
+                    <FormSelect
+                        name="position"
+                        label="position"
+                        loading={loadingPositions}
+                        options={positionOptions}
+                    />
+                </Col>
+            </Row>
+            {canEdit && (
+                <FormSubmitButton className={styles.submitButton} disableIfNotDirty>
+                    Submit
+                </FormSubmitButton>
+            )}
         </Form>
     );
 };

@@ -7,6 +7,8 @@ import { AvatarUpload } from "../avatar-upload";
 import { ProfileAvatar } from "../profile-avatar";
 import { useAuthUser } from "@/services/auth-service";
 import { UserRole } from "cv-graphql";
+import { SafetyOutlined } from "@ant-design/icons";
+import { Col, Row, Typography } from "antd";
 
 export const ProfileContent = () => {
     const { [RouteParams.UserId]: userId } = useParams();
@@ -27,16 +29,29 @@ export const ProfileContent = () => {
             {loading && !hasData && <div>Loading</div>}
             {hasData && (
                 <>
-                    <ProfileAvatar
-                        canEdit={canEdit}
-                        user={userData.user}
-                        profile={profileData.profile}
-                    />
-                    <p>
-                        <span>{userData.user.email}</span>
-                        {userData.user.is_verified && <span>✔️</span>}
-                    </p>
-                    {hasData && canEdit && <AvatarUpload user={userData.user} />}
+                    <Row justify="space-between" gutter={16}>
+                        <Col span={"12rem"}>
+                            <ProfileAvatar
+                                canEdit={canEdit}
+                                user={userData.user}
+                                profile={profileData.profile}
+                            />
+                            <Typography>
+                                <span>{userData.user.email}</span>
+                                {userData.user.is_verified && <SafetyOutlined />}
+                            </Typography>
+                            <Typography>{profileData.profile.full_name}</Typography>
+                            <Typography>
+                                <span>
+                                    A member since{" "}
+                                    {new Date(+profileData.profile.created_at).toUTCString()}
+                                </span>
+                            </Typography>
+                        </Col>
+                        <Col span={"12rem"}>
+                            {hasData && canEdit && <AvatarUpload user={userData.user} />}
+                        </Col>
+                    </Row>
                     {hasData && (
                         <ProfileForm
                             canEdit={canEdit}

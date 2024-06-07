@@ -1,5 +1,8 @@
+import { HEADER_PROFILE } from "@/modules/header/api";
+import { RouteParams } from "@/router";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { Profile, UpdateProfileInput } from "cv-graphql";
+import { useParams } from "react-router-dom";
 
 export const PROFILE = gql`
     query Profile($userId: ID!) {
@@ -42,8 +45,10 @@ export const useProfile = ({ userId }: QueryArgs) => {
 };
 
 export const useUpdateProfile = () => {
+    const { [RouteParams.UserId]: userId } = useParams();
+
     return useMutation<ProfileResult, { profile: UpdateProfileInput }>(UPDATE_PROFILE, {
-        refetchQueries: [PROFILE],
+        refetchQueries: [PROFILE, { query: HEADER_PROFILE, variables: { userId } }],
         onError: (error) => {
             console.error(error.message);
         },

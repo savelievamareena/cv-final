@@ -4,11 +4,15 @@ import { UploadProps } from "antd";
 import { useUploadAvatar } from "../../api";
 import { User } from "cv-graphql";
 import Dragger from "antd/es/upload/Dragger";
-
-const MAX_FILE_SIZE = 5 * 1024 * 1024;
+import { useNotificationContext } from "@/helpers/notification";
+import { useTranslation } from "react-i18next";
+import { MAX_AVATAR_SIZE } from "../../constants";
 
 export const AvatarUpload = ({ user }: { user: User }) => {
     const [uploadAvatar, { loading }] = useUploadAvatar();
+    const { t } = useTranslation();
+
+    const { showNotification } = useNotificationContext();
 
     const handleUpload = (file: File) => {
         fileToBase64(file)
@@ -24,8 +28,11 @@ export const AvatarUpload = ({ user }: { user: User }) => {
         name: "file",
         multiple: false,
         disabled: loading,
+        showUploadList: false,
         beforeUpload: (file) => {
-            if (file.size > MAX_FILE_SIZE) {
+            console.log(file);
+            if (file.size > MAX_AVATAR_SIZE) {
+                showNotification("error", t("profile.avatarUpload.errors.maxAvatarSize"));
                 return false;
             }
 
@@ -39,11 +46,8 @@ export const AvatarUpload = ({ user }: { user: User }) => {
             <p className="ant-upload-drag-icon">
                 <InboxOutlined />
             </p>
-            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-            <p className="ant-upload-hint">
-                Support for a single or bulk upload. Strictly prohibited from uploading company data
-                or other banned files.
-            </p>
+            <p className="ant-upload-text">{t("profile.avatarUpload.text")}</p>
+            <p className="ant-upload-hint">{t("profile.avatarUpload.hint")}</p>
         </Dragger>
     );
 };

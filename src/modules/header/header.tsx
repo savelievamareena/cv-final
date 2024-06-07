@@ -5,14 +5,16 @@ import { useAuthUser } from "@/services/auth-service";
 import { Navigation } from "@/modules/header/components/navigation";
 import { LanguagesSelect } from "./languages-select";
 import { UserDropdownMenu } from "./user-dropdown-menu";
-import { getUserNameToDisplay } from "src/helpers/user/getUserNameToDisplay.ts";
 import { GlobalOutlined, MenuOutlined } from "@ant-design/icons";
 import styles from "./header.module.css";
+import { useHeaderProfile } from "./api";
 
 const Header = () => {
     const cx = classNames.bind(styles);
     const [isDrawerOpen, setDrawerOpen] = useState(false);
     const user = useAuthUser();
+
+    const { data, loading } = useHeaderProfile({ userId: user!.id });
 
     return (
         <Layout.Header className={cx("header_wrapper")}>
@@ -27,12 +29,22 @@ const Header = () => {
                     <LanguagesSelect />
                 </Flex>
                 <Flex gap="middle">
-                    <div>{getUserNameToDisplay(user)}</div>
-                    <UserDropdownMenu
-                        userId={user?.id}
-                        profileLetter={getUserNameToDisplay(user)?.slice(0, 1).toUpperCase()}
-                        avatar={user?.profile?.avatar}
-                    />
+                    {!loading ? (
+                        <>
+                            <span>{data?.profile ? data?.profile.full_name : user!.email}</span>
+                            <UserDropdownMenu
+                                userId={user?.id}
+                                profileLetter={
+                                    data?.profile.full_name
+                                        ? data?.profile.full_name[0]
+                                        : user!.email[0]
+                                }
+                                avatar={data?.profile.avatar}
+                            />
+                        </>
+                    ) : (
+                        <span>Loading...</span>
+                    )}
                 </Flex>
             </Flex>
             <Navigation isDrawerOpen={isDrawerOpen} setDrawerOpen={setDrawerOpen} />
