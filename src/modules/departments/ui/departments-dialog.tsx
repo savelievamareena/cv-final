@@ -29,14 +29,14 @@ const DepartmentDialog = ({ title, onConfirm, onClose, initialValues }: Departme
         <BaseDialog title={title} onClose={onClose}>
             <Form
                 onSubmit={handleConfirm}
-                initialValues={{ department }}
+                defaultValues={{ department }}
                 schema={getDepartmentFormSchema()}
             >
                 <FormTextField type="text" label={t("department")} name="department" />
                 <Button htmlType="button" onClick={onClose}>
                     {t("cancel")}
                 </Button>
-                <FormSubmitButton>{t("submit")}</FormSubmitButton>
+                <FormSubmitButton disableIfNotDirty>{t("submit")}</FormSubmitButton>
             </Form>
         </BaseDialog>
     );
