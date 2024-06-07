@@ -10,7 +10,6 @@ const Form = <T extends FieldValues>({
     children,
     defaultValues,
     resetAfterSubmit = true,
-    updateDefaultsAfterSubmit = true,
     ...props
 }: FormProps<T>) => {
     const formMethods = useForm({
@@ -26,7 +25,7 @@ const Form = <T extends FieldValues>({
 
                     if (!resetAfterSubmit) return;
 
-                    formMethods.reset(updateDefaultsAfterSubmit ? data : undefined);
+                    formMethods.reset(data);
                 })}
                 {...props}
             >

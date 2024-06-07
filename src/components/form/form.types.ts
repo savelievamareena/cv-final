@@ -9,5 +9,4 @@ export interface FormProps<T extends FieldValues> extends AntdFormProps {
     children: ReactNode;
     defaultValues?: DefaultValues<T>;
     resetAfterSubmit?: boolean;
-    updateDefaultsAfterSubmit?: boolean;
 }
