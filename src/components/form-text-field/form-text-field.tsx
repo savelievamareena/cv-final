@@ -16,19 +16,21 @@ const FormTextField = ({
     } = useFormContext();
 
     const errorMessage = errors[name]?.message;
-    const defaultValue = defaultValues?.[name] as string;
+    const potentialDefaultValue = defaultValues?.[name] as unknown;
 
-    const helperText = typeof errorMessage === "string" ? errorMessage : "";
+    const defaultValue =
+        typeof potentialDefaultValue === "string" ? potentialDefaultValue : undefined;
+    const helperText = typeof errorMessage === "string" ? errorMessage : undefined;
 
     return (
         <Controller
             control={control}
-            defaultValue={defaultValue}
             name={name}
+            defaultValue={defaultValue}
             render={({ field }) => {
                 return (
                     <Form.Item
-                        validateStatus={helperText ? "error" : ""}
+                        validateStatus={helperText && "error"}
                         help={helperText}
                         name={name}
                         label={label}
