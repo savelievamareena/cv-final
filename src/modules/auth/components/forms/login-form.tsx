@@ -5,7 +5,7 @@ import { useLogin } from "../../api";
 import { FormTextField } from "@/components/form-text-field";
 import { Form } from "@/components/form";
 import { PasswordInput } from "../password-input";
-import { FormSubmitButton } from "@/components/form-submit-button/form-submit-button";
+import { FormSubmitButton } from "@/components/form-submit-button";
 
 import styles from "./form.module.scss";
 

@@ -4,7 +4,7 @@ import { useVerifyMail } from "../../api";
 import { getVerifyMailFormSchema } from "../../schemas";
 import { Form } from "@/components/form";
 import { FormTextField } from "@/components/form-text-field";
-import { FormSubmitButton } from "@/components/form-submit-button/form-submit-button";
+import { FormSubmitButton } from "@/components/form-submit-button";
 
 import styles from "./form.module.scss";
 

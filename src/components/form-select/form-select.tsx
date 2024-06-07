@@ -1,6 +1,6 @@
 import { Controller, useFormContext } from "react-hook-form";
-import { FormSelectProps } from "./form-select.types";
 import { Form, Select } from "antd";
+import { FormSelectProps } from "./form-select.types";
 
 export const FormSelect = ({ name, label, ...props }: FormSelectProps) => {
     const {
@@ -9,9 +9,11 @@ export const FormSelect = ({ name, label, ...props }: FormSelectProps) => {
     } = useFormContext();
 
     const errorMessage = errors[name]?.message;
-    const defaultValue = defaultValues?.[name] as string;
+    const potentialDefaultValue = defaultValues?.[name] as unknown;
 
-    const helperText = typeof errorMessage === "string" ? errorMessage : "";
+    const defaultValue =
+        typeof potentialDefaultValue === "string" ? potentialDefaultValue : undefined;
+    const helperText = typeof errorMessage === "string" ? errorMessage : undefined;
 
     return (
         <Controller
@@ -20,7 +22,7 @@ export const FormSelect = ({ name, label, ...props }: FormSelectProps) => {
             defaultValue={defaultValue}
             render={({ field }) => (
                 <Form.Item
-                    validateStatus={helperText ? "error" : ""}
+                    validateStatus={helperText && "error"}
                     help={helperText}
                     name={name}
                     label={label}

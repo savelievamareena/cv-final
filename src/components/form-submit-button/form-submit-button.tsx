@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form";
-import { FormSubmitButtonProps } from "./form-submit-button.types";
 import { Button } from "antd";
+import { FormSubmitButtonProps } from "./form-submit-button.types";
 
 export const FormSubmitButton = ({
     disableIfNotDirty = false,
