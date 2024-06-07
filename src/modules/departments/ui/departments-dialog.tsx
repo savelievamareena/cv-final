@@ -5,6 +5,7 @@ import { FormTextField } from "@/components/form-text-field";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import BaseDialog from "@/components/dialog/base-dialog";
 import { getDepartmentFormSchema } from "../shemas/department";
+import { FormSubmitButton } from "@/components/form-submit-button";
 
 interface FormData {
     department: string;
@@ -35,7 +36,7 @@ const DepartmentDialog = ({ title, onConfirm, onClose, initialValues }: Departme
                 <Button htmlType="button" onClick={onClose}>
                     {t("cancel")}
                 </Button>
-                <Button htmlType="submit">{t("submit")}</Button>
+                <FormSubmitButton>{t("submit")}</FormSubmitButton>
             </Form>
         </BaseDialog>
     );
