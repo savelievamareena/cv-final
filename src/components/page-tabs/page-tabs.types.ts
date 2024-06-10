@@ -1,7 +1,11 @@
+import { ReactNode } from "react";
 import { TabsProps } from "antd";
 
-export type TabItem = Omit<Required<TabsProps>["items"][0], "children">;
+export interface PageTabItem {
+    path: string;
+    label: ReactNode;
+}
 
 export type PageTabsProps = Omit<TabsProps, "items" | "onChange" | "defaultActiveKey"> & {
-    items: TabItem[];
+    items: PageTabItem[];
 };

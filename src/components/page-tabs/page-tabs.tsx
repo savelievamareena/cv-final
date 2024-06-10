@@ -8,7 +8,7 @@ export const PageTabs = ({ items, ...props }: PageTabsProps) => {
     const navigate = useNavigate();
 
     const actualItems = useMemo(
-        () => items.map((item) => ({ ...item, children: <Outlet /> })),
+        () => items.map(({ label, path }) => ({ label, key: path, children: <Outlet /> })),
         [items]
     );
 

@@ -6,7 +6,7 @@ import { User } from "cv-graphql";
 import Dragger from "antd/es/upload/Dragger";
 import { useNotificationContext } from "@/helpers/notification";
 import { useTranslation } from "react-i18next";
-import { MAX_AVATAR_SIZE } from "../../constants";
+import { ALLOWED_IMAGE_TYPES, MAX_AVATAR_SIZE } from "../../constants";
 
 export const AvatarUpload = ({ user }: { user: User }) => {
     const [uploadAvatar, { loading }] = useUploadAvatar();
@@ -31,6 +31,10 @@ export const AvatarUpload = ({ user }: { user: User }) => {
         showUploadList: false,
         beforeUpload: (file) => {
             console.log(file);
+            if (!ALLOWED_IMAGE_TYPES.includes(file.type)) {
+                showNotification("error", t("profile.avatarUpload.errors.invalidFileType"));
+                return false;
+            }
             if (file.size > MAX_AVATAR_SIZE) {
                 showNotification("error", t("profile.avatarUpload.errors.maxAvatarSize"));
                 return false;

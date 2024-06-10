@@ -1,5 +1,5 @@
 import styles from "./user-layout.module.scss";
-import { PageTabs, TabItem } from "@/components/page-tabs";
+import { PageTabs, PageTabItem } from "@/components/page-tabs";
 import { RouteParams, routes } from "@/router";
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
@@ -13,22 +13,22 @@ export const UserLayout = () => {
         () =>
             [
                 {
-                    key: routes.users.profile(userId),
+                    path: routes.users.profile(userId),
                     label: "Profile",
                 },
                 {
-                    key: routes.users.skills(userId),
+                    path: routes.users.skills(userId),
                     label: "Skills",
                 },
                 {
-                    key: routes.users.cvs(userId),
+                    path: routes.users.cvs(userId),
                     label: "CVs",
                 },
                 {
-                    key: routes.users.languages(userId),
+                    path: routes.users.languages(userId),
                     label: "Languages",
                 },
-            ] as TabItem[],
+            ] as PageTabItem[],
         [userId]
     );
 

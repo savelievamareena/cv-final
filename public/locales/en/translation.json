@@ -20,7 +20,8 @@
             "text":"Upload avatar image",
             "hint":"PNG, JPG or GIF and not larger than 0.5 MB",
             "errors": {
-                "maxAvatarSize":"An image must be not larger than 0.5 MB"
+                "maxAvatarSize":"An image must be not larger than 0.5 MB",
+                "invalidFileType":"An avatar has to be of PNG, GIF or JPG format"
             }
         }
     },

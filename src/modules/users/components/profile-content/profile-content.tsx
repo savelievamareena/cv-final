@@ -1,14 +1,16 @@
 import { useParams } from "react-router-dom";
-import { RouteParams } from "@/router";
-import { useProfile, useUser } from "../../api";
+import { Col, Row, Typography } from "antd";
+import { SafetyOutlined } from "@ant-design/icons";
+import { UserRole } from "cv-graphql";
 
 import { ProfileForm } from "../profile-form/profile-form";
 import { AvatarUpload } from "../avatar-upload";
 import { ProfileAvatar } from "../profile-avatar";
 import { useAuthUser } from "@/services/auth-service";
-import { UserRole } from "cv-graphql";
-import { SafetyOutlined } from "@ant-design/icons";
-import { Col, Row, Typography } from "antd";
+import { RouteParams } from "@/router";
+import { useProfile, useUser } from "../../api";
+
+import styles from "./profile-content.module.scss";
 
 export const ProfileContent = () => {
     const { [RouteParams.UserId]: userId } = useParams();
@@ -28,9 +30,9 @@ export const ProfileContent = () => {
         <>
             {loading && !hasData && <div>Loading</div>}
             {hasData && (
-                <>
-                    <Row justify="space-between" gutter={16}>
-                        <Col span={"12rem"}>
+                <div className={styles.wrapper}>
+                    <Row gutter={[16, 8]}>
+                        <Col span={12}>
                             <ProfileAvatar
                                 canEdit={canEdit}
                                 user={userData.user}
@@ -48,18 +50,18 @@ export const ProfileContent = () => {
                                 </span>
                             </Typography>
                         </Col>
-                        <Col span={"12rem"}>
+                        <Col span={12}>
                             {hasData && canEdit && <AvatarUpload user={userData.user} />}
                         </Col>
+                        <Col span={24}>
+                            <ProfileForm
+                                canEdit={canEdit}
+                                user={userData.user}
+                                profile={profileData.profile}
+                            />
+                        </Col>
                     </Row>
-                    {hasData && (
-                        <ProfileForm
-                            canEdit={canEdit}
-                            user={userData.user}
-                            profile={profileData.profile}
-                        />
-                    )}
-                </>
+                </div>
             )}
         </>
     );

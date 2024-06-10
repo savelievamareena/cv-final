@@ -66,16 +66,14 @@ export const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
                 ]);
             }}
         >
-            <Row justify="space-between" gutter={16}>
-                <Col span={"12rem"}>
+            <Row gutter={[16, 8]}>
+                <Col span={12}>
                     <FormTextField name="firstName" label="firstName" />
                 </Col>
-                <Col span={"12rem"}>
+                <Col span={12}>
                     <FormTextField name="lastName" label="lastName" />
                 </Col>
-            </Row>
-            <Row justify="space-between" gutter={16}>
-                <Col span={"12rem"}>
+                <Col span={12}>
                     <FormSelect
                         name="department"
                         label="department"
@@ -83,7 +81,7 @@ export const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
                         options={departmentOptions}
                     />
                 </Col>
-                <Col span={"12rem"}>
+                <Col span={12}>
                     <FormSelect
                         name="position"
                         label="position"
@@ -91,12 +89,12 @@ export const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
                         options={positionOptions}
                     />
                 </Col>
+                <Col xs={{ span: 24 }} md={{ offset: 18, span: 6 }}>
+                    <FormSubmitButton className={styles.submitButton} disableIfNotDirty>
+                        Submit
+                    </FormSubmitButton>
+                </Col>
             </Row>
-            {canEdit && (
-                <FormSubmitButton className={styles.submitButton} disableIfNotDirty>
-                    Submit
-                </FormSubmitButton>
-            )}
         </Form>
     );
 };
