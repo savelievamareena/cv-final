@@ -17,7 +17,7 @@
     },
     "profile":{
         "info":{
-            "createdAt":"Зарегистрирован {{createdAt}}"
+            "createdAt":"Аккаунт был создан {{createdAt}}"
         },
         "form":{
             "fieldLabels": {
