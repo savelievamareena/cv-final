@@ -1,9 +1,12 @@
-export * from "./profile";
-export * from "./user";
 export * from "./departments";
 export * from "./positions";
-export * from "./avatar";
 export { useUserCreate } from "./create-user-mutation";
 export { useUserDelete } from "./delete-user-mutation";
 export { useUserUpdate } from "./update-user-mutation";
 export { useUsersQuery } from "./get-users-query";
+export * from "./get-user-query";
+export * from "./get-profile-query";
+export * from "./update-user-mutation";
+export * from "./update-profile-mutation";
+export * from "./delete-avatar-mutation";
+export * from "./upload-avatar-mutation";

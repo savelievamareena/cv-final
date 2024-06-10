@@ -1,5 +1,7 @@
 import { ProfileContent } from "@/modules/users/components/profile-content";
 
-export const Profile = () => {
+const UserProfile = () => {
     return <ProfileContent />;
 };
+
+export default UserProfile;

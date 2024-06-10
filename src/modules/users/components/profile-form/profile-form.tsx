@@ -1,12 +1,13 @@
 import { Profile, User } from "cv-graphql";
+import { useTranslation } from "react-i18next";
+import { Col, Row } from "antd";
 
 import { Form } from "@/components/form";
 import { profileFormSchema } from "../schemas";
 import { FormTextField } from "@/components/form-text-field";
 import { FormSelect } from "@/components/form-select";
 import { FormSubmitButton } from "@/components/form-submit-button/form-submit-button";
-import { useUpdateProfile, useUpdateUser, useDepartments, usePositions } from "../../api";
-import { Col, Row } from "antd";
+import { useProfileUpdate, useUserUpdate, useDepartments, usePositions } from "../../api";
 
 import styles from "./profile-form.module.scss";
 
@@ -16,7 +17,9 @@ interface ProfileFormProps {
     canEdit: boolean;
 }
 
-export const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
+const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
+    const { t } = useTranslation();
+
     const { data: positionsData, loading: loadingPositions } = usePositions();
     const { data: departmentsData, loading: loadingDepartments } = useDepartments();
 
@@ -29,8 +32,8 @@ export const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
         label: <span>{name}</span>,
     }));
 
-    const [updateProfileData, { loading: loadingProfileUpdate }] = useUpdateProfile();
-    const [updateUserData, { loading: loadingUserUpdate }] = useUpdateUser();
+    const [updateProfileData, { loading: loadingProfileUpdate }] = useProfileUpdate();
+    const [updateUserData, { loading: loadingUserUpdate }] = useUserUpdate();
 
     return (
         <Form
@@ -68,15 +71,23 @@ export const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
         >
             <Row gutter={[16, 8]}>
                 <Col span={12}>
-                    <FormTextField name="firstName" label="firstName" />
+                    <FormTextField
+                        name="firstName"
+                        label={t("profile.form.fieldLabels.firstName")}
+                        placeholder={t("profile.form.fieldLabels.firstName")}
+                    />
                 </Col>
                 <Col span={12}>
-                    <FormTextField name="lastName" label="lastName" />
+                    <FormTextField
+                        name="lastName"
+                        label={t("profile.form.fieldLabels.lastName")}
+                        placeholder={t("profile.form.fieldLabels.lastName")}
+                    />
                 </Col>
                 <Col span={12}>
                     <FormSelect
                         name="department"
-                        label="department"
+                        label={t("profile.form.fieldLabels.department")}
                         loading={loadingDepartments}
                         options={departmentOptions}
                     />
@@ -84,17 +95,21 @@ export const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
                 <Col span={12}>
                     <FormSelect
                         name="position"
-                        label="position"
+                        label={t("profile.form.fieldLabels.position")}
                         loading={loadingPositions}
                         options={positionOptions}
                     />
                 </Col>
-                <Col xs={{ span: 24 }} md={{ offset: 18, span: 6 }}>
-                    <FormSubmitButton className={styles.submitButton} disableIfNotDirty>
-                        Submit
-                    </FormSubmitButton>
-                </Col>
+                {canEdit && (
+                    <Col xs={{ span: 24 }} md={{ offset: 12, span: 12 }}>
+                        <FormSubmitButton className={styles.submitButton} disableIfNotDirty>
+                            {t("update")}
+                        </FormSubmitButton>
+                    </Col>
+                )}
             </Row>
         </Form>
     );
 };
+
+export default ProfileForm;

@@ -4,7 +4,7 @@ import { AvatarDeleteButton } from "../avatar-delete-button";
 
 import styles from "./profile-avatar.module.scss";
 
-export const ProfileAvatar = ({
+const ProfileAvatar = ({
     profile,
     user,
     canEdit,
@@ -27,3 +27,5 @@ export const ProfileAvatar = ({
         </div>
     );
 };
+
+export default ProfileAvatar;

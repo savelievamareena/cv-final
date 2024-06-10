@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
-import { Col, Row, Typography } from "antd";
+import { Col, Row, Spin, Typography } from "antd";
 import { SafetyOutlined } from "@ant-design/icons";
 import { UserRole } from "cv-graphql";
+import { useTranslation } from "react-i18next";
 
-import { ProfileForm } from "../profile-form/profile-form";
+import { ProfileForm } from "../profile-form";
 import { AvatarUpload } from "../avatar-upload";
 import { ProfileAvatar } from "../profile-avatar";
 import { useAuthUser } from "@/services/auth-service";
@@ -12,8 +13,10 @@ import { useProfile, useUser } from "../../api";
 
 import styles from "./profile-content.module.scss";
 
-export const ProfileContent = () => {
+const ProfileContent = () => {
     const { [RouteParams.UserId]: userId } = useParams();
+
+    const { t } = useTranslation();
 
     const { loading: loadingProfile, data: profileData } = useProfile({ userId: userId! });
     const { loading: loadingUser, data: userData } = useUser({ userId: userId! });
@@ -28,7 +31,7 @@ export const ProfileContent = () => {
 
     return (
         <>
-            {loading && !hasData && <div>Loading</div>}
+            {loading && !hasData && <Spin />}
             {hasData && (
                 <div className={styles.wrapper}>
                     <Row gutter={[16, 8]}>
@@ -45,8 +48,11 @@ export const ProfileContent = () => {
                             <Typography>{profileData.profile.full_name}</Typography>
                             <Typography>
                                 <span>
-                                    A member since{" "}
-                                    {new Date(+profileData.profile.created_at).toUTCString()}
+                                    {t("profile.info.createdAt", {
+                                        createdAt: new Date(
+                                            +profileData.profile.created_at
+                                        ).toUTCString(),
+                                    })}
                                 </span>
                             </Typography>
                         </Col>
@@ -66,3 +72,5 @@ export const ProfileContent = () => {
         </>
     );
 };
+
+export default ProfileContent;

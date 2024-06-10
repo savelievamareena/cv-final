@@ -9,7 +9,7 @@ import { SignUp } from "@/pages/sign-up";
 import { VerifyMail } from "@/pages/verify-mail";
 import { DepartmentsPage } from "@/pages/Departments";
 import { UserLayout } from "@/modules/users/components/user-layout";
-import { Profile } from "@/pages/user-profile";
+import { UserProfile } from "@/pages/user-profile";
 
 export const router = createBrowserRouter([
     {
@@ -113,7 +113,7 @@ export const router = createBrowserRouter([
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.users.profile(`:${RouteParams.UserId}`),
-                                element: <Profile />,
+                                element: <UserProfile />,
                             },
                             {
                                 errorElement: <ErrorComponent />,

@@ -1,18 +1,12 @@
 import classNames from "classnames";
 import { DeleteFilled } from "@ant-design/icons";
 import { Button } from "antd";
-import { useDeleteAvatar } from "../../api";
+import { useAvatarDelete } from "../../api";
 
 import styles from "./avatar-delete-button.module.scss";
 
-export const AvatarDeleteButton = ({
-    userId,
-    className,
-}: {
-    userId: string;
-    className: string;
-}) => {
-    const [deleteAvatar, { loading }] = useDeleteAvatar();
+const AvatarDeleteButton = ({ userId, className }: { userId: string; className: string }) => {
+    const [deleteAvatar, { loading }] = useAvatarDelete();
 
     return (
         <Button
@@ -26,3 +20,5 @@ export const AvatarDeleteButton = ({
         </Button>
     );
 };
+
+export default AvatarDeleteButton;

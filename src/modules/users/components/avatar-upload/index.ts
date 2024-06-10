@@ -1,1 +1,1 @@
-export * from "./avatar-upload";
+export { default as AvatarUpload } from "./avatar-upload";

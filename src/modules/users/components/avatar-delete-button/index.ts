@@ -1,1 +1,1 @@
-export * from "./avatar-delete-button";
+export { default as AvatarDeleteButton } from "./avatar-delete-button";

@@ -15,6 +15,36 @@
         "signup": "Регистрация",
         "verifyMail": "Подверждение Email"
     },
+    "profile":{
+        "info":{
+            "createdAt":"Зарегистрирован {{createdAt}}"
+        },
+        "form":{
+            "fieldLabels": {
+                "firstName":"Имя",
+                "lastName":"Фамилия",
+                "department":"Отдел",
+                "position":"Должность"
+            }
+        },
+        "avatarUpload": {
+            "text":"Загрузите изображение аватара",
+            "hint":"PNG, JPG или GIF и не более 0.5 MB",
+            "errors": {
+                "maxAvatarSize":"Изображение должно быть не более 0.5 MB",
+                "invalidFileType":"Изображение должно быть формата PNG, GIF или JPG",
+                "generic":"Что-то пошло не так..."
+            }
+        }
+    },
+    "user": {
+        "tabLabels": {
+            "cvs":"Резюме",
+            "languages":"Языки",
+            "profile":"Профиль",
+            "skills":"Навыки"
+        }
+    },
     "submit": "Подтвердить",
     "Welcome Back": "С Возвращением",
     "add": "Добавить",

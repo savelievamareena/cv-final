@@ -1,7 +1,8 @@
-import { gql, useMutation, useQuery } from "@apollo/client";
-import { User, UpdateUserInput } from "cv-graphql";
+import { useNotificationContext } from "@/helpers/notification";
+import { gql, useQuery } from "@apollo/client";
+import { User } from "cv-graphql";
 
-const USER = gql`
+export const USER = gql`
     query User($userId: ID!) {
         user(userId: $userId) {
             id
@@ -19,14 +20,6 @@ const USER = gql`
     }
 `;
 
-const UPDATE_USER = gql`
-    mutation UpdateUser($user: UpdateUserInput!) {
-        updateUser(user: $user) {
-            id
-        }
-    }
-`;
-
 interface QueryArgs {
     userId: string;
 }
@@ -36,21 +29,14 @@ interface UserResult {
 }
 
 export const useUser = ({ userId }: QueryArgs) => {
+    const { showNotification } = useNotificationContext();
+
     return useQuery<UserResult, QueryArgs>(USER, {
         variables: {
             userId,
         },
         onError: (error) => {
-            console.error(error.message);
-        },
-    });
-};
-
-export const useUpdateUser = () => {
-    return useMutation<UserResult, { user: UpdateUserInput }>(UPDATE_USER, {
-        refetchQueries: [USER],
-        onError: (error) => {
-            console.error(error.message);
+            showNotification("error", error.message);
         },
     });
 };
