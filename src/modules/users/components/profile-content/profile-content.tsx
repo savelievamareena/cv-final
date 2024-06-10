@@ -4,6 +4,7 @@ import { SafetyOutlined } from "@ant-design/icons";
 import { UserRole } from "cv-graphql";
 import { useTranslation } from "react-i18next";
 
+import i18n from "@/i18n";
 import { ProfileForm } from "../profile-form";
 import { AvatarUpload } from "../avatar-upload";
 import { ProfileAvatar } from "../profile-avatar";
@@ -51,7 +52,12 @@ const ProfileContent = () => {
                                     {t("profile.info.createdAt", {
                                         createdAt: new Date(
                                             +profileData.profile.created_at
-                                        ).toUTCString(),
+                                        ).toLocaleDateString(i18n.language, {
+                                            weekday: "short",
+                                            year: "numeric",
+                                            month: "long",
+                                            day: "numeric",
+                                        }),
                                     })}
                                 </span>
                             </Typography>

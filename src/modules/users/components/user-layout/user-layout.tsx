@@ -1,9 +1,11 @@
-import styles from "./user-layout.module.scss";
-import { PageTabs, PageTabItem } from "@/components/page-tabs";
-import { RouteParams, routes } from "@/router";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+
+import { PageTabs, PageTabItem } from "@/components/page-tabs";
+import { RouteParams, routes } from "@/router";
+
+import styles from "./user-layout.module.scss";
 
 const UserLayout = () => {
     const { [RouteParams.UserId]: userId } = useParams();
@@ -32,7 +34,7 @@ const UserLayout = () => {
                     label: t("user.tabLabels.cvs"),
                 },
             ] as PageTabItem[],
-        [userId]
+        [userId, t]
     );
 
     return (
