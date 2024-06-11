@@ -15,6 +15,7 @@ export const MainLayout = () => {
     return (
         <>
             <Header />
+            <div>Breadcrumb component</div>
             <Suspense fallback={<Spin size="large" fullscreen />}>
                 <Outlet />
             </Suspense>

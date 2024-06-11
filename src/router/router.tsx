@@ -1,15 +1,17 @@
 import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
 
 import { RelativePaths, RouteParams, routes } from "./constants";
-import { MainLayout } from "src/components/main-layout";
+import { MainLayout } from "@/components/main-layout";
 import { ErrorComponent } from "src/components/error-component";
 import { AuthLayout } from "@/modules/auth/components/auth-layout";
 import { Login } from "@/pages/login";
 import { SignUp } from "@/pages/sign-up";
+import { Cvs } from "@/pages/cvs";
 import { VerifyMail } from "@/pages/verify-mail";
 import { DepartmentsPage } from "@/pages/departments";
 import { UserLayout } from "@/modules/users/components/user-layout";
 import { UserProfile } from "@/pages/user-profile";
+import { Details } from "@/modules/CVs/components/details";
 
 export const router = createBrowserRouter([
     {
@@ -55,14 +57,14 @@ export const router = createBrowserRouter([
                     {
                         errorElement: <ErrorComponent />,
                         index: true,
-                        element: <div>CVs page content (table)</div>,
+                        element: <Cvs />,
                     },
                     {
                         errorElement: <ErrorComponent />,
                         path: routes.cvs.cvById(`:${RouteParams.CvId}`),
                         element: (
                             <div>
-                                Common CV-by-ID layout (has Outlet)
+                                Tabs component
                                 <Outlet />
                             </div>
                         ),
@@ -70,7 +72,7 @@ export const router = createBrowserRouter([
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.cvs.details(`:${RouteParams.CvId}`),
-                                element: <div>CV details content</div>,
+                                element: <Details />,
                             },
                             {
                                 errorElement: <ErrorComponent />,
