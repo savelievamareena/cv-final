@@ -18,7 +18,7 @@ const ConfirmDialog = ({ title, onConfirm, onClose }: ConfirmDialogProps) => {
     };
 
     return (
-        <BaseDialog title={title} onClose={handleConfirm}>
+        <BaseDialog title={title} onClose={onClose}>
             <Button htmlType="button" onClick={onClose}>
                 {t("cancel")}
             </Button>
