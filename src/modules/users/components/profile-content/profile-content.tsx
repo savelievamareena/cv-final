@@ -17,18 +17,18 @@ import styles from "./profile-content.module.scss";
 const ProfileContent = () => {
     const { [RouteParams.UserId]: userId } = useParams();
 
-    if (!userId) return null;
-
     const { t } = useTranslation();
 
     const { loading: loadingProfile, data: profileData } = useProfileQuery({ userId: userId });
     const { loading: loadingUser, data: userData } = useUserQuery({ userId: userId });
 
+    const currUser = useAuthUser();
+
+    if (!userId) return null;
+
     const loading = loadingProfile || loadingUser;
 
     const hasData = !!profileData?.profile && !!userData?.user;
-
-    const currUser = useAuthUser();
 
     const canEdit = currUser?.role === UserRole.Admin || currUser?.id === userId;
 

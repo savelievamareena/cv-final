@@ -6,9 +6,9 @@ import { useProfileQuery } from "../../api";
 const HeaderUserMenu = () => {
     const user = useAuthUser();
 
-    if (!user) return null;
+    const { data, loading } = useProfileQuery({ userId: user?.id });
 
-    const { data, loading } = useProfileQuery({ userId: user.id });
+    if (!user) return null;
 
     if (loading) return <Spin />;
 

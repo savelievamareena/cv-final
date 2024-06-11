@@ -21,7 +21,7 @@ export const GET_USER_QUERY = gql`
 `;
 
 interface QueryArgs {
-    userId: string;
+    userId?: string;
 }
 
 interface UserResult {

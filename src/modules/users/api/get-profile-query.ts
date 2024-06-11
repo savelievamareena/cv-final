@@ -16,7 +16,7 @@ export const GET_PROFILE_QUERY = gql`
 `;
 
 interface QueryArgs {
-    userId: string;
+    userId?: string;
 }
 
 interface ProfileResult {

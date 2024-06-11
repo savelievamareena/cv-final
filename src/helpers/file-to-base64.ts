@@ -14,7 +14,7 @@ export const fileToBase64 = (file: File): Promise<Result> => {
             if (typeof reader.result === "string") {
                 return resolve({ base64: reader.result, type, size });
             }
-            reject("base64 string error");
+            reject(new Error("base64 string error"));
         };
         reader.onerror = (error) => reject(error);
     });

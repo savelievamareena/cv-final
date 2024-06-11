@@ -28,8 +28,11 @@ const AvatarUpload = ({ user }: { user: User }) => {
             .then((avatar) =>
                 uploadAvatar({ variables: { avatar: { userId: user.id, ...avatar } } })
             )
-            .catch(() => {
-                showNotification("error", t("profile.avatarUpload.errors.generic"));
+            .catch((err: unknown) => {
+                showNotification(
+                    "error",
+                    err instanceof Error ? err.message : t("profile.avatarUpload.errors.generic")
+                );
             });
 
         return false;
