@@ -8,6 +8,7 @@ import { Login } from "@/pages/login";
 import { SignUp } from "@/pages/sign-up";
 import { VerifyMail } from "@/pages/verify-mail";
 import { DepartmentsPage } from "@/pages/departments";
+import { LanguagesPage } from "@/pages/languages";
 
 export const router = createBrowserRouter([
     {
@@ -177,7 +178,7 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 path: routes.languages,
-                element: <div>Languages page content (table)</div>,
+                element: <LanguagesPage />,
             },
             {
                 errorElement: <ErrorComponent />,

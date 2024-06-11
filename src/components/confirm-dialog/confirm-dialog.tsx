@@ -29,6 +29,6 @@ const ConfirmDialog = ({ title, onConfirm, onClose }: ConfirmDialogProps) => {
     );
 };
 
-export const useConfirm = createDialogHook<ConfirmDialogProps>((props) => (
-    <ConfirmDialog {...props} />
-));
+const useConfirm = createDialogHook<ConfirmDialogProps>((props) => <ConfirmDialog {...props} />);
+
+export default useConfirm;

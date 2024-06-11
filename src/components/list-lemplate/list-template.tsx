@@ -1,12 +1,11 @@
-import { Dispatch, SetStateAction } from "react";
-import { Department, Skill, UserRole } from "cv-graphql";
+import { Dispatch, Key, SetStateAction } from "react";
+import { useTranslation } from "react-i18next";
+import { UserRole } from "cv-graphql";
 import { Button, Input } from "antd";
+import { useAuthUser } from "@/services/auth-service";
 import { SearchOutlined } from "@ant-design/icons";
 import TableTemplate, { ColumnConfig } from "./table-template";
 import { Action } from "./actions-menu";
-
-import { useTranslation } from "react-i18next";
-import { useAuthUser } from "@/services/auth-service";
 
 interface ListTemplateProps<T> {
     pageName: string;
@@ -19,7 +18,7 @@ interface ListTemplateProps<T> {
     setSearchQuery: Dispatch<SetStateAction<string>>;
 }
 
-const ListTemplate = ({
+const ListTemplate = <T extends { id: Key }>({
     pageName,
     onButtonClick,
     menuProps,
@@ -28,7 +27,7 @@ const ListTemplate = ({
     displayData,
     loading,
     setSearchQuery,
-}: ListTemplateProps<Skill | Department>) => {
+}: ListTemplateProps<T>) => {
     const user = useAuthUser();
     const isAdmin = user?.role === UserRole.Admin;
 
@@ -46,7 +45,7 @@ const ListTemplate = ({
                     {t("add")} {pageName}
                 </Button>
             )}
-            <TableTemplate
+            <TableTemplate<T>
                 searchQuery={searchQuery}
                 menuProps={menuProps}
                 columnConfigs={columnConfigs}
