@@ -8,9 +8,7 @@ import { useConfirm } from "@/components/confirm-dialog/";
 import { usePositionCreate, usePositionDelete, usePositionsQuery, usePositionUpdate } from "../api";
 import { useAddPosition } from "./positions-dialog";
 
-interface FormData {
-    position: string;
-}
+const columnConfigs: ColumnConfig<Position>[] = [{ name: "name", isSorted: true }];
 
 const PositionsList = () => {
     const { positions, loading } = usePositionsQuery();
@@ -34,7 +32,7 @@ const PositionsList = () => {
         onUpdate: (id: string) =>
             openAddPosition({
                 title: t("positions.updatePosition"),
-                onConfirm: (formData: FormData) =>
+                onConfirm: (formData) =>
                     void updatePosition({
                         variables: {
                             position: {
@@ -52,7 +50,7 @@ const PositionsList = () => {
     const openPosition = () =>
         openAddPosition({
             title: t("positions.addPosition"),
-            onConfirm: (formData: FormData) =>
+            onConfirm: (formData) =>
                 void createPosition({
                     variables: {
                         position: {
@@ -63,21 +61,17 @@ const PositionsList = () => {
             initialValues: { position: "" },
         });
 
-    const columnConfigs: ColumnConfig<Position>[] = [{ name: "name", isSorted: true }];
-
     return (
-        <>
-            <ListTemplate
-                pageName={t("positions.positions")}
-                onButtonClick={openPosition}
-                menuProps={menuProps}
-                columnConfigs={columnConfigs}
-                searchQuery={searchQuery}
-                displayData={positions}
-                loading={loading}
-                setSearchQuery={setSearchQuery}
-            />
-        </>
+        <ListTemplate
+            pageName={t("positions.positions")}
+            onButtonClick={openPosition}
+            menuProps={menuProps}
+            columnConfigs={columnConfigs}
+            searchQuery={searchQuery}
+            displayData={positions}
+            loading={loading}
+            setSearchQuery={setSearchQuery}
+        />
     );
 };
 
