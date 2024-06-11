@@ -1,13 +1,12 @@
+import { dialogsService } from "@/services/dialog-service";
 import { FC, useCallback, useRef } from "react";
 import { v4 } from "uuid";
-import { dialogsService } from "./dialog-servise";
 
 export const createDialogHook =
     <T>(Component: FC<T>) =>
     () => {
         const idRef = useRef<string>();
         const closeDialog = useCallback(() => {
-            console.log(dialogsService.dialogs());
             if (!idRef.current) return;
 
             dialogsService.closeDialog(idRef.current);

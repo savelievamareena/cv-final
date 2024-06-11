@@ -1,10 +1,12 @@
 import { Dispatch, SetStateAction } from "react";
-import { Department, Skill } from "cv-graphql";
+import { Department, Skill, UserRole } from "cv-graphql";
 import { Button, Input } from "antd";
-import { t } from "i18next";
 import { SearchOutlined } from "@ant-design/icons";
 import TableTemplate, { ColumnConfig } from "./table-template";
 import { Action } from "./actions-menu";
+
+import { useTranslation } from "react-i18next";
+import { useAuthUser } from "@/services/auth-service";
 
 interface ListTemplateProps<T> {
     pageName: string;
@@ -27,6 +29,11 @@ const ListTemplate = ({
     loading,
     setSearchQuery,
 }: ListTemplateProps<Skill | Department>) => {
+    const user = useAuthUser();
+    const isAdmin = user?.role === UserRole.Admin;
+
+    const { t } = useTranslation();
+
     return (
         <div style={{ width: "100vw" }}>
             <Input
@@ -34,9 +41,11 @@ const ListTemplate = ({
                 onChange={() => setSearchQuery}
                 prefix={<SearchOutlined />}
             />
-            <Button type="primary" danger ghost onClick={onButtonClick}>
-                {t("add")} {pageName}
-            </Button>
+            {isAdmin && (
+                <Button type="primary" danger ghost onClick={onButtonClick}>
+                    {t("add")} {pageName}
+                </Button>
+            )}
             <TableTemplate
                 searchQuery={searchQuery}
                 menuProps={menuProps}
@@ -44,6 +53,7 @@ const ListTemplate = ({
                 data={displayData}
                 loading={loading}
                 pageName={pageName}
+                isAdmin={isAdmin}
             />
         </div>
     );

@@ -1,6 +1,7 @@
-import { createDialogHook } from "@/helpers/dialog/create-dialog";
-import { Button, Modal } from "antd";
 import { useTranslation } from "react-i18next";
+import { createDialogHook } from "@/helpers/dialog/create-dialog";
+import { BaseDialog } from "../base-dialog/";
+import { Button } from "antd";
 
 interface ConfirmDialogProps {
     title: string;
@@ -9,26 +10,22 @@ interface ConfirmDialogProps {
 }
 
 const ConfirmDialog = ({ title, onConfirm, onClose }: ConfirmDialogProps) => {
-    const { t } = useTranslation("dialog");
+    const { t } = useTranslation();
+
     const handleConfirm = () => {
         onConfirm();
         onClose();
     };
 
     return (
-        <Modal
-            open={true}
-            title={title}
-            onCancel={onClose}
-            footer={[
-                <Button key="cancel" onClick={onClose}>
-                    {t("cancel")}
-                </Button>,
-                <Button key="confirm" type="primary" onClick={handleConfirm}>
-                    {t("confirm")}
-                </Button>,
-            ]}
-        ></Modal>
+        <BaseDialog title={title} onClose={onClose}>
+            <Button htmlType="button" onClick={onClose}>
+                {t("cancel")}
+            </Button>
+            <Button htmlType="button" onClick={handleConfirm}>
+                {t("submit")}
+            </Button>
+        </BaseDialog>
     );
 };
 

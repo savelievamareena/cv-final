@@ -1,5 +1,5 @@
 import { makeVar } from "@apollo/client";
-import { IDialog, IDialogService } from "./dialog-servise.types";
+import { IDialog, IDialogService } from "./dialog-service.types";
 
 export const dialogsService: IDialogService = {
     dialogs: makeVar<IDialog[]>([]),

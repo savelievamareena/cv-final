@@ -32,7 +32,7 @@ const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuPro
         {
             label: (
                 <Link to={userProfileUrl}>
-                    <Flex gap='1rem' className={cx("dropdown_menu")}>
+                    <Flex gap="1rem" className={cx("dropdown_menu")}>
                         <UserOutlined />
                         {t("Profile")}
                     </Flex>
@@ -43,7 +43,7 @@ const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuPro
         {
             label: (
                 <Link to={routes.settings}>
-                    <Flex gap='1rem' className={cx("dropdown_menu")}>
+                    <Flex gap="1rem" className={cx("dropdown_menu")}>
                         <SettingOutlined />
                         {t("Settings")}
                     </Flex>
@@ -57,7 +57,7 @@ const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuPro
         {
             label: (
                 <Link to={routes.auth.root} onClick={handleLogout}>
-                    <Flex gap='1rem' className={cx("dropdown_menu")}>
+                    <Flex gap="1rem" className={cx("dropdown_menu")}>
                         <LogoutOutlined />
                         {t("Logout")}
                     </Flex>
