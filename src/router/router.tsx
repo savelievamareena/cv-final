@@ -9,8 +9,8 @@ import { SignUp } from "@/pages/sign-up";
 import { Cvs } from "@/pages/cvs";
 import { VerifyMail } from "@/pages/verify-mail";
 import { DepartmentsPage } from "src/pages/departments";
-import { Details } from "src/modules/CVs/components/details";
 import { LanguagesPage } from "@/pages/languages";
+import { Details } from "src/modules/CVs/components/details";
 
 export const router = createBrowserRouter([
     {
