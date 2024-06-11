@@ -35,5 +35,7 @@
     "Departments": "Departments",
     "Positions": "Positions",
     "Skills": "Skills",
-    "Languages": "Languages"
+    "Languages": "Languages",
+    "Open language menu":"Open language menu",
+    "Close language menu":"Close language menu"
 }

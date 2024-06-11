@@ -3,9 +3,9 @@ import { Button } from "antd";
 import { Form } from "@/components/form";
 import { FormTextField } from "@/components/form-text-field";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
-import BaseDialog from "@/components/dialog/base-dialog";
-import { getDepartmentFormSchema } from "../shemas/department";
+import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
+import { getDepartmentFormSchema } from "../shemas/department";
 
 interface FormData {
     department: string;

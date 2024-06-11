@@ -35,5 +35,7 @@
     "Departments": "Отделы",
     "Positions": "Должности",
     "Skills": "Навыки",
-    "Languages": "Языки"
+    "Languages": "Языки",
+    "Open language menu":"Открыть меню выбора языков",
+    "Close language menu":"Закрыть меню выбора языков"
 }

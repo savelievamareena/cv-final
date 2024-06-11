@@ -7,12 +7,10 @@ interface dialogProps {
     children?: ReactNode;
 }
 
-const BaseDialog = ({ title, onClose, children }: dialogProps) => {
+export const BaseDialog = ({ title, onClose, children }: dialogProps) => {
     return (
-        <Modal open={true} title={title} onCancel={onClose} footer={null}>
+        <Modal open title={title} onCancel={onClose} footer={null}>
             {children}
         </Modal>
     );
 };
-
-export default BaseDialog;

@@ -8,7 +8,7 @@ import styles from "../header.module.css";
 
 const LanguagesSelect = () => {
     const cx = classNames.bind(styles);
-    const { i18n } = useTranslation();
+    const { i18n, t } = useTranslation();
     const [isLanguagesOpen, setIsLanguagesOpen] = useState(false);
     const [language, setLanguage] = useState<Languages>(
         (i18n.resolvedLanguage as Languages) ?? Languages.En
@@ -55,12 +55,12 @@ const LanguagesSelect = () => {
                 <div>{language.toUpperCase()}</div>
                 {isLanguagesOpen ? (
                     <CaretUpOutlined
-                        aria-label="Close language menu"
+                        aria-label={t("Close language menu")}
                         className={cx("header_icons")}
                     />
                 ) : (
                     <CaretDownOutlined
-                        aria-label="Open language menu"
+                        aria-label={t("Open language menu")}
                         className={cx("header_icons")}
                     />
                 )}
