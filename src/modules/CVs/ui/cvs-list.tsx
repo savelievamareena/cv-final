@@ -1,6 +1,5 @@
-import { Key, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Cv } from "cv-graphql";
 import { t } from "i18next";
 import ListTemplate from "@/components/list-lemplate/list-template";
 import { Action } from "@/components/list-lemplate/actions-menu";
@@ -8,28 +7,13 @@ import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useConfirm } from "@/components/confirm-dialog/";
 import { useCvCreate, useCvDelete, useCvsQuery } from "../api";
 import { useAddCv } from "./cvs-dialog";
-
-interface CvTransformed {
-    id: Key;
-    name: string;
-    description: string;
-    employee?: string;
-}
+import { convertCvToTable, CvTransformed } from "@/helpers/convert/cv-to-table";
 
 const columnConfigs: ColumnConfig<CvTransformed>[] = [
     { name: "name", isSorted: true },
     { name: "description", isSorted: false },
     { name: "employee", isSorted: true },
 ];
-
-const convertArray = (arr: Cv[]): CvTransformed[] => {
-    return arr.map((item) => ({
-        id: item.id,
-        name: item.name,
-        description: item.description,
-        employee: item.user?.email,
-    }));
-};
 
 const CvsList = () => {
     const { cvs, loading } = useCvsQuery();
@@ -67,7 +51,7 @@ const CvsList = () => {
             initialValues: { cv: "", description: "" },
         });
 
-    const convertedCvs = convertArray(cvs);
+    const convertedCvs = convertCvToTable(cvs);
 
     return (
         <ListTemplate

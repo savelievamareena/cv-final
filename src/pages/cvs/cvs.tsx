@@ -1,4 +1,4 @@
-import CvsList from "@/modules/cvs/ui/cvs-list";
+import { CvsList } from "@/modules/cvs/";
 
 const CvsPage = () => {
     return <CvsList />;
