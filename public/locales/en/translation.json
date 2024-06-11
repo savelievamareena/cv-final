@@ -15,6 +15,12 @@
         "signup": "Sign Up",
         "verifyMail": "Verify Mail"
     },
+    "header": {
+        "languageSelector": {
+            "open":"Open language menu",
+            "close":"Close language menu"
+        }
+    },
     "profile":{
         "info":{
             "createdAt":"A member since {{createdAt}}"

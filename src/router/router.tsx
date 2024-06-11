@@ -7,7 +7,7 @@ import { AuthLayout } from "@/modules/auth/components/auth-layout";
 import { Login } from "@/pages/login";
 import { SignUp } from "@/pages/sign-up";
 import { VerifyMail } from "@/pages/verify-mail";
-import { DepartmentsPage } from "@/pages/Departments";
+import { DepartmentsPage } from "@/pages/departments";
 import { UserLayout } from "@/modules/users/components/user-layout";
 import { UserProfile } from "@/pages/user-profile";
 

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import classNames from "classnames/bind";
 import { Flex, Layout } from "antd";
+import { GlobalOutlined, MenuOutlined } from "@ant-design/icons";
+
 import { Navigation } from "@/modules/header/components/navigation";
 import { LanguagesSelect } from "./languages-select";
-import { GlobalOutlined, MenuOutlined } from "@ant-design/icons";
-import styles from "./header.module.css";
 import { HeaderUserMenu } from "../users/components/header-user-menu";
+
+import styles from "./header.module.css";
 
 const Header = () => {
     const cx = classNames.bind(styles);

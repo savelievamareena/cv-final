@@ -1,4 +1,3 @@
-import { UploadProps } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import Dragger from "antd/es/upload/Dragger";
 import { User } from "cv-graphql";
@@ -14,35 +13,33 @@ const AvatarUpload = ({ user }: { user: User }) => {
 
     const { showNotification } = useNotificationContext();
 
-    const props: UploadProps = {
-        name: "file",
-        multiple: false,
-        disabled: loading,
-        showUploadList: false,
-        beforeUpload: (file) => {
-            if (!ALLOWED_IMAGE_TYPES.includes(file.type)) {
-                showNotification("error", t("profile.avatarUpload.errors.invalidFileType"));
-                return false;
-            }
-            if (file.size > MAX_AVATAR_SIZE) {
-                showNotification("error", t("profile.avatarUpload.errors.maxAvatarSize"));
-                return false;
-            }
-
-            fileToBase64(file)
-                .then((avatar) =>
-                    uploadAvatar({ variables: { avatar: { userId: user.id, ...avatar } } })
-                )
-                .catch(() => {
-                    showNotification("error", t("profile.avatarUpload.errors.generic"));
-                });
-
-            return false;
-        },
-    };
-
     return (
-        <Dragger {...props}>
+        <Dragger
+            name="file"
+            multiple={false}
+            disabled={loading}
+            showUploadList={false}
+            beforeUpload={(file) => {
+                if (!ALLOWED_IMAGE_TYPES.includes(file.type)) {
+                    showNotification("error", t("profile.avatarUpload.errors.invalidFileType"));
+                    return false;
+                }
+                if (file.size > MAX_AVATAR_SIZE) {
+                    showNotification("error", t("profile.avatarUpload.errors.maxAvatarSize"));
+                    return false;
+                }
+
+                fileToBase64(file)
+                    .then((avatar) =>
+                        uploadAvatar({ variables: { avatar: { userId: user.id, ...avatar } } })
+                    )
+                    .catch(() => {
+                        showNotification("error", t("profile.avatarUpload.errors.generic"));
+                    });
+
+                return false;
+            }}
+        >
             <p className="ant-upload-drag-icon">
                 <InboxOutlined />
             </p>

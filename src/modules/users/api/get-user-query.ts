@@ -1,8 +1,8 @@
-import { useNotificationContext } from "@/helpers/notification";
 import { gql, useQuery } from "@apollo/client";
 import { User } from "cv-graphql";
+import { useNotificationContext } from "@/helpers/notification";
 
-export const USER = gql`
+export const GET_USER_QUERY = gql`
     query User($userId: ID!) {
         user(userId: $userId) {
             id
@@ -28,10 +28,10 @@ interface UserResult {
     user: User;
 }
 
-export const useUser = ({ userId }: QueryArgs) => {
+export const useUserQuery = ({ userId }: QueryArgs) => {
     const { showNotification } = useNotificationContext();
 
-    return useQuery<UserResult, QueryArgs>(USER, {
+    return useQuery<UserResult, QueryArgs>(GET_USER_QUERY, {
         variables: {
             userId,
         },

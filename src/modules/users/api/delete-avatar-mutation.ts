@@ -3,7 +3,7 @@ import { DeleteAvatarInput } from "cv-graphql";
 import { useParams } from "react-router-dom";
 import { useNotificationContext } from "@/helpers/notification";
 import { RouteParams } from "@/router";
-import { PROFILE } from "./get-profile-query";
+import { GET_PROFILE_QUERY } from "./get-profile-query";
 
 export const DELETE_AVATAR = gql`
     mutation DeleteAvatar($avatar: DeleteAvatarInput!) {
@@ -17,7 +17,7 @@ export const useAvatarDelete = () => {
     const { showNotification } = useNotificationContext();
 
     return useMutation<void, { avatar: DeleteAvatarInput }>(DELETE_AVATAR, {
-        refetchQueries: [{ query: PROFILE, variables: { userId } }],
+        refetchQueries: [{ query: GET_PROFILE_QUERY, variables: { userId } }],
         onError: (error) => {
             showNotification("error", error.message);
         },

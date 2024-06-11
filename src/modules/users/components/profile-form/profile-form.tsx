@@ -7,7 +7,8 @@ import { profileFormSchema } from "../schemas";
 import { FormTextField } from "@/components/form-text-field";
 import { FormSelect } from "@/components/form-select";
 import { FormSubmitButton } from "@/components/form-submit-button/form-submit-button";
-import { useProfileUpdate, useUserUpdate, useDepartments, usePositions } from "../../api";
+import { useProfileUpdate, useUserUpdate } from "../../api";
+import { useDepartmentsQuery, usePositionsQuery } from "@/api";
 
 import styles from "./profile-form.module.scss";
 
@@ -20,8 +21,8 @@ interface ProfileFormProps {
 const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
     const { t } = useTranslation();
 
-    const { data: positionsData, loading: loadingPositions } = usePositions();
-    const { data: departmentsData, loading: loadingDepartments } = useDepartments();
+    const { data: positionsData, loading: loadingPositions } = usePositionsQuery();
+    const { data: departmentsData, loading: loadingDepartments } = useDepartmentsQuery();
 
     const departmentOptions = departmentsData?.departments.map(({ id, name }) => ({
         value: id,
@@ -46,8 +47,8 @@ const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
                 position: user.position?.id ?? "",
             }}
             schema={profileFormSchema()}
-            onSubmit={async (data) => {
-                return await Promise.all([
+            onSubmit={(data) =>
+                Promise.all([
                     updateProfileData({
                         variables: {
                             profile: {
@@ -66,8 +67,8 @@ const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
                             },
                         },
                     }),
-                ]);
-            }}
+                ])
+            }
         >
             <Row gutter={[16, 8]}>
                 <Col span={12}>

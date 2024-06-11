@@ -10,17 +10,19 @@ import { AvatarUpload } from "../avatar-upload";
 import { ProfileAvatar } from "../profile-avatar";
 import { useAuthUser } from "@/services/auth-service";
 import { RouteParams } from "@/router";
-import { useProfile, useUser } from "../../api";
+import { useProfileQuery, useUserQuery } from "../../api";
 
 import styles from "./profile-content.module.scss";
 
 const ProfileContent = () => {
     const { [RouteParams.UserId]: userId } = useParams();
 
+    if (!userId) return null;
+
     const { t } = useTranslation();
 
-    const { loading: loadingProfile, data: profileData } = useProfile({ userId: userId! });
-    const { loading: loadingUser, data: userData } = useUser({ userId: userId! });
+    const { loading: loadingProfile, data: profileData } = useProfileQuery({ userId: userId });
+    const { loading: loadingUser, data: userData } = useUserQuery({ userId: userId });
 
     const loading = loadingProfile || loadingUser;
 

@@ -2,7 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 import { Profile } from "cv-graphql";
 import { useNotificationContext } from "@/helpers/notification";
 
-export const PROFILE = gql`
+export const GET_PROFILE_QUERY = gql`
     query Profile($userId: ID!) {
         profile(userId: $userId) {
             id
@@ -23,10 +23,10 @@ interface ProfileResult {
     profile: Profile;
 }
 
-export const useProfile = ({ userId }: QueryArgs) => {
+export const useProfileQuery = ({ userId }: QueryArgs) => {
     const { showNotification } = useNotificationContext();
 
-    return useQuery<ProfileResult, QueryArgs>(PROFILE, {
+    return useQuery<ProfileResult, QueryArgs>(GET_PROFILE_QUERY, {
         variables: {
             userId,
         },

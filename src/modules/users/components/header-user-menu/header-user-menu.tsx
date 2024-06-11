@@ -1,16 +1,18 @@
 import { Spin } from "antd";
 import { useAuthUser } from "@/services/auth-service";
 import { UserDropdownMenu } from "./user-dropdown-menu";
-import { useProfile } from "../../api";
+import { useProfileQuery } from "../../api";
 
 const HeaderUserMenu = () => {
     const user = useAuthUser();
 
-    if (!user) return <></>;
+    if (!user) return null;
 
-    const { data, loading } = useProfile({ userId: user.id });
+    const { data, loading } = useProfileQuery({ userId: user.id });
 
-    return !loading ? (
+    if (loading) return <Spin />;
+
+    return (
         <>
             <span>{data?.profile ? data?.profile.full_name : user.email}</span>
             <UserDropdownMenu
@@ -19,8 +21,6 @@ const HeaderUserMenu = () => {
                 avatar={data?.profile.avatar}
             />
         </>
-    ) : (
-        <Spin />
     );
 };
 
