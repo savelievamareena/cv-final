@@ -13,6 +13,7 @@ export const MainLayout = () => {
     return (
         <>
             <Header />
+            <div>breadcrumbs component</div>
             <Outlet />
             <DialogsContainer />
         </>

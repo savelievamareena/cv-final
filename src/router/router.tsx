@@ -12,6 +12,7 @@ import { LanguagesPage } from "@/pages/languages";
 import { PositionsPage } from "@/pages/positions";
 import { SkillsPage } from "@/pages/skills";
 import { CvPage } from "@/pages/cvs";
+import { Details } from "@/modules/CVs/components/details";
 
 export const router = createBrowserRouter([
     {
@@ -64,7 +65,7 @@ export const router = createBrowserRouter([
                         path: routes.cvs.cvById(`:${RouteParams.CvId}`),
                         element: (
                             <div>
-                                Common CV-by-ID layout (has Outlet)
+                                Tabs component
                                 <Outlet />
                             </div>
                         ),
@@ -72,7 +73,7 @@ export const router = createBrowserRouter([
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.cvs.details(`:${RouteParams.CvId}`),
-                                element: <div>CV details content</div>,
+                                element: <Details />,
                             },
                             {
                                 errorElement: <ErrorComponent />,

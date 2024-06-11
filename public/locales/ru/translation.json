@@ -20,6 +20,7 @@
     "add": "Добавить",
     "delete": "Удалить",
     "update": "Обновить",
+    "loading": "Загрузка",
     "search": "Поиск",
     "cancel": "Отмена",
     "confirm": "Подтвердить",
@@ -31,8 +32,20 @@
     "Employees": "Сотрудники",
     "Projects": "Проекты",
     "CVs": "Резюме",
+    "CV": "Резюме",
     "Departments": "Отделы",
     "Languages": "Языки",
+    "Name": "Имя",
+    "Education": "Образование",
+    "Description": "Описание",
+    "notifications": {
+        "cv": {
+            "updateError": "Ошибка при обновлении резюме",
+            "updateSuccess": "Резюме обновено успешно",
+            "fetchingError": "Ошибка при загрукзе резюме",
+            "descriptionLength": "Описание должно содержать минимум 6 симолов"
+        }
+    },
     "Open language menu":"Открыть меню выбора языков",
     "Close language menu":"Закрыть меню выбора языков",
     "fieldErrors": {

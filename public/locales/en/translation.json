@@ -20,6 +20,7 @@
     "add": "Add",
     "delete": "Delete",
     "update": "Update",
+    "loading": "Loading",
     "search": "Search",
     "cancel": "Cancel",
     "confirm": "Confirm",
@@ -35,6 +36,17 @@
     "Departments": "Departments",
     "Skills": "Skills",
     "Languages": "Languages",
+    "Name": "Name",
+    "Education": "Education",
+    "Description": "Description",
+    "notifications": {
+        "cv": {
+            "updateError": "Error Updating CV",
+            "updateSuccess": "CV updated successfully",
+            "fetchingError": "Error fetching CV",
+            "descriptionLength": "Description should be at least 6 symbols long"
+        }
+    },
     "Open language menu":"Open language menu",
     "Close language menu":"Close language menu",
     "fieldErrors": {
