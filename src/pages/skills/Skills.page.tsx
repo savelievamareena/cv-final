@@ -1,4 +1,4 @@
-import SkillsList from "@/modules/skills/ui/skills-list";
+import { SkillsList } from "@/modules/skills/";
 
 const SkillsPage = () => {
     return <SkillsList />;

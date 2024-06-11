@@ -13,6 +13,11 @@ interface FormData {
     category: string;
 }
 
+const columnConfigs: ColumnConfig<Skill>[] = [
+    { name: "name", isSorted: true },
+    { name: "category", isSorted: true },
+];
+
 const SkillsList = () => {
     const { skills, loading } = useSkillsQuery();
     const [searchQuery, setSearchQuery] = useState("");
@@ -65,24 +70,17 @@ const SkillsList = () => {
             initialValues: { skill: "", category: "" },
         });
 
-    const columnConfigs: ColumnConfig<Skill>[] = [
-        { name: "name", isSorted: true },
-        { name: "category", isSorted: true },
-    ];
-
     return (
-        <>
-            <ListTemplate
-                pageName={t("skills.skill")}
-                onButtonClick={openSkill}
-                menuProps={menuProps}
-                columnConfigs={columnConfigs}
-                searchQuery={searchQuery}
-                displayData={skills}
-                loading={loading}
-                setSearchQuery={setSearchQuery}
-            />
-        </>
+        <ListTemplate
+            pageName={t("skills.skill")}
+            onButtonClick={openSkill}
+            menuProps={menuProps}
+            columnConfigs={columnConfigs}
+            searchQuery={searchQuery}
+            displayData={skills}
+            loading={loading}
+            setSearchQuery={setSearchQuery}
+        />
     );
 };
 

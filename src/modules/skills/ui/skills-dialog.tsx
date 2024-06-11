@@ -8,6 +8,7 @@ import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormSelect } from "@/components/form-select";
 import { getSkillFormSchema } from "../shemas/skills";
 import { useSkillCategoriesQuery } from "../api/get-skill-catigories-query";
+import { convertToSelectOptions } from "../helper/convert";
 
 interface FormData {
     skill: string;
@@ -17,11 +18,10 @@ interface SkillDialogProps {
     title: string;
     onConfirm: (formData: FormData) => void;
     onClose: () => void;
-    initialValues: { skill: string; category: string };
+    initialValues: FormData;
 }
 const SkillDialog = ({ title, onConfirm, onClose, initialValues }: SkillDialogProps) => {
     const { t } = useTranslation();
-    const { skill, category } = initialValues;
 
     const { skillCategories } = useSkillCategoriesQuery();
 
@@ -30,24 +30,13 @@ const SkillDialog = ({ title, onConfirm, onClose, initialValues }: SkillDialogPr
         onClose();
     };
 
-    interface SelectOption {
-        label: string;
-        value: string;
-    }
-
-    const convertToSelectOptions = (arr: string[]): SelectOption[] => {
-        return arr.map((item) => ({
-            label: item,
-            value: item,
-        }));
-    };
     const selectOptions = convertToSelectOptions(skillCategories);
 
     return (
         <BaseDialog title={title} onClose={onClose}>
             <Form
                 onSubmit={handleConfirm}
-                defaultValues={{ skill, category }}
+                defaultValues={initialValues}
                 schema={getSkillFormSchema()}
             >
                 <FormTextField type="text" label={t("skills.skill")} name="skill" />
