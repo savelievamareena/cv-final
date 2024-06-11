@@ -9,10 +9,27 @@ import { useConfirm } from "@/components/confirm-dialog/";
 import { useCvCreate, useCvDelete, useCvsQuery } from "../api";
 import { useAddCv } from "./cvs-dialog";
 
-interface FormData {
-    cv: string;
+interface CvTransformed {
+    id: Key;
+    name: string;
     description: string;
+    employee?: string;
 }
+
+const columnConfigs: ColumnConfig<CvTransformed>[] = [
+    { name: "name", isSorted: true },
+    { name: "description", isSorted: false },
+    { name: "employee", isSorted: true },
+];
+
+const convertArray = (arr: Cv[]): CvTransformed[] => {
+    return arr.map((item) => ({
+        id: item.id,
+        name: item.name,
+        description: item.description,
+        employee: item.user?.email,
+    }));
+};
 
 const CvsList = () => {
     const { cvs, loading } = useCvsQuery();
@@ -38,7 +55,7 @@ const CvsList = () => {
     const openCv = () =>
         openAddCv({
             title: t("Add cv"),
-            onConfirm: (formData: FormData) =>
+            onConfirm: (formData) =>
                 void createCv({
                     variables: {
                         cv: {
@@ -50,43 +67,19 @@ const CvsList = () => {
             initialValues: { cv: "", description: "" },
         });
 
-    interface CvTransformed {
-        id: Key;
-        name: string;
-        description: string;
-        employee?: string;
-    }
-
-    const convertArray = (arr: Cv[]): CvTransformed[] => {
-        return arr.map((item) => ({
-            id: item.id,
-            name: item.name,
-            description: item.description,
-            employee: item.user?.email,
-        }));
-    };
-
-    const columnConfigs: ColumnConfig<CvTransformed>[] = [
-        { name: "name", isSorted: true },
-        { name: "description", isSorted: false },
-        { name: "employee", isSorted: true },
-    ];
-
     const convertedCvs = convertArray(cvs);
 
     return (
-        <>
-            <ListTemplate
-                pageName={t("cvs.cv")}
-                onButtonClick={openCv}
-                menuProps={menuProps}
-                columnConfigs={columnConfigs}
-                searchQuery={searchQuery}
-                displayData={convertedCvs}
-                loading={loading}
-                setSearchQuery={setSearchQuery}
-            />
-        </>
+        <ListTemplate
+            pageName={t("cvs.cv")}
+            onButtonClick={openCv}
+            menuProps={menuProps}
+            columnConfigs={columnConfigs}
+            searchQuery={searchQuery}
+            displayData={convertedCvs}
+            loading={loading}
+            setSearchQuery={setSearchQuery}
+        />
     );
 };
 
