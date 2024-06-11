@@ -11,5 +11,3 @@ export interface CreateCvResult {
 export interface UpdateCvResult {
     updateCv: Cv;
 }
-
-export const a = 123;

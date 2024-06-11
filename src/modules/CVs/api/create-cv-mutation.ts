@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { CreateCvInput } from "cv-graphql";
 import { GET_CVS_QUERY } from "./get-cvs-query";
-import { CreateCvResult } from "./CVs.types";
+import { CreateCvResult } from "./cvs.types";
 
 export const CREATE_CV = gql`
     mutation CreateCv($cv: CreateCvInput!) {
