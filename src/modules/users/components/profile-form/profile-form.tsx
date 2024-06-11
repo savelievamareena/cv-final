@@ -103,7 +103,11 @@ const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
                 </Col>
                 {canEdit && (
                     <Col xs={{ span: 24 }} md={{ offset: 12, span: 12 }}>
-                        <FormSubmitButton className={styles.submitButton} disableIfNotDirty>
+                        <FormSubmitButton
+                            type="primary"
+                            className={styles.submitButton}
+                            disableIfNotDirty
+                        >
                             {t("update")}
                         </FormSubmitButton>
                     </Col>

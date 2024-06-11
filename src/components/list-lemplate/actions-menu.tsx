@@ -1,31 +1,39 @@
 import { memo, ReactNode } from "react";
-import { Space, Dropdown, Menu } from "antd";
+import { Space, Dropdown } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
 import { t } from "i18next";
+import { Content } from "antd/es/layout/layout";
 
 export interface Action {
-    onUpdate: () => void;
-    onDelete: () => void;
+    onUpdate: (id: string) => void;
+    onDelete: (id: string) => void;
 }
 
-type ActionProps = Action & { pageName: string };
+type ActionProps = Action & { pageName: string; record: { id: string } };
 
-const ActionsMenu = ({ onUpdate, onDelete, pageName }: ActionProps) => {
+const ActionsMenu = ({ onUpdate, onDelete, pageName, record }: ActionProps) => {
+    const onHandleDelete = () => {
+        onDelete(record.id);
+    };
+    const onHandleUpdate = () => {
+        onUpdate(record.id);
+    };
+
     const items = [
         {
             key: "0",
             label: (
-                <Menu.Item key="update" onClick={onUpdate}>
+                <Content key="update" onClick={onHandleUpdate}>
                     {t("update")} {pageName}
-                </Menu.Item>
+                </Content>
             ) as ReactNode,
         },
         {
             key: "1",
             label: (
-                <Menu.Item key="delete" onClick={onDelete}>
+                <Content key="delete" onClick={onHandleDelete}>
                     {t("delete")} {pageName}
-                </Menu.Item>
+                </Content>
             ) as ReactNode,
         },
     ];

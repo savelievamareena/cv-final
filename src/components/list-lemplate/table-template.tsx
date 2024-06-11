@@ -14,6 +14,7 @@ interface TableTemplateProps<T extends { id: React.Key }> {
     data: T[];
     loading: boolean;
     pageName: string;
+    isAdmin: boolean;
 }
 
 type DynamicDataType<T> = T & { key: Key };
@@ -25,6 +26,7 @@ const TableTemplate = <T extends { id: Key }>({
     data,
     loading,
     pageName,
+    isAdmin,
 }: TableTemplateProps<T>) => {
     const createColumnsAndData = (columnConfigs: ColumnConfig<T>[], data: T[]) => {
         const columns: TableColumnsType<DynamicDataType<T>> = columnConfigs.map((config) => ({
@@ -40,19 +42,22 @@ const TableTemplate = <T extends { id: Key }>({
                 : undefined,
         }));
 
-        columns.push({
-            title: "",
-            dataIndex: "",
-            key: "x",
-            width: "5%",
-            render: () => (
-                <ActionsMenu
-                    pageName={pageName}
-                    onDelete={menuProps.onDelete}
-                    onUpdate={menuProps.onUpdate}
-                />
-            ),
-        });
+        if (isAdmin) {
+            columns.push({
+                title: "",
+                dataIndex: "",
+                key: "x",
+                width: "5%",
+                render: (record: { id: string }) => (
+                    <ActionsMenu
+                        pageName={pageName}
+                        onDelete={menuProps.onDelete}
+                        onUpdate={menuProps.onUpdate}
+                        record={record}
+                    />
+                ),
+            });
+        }
 
         const filteredData: DynamicDataType<T>[] = data
             .filter((item) => {
