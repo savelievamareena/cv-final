@@ -20,7 +20,6 @@ interface LanguageDialogProps {
 }
 const LanguageDialog = ({ title, onConfirm, onClose, initialValues }: LanguageDialogProps) => {
     const { t } = useTranslation();
-    const { language, native_name, iso2 } = initialValues;
 
     const handleConfirm = (formData: FormData) => {
         onConfirm(formData);
@@ -31,7 +30,7 @@ const LanguageDialog = ({ title, onConfirm, onClose, initialValues }: LanguageDi
         <BaseDialog title={title} onClose={onClose}>
             <Form
                 onSubmit={handleConfirm}
-                defaultValues={{ language, native_name, iso2 }}
+                defaultValues={initialValues}
                 schema={getLanguageFormSchema()}
             >
                 <FormTextField type="text" label={t("language")} name="language" />

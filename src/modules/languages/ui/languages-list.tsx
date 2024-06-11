@@ -8,11 +8,10 @@ import { useConfirm } from "@/components/confirm-dialog/";
 import { useLanguageCreate, useLanguageDelete, useLanguagesQuery, useLanguageUpdate } from "../api";
 import { useAddLanguage } from "./languages-dialog";
 
-interface FormData {
-    language: string;
-    native_name: string;
-    iso2: string;
-}
+const columnConfigs: ColumnConfig<Language>[] = [
+    { name: "name", isSorted: true },
+    { name: "iso2", isSorted: false },
+];
 
 const LanguagesList = () => {
     const { languages, loading } = useLanguagesQuery();
@@ -35,7 +34,7 @@ const LanguagesList = () => {
         onUpdate: (id: string) =>
             openAddLanguage({
                 title: t("Update language"),
-                onConfirm: (formData: FormData) =>
+                onConfirm: (formData) =>
                     void updateLanguage({
                         variables: {
                             language: {
@@ -58,7 +57,7 @@ const LanguagesList = () => {
     const openLanguage = () =>
         openAddLanguage({
             title: t("Add language"),
-            onConfirm: (formData: FormData) =>
+            onConfirm: (formData) =>
                 void createLanguage({
                     variables: {
                         language: {
@@ -72,24 +71,17 @@ const LanguagesList = () => {
             initialValues: { language: "", native_name: "", iso2: "" },
         });
 
-    const columnConfigs: ColumnConfig<Language>[] = [
-        { name: "name", isSorted: true },
-        { name: "iso2", isSorted: false },
-    ];
-
     return (
-        <>
-            <ListTemplate
-                pageName={t("language")}
-                onButtonClick={openLanguage}
-                menuProps={menuProps}
-                columnConfigs={columnConfigs}
-                searchQuery={searchQuery}
-                displayData={languages}
-                loading={loading}
-                setSearchQuery={setSearchQuery}
-            />
-        </>
+        <ListTemplate
+            pageName={t("language")}
+            onButtonClick={openLanguage}
+            menuProps={menuProps}
+            columnConfigs={columnConfigs}
+            searchQuery={searchQuery}
+            displayData={languages}
+            loading={loading}
+            setSearchQuery={setSearchQuery}
+        />
     );
 };
 
