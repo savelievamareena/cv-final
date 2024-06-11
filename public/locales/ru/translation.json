@@ -24,7 +24,6 @@
     "cancel": "Отмена",
     "confirm": "Подтвердить",
     "department": "отдел",
-    "skill": "навык",
     "Profile": "Профиль",
     "Settings": "Настройки",
     "Logout": "Выйти",
@@ -33,14 +32,14 @@
     "Projects": "Проекты",
     "CVs": "Резюме",
     "Departments": "Отделы",
-    "Skills": "Навыки",
     "Languages": "Языки",
     "Open language menu":"Открыть меню выбора языков",
     "Close language menu":"Закрыть меню выбора языков",
     "fieldErrors": {
         "nameRequired": "Имя обязательно",
         "nativeNameRequired": "Родное имя обязательно",
-        "iso2Length": "ISO2 должно занимать 1 или 2 символа"
+        "iso2Length": "ISO2 должно занимать 1 или 2 символа",
+        "categoryRequired": "Категория обязательна"
             
     },
     "positions": {
@@ -48,5 +47,12 @@
         "addPosition": "Добавить должность",
         "updatePosition": "Обновить должность",
         "deletePosition": "Удалить должность"
+    },
+    "skills": {
+        "skill":"навык",    
+        "addSkill": "Добавить навык",
+        "updateSkill": "Обновить навык",
+        "deleteSkill": "Удалить навык",
+        "category":"категория"
     }
 }
