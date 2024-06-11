@@ -2,7 +2,7 @@ import { gql, useQuery } from "@apollo/client";
 import { Department } from "cv-graphql";
 import { useNotificationContext } from "@/helpers/notification";
 
-const GET_DEPARTMENTS_QUERY = gql`
+export const GET_DEPARTMENTS_QUERY = gql`
     query Departments {
         departments {
             id
@@ -18,9 +18,11 @@ interface DepartmentsResult {
 export const useDepartmentsQuery = () => {
     const { showNotification } = useNotificationContext();
 
-    return useQuery<DepartmentsResult>(GET_DEPARTMENTS_QUERY, {
+    const { data, ...query } = useQuery<DepartmentsResult>(GET_DEPARTMENTS_QUERY, {
         onError: (error) => {
             showNotification("error", error.message);
         },
     });
+
+    return { departments: data?.departments ?? [], ...query };
 };

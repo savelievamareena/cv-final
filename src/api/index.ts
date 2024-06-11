@@ -1,2 +1,2 @@
-export { useDepartmentsQuery } from "./get-departments-query";
-export { usePositionsQuery } from "./get-positions-query";
+export { useDepartmentsQuery, GET_DEPARTMENTS_QUERY } from "./get-departments-query";
+export { usePositionsQuery, GET_POSITIONS_QUERY } from "./get-positions-query";

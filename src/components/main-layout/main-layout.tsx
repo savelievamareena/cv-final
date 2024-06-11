@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+import { Spin } from "antd";
 import { Navigate, Outlet } from "react-router-dom";
 
 import { routes } from "@/router";
@@ -13,7 +15,9 @@ export const MainLayout = () => {
     return (
         <>
             <Header />
-            <Outlet />
+            <Suspense fallback={<Spin size="large" fullscreen />}>
+                <Outlet />
+            </Suspense>
             <DialogsContainer />
         </>
     );

@@ -21,14 +21,14 @@ interface ProfileFormProps {
 const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
     const { t } = useTranslation();
 
-    const { data: positionsData, loading: loadingPositions } = usePositionsQuery();
-    const { data: departmentsData, loading: loadingDepartments } = useDepartmentsQuery();
+    const { positions, loading: loadingPositions } = usePositionsQuery();
+    const { departments, loading: loadingDepartments } = useDepartmentsQuery();
 
-    const departmentOptions = departmentsData?.departments.map(({ id, name }) => ({
+    const departmentOptions = departments.map(({ id, name }) => ({
         value: id,
         label: <span>{name}</span>,
     }));
-    const positionOptions = positionsData?.positions.map(({ id, name }) => ({
+    const positionOptions = positions.map(({ id, name }) => ({
         value: id,
         label: <span>{name}</span>,
     }));
