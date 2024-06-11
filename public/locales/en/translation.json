@@ -31,7 +31,7 @@
     "Home": "Home",
     "Employees": "Employees",
     "Projects": "Projects",
-    "CVs": "CVs",
+ 
     "Departments": "Departments",
     "Skills": "Skills",
     "Languages": "Languages",
@@ -41,7 +41,8 @@
         "nameRequired": "Name is required",
         "nativeNameRequired": "Native name is required",
         "iso2Length": "ISO2 must be shorter than or equal to 2 characters",
-        "categoryRequired": "Category is required"
+        "categoryRequired": "Category is required",
+         "descriptionRequired": "Descripion is required"
     },
     "positions": {
         "positions":"position",
@@ -57,5 +58,12 @@
         "updateSkill": "Update  skill",
         "deleteSkill": "Delete skill",
         "category":"category"
+    },
+    "cvs": {
+        "cv":"cv",
+        "addCv": "Add cv",
+        "updateCv": "Update cv",
+        "deleteCv": "Delete cv"
     }
+    
 }

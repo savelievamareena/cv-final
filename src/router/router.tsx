@@ -11,6 +11,7 @@ import { DepartmentsPage } from "@/pages/departments";
 import { LanguagesPage } from "@/pages/languages";
 import { PositionsPage } from "@/pages/positions";
 import { SkillsPage } from "@/pages/skills";
+import { CvPage } from "@/pages/cvs";
 
 export const router = createBrowserRouter([
     {
@@ -56,7 +57,7 @@ export const router = createBrowserRouter([
                     {
                         errorElement: <ErrorComponent />,
                         index: true,
-                        element: <div>CVs page content (table)</div>,
+                        element: <CvPage />,
                     },
                     {
                         errorElement: <ErrorComponent />,
