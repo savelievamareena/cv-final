@@ -33,7 +33,6 @@
     "Projects": "Проекты",
     "CVs": "Резюме",
     "Departments": "Отделы",
-    "Positions": "Должности",
     "Skills": "Навыки",
     "Languages": "Языки",
     "Open language menu":"Открыть меню выбора языков",
@@ -43,5 +42,11 @@
         "nativeNameRequired": "Родное имя обязательно",
         "iso2Length": "ISO2 должно занимать 1 или 2 символа"
             
+    },
+    "positions": {
+        "positions":"Должности",
+        "addPosition": "Добавить должность",
+        "updatePosition": "Обновить должность",
+        "deletePosition": "Удалить должность"
     }
 }

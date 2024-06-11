@@ -33,7 +33,6 @@
     "Projects": "Projects",
     "CVs": "CVs",
     "Departments": "Departments",
-    "Positions": "Positions",
     "Skills": "Skills",
     "Languages": "Languages",
     "Open language menu":"Open language menu",
@@ -42,5 +41,12 @@
         "nameRequired": "Name is required",
         "nativeNameRequired": "Native name is required",
         "iso2Length": "ISO2 must be shorter than or equal to 2 characters"
+    },
+    "positions": {
+        "positions":"position",
+        "addPosition": "Add position",
+        "updatePosition": "Update  position",
+        "deletePosition": "Delete position"
+        
     }
 }

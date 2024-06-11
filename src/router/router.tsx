@@ -9,6 +9,7 @@ import { SignUp } from "@/pages/sign-up";
 import { VerifyMail } from "@/pages/verify-mail";
 import { DepartmentsPage } from "@/pages/departments";
 import { LanguagesPage } from "@/pages/languages";
+import { PositionsPage } from "@/pages/positions";
 
 export const router = createBrowserRouter([
     {
@@ -183,7 +184,7 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 path: routes.positions,
-                element: <div>Positions page content (table)</div>,
+                element: <PositionsPage />,
             },
             {
                 errorElement: <ErrorComponent />,
