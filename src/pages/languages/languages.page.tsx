@@ -1,4 +1,4 @@
-import LanguagesList from "@/modules/languages/ui/languages-list";
+import { LanguagesList } from "@/modules/languages/";
 
 const LanguagesPage = () => {
     return <LanguagesList />;
