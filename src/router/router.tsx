@@ -10,7 +10,7 @@ import { Cvs } from "@/pages/cvs";
 import { VerifyMail } from "@/pages/verify-mail";
 import { DepartmentsPage } from "src/pages/departments";
 import { LanguagesPage } from "@/pages/languages";
-import { Details } from "src/modules/CVs/components/details";
+import { Details } from "src/modules/cvs/components/details";
 
 export const router = createBrowserRouter([
     {
