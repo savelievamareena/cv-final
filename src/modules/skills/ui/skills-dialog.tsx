@@ -6,9 +6,9 @@ import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormSelect } from "@/components/form-select";
+import { convertToSelectOptions } from "@/helpers/convert/convert-to-select-options";
 import { getSkillFormSchema } from "../shemas/skills";
 import { useSkillCategoriesQuery } from "../api/get-skill-catigories-query";
-import { convertToSelectOptions } from "../helper/convert";
 
 interface FormData {
     skill: string;
