@@ -6,13 +6,17 @@ export interface UserTransformed {
     first_name?: string;
     last_name?: string;
     email?: string;
+    department?: string;
+    position?: string;
 }
 
-export const convertCvToTable = (arr: User[]): UserTransformed[] => {
+export const convertUserToTable = (arr: User[]): UserTransformed[] => {
     return arr.map((item) => ({
         id: item.id,
         first_name: item.profile.first_name ?? "",
         last_name: item.profile.last_name ?? "",
         email: item.email,
+        department: item.department?.name ?? "",
+        position: item.position?.name ?? "",
     }));
 };

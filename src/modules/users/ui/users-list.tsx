@@ -5,11 +5,14 @@ import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useConfirm } from "@/components/confirm-dialog/";
 import { useUserCreate, useUserDelete, useUsersQuery, useUserUpdate } from "../api";
 import { useUserDialog } from "./users-dialog";
-import { UserTransformed } from "@/helpers/convert/user-table";
+import { convertUserToTable, UserTransformed } from "@/helpers/convert/user-table";
 
 const columnConfigs: ColumnConfig<UserTransformed>[] = [
     { name: "first_name", isSorted: true },
     { name: "last_name", isSorted: false },
+    { name: "email", isSorted: false },
+    { name: "department", isSorted: false },
+    { name: "position", isSorted: false },
 ];
 
 const UsersList = () => {
@@ -60,13 +63,15 @@ const UsersList = () => {
             initialValues: { first_name: "", last_name: "", email: "" },
         });
 
+    const convertedUsers = convertUserToTable(users);
+
     return (
         <ListTemplate
             pageName={t("user")}
             onButtonClick={openUser}
             menuProps={menuProps}
             columnConfigs={columnConfigs}
-            displayData={users}
+            displayData={convertedUsers}
             loading={loading}
         />
     );
