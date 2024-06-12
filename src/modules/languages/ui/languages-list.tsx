@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Language } from "cv-graphql";
 import { t } from "i18next";
 import ListTemplate from "@/components/list-lemplate/list-template";
@@ -15,7 +14,6 @@ const columnConfigs: ColumnConfig<Language>[] = [
 
 const LanguagesList = () => {
     const { languages, loading } = useLanguagesQuery();
-    const [searchQuery, setSearchQuery] = useState("");
 
     const [openConfirm] = useConfirm();
     const [openAddLanguage] = useAddLanguage();
@@ -77,10 +75,8 @@ const LanguagesList = () => {
             onButtonClick={openLanguage}
             menuProps={menuProps}
             columnConfigs={columnConfigs}
-            searchQuery={searchQuery}
             displayData={languages}
             loading={loading}
-            setSearchQuery={setSearchQuery}
         />
     );
 };
