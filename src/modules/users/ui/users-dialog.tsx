@@ -33,9 +33,10 @@ const UserDialog = ({ title, onConfirm, onClose, initialValues }: UserDialogProp
                 defaultValues={initialValues}
                 schema={getUserFormSchema()}
             >
-                <FormTextField type="text" label={t("user")} name="user" />
-                <FormTextField type="text" label={t("Native name")} name="native_name" />
-                <FormTextField type="text" label={t("iso2")} name="iso2" />
+                <FormTextField type="text" label={t("email")} name="email" />
+                <FormTextField type="text" label={t("password")} name="password" />
+                <FormTextField type="text" label={t("first name")} name="first_name" />
+                <FormTextField type="text" label={t("last name")} name="last_name" />
                 <Button htmlType="button" onClick={onClose}>
                     {t("cancel")}
                 </Button>

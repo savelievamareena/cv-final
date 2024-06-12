@@ -32,12 +32,12 @@ const UsersList = () => {
                 onConfirm: () => void deleteUser({ variables: { user: { userId: id } } }),
             }),
 
-        onUpdate: (id: string) => navigate(`/user/${id}`),
+        onUpdate: (id: string) => navigate(`/users/${id}`),
     };
 
     const openUser = () =>
         openUserDialog({
-            title: t("user.addUser"),
+            title: t("users.addUser"),
             onConfirm: (formData) =>
                 void createUser({
                     variables: {
