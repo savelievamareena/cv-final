@@ -1,4 +1,4 @@
-import CvDetailsForm from "@/modules/CVs/components/cv-details-form/cv-details-form.tsx";
+import CvDetailsForm from "@/modules/cvs/components/cv-details-form/cv-details-form";
 
 const Details = () => {
     return <CvDetailsForm />;

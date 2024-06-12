@@ -50,5 +50,11 @@
         }
     },
     "Open language menu":"Открыть меню выбора языков",
-    "Close language menu":"Закрыть меню выбора языков"
+    "Close language menu":"Закрыть меню выбора языков",
+    "fieldErrors": {
+        "nameRequired": "Имя обязательно",
+        "nativeNameRequired": "Родное имя обязательно",
+        "iso2Length": "ISO2 должно занимать 1 или 2 символа"
+            
+    }
 }

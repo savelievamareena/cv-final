@@ -9,7 +9,8 @@ import { SignUp } from "@/pages/sign-up";
 import { Cvs } from "@/pages/cvs";
 import { VerifyMail } from "@/pages/verify-mail";
 import { DepartmentsPage } from "src/pages/departments";
-import { Details } from "src/modules/CVs/components/details";
+import { LanguagesPage } from "@/pages/languages";
+import { Details } from "src/modules/cvs/components/details";
 
 export const router = createBrowserRouter([
     {
@@ -179,7 +180,7 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 path: routes.languages,
-                element: <div>Languages page content (table)</div>,
+                element: <LanguagesPage />,
             },
             {
                 errorElement: <ErrorComponent />,

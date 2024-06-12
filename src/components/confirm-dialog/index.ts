@@ -1,1 +1,1 @@
-export { useConfirm } from "./confirm-dialog";
+export { default as useConfirm } from "./confirm-dialog";
