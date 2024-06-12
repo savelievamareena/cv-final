@@ -1,3 +1,3 @@
 import { lazy } from "react";
 
-export const SkillsPage = lazy(() => import("./Skills.page"));
+export const SkillsPage = lazy(() => import("./skills"));

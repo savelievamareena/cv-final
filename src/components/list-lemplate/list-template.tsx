@@ -1,4 +1,5 @@
-import { Dispatch, Key, SetStateAction } from "react";
+import { ChangeEvent, Key } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { UserRole } from "cv-graphql";
 import { Button, Input } from "antd";
@@ -12,10 +13,8 @@ interface ListTemplateProps<T> {
     onButtonClick: () => void;
     menuProps: Action;
     columnConfigs: ColumnConfig<T>[];
-    searchQuery: string;
     displayData: T[];
     loading: boolean;
-    setSearchQuery: Dispatch<SetStateAction<string>>;
 }
 
 const ListTemplate = <T extends { id: Key }>({
@@ -23,21 +22,26 @@ const ListTemplate = <T extends { id: Key }>({
     onButtonClick,
     menuProps,
     columnConfigs,
-    searchQuery,
     displayData,
     loading,
-    setSearchQuery,
 }: ListTemplateProps<T>) => {
     const user = useAuthUser();
     const isAdmin = user?.role === UserRole.Admin;
 
     const { t } = useTranslation();
 
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearchParams({ search: e.target.value });
+    };
+
     return (
         <div style={{ width: "100vw" }}>
             <Input
                 placeholder={t("search")}
-                onChange={() => setSearchQuery}
+                onChange={(e) => handleInputChange(e)}
+                value={searchParams.get("search") ?? ""}
                 prefix={<SearchOutlined />}
             />
             {isAdmin && (
@@ -46,7 +50,7 @@ const ListTemplate = <T extends { id: Key }>({
                 </Button>
             )}
             <TableTemplate<T>
-                searchQuery={searchQuery}
+                searchQuery={searchParams.get("search") ?? ""}
                 menuProps={menuProps}
                 columnConfigs={columnConfigs}
                 data={displayData}

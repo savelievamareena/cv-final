@@ -2,7 +2,7 @@ import { z } from "zod";
 import i18n from "@/i18n";
 
 export const getLanguageFormSchema = () => {
-    const iso2Message = { message: i18n.t("fieldErrors.nameRequired") };
+    const iso2Message = { message: i18n.t("fieldErrors.iso2Length") };
     return z.object({
         language: z.string().min(1, { message: i18n.t("fieldErrors.nameRequired") }),
         native_name: z.string().min(1, { message: i18n.t("fieldErrors.native_nameRequired") }),

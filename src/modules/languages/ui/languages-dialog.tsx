@@ -16,11 +16,10 @@ interface LanguageDialogProps {
     title: string;
     onConfirm: (formData: FormData) => void;
     onClose: () => void;
-    initialValues: { language: string; native_name: string; iso2: string };
+    initialValues: FormData;
 }
 const LanguageDialog = ({ title, onConfirm, onClose, initialValues }: LanguageDialogProps) => {
     const { t } = useTranslation();
-    const { language, native_name, iso2 } = initialValues;
 
     const handleConfirm = (formData: FormData) => {
         onConfirm(formData);
@@ -31,7 +30,7 @@ const LanguageDialog = ({ title, onConfirm, onClose, initialValues }: LanguageDi
         <BaseDialog title={title} onClose={onClose}>
             <Form
                 onSubmit={handleConfirm}
-                defaultValues={{ language, native_name, iso2 }}
+                defaultValues={initialValues}
                 schema={getLanguageFormSchema()}
             >
                 <FormTextField type="text" label={t("language")} name="language" />
@@ -46,6 +45,6 @@ const LanguageDialog = ({ title, onConfirm, onClose, initialValues }: LanguageDi
     );
 };
 
-export const useAddLanguage = createDialogHook<LanguageDialogProps>((props) => (
+export const useLanguageDialog = createDialogHook<LanguageDialogProps>((props) => (
     <LanguageDialog {...props} />
 ));

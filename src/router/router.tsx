@@ -6,10 +6,12 @@ import { ErrorComponent } from "src/components/error-component";
 import { AuthLayout } from "@/modules/auth/components/auth-layout";
 import { Login } from "@/pages/login";
 import { SignUp } from "@/pages/sign-up";
+import { Cvs } from "@/pages/cvs";
 import { VerifyMail } from "@/pages/verify-mail";
-import { DepartmentsPage } from "@/pages/departments";
+import { DepartmentsPage } from "src/pages/departments";
 import { LanguagesPage } from "@/pages/languages";
 import { PositionsPage } from "@/pages/positions";
+import { Details } from "src/modules/cvs/components/details";
 
 export const router = createBrowserRouter([
     {
@@ -55,14 +57,14 @@ export const router = createBrowserRouter([
                     {
                         errorElement: <ErrorComponent />,
                         index: true,
-                        element: <div>CVs page content (table)</div>,
+                        element: <Cvs />,
                     },
                     {
                         errorElement: <ErrorComponent />,
                         path: routes.cvs.cvById(`:${RouteParams.CvId}`),
                         element: (
                             <div>
-                                Common CV-by-ID layout (has Outlet)
+                                Tabs component
                                 <Outlet />
                             </div>
                         ),
@@ -70,7 +72,7 @@ export const router = createBrowserRouter([
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.cvs.details(`:${RouteParams.CvId}`),
-                                element: <div>CV details content</div>,
+                                element: <Details />,
                             },
                             {
                                 errorElement: <ErrorComponent />,

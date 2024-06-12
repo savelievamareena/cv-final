@@ -72,7 +72,7 @@ const DepartmentsList = () => {
     return (
         <>
             <ListTemplate
-                pageName={t("deparmtent")}
+                pageName={t("department")}
                 onButtonClick={openDepartment}
                 menuProps={menuProps}
                 columnConfigs={columnConfigs}

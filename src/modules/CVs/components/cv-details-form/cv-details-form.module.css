@@ -1,0 +1,18 @@
+.cv_details_form_wrapper {
+    width: 100%;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.cv_details_form {
+    width: 46%;
+}
+
+.cv_details_form .cv_details_form_textarea {
+    height: 120px;
+    resize: none;
+}
+
+.cv_details_submit_button {
+    width: 100%;
+}

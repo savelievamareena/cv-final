@@ -58,7 +58,6 @@ const TableTemplate = <T extends { id: Key }>({
                 ),
             });
         }
-
         const filteredData: DynamicDataType<T>[] = data
             .filter((item) => {
                 const firstColumnName = columnConfigs[0].name;
