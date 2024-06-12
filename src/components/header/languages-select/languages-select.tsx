@@ -4,7 +4,7 @@ import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
 import { Languages } from "@/i18n.ts";
 import classNames from "classnames/bind";
-import styles from "../header.module.css";
+import styles from "../header.module.scss";
 
 const LanguagesSelect = () => {
     const cx = classNames.bind(styles);

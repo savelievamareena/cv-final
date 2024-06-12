@@ -2,6 +2,8 @@ import { Key } from "react";
 import ActionsMenu, { Action } from "./actions-menu";
 import { Table, TableColumnsType } from "antd";
 
+import styles from "./list-template.module.scss";
+
 export interface ColumnConfig<T> {
     name: keyof T;
     isSorted: boolean;
@@ -77,7 +79,7 @@ const TableTemplate = <T extends { id: Key }>({
     const { columns, data: filteredData } = createColumnsAndData(columnConfigs, data);
 
     return (
-        <div style={{ width: "80vw", margin: "0 auto" }}>
+        <div className={styles.tableWrapper}>
             <Table
                 columns={columns}
                 dataSource={filteredData}

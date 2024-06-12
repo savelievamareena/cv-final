@@ -8,6 +8,8 @@ import { SearchOutlined } from "@ant-design/icons";
 import TableTemplate, { ColumnConfig } from "./table-template";
 import { Action } from "./actions-menu";
 
+import styles from "./list-template.module.scss";
+
 interface ListTemplateProps<T> {
     pageName: string;
     onButtonClick: () => void;
@@ -37,7 +39,7 @@ const ListTemplate = <T extends { id: Key }>({
     };
 
     return (
-        <div style={{ width: "100vw" }}>
+        <div className={styles.listWrapper}>
             <Input
                 placeholder={t("search")}
                 onChange={(e) => handleInputChange(e)}

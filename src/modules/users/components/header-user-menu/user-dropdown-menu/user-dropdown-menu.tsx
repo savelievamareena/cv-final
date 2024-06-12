@@ -4,7 +4,7 @@ import { Dropdown, Flex, MenuProps } from "antd";
 import { LogoutOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
 import { routes } from "@/router";
 import classNames from "classnames/bind";
-import styles from "@/modules/header/header.module.css";
+import styles from "@/components/header/header.module.scss";
 import { authService } from "@/services/auth-service";
 import { useTranslation } from "react-i18next";
 
