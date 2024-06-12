@@ -78,7 +78,7 @@ const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuPro
             arrow={{ pointAtCenter: true }}
             trigger={["click"]}
         >
-            <Flex className={classNames(styles.avatarWrapper)}>
+            <Flex justify="center" align="center" className={classNames(styles.avatarWrapper)}>
                 <ProfilePicture profileLetter={profileLetter} avatar={avatar} />
             </Flex>
         </Dropdown>

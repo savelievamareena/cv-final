@@ -28,6 +28,11 @@
 .fixedHeader {
     height: $header-height;
 
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
     position: fixed;
     z-index: 5;
 

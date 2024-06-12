@@ -4,6 +4,8 @@ import { useAuthUser } from "@/services/auth-service";
 import { UserDropdownMenu } from "./user-dropdown-menu";
 import { useProfileQuery } from "../../api";
 
+import styles from "./header-user-menu.module.scss";
+
 const HeaderUserMenu = () => {
     const user = useAuthUser();
 
@@ -15,7 +17,9 @@ const HeaderUserMenu = () => {
 
     return (
         <>
-            <span>{data?.profile ? data?.profile.full_name : user.email}</span>
+            <span className={styles.userName}>
+                {data?.profile ? data?.profile.full_name : user.email}
+            </span>
             <UserDropdownMenu
                 userId={user.id}
                 profileLetter={data?.profile.full_name ? data?.profile.full_name[0] : user.email[0]}
