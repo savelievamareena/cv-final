@@ -1,9 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { t } from "i18next";
 import ListTemplate from "@/components/list-lemplate/list-template";
 import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useConfirm } from "@/components/confirm-dialog/";
-import { useUserCreate, useUserDelete, useUsersQuery, useUserUpdate } from "../api";
+import { useUserCreate, useUserDelete, useUsersQuery } from "../api";
 import { useUserDialog } from "./users-dialog";
 import { convertUserToTable, UserTransformed } from "@/helpers/convert/user-table";
 
@@ -17,12 +18,12 @@ const columnConfigs: ColumnConfig<UserTransformed>[] = [
 
 const UsersList = () => {
     const { users, loading } = useUsersQuery();
+    const navigate = useNavigate();
 
     const [openConfirm] = useConfirm();
     const [openUserDialog] = useUserDialog();
     const [createUser] = useUserCreate();
     const [deleteUser] = useUserDelete();
-    const [updateUser] = useUserUpdate();
 
     const menuProps: Action = {
         onDelete: (id: string) =>
@@ -31,24 +32,12 @@ const UsersList = () => {
                 onConfirm: () => void deleteUser({ variables: { user: { userId: id } } }),
             }),
 
-        onUpdate: (id: string) =>
-            openUserDialog({
-                title: t("Update user"),
-                onConfirm: () =>
-                    void updateUser({
-                        variables: {
-                            user: {
-                                userId: id,
-                            },
-                        },
-                    }),
-                initialValues: { first_name: "", last_name: "", email: "" },
-            }),
+        onUpdate: (id: string) => navigate(`/user/${id}`),
     };
 
     const openUser = () =>
         openUserDialog({
-            title: t("Add user"),
+            title: t("user.addUser"),
             onConfirm: (formData) =>
                 void createUser({
                     variables: {
@@ -67,7 +56,7 @@ const UsersList = () => {
 
     return (
         <ListTemplate
-            pageName={t("user")}
+            pageName={t("users.user")}
             onButtonClick={openUser}
             menuProps={menuProps}
             columnConfigs={columnConfigs}

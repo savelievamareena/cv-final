@@ -91,5 +91,11 @@
         "nameRequired": "Name is required",
         "nativeNameRequired": "Native name is required",
         "iso2Length": "ISO2 must be shorter than or equal to 2 characters"
+    },
+    "users": {
+        "user":"user",
+        "addUser": "Add user",
+        "updateUser": "Update user",
+        "deleteUser": "Delete user"
     }
 }
