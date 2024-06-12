@@ -3,7 +3,6 @@ import { NavLink, useLocation } from "react-router-dom";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { Drawer, Flex } from "antd";
-import { routes } from "@/router/constants";
 import {
     ApartmentOutlined,
     AuditOutlined,
@@ -15,6 +14,9 @@ import {
     RiseOutlined,
     UserOutlined,
 } from "@ant-design/icons";
+
+import { routes } from "@/router/constants";
+
 import styles from "./navigation.module.scss";
 
 interface NavigationProps {

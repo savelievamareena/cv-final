@@ -43,6 +43,15 @@
     box-sizing: border-box;
 }
 
+.headerIcons {
+    cursor: pointer;
+}
+
 .pointer {
     cursor: pointer;
+}
+
+.dropdownMenu {
+    padding: 4px 12px;
+    font-size: 1.2rem;
 }

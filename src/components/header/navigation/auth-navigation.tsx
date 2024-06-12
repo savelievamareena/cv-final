@@ -1,10 +1,11 @@
-import { routes } from "@/router";
 import { Flex } from "antd";
-
-import styles from "./navigation.module.scss";
-import classNames from "classnames";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import classNames from "classnames";
+
+import { routes } from "@/router";
+
+import styles from "./navigation.module.scss";
 
 const AuthNavigation = () => {
     const { t } = useTranslation();

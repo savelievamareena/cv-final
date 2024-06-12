@@ -3,11 +3,12 @@ import { Dropdown, DropdownProps, Flex, MenuProps } from "antd";
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
 import { Languages } from "@/i18n.ts";
-import classNames from "classnames/bind";
+
+import classNames from "classnames";
+
 import styles from "../header.module.scss";
 
 const LanguagesSelect = () => {
-    const cx = classNames.bind(styles);
     const { i18n, t } = useTranslation();
     const [isLanguagesOpen, setIsLanguagesOpen] = useState(false);
     const [language, setLanguage] = useState<Languages>(
@@ -20,11 +21,11 @@ const LanguagesSelect = () => {
 
     const languages: MenuProps["items"] = [
         {
-            label: <span className={cx("dropdown_menu")}>English</span>,
+            label: <span className={classNames(styles.dropdownMenu)}>English</span>,
             key: Languages.En,
         },
         {
-            label: <span className={cx("dropdown_menu")}>Русский</span>,
+            label: <span className={classNames(styles.dropdownMenu)}>Русский</span>,
             key: Languages.Ru,
         },
     ];
@@ -51,17 +52,17 @@ const LanguagesSelect = () => {
             placement={"bottom"}
             trigger={["click"]}
         >
-            <Flex gap="0.5rem" className={cx("pointer")}>
+            <Flex gap="0.5rem" className={classNames(styles.pointer)}>
                 <div>{language.toUpperCase()}</div>
                 {isLanguagesOpen ? (
                     <CaretUpOutlined
                         aria-label={t("header.languageSelector.close")}
-                        className={cx("header_icons")}
+                        className={classNames(styles.headerIcons)}
                     />
                 ) : (
                     <CaretDownOutlined
                         aria-label={t("header.languageSelector.open")}
-                        className={cx("header_icons")}
+                        className={classNames(styles.headerIcons)}
                     />
                 )}
             </Flex>
