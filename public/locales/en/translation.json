@@ -86,5 +86,10 @@
         }
     },
     "Open language menu":"Open language menu",
-    "Close language menu":"Close language menu"
+    "Close language menu":"Close language menu",
+    "fieldErrors": {
+        "nameRequired": "Name is required",
+        "nativeNameRequired": "Native name is required",
+        "iso2Length": "ISO2 must be shorter than or equal to 2 characters"
+    }
 }

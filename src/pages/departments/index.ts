@@ -1,3 +1,3 @@
 import { lazy } from "react";
 
-export const DepartmentsPage = lazy(() => import("./departments.page"));
+export const DepartmentsPage = lazy(() => import("./departments"));

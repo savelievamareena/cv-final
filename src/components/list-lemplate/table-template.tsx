@@ -7,7 +7,7 @@ export interface ColumnConfig<T> {
     isSorted: boolean;
 }
 
-interface TableTemplateProps<T extends { id: React.Key }> {
+interface TableTemplateProps<T extends { id: Key }> {
     searchQuery: string;
     menuProps: Action;
     columnConfigs: ColumnConfig<T>[];
@@ -58,7 +58,6 @@ const TableTemplate = <T extends { id: Key }>({
                 ),
             });
         }
-
         const filteredData: DynamicDataType<T>[] = data
             .filter((item) => {
                 const firstColumnName = columnConfigs[0].name;
