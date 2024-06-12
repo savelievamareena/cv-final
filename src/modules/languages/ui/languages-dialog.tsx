@@ -45,6 +45,6 @@ const LanguageDialog = ({ title, onConfirm, onClose, initialValues }: LanguageDi
     );
 };
 
-export const useAddLanguage = createDialogHook<LanguageDialogProps>((props) => (
+export const useLanguageDialog = createDialogHook<LanguageDialogProps>((props) => (
     <LanguageDialog {...props} />
 ));

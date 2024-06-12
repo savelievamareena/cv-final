@@ -5,7 +5,7 @@ import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useConfirm } from "@/components/confirm-dialog/";
 import { useLanguageCreate, useLanguageDelete, useLanguagesQuery, useLanguageUpdate } from "../api";
-import { useAddLanguage } from "./languages-dialog";
+import { useLanguageDialog } from "./languages-dialog";
 
 const columnConfigs: ColumnConfig<Language>[] = [
     { name: "name", isSorted: true },
@@ -16,7 +16,7 @@ const LanguagesList = () => {
     const { languages, loading } = useLanguagesQuery();
 
     const [openConfirm] = useConfirm();
-    const [openAddLanguage] = useAddLanguage();
+    const [openLanguageDialog] = useLanguageDialog();
     const [createLanguage] = useLanguageCreate();
     const [deleteLanguage] = useLanguageDelete();
     const [updateLanguage] = useLanguageUpdate();
@@ -30,7 +30,7 @@ const LanguagesList = () => {
             }),
 
         onUpdate: (id: string) =>
-            openAddLanguage({
+            openLanguageDialog({
                 title: t("Update language"),
                 onConfirm: (formData) =>
                     void updateLanguage({
@@ -53,7 +53,7 @@ const LanguagesList = () => {
     };
 
     const openLanguage = () =>
-        openAddLanguage({
+        openLanguageDialog({
             title: t("Add language"),
             onConfirm: (formData) =>
                 void createLanguage({
