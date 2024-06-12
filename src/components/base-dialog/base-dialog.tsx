@@ -1,15 +1,15 @@
-import { Modal } from "antd";
+import { Modal, ModalProps } from "antd";
 import { ReactNode } from "react";
 
-interface dialogProps {
+interface DialogProps extends ModalProps {
     title: string;
     onClose: () => void;
     children?: ReactNode;
 }
 
-const BaseDialog = ({ title, onClose, children }: dialogProps) => {
+const BaseDialog = ({ title, onClose, children, ...props }: DialogProps) => {
     return (
-        <Modal open title={title} onCancel={onClose} footer={null}>
+        <Modal open title={title} onCancel={onClose} footer={null} {...props}>
             {children}
         </Modal>
     );

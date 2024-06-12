@@ -13,10 +13,11 @@ const antdTheme = {
         Avatar: { containerSizeLG: 44 },
         Button: {
             contentFontSize: 16,
-            defaultBg: "#C63031",
-            defaultColor: "#ffffff",
-            defaultHoverColor: "#ffffff",
-            defaultHoverBg: "#8A2122",
+            primaryBg: "#C63031",
+            primaryColor: "#ffffff",
+            primaryHoverColor: "#ffffff",
+            colorPrimaryHover: "#8A2122",
+            defaultHoverColor: "#9A9999",
         },
     },
 };
