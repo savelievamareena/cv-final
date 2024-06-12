@@ -31,6 +31,14 @@
 
     &.active {
         color: $clr-primary;
+
+        span {
+            border-bottom: 2px solid currentColor;
+        }
+    }
+
+    span {
+        padding: 0.125rem;
     }
 }
 

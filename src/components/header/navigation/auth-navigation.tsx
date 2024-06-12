@@ -10,14 +10,14 @@ const AuthNavigation = () => {
     const { t } = useTranslation();
 
     return (
-        <Flex gap="1.5rem">
+        <Flex gap="1.5rem" align="center">
             <NavLink
                 to={routes.auth.login}
                 className={({ isActive }) =>
                     classNames(styles.navLink, { [styles.active]: isActive })
                 }
             >
-                {t("auth.login")}
+                <span>{t("auth.login")}</span>
             </NavLink>
             <NavLink
                 to={routes.auth.signUp}
@@ -25,7 +25,7 @@ const AuthNavigation = () => {
                     classNames(styles.navLink, { [styles.active]: isActive })
                 }
             >
-                {t("auth.signup")}
+                <span>{t("auth.signup")}</span>
             </NavLink>
             <NavLink
                 to={routes.auth.verification}
@@ -33,7 +33,7 @@ const AuthNavigation = () => {
                     classNames(styles.navLink, { [styles.active]: isActive })
                 }
             >
-                {t("auth.verifyMail")}
+                <span>{t("auth.verifyMail")}</span>
             </NavLink>
         </Flex>
     );
