@@ -16,7 +16,7 @@ interface LanguageDialogProps {
     title: string;
     onConfirm: (formData: FormData) => void;
     onClose: () => void;
-    initialValues: { language: string; native_name: string; iso2: string };
+    initialValues: FormData;
 }
 const LanguageDialog = ({ title, onConfirm, onClose, initialValues }: LanguageDialogProps) => {
     const { t } = useTranslation();
