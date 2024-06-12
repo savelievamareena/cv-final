@@ -6,6 +6,8 @@ import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
 import { getUserFormSchema } from "../shemas/user";
+// import { useDepartmentsQuery, usePositionsQuery } from "@/api";
+// import { FormSelect } from "@/components/form-select";
 
 interface FormData {
     first_name: string;
@@ -20,6 +22,8 @@ interface UserDialogProps {
 }
 const UserDialog = ({ title, onConfirm, onClose, initialValues }: UserDialogProps) => {
     const { t } = useTranslation();
+    // const departments = useDepartmentsQuery;()
+    // const positions = usePositionsQuery;()
 
     const handleConfirm = (formData: FormData) => {
         onConfirm(formData);
@@ -37,6 +41,8 @@ const UserDialog = ({ title, onConfirm, onClose, initialValues }: UserDialogProp
                 <FormTextField type="text" label={t("password")} name="password" />
                 <FormTextField type="text" label={t("first name")} name="first_name" />
                 <FormTextField type="text" label={t("last name")} name="last_name" />
+                {/* <FormSelect name="department" options={departments}/>
+                <FormSelect name="position" options={positions}/> */}
                 <Button htmlType="button" onClick={onClose}>
                     {t("cancel")}
                 </Button>
