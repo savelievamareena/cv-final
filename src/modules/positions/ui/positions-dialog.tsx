@@ -10,12 +10,14 @@ import { getPositionFormSchema } from "../shemas/position";
 interface FormData {
     position: string;
 }
+
 interface PositionDialogProps {
     title: string;
     onConfirm: (formData: FormData) => void;
     onClose: () => void;
     initialValues: FormData;
 }
+
 const PositionDialog = ({ title, onConfirm, onClose, initialValues }: PositionDialogProps) => {
     const { t } = useTranslation();
 
@@ -41,6 +43,6 @@ const PositionDialog = ({ title, onConfirm, onClose, initialValues }: PositionDi
     );
 };
 
-export const useAddPosition = createDialogHook<PositionDialogProps>((props) => (
+export const usePositionDialog = createDialogHook<PositionDialogProps>((props) => (
     <PositionDialog {...props} />
 ));

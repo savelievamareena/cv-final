@@ -1,22 +1,20 @@
-import { useState } from "react";
 import { Position } from "cv-graphql";
 import { t } from "i18next";
 import ListTemplate from "@/components/list-lemplate/list-template";
 import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useConfirm } from "@/components/confirm-dialog/";
-import { usePositionCreate, usePositionDelete, usePositionsQuery, usePositionUpdate } from "../api";
-import { useAddPosition } from "./positions-dialog";
+import { usePositionCreate, usePositionDelete, usePositionUpdate } from "../api";
+import { usePositionDialog } from "./positions-dialog";
+import { usePositionsQuery } from "@/api";
 
 const columnConfigs: ColumnConfig<Position>[] = [{ name: "name", isSorted: true }];
 
 const PositionsList = () => {
     const { positions, loading } = usePositionsQuery();
-    const [searchQuery, setSearchQuery] = useState("");
-
     const [openConfirm] = useConfirm();
 
-    const [openAddPosition] = useAddPosition();
+    const [openPositionDialog] = usePositionDialog();
     const [createPosition] = usePositionCreate();
     const [deletePosition] = usePositionDelete();
     const [updatePosition] = usePositionUpdate();
@@ -30,7 +28,7 @@ const PositionsList = () => {
             }),
 
         onUpdate: (id: string) =>
-            openAddPosition({
+            openPositionDialog({
                 title: t("positions.updatePosition"),
                 onConfirm: (formData) =>
                     void updatePosition({
@@ -48,7 +46,7 @@ const PositionsList = () => {
     };
 
     const openPosition = () =>
-        openAddPosition({
+        openPositionDialog({
             title: t("positions.addPosition"),
             onConfirm: (formData) =>
                 void createPosition({
@@ -67,10 +65,8 @@ const PositionsList = () => {
             onButtonClick={openPosition}
             menuProps={menuProps}
             columnConfigs={columnConfigs}
-            searchQuery={searchQuery}
             displayData={positions}
             loading={loading}
-            setSearchQuery={setSearchQuery}
         />
     );
 };
