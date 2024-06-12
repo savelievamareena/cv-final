@@ -1,18 +1,17 @@
 import { useState } from "react";
 import classNames from "classnames/bind";
 import { Flex, Layout } from "antd";
-import { useAuthUser } from "@/services/auth-service";
+import { GlobalOutlined, MenuOutlined } from "@ant-design/icons";
+
 import { Navigation } from "@/modules/header/components/navigation";
 import { LanguagesSelect } from "./languages-select";
-import { UserDropdownMenu } from "./user-dropdown-menu";
-import { getUserNameToDisplay } from "src/helpers/user/getUserNameToDisplay.ts";
-import { GlobalOutlined, MenuOutlined } from "@ant-design/icons";
+import { HeaderUserMenu } from "../users/components/header-user-menu";
+
 import styles from "./header.module.css";
 
 const Header = () => {
     const cx = classNames.bind(styles);
     const [isDrawerOpen, setDrawerOpen] = useState(false);
-    const user = useAuthUser();
 
     return (
         <Layout.Header className={cx("header_wrapper")}>
@@ -27,12 +26,7 @@ const Header = () => {
                     <LanguagesSelect />
                 </Flex>
                 <Flex gap="middle">
-                    <div>{getUserNameToDisplay(user)}</div>
-                    <UserDropdownMenu
-                        userId={user?.id}
-                        profileLetter={getUserNameToDisplay(user)?.slice(0, 1).toUpperCase()}
-                        avatar={user?.profile?.avatar}
-                    />
+                    <HeaderUserMenu />
                 </Flex>
             </Flex>
             <Navigation isDrawerOpen={isDrawerOpen} setDrawerOpen={setDrawerOpen} />

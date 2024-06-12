@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+import { Spin } from "antd";
 import { NavLink, Navigate, Outlet } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -23,7 +25,9 @@ export const AuthLayout = () => {
                 <NavLink to={routes.auth.verification}>{t("auth.verifyMail")}</NavLink>
             </header>
             <main className={styles.main}>
-                <Outlet />
+                <Suspense fallback={<Spin size="large" />}>
+                    <Outlet />
+                </Suspense>
             </main>
         </>
     );
