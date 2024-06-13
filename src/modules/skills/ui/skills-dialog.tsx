@@ -57,6 +57,6 @@ const SkillDialog = ({ title, onConfirm, onClose, initialValues }: SkillDialogPr
     );
 };
 
-export const useAddSkill = createDialogHook<SkillDialogProps>((props) => (
+export const useSkillDialog = createDialogHook<SkillDialogProps>((props) => (
     <SkillDialog {...props} />
 ));

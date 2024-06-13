@@ -5,7 +5,7 @@ import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useConfirm } from "@/components/confirm-dialog/";
 import { useSkillCreate, useSkillDelete, useSkillsQuery, useSkillUpdate } from "../api";
-import { useAddSkill } from "./skills-dialog";
+import { useSkillDialog } from "./skills-dialog";
 
 const columnConfigs: ColumnConfig<Skill>[] = [
     { name: "name", isSorted: true },
@@ -16,7 +16,7 @@ const SkillsList = () => {
     const { skills, loading } = useSkillsQuery();
 
     const [openConfirm] = useConfirm();
-    const [openAddSkill] = useAddSkill();
+    const [openSkillDialog] = useSkillDialog();
     const [createSkill] = useSkillCreate();
     const [deleteSkill] = useSkillDelete();
     const [updateSkill] = useSkillUpdate();
@@ -29,7 +29,7 @@ const SkillsList = () => {
             }),
 
         onUpdate: (id: string) =>
-            openAddSkill({
+            openSkillDialog({
                 title: t("skills.updateSkill"),
                 onConfirm: (formData) =>
                     void updateSkill({
@@ -49,7 +49,7 @@ const SkillsList = () => {
     };
 
     const openSkill = () =>
-        openAddSkill({
+        openSkillDialog({
             title: t("skills.addSkill"),
             onConfirm: (formData) =>
                 void createSkill({
