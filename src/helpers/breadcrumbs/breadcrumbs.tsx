@@ -4,6 +4,8 @@ import { BreadcrumbItemType } from "antd/es/breadcrumb/Breadcrumb";
 import { itemRender } from "./breadcrumbs.helpers";
 import { useLocation } from "react-router-dom";
 
+import styles from "./breadcrumbs.module.scss";
+
 const initialValue = {
     setPaths: (paths: BreadcrumbItemType[]) => {
         console.log(paths.length);
@@ -32,7 +34,12 @@ const BreadcrumbsProvider = ({ children }: PropsWithChildren) => {
 
     return (
         <>
-            <Breadcrumb itemRender={itemRender} separator=">" items={items} />
+            <Breadcrumb
+                className={styles.breadcrumb}
+                itemRender={itemRender}
+                separator=">"
+                items={items}
+            />
             <BreadcrumbsContext.Provider value={contextValue}>
                 {children}
             </BreadcrumbsContext.Provider>
