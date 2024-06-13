@@ -10,6 +10,7 @@ const Form = <T extends FieldValues>({
     children,
     defaultValues,
     resetAfterSubmit = true,
+    layout = "vertical",
     ...props
 }: FormProps<T>) => {
     const formMethods = useForm({
@@ -20,6 +21,8 @@ const Form = <T extends FieldValues>({
     return (
         <FormProvider {...formMethods}>
             <AntdForm
+                {...props}
+                layout={layout}
                 onFinish={formMethods.handleSubmit(async (data) => {
                     await onSubmit(data);
 
@@ -27,7 +30,6 @@ const Form = <T extends FieldValues>({
 
                     formMethods.reset(data);
                 })}
-                {...props}
             >
                 {children}
             </AntdForm>

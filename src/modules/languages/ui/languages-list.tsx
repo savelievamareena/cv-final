@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Language } from "cv-graphql";
 import { t } from "i18next";
 import ListTemplate from "@/components/list-lemplate/list-template";
@@ -6,20 +5,18 @@ import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useConfirm } from "@/components/confirm-dialog/";
 import { useLanguageCreate, useLanguageDelete, useLanguagesQuery, useLanguageUpdate } from "../api";
-import { useAddLanguage } from "./languages-dialog";
+import { useLanguageDialog } from "./languages-dialog";
 
-interface FormData {
-    language: string;
-    native_name: string;
-    iso2: string;
-}
+const columnConfigs: ColumnConfig<Language>[] = [
+    { name: "name", isSorted: true },
+    { name: "iso2", isSorted: false },
+];
 
 const LanguagesList = () => {
     const { languages, loading } = useLanguagesQuery();
-    const [searchQuery, setSearchQuery] = useState("");
 
     const [openConfirm] = useConfirm();
-    const [openAddLanguage] = useAddLanguage();
+    const [openLanguageDialog] = useLanguageDialog();
     const [createLanguage] = useLanguageCreate();
     const [deleteLanguage] = useLanguageDelete();
     const [updateLanguage] = useLanguageUpdate();
@@ -33,9 +30,9 @@ const LanguagesList = () => {
             }),
 
         onUpdate: (id: string) =>
-            openAddLanguage({
+            openLanguageDialog({
                 title: t("Update language"),
-                onConfirm: (formData: FormData) =>
+                onConfirm: (formData) =>
                     void updateLanguage({
                         variables: {
                             language: {
@@ -56,9 +53,9 @@ const LanguagesList = () => {
     };
 
     const openLanguage = () =>
-        openAddLanguage({
+        openLanguageDialog({
             title: t("Add language"),
-            onConfirm: (formData: FormData) =>
+            onConfirm: (formData) =>
                 void createLanguage({
                     variables: {
                         language: {
@@ -72,24 +69,15 @@ const LanguagesList = () => {
             initialValues: { language: "", native_name: "", iso2: "" },
         });
 
-    const columnConfigs: ColumnConfig<Language>[] = [
-        { name: "name", isSorted: true },
-        { name: "iso2", isSorted: false },
-    ];
-
     return (
-        <>
-            <ListTemplate
-                pageName={t("language")}
-                onButtonClick={openLanguage}
-                menuProps={menuProps}
-                columnConfigs={columnConfigs}
-                searchQuery={searchQuery}
-                displayData={languages}
-                loading={loading}
-                setSearchQuery={setSearchQuery}
-            />
-        </>
+        <ListTemplate
+            pageName={t("language")}
+            onButtonClick={openLanguage}
+            menuProps={menuProps}
+            columnConfigs={columnConfigs}
+            displayData={languages}
+            loading={loading}
+        />
     );
 };
 

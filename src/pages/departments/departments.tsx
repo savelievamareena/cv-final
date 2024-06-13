@@ -1,7 +1,7 @@
 import DepartmentsList from "@/modules/departments/ui/departments-list";
 
-const DepartmentsPage = () => {
+const Departments = () => {
     return <DepartmentsList />;
 };
 
-export default DepartmentsPage;
+export default Departments;

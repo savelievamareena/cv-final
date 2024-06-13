@@ -1,4 +1,4 @@
-import { ProfilePicture } from "../components/profile-picture";
+import { ProfilePicture } from "../profile-picture";
 import { Link } from "react-router-dom";
 import { Dropdown, Flex, MenuProps } from "antd";
 import { LogoutOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";

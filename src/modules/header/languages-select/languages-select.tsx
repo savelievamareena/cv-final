@@ -55,12 +55,12 @@ const LanguagesSelect = () => {
                 <div>{language.toUpperCase()}</div>
                 {isLanguagesOpen ? (
                     <CaretUpOutlined
-                        aria-label={t("Close language menu")}
+                        aria-label={t("header.languageSelector.close")}
                         className={cx("header_icons")}
                     />
                 ) : (
                     <CaretDownOutlined
-                        aria-label={t("Open language menu")}
+                        aria-label={t("header.languageSelector.open")}
                         className={cx("header_icons")}
                     />
                 )}

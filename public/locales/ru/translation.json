@@ -15,11 +15,48 @@
         "signup": "Регистрация",
         "verifyMail": "Подверждение Email"
     },
+    "profile":{
+        "info":{
+            "createdAt":"Аккаунт был создан {{createdAt}}"
+        },
+        "form":{
+            "fieldLabels": {
+                "firstName":"Имя",
+                "lastName":"Фамилия",
+                "department":"Отдел",
+                "position":"Должность"
+            }
+        },
+        "avatarUpload": {
+            "text":"Загрузите изображение аватара",
+            "hint":"PNG, JPG или GIF и не более 0.5 MB",
+            "errors": {
+                "maxAvatarSize":"Изображение должно быть не более 0.5 MB",
+                "invalidFileType":"Изображение должно быть формата PNG, GIF или JPG",
+                "generic":"Что-то пошло не так..."
+            }
+        }
+    },
+    "header": {
+        "languageSelector": {
+            "open":"Открыть меню выбора языка",
+            "close":"Закрыть меню выбора языка"
+        }
+    },
+    "user": {
+        "tabLabels": {
+            "cvs":"Резюме",
+            "languages":"Языки",
+            "profile":"Профиль",
+            "skills":"Навыки"
+        }
+    },
     "submit": "Подтвердить",
     "Welcome Back": "С Возвращением",
     "add": "Добавить",
     "delete": "Удалить",
     "update": "Обновить",
+    "loading": "Загрузка",
     "search": "Поиск",
     "cancel": "Отмена",
     "confirm": "Подтвердить",
@@ -31,8 +68,20 @@
     "Employees": "Сотрудники",
     "Projects": "Проекты",
     "CVs": "Резюме",
+    "CV": "Резюме",
     "Departments": "Отделы",
     "Languages": "Языки",
+    "Name": "Имя",
+    "Education": "Образование",
+    "Description": "Описание",
+    "notifications": {
+        "cv": {
+            "updateError": "Ошибка при обновлении резюме",
+            "updateSuccess": "Резюме обновено успешно",
+            "fetchingError": "Ошибка при загрукзе резюме",
+            "descriptionLength": "Описание должно содержать минимум 6 симолов"
+        }
+    },
     "Open language menu":"Открыть меню выбора языков",
     "Close language menu":"Закрыть меню выбора языков",
     "fieldErrors": {
