@@ -13,7 +13,6 @@ import { UserLayout } from "@/modules/users/components/user-layout";
 import { UserProfile } from "@/pages/user-profile";
 import { Details } from "@/modules/cvs/components/details";
 import { LanguagesPage } from "@/pages/languages";
-import { LanguagesPage } from "@/pages/languages";
 import { PositionsPage } from "@/pages/positions";
 import { SkillsPage } from "@/pages/skills";
 

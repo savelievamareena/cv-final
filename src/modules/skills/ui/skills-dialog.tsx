@@ -6,9 +6,9 @@ import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormSelect } from "@/components/form-select";
-import { convertToSelectOptions } from "@/helpers/convert/convert-to-select-options";
 import { getSkillFormSchema } from "../shemas/skills";
 import { useSkillCategoriesQuery } from "../api/get-skill-catigories-query";
+import { mapStringsToSelectOptions } from "@/helpers/convert/maps";
 
 interface FormData {
     skill: string;
@@ -30,7 +30,7 @@ const SkillDialog = ({ title, onConfirm, onClose, initialValues }: SkillDialogPr
         onClose();
     };
 
-    const selectOptions = convertToSelectOptions(skillCategories);
+    const selectOptions = mapStringsToSelectOptions(skillCategories);
 
     return (
         <BaseDialog title={title} onClose={onClose}>
