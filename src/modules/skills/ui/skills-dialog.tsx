@@ -14,12 +14,14 @@ interface FormData {
     skill: string;
     category: string;
 }
+
 interface SkillDialogProps {
     title: string;
     onConfirm: (formData: FormData) => void;
     onClose: () => void;
     initialValues: FormData;
 }
+
 const SkillDialog = ({ title, onConfirm, onClose, initialValues }: SkillDialogProps) => {
     const { t } = useTranslation();
 
