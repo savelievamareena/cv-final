@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Skill } from "cv-graphql";
 import { t } from "i18next";
 import ListTemplate from "@/components/list-lemplate/list-template";
@@ -8,11 +7,6 @@ import { useConfirm } from "@/components/confirm-dialog/";
 import { useSkillCreate, useSkillDelete, useSkillsQuery, useSkillUpdate } from "../api";
 import { useAddSkill } from "./skills-dialog";
 
-interface FormData {
-    skill: string;
-    category: string;
-}
-
 const columnConfigs: ColumnConfig<Skill>[] = [
     { name: "name", isSorted: true },
     { name: "category", isSorted: true },
@@ -20,7 +14,6 @@ const columnConfigs: ColumnConfig<Skill>[] = [
 
 const SkillsList = () => {
     const { skills, loading } = useSkillsQuery();
-    const [searchQuery, setSearchQuery] = useState("");
 
     const [openConfirm] = useConfirm();
     const [openAddSkill] = useAddSkill();
@@ -38,7 +31,7 @@ const SkillsList = () => {
         onUpdate: (id: string) =>
             openAddSkill({
                 title: t("skills.updateSkill"),
-                onConfirm: (formData: FormData) =>
+                onConfirm: (formData) =>
                     void updateSkill({
                         variables: {
                             skill: {
@@ -58,7 +51,7 @@ const SkillsList = () => {
     const openSkill = () =>
         openAddSkill({
             title: t("skills.addSkill"),
-            onConfirm: (formData: FormData) =>
+            onConfirm: (formData) =>
                 void createSkill({
                     variables: {
                         skill: {
@@ -76,10 +69,8 @@ const SkillsList = () => {
             onButtonClick={openSkill}
             menuProps={menuProps}
             columnConfigs={columnConfigs}
-            searchQuery={searchQuery}
             displayData={skills}
             loading={loading}
-            setSearchQuery={setSearchQuery}
         />
     );
 };
