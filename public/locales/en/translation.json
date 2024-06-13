@@ -71,7 +71,6 @@
     "CVs": "CVs",
     "CV": "CV",
     "Departments": "Departments",
-    "Positions": "Positions",
     "Skills": "Skills",
     "Languages": "Languages",
     "Name": "Name",
@@ -91,5 +90,12 @@
         "nameRequired": "Name is required",
         "nativeNameRequired": "Native name is required",
         "iso2Length": "ISO2 must be shorter than or equal to 2 characters"
+    },
+    "positions": {
+        "positions":"position",
+        "addPosition": "Add position",
+        "updatePosition": "Update  position",
+        "deletePosition": "Delete position"
+        
     }
 }

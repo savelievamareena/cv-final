@@ -13,6 +13,7 @@ import { UserLayout } from "@/modules/users/components/user-layout";
 import { UserProfile } from "@/pages/user-profile";
 import { Details } from "@/modules/cvs/components/details";
 import { LanguagesPage } from "@/pages/languages";
+import { PositionsPage } from "@/pages/positions";
 
 export const router = createBrowserRouter([
     {
@@ -182,7 +183,7 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 path: routes.positions,
-                element: <div>Positions page content (table)</div>,
+                element: <PositionsPage />,
             },
             {
                 errorElement: <ErrorComponent />,
