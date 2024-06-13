@@ -6,6 +6,9 @@ import { routes } from "@/router";
 import { useAuthUser } from "@/services/auth-service";
 import { DialogsContainer } from "@/helpers/dialog/dialog-container";
 import { Header } from "@/modules/header";
+import { BreadcrumbsProvider } from "@/helpers/breadcrumbs";
+
+import styles from "./main-layout.module.scss";
 
 export const MainLayout = () => {
     const user = useAuthUser();
@@ -15,10 +18,13 @@ export const MainLayout = () => {
     return (
         <>
             <Header />
-            <div>Breadcrumb component</div>
-            <Suspense fallback={<Spin size="large" fullscreen />}>
-                <Outlet />
-            </Suspense>
+            <main className={styles.main}>
+                <BreadcrumbsProvider>
+                    <Suspense fallback={<Spin size="large" fullscreen />}>
+                        <Outlet />
+                    </Suspense>
+                </BreadcrumbsProvider>
+            </main>
             <DialogsContainer />
         </>
     );

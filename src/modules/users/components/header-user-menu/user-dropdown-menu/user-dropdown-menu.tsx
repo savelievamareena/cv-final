@@ -25,7 +25,7 @@ const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuPro
     let userProfileUrl = "";
 
     if (userId) {
-        userProfileUrl = routes.users.userById(userId);
+        userProfileUrl = routes.users.profile(userId);
     }
 
     const profileMenu: MenuProps["items"] = [

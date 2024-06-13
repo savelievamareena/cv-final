@@ -19,10 +19,15 @@ export const PageTabs = ({ items, ...props }: PageTabsProps) => {
         [navigate]
     );
 
+    const currActiveKey = actualItems.some((item) => item.key === location.pathname)
+        ? location.pathname
+        : actualItems[0]?.key;
+
     return (
         <Tabs
             {...props}
             onChange={onChange}
+            activeKey={currActiveKey}
             defaultActiveKey={location.pathname}
             items={actualItems}
         />
