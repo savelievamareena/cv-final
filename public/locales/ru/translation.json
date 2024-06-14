@@ -71,7 +71,6 @@
     "CVs": "Резюме",
     "CV": "Резюме",
     "Departments": "Отделы",
-    "Positions": "Должности",
     "Skills": "Навыки",
     "Languages": "Языки",
     "Name": "Имя",
@@ -92,5 +91,11 @@
         "nativeNameRequired": "Родное имя обязательно",
         "iso2Length": "ISO2 должно занимать 1 или 2 символа"
             
+    },
+    "positions": {
+        "positions":"Должности",
+        "addPosition": "Добавить должность",
+        "updatePosition": "Обновить должность",
+        "deletePosition": "Удалить должность"
     }
 }
