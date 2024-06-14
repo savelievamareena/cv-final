@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
@@ -21,7 +21,7 @@ import styles from "./navigation.module.scss";
 
 interface NavigationProps {
     isDrawerOpen: boolean;
-    setDrawerOpen: (arg1: boolean) => void;
+    setDrawerOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const MainNavigation = ({ isDrawerOpen, setDrawerOpen }: NavigationProps) => {
@@ -43,9 +43,9 @@ const MainNavigation = ({ isDrawerOpen, setDrawerOpen }: NavigationProps) => {
             onClose={onClose}
             open={isDrawerOpen}
             width={250}
-            styles={{
-                header: { padding: "10px", backgroundColor: "#2E2E2E" },
-                body: { padding: 0 },
+            classNames={{
+                header: styles.drawerHeader,
+                body: styles.drawerBody,
             }}
         >
             <Flex justify={"flex-end"} align={"center"} className={classNames(styles.navHeader)}>

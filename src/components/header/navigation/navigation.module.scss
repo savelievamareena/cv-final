@@ -62,3 +62,14 @@
 .navIcon {
     font-size: 1.3rem;
 }
+
+:global(.ant-drawer) {
+    .drawerHeader {
+        padding: 10px;
+        background-color: $clr-dark;
+    }
+
+    .drawerBody {
+        padding: 0;
+    }
+}
