@@ -1,6 +1,7 @@
 import { Key } from "react";
 import ActionsMenu, { Action } from "./actions-menu";
 import { Table, TableColumnsType } from "antd";
+import styles from "./list-template.module.css";
 
 export interface ColumnConfig<T> {
     name: keyof T;
@@ -58,7 +59,6 @@ const TableTemplate = <T extends { id: Key }>({
                 ),
             });
         }
-
         const filteredData: DynamicDataType<T>[] = data
             .filter((item) => {
                 const firstColumnName = columnConfigs[0].name;
@@ -85,6 +85,7 @@ const TableTemplate = <T extends { id: Key }>({
                 pagination={{ hideOnSinglePage: true }}
                 loading={loading}
                 rowKey="key"
+                className={styles.table}
             />
         </div>
     );

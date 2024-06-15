@@ -5,12 +5,8 @@ import ListTemplate from "@/components/list-lemplate/list-template";
 import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useConfirm } from "@/components/confirm-dialog/";
-import {
-    useDepartmentCreate,
-    useDepartmentDelete,
-    useDepartmentsQuery,
-    useDepartmentUpdate,
-} from "../api";
+import { useDepartmentCreate, useDepartmentDelete, useDepartmentUpdate } from "../api";
+import { useDepartmentsQuery } from "@/api";
 import { useAddDepartment } from "./departments-dialog";
 
 interface FormData {
@@ -72,7 +68,7 @@ const DepartmentsList = () => {
     return (
         <>
             <ListTemplate
-                pageName={t("deparmtent")}
+                pageName={t("department")}
                 onButtonClick={openDepartment}
                 menuProps={menuProps}
                 columnConfigs={columnConfigs}

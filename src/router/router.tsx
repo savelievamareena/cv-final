@@ -1,8 +1,8 @@
 import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
 
 import { RelativePaths, RouteParams, routes } from "./constants";
-import { MainLayout } from "src/components/main-layout";
-import { ErrorComponent } from "src/components/error-component";
+import { MainLayout } from "@/components/main-layout";
+import { ErrorComponent } from "@/components/error-component";
 import { AuthLayout } from "@/modules/auth/components/auth-layout";
 import { Login } from "@/pages/login";
 import { SignUp } from "@/pages/sign-up";
@@ -13,6 +13,13 @@ import { PositionsPage } from "@/pages/positions";
 import { SkillsPage } from "@/pages/skills";
 import { CvPage } from "@/pages/cvs";
 import { Details } from "@/modules/CVs/components/details";
+import { DepartmentsPage } from "@/pages/departments";
+import { UserLayout } from "@/modules/users/components/user-layout";
+import { UserProfile } from "@/pages/user-profile";
+import { Details } from "@/modules/cvs/components/details";
+import { LanguagesPage } from "@/pages/languages";
+import { PositionsPage } from "@/pages/positions";
+import { SkillsPage } from "@/pages/skills";
 
 export const router = createBrowserRouter([
     {
@@ -111,17 +118,12 @@ export const router = createBrowserRouter([
                     {
                         errorElement: <ErrorComponent />,
                         path: routes.users.userById(`:${RouteParams.UserId}`),
-                        element: (
-                            <div>
-                                Common User-by-ID layout (has Outlet)
-                                <Outlet />
-                            </div>
-                        ),
+                        element: <UserLayout />,
                         children: [
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.users.profile(`:${RouteParams.UserId}`),
-                                element: <div>User profile content</div>,
+                                element: <UserProfile />,
                             },
                             {
                                 errorElement: <ErrorComponent />,

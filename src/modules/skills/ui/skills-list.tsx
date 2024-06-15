@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Skill } from "cv-graphql";
 import { t } from "i18next";
 import ListTemplate from "@/components/list-lemplate/list-template";
@@ -6,19 +5,18 @@ import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useConfirm } from "@/components/confirm-dialog/";
 import { useSkillCreate, useSkillDelete, useSkillsQuery, useSkillUpdate } from "../api";
-import { useAddSkill } from "./skills-dialog";
+import { useSkillDialog } from "./skills-dialog";
 
-interface FormData {
-    skill: string;
-    category: string;
-}
+const columnConfigs: ColumnConfig<Skill>[] = [
+    { name: "name", isSorted: true },
+    { name: "category", isSorted: true },
+];
 
 const SkillsList = () => {
     const { skills, loading } = useSkillsQuery();
-    const [searchQuery, setSearchQuery] = useState("");
 
     const [openConfirm] = useConfirm();
-    const [openAddSkill] = useAddSkill();
+    const [openSkillDialog] = useSkillDialog();
     const [createSkill] = useSkillCreate();
     const [deleteSkill] = useSkillDelete();
     const [updateSkill] = useSkillUpdate();
@@ -31,9 +29,9 @@ const SkillsList = () => {
             }),
 
         onUpdate: (id: string) =>
-            openAddSkill({
+            openSkillDialog({
                 title: t("skills.updateSkill"),
-                onConfirm: (formData: FormData) =>
+                onConfirm: (formData) =>
                     void updateSkill({
                         variables: {
                             skill: {
@@ -51,9 +49,9 @@ const SkillsList = () => {
     };
 
     const openSkill = () =>
-        openAddSkill({
+        openSkillDialog({
             title: t("skills.addSkill"),
-            onConfirm: (formData: FormData) =>
+            onConfirm: (formData) =>
                 void createSkill({
                     variables: {
                         skill: {
@@ -65,24 +63,15 @@ const SkillsList = () => {
             initialValues: { skill: "", category: "" },
         });
 
-    const columnConfigs: ColumnConfig<Skill>[] = [
-        { name: "name", isSorted: true },
-        { name: "category", isSorted: true },
-    ];
-
     return (
-        <>
-            <ListTemplate
-                pageName={t("skills.skill")}
-                onButtonClick={openSkill}
-                menuProps={menuProps}
-                columnConfigs={columnConfigs}
-                searchQuery={searchQuery}
-                displayData={skills}
-                loading={loading}
-                setSearchQuery={setSearchQuery}
-            />
-        </>
+        <ListTemplate
+            pageName={t("skills.skill")}
+            onButtonClick={openSkill}
+            menuProps={menuProps}
+            columnConfigs={columnConfigs}
+            displayData={skills}
+            loading={loading}
+        />
     );
 };
 

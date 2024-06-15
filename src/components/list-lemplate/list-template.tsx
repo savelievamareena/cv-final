@@ -1,21 +1,22 @@
-import { Dispatch, Key, SetStateAction } from "react";
+import { ChangeEvent, Key } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { UserRole } from "cv-graphql";
 import { Button, Input } from "antd";
 import { useAuthUser } from "@/services/auth-service";
-import { SearchOutlined } from "@ant-design/icons";
+import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import TableTemplate, { ColumnConfig } from "./table-template";
 import { Action } from "./actions-menu";
+import styles from "./list-template.module.css";
+import { Content } from "antd/es/layout/layout";
 
 interface ListTemplateProps<T> {
     pageName: string;
     onButtonClick: () => void;
     menuProps: Action;
     columnConfigs: ColumnConfig<T>[];
-    searchQuery: string;
     displayData: T[];
     loading: boolean;
-    setSearchQuery: Dispatch<SetStateAction<string>>;
 }
 
 const ListTemplate = <T extends { id: Key }>({
@@ -23,30 +24,47 @@ const ListTemplate = <T extends { id: Key }>({
     onButtonClick,
     menuProps,
     columnConfigs,
-    searchQuery,
     displayData,
     loading,
-    setSearchQuery,
 }: ListTemplateProps<T>) => {
     const user = useAuthUser();
     const isAdmin = user?.role === UserRole.Admin;
 
     const { t } = useTranslation();
 
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearchParams({ search: e.target.value });
+    };
+
     return (
         <div style={{ width: "100vw" }}>
-            <Input
-                placeholder={t("search")}
-                onChange={() => setSearchQuery}
-                prefix={<SearchOutlined />}
-            />
-            {isAdmin && (
-                <Button type="primary" danger ghost onClick={onButtonClick}>
-                    {t("add")} {pageName}
-                </Button>
-            )}
+            <Content className={styles.searchCreateContainer}>
+                <Input
+                    type="primary"
+                    className={styles.search}
+                    placeholder={t("search")}
+                    onChange={(e) => handleInputChange(e)}
+                    value={searchParams.get("search") ?? ""}
+                    prefix={<SearchOutlined />}
+                />
+                {isAdmin && (
+                    <Button
+                        type="primary"
+                        danger
+                        ghost
+                        onClick={onButtonClick}
+                        icon={<PlusOutlined />}
+                        className={styles.createButton}
+                    >
+                        {t("add")} {pageName}
+                    </Button>
+                )}
+            </Content>
+
             <TableTemplate<T>
-                searchQuery={searchQuery}
+                searchQuery={searchParams.get("search") ?? ""}
                 menuProps={menuProps}
                 columnConfigs={columnConfigs}
                 data={displayData}

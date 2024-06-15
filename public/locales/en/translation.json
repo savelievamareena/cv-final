@@ -15,6 +15,42 @@
         "signup": "Sign Up",
         "verifyMail": "Verify Mail"
     },
+    "header": {
+        "languageSelector": {
+            "open":"Open language menu",
+            "close":"Close language menu"
+        }
+    },
+    "profile":{
+        "info":{
+            "createdAt":"A member since {{createdAt}}"
+        },
+        "form":{
+            "fieldLabels": {
+                "firstName":"First name",
+                "lastName":"Last name",
+                "department":"Department",
+                "position":"Position"
+            }
+        },
+        "avatarUpload": {
+            "text":"Upload avatar image",
+            "hint":"PNG, JPG or GIF and not larger than 0.5 MB",
+            "errors": {
+                "maxAvatarSize":"An image must be not larger than 0.5 MB",
+                "invalidFileType":"An avatar has to be of PNG, GIF or JPG format",
+                "generic":"Something went wrong"
+            }
+        }
+    },
+    "user": {
+        "tabLabels": {
+            "cvs":"CVs",
+            "languages":"Languages",
+            "profile":"Profile",
+            "skills":"Skills"
+        }
+    },
     "submit": "Submit",
     "Welcome Back": "Welcome Back",
     "add": "Add",
@@ -25,6 +61,7 @@
     "cancel": "Cancel",
     "confirm": "Confirm",
     "department": "department",
+
 
     "Profile": "Profile",
     "Settings": "Settings",

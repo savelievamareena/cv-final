@@ -1,4 +1,4 @@
-import PositionsList from "@/modules/positions/ui/positions-list";
+import { PositionsList } from "@/modules/positions/";
 
 const PositionsPage = () => {
     return <PositionsList />;

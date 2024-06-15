@@ -10,6 +10,7 @@ const SIGN_UP = gql`
                 id
                 email
                 is_verified
+                role
             }
             access_token
         }
