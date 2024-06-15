@@ -39,4 +39,4 @@ const CvDialog = ({ title, onConfirm, onClose, initialValues }: CvDialogProps) =
     );
 };
 
-export const useAddCv = createDialogHook<CvDialogProps>((props) => <CvDialog {...props} />);
+export const useCvDialog = createDialogHook<CvDialogProps>((props) => <CvDialog {...props} />);

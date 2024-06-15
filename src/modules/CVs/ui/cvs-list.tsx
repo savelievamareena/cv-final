@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { t } from "i18next";
 import ListTemplate from "@/components/list-lemplate/list-template";
@@ -6,8 +5,8 @@ import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useConfirm } from "@/components/confirm-dialog/";
 import { useCvCreate, useCvDelete, useCvsQuery } from "../api";
-import { useAddCv } from "./cvs-dialog";
-import { convertCvToTable, CvTransformed } from "@/helpers/convert/cv-to-table";
+import { useCvDialog } from "./cvs-dialog";
+import { CvTransformed, mapCvDataToTable } from "@/helpers/convert/maps";
 
 const columnConfigs: ColumnConfig<CvTransformed>[] = [
     { name: "name", isSorted: true },
@@ -17,12 +16,11 @@ const columnConfigs: ColumnConfig<CvTransformed>[] = [
 
 const CvsList = () => {
     const { cvs, loading } = useCvsQuery();
-    const [searchQuery, setSearchQuery] = useState("");
 
     const navigate = useNavigate();
 
     const [openConfirm] = useConfirm();
-    const [openAddCv] = useAddCv();
+    const [openCvDialog] = useCvDialog();
     const [createCv] = useCvCreate();
     const [deleteCv] = useCvDelete();
 
@@ -37,7 +35,7 @@ const CvsList = () => {
     };
 
     const openCv = () =>
-        openAddCv({
+        openCvDialog({
             title: t("Add cv"),
             onConfirm: (formData) =>
                 void createCv({
@@ -51,7 +49,7 @@ const CvsList = () => {
             initialValues: { cv: "", description: "" },
         });
 
-    const convertedCvs = convertCvToTable(cvs);
+    const convertedCvs = mapCvDataToTable(cvs);
 
     return (
         <ListTemplate
@@ -59,10 +57,8 @@ const CvsList = () => {
             onButtonClick={openCv}
             menuProps={menuProps}
             columnConfigs={columnConfigs}
-            searchQuery={searchQuery}
             displayData={convertedCvs}
             loading={loading}
-            setSearchQuery={setSearchQuery}
         />
     );
 };

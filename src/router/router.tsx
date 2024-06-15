@@ -12,14 +12,9 @@ import { LanguagesPage } from "@/pages/languages";
 import { PositionsPage } from "@/pages/positions";
 import { SkillsPage } from "@/pages/skills";
 import { CvPage } from "@/pages/cvs";
-import { Details } from "@/modules/CVs/components/details";
-import { DepartmentsPage } from "@/pages/departments";
+import { Details } from "@/modules/cvs/components/details";
 import { UserLayout } from "@/modules/users/components/user-layout";
 import { UserProfile } from "@/pages/user-profile";
-import { Details } from "@/modules/cvs/components/details";
-import { LanguagesPage } from "@/pages/languages";
-import { PositionsPage } from "@/pages/positions";
-import { SkillsPage } from "@/pages/skills";
 
 export const router = createBrowserRouter([
     {
