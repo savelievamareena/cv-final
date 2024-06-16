@@ -86,6 +86,7 @@ const TableTemplate = <T extends { id: Key }>({
                 pagination={{ hideOnSinglePage: true }}
                 loading={loading}
                 rowKey="key"
+                className={styles.table}
             />
         </div>
     );
