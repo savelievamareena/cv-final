@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 import { UserRole } from "cv-graphql";
 import { Button, Input } from "antd";
 import { Content } from "antd/es/layout/layout";
-import { useAuthUser } from "@/services/auth-service";
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
+import { useAuthUser } from "@/services/auth-service";
 import TableTemplate, { ColumnConfig } from "./table-template";
 import { Action } from "./actions-menu";
 
