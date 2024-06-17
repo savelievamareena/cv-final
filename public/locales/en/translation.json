@@ -61,7 +61,7 @@
     "cancel": "Cancel",
     "confirm": "Confirm",
     "department": "department",
-    "skill": "skill",
+
     "Profile": "Profile",
     "Settings": "Settings",
     "Logout": "Logout",
@@ -71,7 +71,6 @@
     "CVs": "CVs",
     "CV": "CV",
     "Departments": "Departments",
-    "Positions": "Positions",
     "Skills": "Skills",
     "Languages": "Languages",
     "Name": "Name",
@@ -90,7 +89,23 @@
     "fieldErrors": {
         "nameRequired": "Name is required",
         "nativeNameRequired": "Native name is required",
-        "iso2Length": "ISO2 must be shorter than or equal to 2 characters"
+        "iso2Length": "ISO2 must be shorter than or equal to 2 characters",
+        "categoryRequired": "Category is required"
+    },
+    "positions": {
+        "positions":"position",
+        "addPosition": "Add position",
+        "updatePosition": "Update  position",
+        "deletePosition": "Delete position"
+        
+    },
+
+    "skills": {
+        "skill":"skill",    
+        "addSkill": "Add skill",
+        "updateSkill": "Update  skill",
+        "deleteSkill": "Delete skill",
+        "category":"category"
     },
     "users": {
         "user":"user",

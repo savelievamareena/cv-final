@@ -13,7 +13,8 @@ import { UserLayout } from "@/modules/users/components/user-layout";
 import { UserProfile } from "@/pages/user-profile";
 import { Details } from "@/modules/cvs/components/details";
 import { LanguagesPage } from "@/pages/languages";
-import { UsersPage } from "@/pages/users";
+import { PositionsPage } from "@/pages/positions";
+import { SkillsPage } from "@/pages/skills";
 
 export const router = createBrowserRouter([
     {
@@ -173,7 +174,7 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 path: routes.skills,
-                element: <div>Skills page content (table)</div>,
+                element: <SkillsPage />,
             },
             {
                 errorElement: <ErrorComponent />,
@@ -183,7 +184,8 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 path: routes.positions,
-                element: <div>Positions page content (table)</div>,
+                element: <PositionsPage />,
+                element: <PositionsPage />,
             },
             {
                 errorElement: <ErrorComponent />,
