@@ -6,8 +6,6 @@ import { RouteParams, routes } from "@/router";
 import { generateUserTabs } from "../../helpers";
 import { useTranslation } from "react-i18next";
 
-import styles from "./user-layout.module.scss";
-
 const UserLayout = () => {
     const { [RouteParams.UserId]: userId } = useParams();
 
@@ -17,11 +15,7 @@ const UserLayout = () => {
 
     if (!userId) return <Navigate to={routes.root} />;
 
-    return (
-        <main className={styles.main}>
-            <PageTabs items={items} />
-        </main>
-    );
+    return <PageTabs items={items} />;
 };
 
 export default UserLayout;
