@@ -185,7 +185,6 @@ export const router = createBrowserRouter([
                 errorElement: <ErrorComponent />,
                 path: routes.positions,
                 element: <PositionsPage />,
-                element: <PositionsPage />,
             },
             {
                 errorElement: <ErrorComponent />,
