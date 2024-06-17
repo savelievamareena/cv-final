@@ -1,0 +1,62 @@
+@use "@/scss" as *;
+
+.red {
+    color: $clr-primary;
+}
+
+.grey {
+    color: $clr-grey;
+}
+
+.big {
+    font-size: 1.3rem;
+}
+
+.centeredFlex {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.spreadFlex {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.fixedHeader {
+    height: $header-height;
+
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    position: fixed;
+    z-index: 5;
+
+    box-shadow: 0 1px 10px 0 $clr-dark;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    box-sizing: border-box;
+}
+
+.headerIcons {
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.dropdownMenu {
+    padding: 4px 12px;
+    font-size: 1.2rem;
+}

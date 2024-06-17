@@ -5,8 +5,8 @@ import { Navigate, Outlet } from "react-router-dom";
 import { routes } from "@/router";
 import { useAuthUser } from "@/services/auth-service";
 import { DialogsContainer } from "@/helpers/dialog/dialog-container";
-import { Header } from "@/modules/header";
 import { BreadcrumbsProvider } from "@/helpers/breadcrumbs";
+import { MainHeader } from "../header";
 
 import styles from "./main-layout.module.scss";
 
@@ -17,7 +17,7 @@ export const MainLayout = () => {
 
     return (
         <>
-            <Header />
+            <MainHeader />
             <main className={styles.main}>
                 <BreadcrumbsProvider>
                     <Suspense fallback={<Spin size="large" fullscreen />}>

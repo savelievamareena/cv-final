@@ -16,7 +16,8 @@ import { LanguagesPage } from "@/pages/languages";
 import { UserSkills } from "@/pages/user-skills";
 import { UserLanguages } from "@/pages/user-languages";
 import { UserCVs } from "@/pages/user-cvs";
-import Skills from "@/pages/skills/skills";
+import { PositionsPage } from "@/pages/positions";
+import { SkillsPage } from "@/pages/skills";
 
 export const router = createBrowserRouter([
     {
@@ -176,7 +177,7 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 path: routes.skills,
-                element: <Skills />,
+                element: <SkillsPage />,
             },
             {
                 errorElement: <ErrorComponent />,
@@ -186,7 +187,7 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 path: routes.positions,
-                element: <div>Positions page content (table)</div>,
+                element: <PositionsPage />,
             },
             {
                 errorElement: <ErrorComponent />,

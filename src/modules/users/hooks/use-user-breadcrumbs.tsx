@@ -28,7 +28,12 @@ export const useUserBreadcrumbs = (tab: TabType = "profile") => {
             { title: t("Employees"), href: routes.users.root },
             {
                 title: (
-                    <Flex gap="small" className={classNames(styles.userName)}>
+                    <Flex
+                        gap="small"
+                        className={classNames(styles.userName, {
+                            [styles.userName_last]: tab === "profile",
+                        })}
+                    >
                         <UserOutlined />
                         <span>{!!data ? data.profile.full_name : userId}</span>
                     </Flex>

@@ -8,10 +8,7 @@ const Departments = () => {
     const { t } = useTranslation();
 
     const items = useMemo(
-        () => [
-            { title: t("Home"), href: routes.root },
-            { title: t("Departments"), href: routes.departments },
-        ],
+        () => [{ title: t("Home"), href: routes.root }, { title: t("Departments") }],
         [t]
     );
 

@@ -3,10 +3,13 @@ import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { UserRole } from "cv-graphql";
 import { Button, Input } from "antd";
+import { Content } from "antd/es/layout/layout";
+import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { useAuthUser } from "@/services/auth-service";
-import { SearchOutlined } from "@ant-design/icons";
 import TableTemplate, { ColumnConfig } from "./table-template";
 import { Action } from "./actions-menu";
+
+import styles from "./list-template.module.scss";
 
 interface ListTemplateProps<T> {
     pageName: string;
@@ -37,18 +40,30 @@ const ListTemplate = <T extends { id: Key }>({
     };
 
     return (
-        <div style={{ width: "100vw" }}>
-            <Input
-                placeholder={t("search")}
-                onChange={(e) => handleInputChange(e)}
-                value={searchParams.get("search") ?? ""}
-                prefix={<SearchOutlined />}
-            />
-            {isAdmin && (
-                <Button type="primary" danger ghost onClick={onButtonClick}>
-                    {t("add")} {pageName}
-                </Button>
-            )}
+        <div className={styles.listWrapper}>
+            <Content className={styles.searchCreateContainer}>
+                <Input
+                    type="primary"
+                    className={styles.search}
+                    placeholder={t("search")}
+                    onChange={(e) => handleInputChange(e)}
+                    value={searchParams.get("search") ?? ""}
+                    prefix={<SearchOutlined />}
+                />
+                {isAdmin && (
+                    <Button
+                        type="primary"
+                        danger
+                        ghost
+                        onClick={onButtonClick}
+                        icon={<PlusOutlined />}
+                        className={styles.createButton}
+                    >
+                        {t("add")} {pageName}
+                    </Button>
+                )}
+            </Content>
+
             <TableTemplate<T>
                 searchQuery={searchParams.get("search") ?? ""}
                 menuProps={menuProps}

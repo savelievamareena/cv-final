@@ -13,13 +13,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: $clr-dark;
 
     &__icon {
         svg {
             width: 1rem;
             height: 1rem;
         }
-
-        color: $clr-dark;
     }
 }
