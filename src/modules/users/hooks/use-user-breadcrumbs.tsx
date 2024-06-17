@@ -15,7 +15,6 @@ type TabType = "profile" | "cvs" | "languages" | "skills";
 
 export const useUserBreadcrumbs = (tab: TabType = "profile") => {
     const { t } = useTranslation();
-    console.log("");
 
     const { [RouteParams.UserId]: userId } = useParams();
 
