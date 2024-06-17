@@ -12,6 +12,7 @@ export interface UserTransformed {
     email?: string;
     department?: string;
     position?: string;
+    avatar?: string;
 }
 export const mapStringsToSelectOptions = (arr: string[]): SelectOption[] => {
     return arr.map((item) => ({
@@ -28,6 +29,7 @@ export const mapUserToTable = (arr: User[]): UserTransformed[] => {
         email: item.email,
         department: item.department?.name ?? "",
         position: item.position?.name ?? "",
+        avatar: item.profile.avatar ?? "",
     }));
 };
 

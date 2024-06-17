@@ -10,10 +10,11 @@ import { mapUserToTable, UserTransformed } from "@/helpers/convert/maps";
 
 const columnConfigs: ColumnConfig<UserTransformed>[] = [
     { name: "first_name", isSorted: true },
-    { name: "last_name", isSorted: false },
-    { name: "email", isSorted: false },
-    { name: "department", isSorted: false },
-    { name: "position", isSorted: false },
+    { name: "last_name", isSorted: true },
+    { name: "email", isSorted: true },
+    { name: "department", isSorted: true },
+    { name: "position", isSorted: true },
+    { name: "avatar", isSorted: false },
 ];
 
 const UsersList = () => {
@@ -68,6 +69,7 @@ const UsersList = () => {
         });
 
     const convertedUsers = mapUserToTable(users);
+    console.log(convertedUsers);
 
     return (
         <ListTemplate

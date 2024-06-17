@@ -39,7 +39,7 @@ const ListTemplate = <T extends { id: Key }>({
     };
 
     return (
-        <div style={{ width: "100vw" }}>
+        <div>
             <Content className={styles.searchCreateContainer}>
                 <Input
                     type="primary"
