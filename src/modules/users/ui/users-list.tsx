@@ -6,7 +6,7 @@ import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { useConfirm } from "@/components/confirm-dialog/";
 import { useUserCreate, useUserDelete, useUsersQuery } from "../api";
 import { useUserDialog } from "./users-dialog";
-import { convertUserToTable, UserTransformed } from "@/helpers/convert/user-table";
+import { mapUserToTable, UserTransformed } from "@/helpers/convert/maps";
 
 const columnConfigs: ColumnConfig<UserTransformed>[] = [
     { name: "first_name", isSorted: true },
@@ -42,17 +42,32 @@ const UsersList = () => {
                 void createUser({
                     variables: {
                         user: {
-                            first_name: formData.first_name,
-                            last_name: formData.last_name,
-                            email: formData.email,
+                            auth: {
+                                email: formData.email,
+                                password: formData.password,
+                            },
+                            profile: {
+                                first_name: formData.first_name,
+                                last_name: formData.last_name,
+                            },
+                            cvsIds: [],
+                            departmentId: formData.department,
+                            positionId: formData.department,
                         },
                     },
                 }),
 
-            initialValues: { first_name: "", last_name: "", email: "" },
+            initialValues: {
+                first_name: "",
+                last_name: "",
+                email: "",
+                password: "",
+                department: "",
+                position: "",
+            },
         });
 
-    const convertedUsers = convertUserToTable(users);
+    const convertedUsers = mapUserToTable(users);
 
     return (
         <ListTemplate

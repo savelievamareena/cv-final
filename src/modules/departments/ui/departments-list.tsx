@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Department } from "cv-graphql";
 import { t } from "i18next";
 import ListTemplate from "@/components/list-lemplate/list-template";
@@ -15,7 +14,6 @@ interface FormData {
 
 const DepartmentsList = () => {
     const { departments, loading } = useDepartmentsQuery();
-    const [searchQuery, setSearchQuery] = useState("");
 
     const [openConfirm] = useConfirm();
     const [openAddDepartment] = useAddDepartment();
@@ -72,10 +70,8 @@ const DepartmentsList = () => {
                 onButtonClick={openDepartment}
                 menuProps={menuProps}
                 columnConfigs={columnConfigs}
-                searchQuery={searchQuery}
                 displayData={departments}
                 loading={loading}
-                setSearchQuery={setSearchQuery}
             />
         </>
     );
