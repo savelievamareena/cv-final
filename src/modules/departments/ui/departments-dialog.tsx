@@ -5,22 +5,18 @@ import { FormTextField } from "@/components/form-text-field";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
-import { getDepartmentFormSchema } from "../shemas/department";
+import { DepartmentFormSchemaType, getDepartmentFormSchema } from "../shemas/department";
 
-interface FormData {
-    department: string;
-}
 interface DepartmentDialogProps {
     title: string;
-    onConfirm: (formData: FormData) => void;
+    onConfirm: (formData: DepartmentFormSchemaType) => void;
     onClose: () => void;
-    initialValues: { department: string };
+    initialValues: DepartmentFormSchemaType;
 }
 const DepartmentDialog = ({ title, onConfirm, onClose, initialValues }: DepartmentDialogProps) => {
     const { t } = useTranslation();
-    const { department } = initialValues;
 
-    const handleConfirm = (formData: FormData) => {
+    const handleConfirm = (formData: DepartmentFormSchemaType) => {
         onConfirm(formData);
         onClose();
     };
@@ -29,7 +25,7 @@ const DepartmentDialog = ({ title, onConfirm, onClose, initialValues }: Departme
         <BaseDialog title={title} onClose={onClose}>
             <Form
                 onSubmit={handleConfirm}
-                defaultValues={{ department }}
+                defaultValues={initialValues}
                 schema={getDepartmentFormSchema()}
             >
                 <FormTextField type="text" label={t("department")} name="department" />

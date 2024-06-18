@@ -7,6 +7,7 @@ import { useConfirm } from "@/components/confirm-dialog/";
 import { useCvCreate, useCvDelete, useCvsQuery } from "../api";
 import { useCvDialog } from "./cvs-dialog";
 import { CvTransformed, mapCvDataToTable } from "@/helpers/convert/maps";
+import { routes } from "@/router";
 
 const columnConfigs: ColumnConfig<CvTransformed>[] = [
     { name: "name", isSorted: true },
@@ -31,7 +32,7 @@ const CvsList = () => {
                 onConfirm: () => void deleteCv({ variables: { cv: { cvId: id } } }),
             }),
 
-        onUpdate: (id: string) => navigate(`/routes/cvs/${id}`),
+        onUpdate: (id: string) => navigate(routes.cvs.cvById(id)),
     };
 
     const openCv = () =>

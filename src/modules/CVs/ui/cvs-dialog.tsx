@@ -5,30 +5,26 @@ import { FormTextField } from "@/components/form-text-field";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
-import { getCvFormSchema } from "../shemas/cvs";
+import { CvFormSchemaType, getCvFormSchema } from "../shemas/cvs";
 
-interface FormData {
-    cv: string;
-    description: string;
-}
 interface CvDialogProps {
     title: string;
-    onConfirm: (formData: FormData) => void;
+    onConfirm: (formData: CvFormSchemaType) => void;
     onClose: () => void;
-    initialValues: FormData;
+    initialValues: CvFormSchemaType;
 }
+
 const CvDialog = ({ title, onConfirm, onClose, initialValues }: CvDialogProps) => {
     const { t } = useTranslation();
-    const { cv } = initialValues;
 
-    const handleConfirm = (formData: FormData) => {
+    const handleConfirm = (formData: CvFormSchemaType) => {
         onConfirm(formData);
         onClose();
     };
 
     return (
         <BaseDialog title={title} onClose={onClose}>
-            <Form onSubmit={handleConfirm} defaultValues={{ cv }} schema={getCvFormSchema()}>
+            <Form onSubmit={handleConfirm} defaultValues={initialValues} schema={getCvFormSchema()}>
                 <FormTextField type="text" label={t("cv")} name="cv" />
                 <Button htmlType="button" onClick={onClose}>
                     {t("cancel")}
