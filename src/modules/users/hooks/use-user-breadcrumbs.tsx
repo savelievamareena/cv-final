@@ -2,7 +2,7 @@ import { RouteParams, routes } from "@/router";
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { useProfileQuery } from "../api";
-import { UserOutlined } from "@ant-design/icons";
+import { HomeOutlined, UserOutlined } from "@ant-design/icons";
 import { Flex } from "antd";
 import { BreadcrumbItemType } from "antd/es/breadcrumb/Breadcrumb";
 import classNames from "classnames";
@@ -24,7 +24,15 @@ export const useUserBreadcrumbs = (tab: TabType = "profile") => {
         if (!userId) return [];
 
         const tabs: BreadcrumbItemType[] = [
-            { title: t("Home"), href: routes.root },
+            {
+                title: (
+                    <Flex gap="small">
+                        <HomeOutlined />
+                        <span>{t("Home")}</span>
+                    </Flex>
+                ),
+                href: routes.root,
+            },
             { title: t("Employees"), href: routes.users.root },
             {
                 title: (
