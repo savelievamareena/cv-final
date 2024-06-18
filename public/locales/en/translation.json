@@ -92,7 +92,8 @@
         "iso2Length": "ISO2 must be shorter than or equal to 2 characters",
         "minPasswordLength": "Password must be greater than 6 characters",
         "categoryRequired": "Category is required",
-         "descriptionRequired": "Descripion is required"
+        "descriptionRequired": "Descripion is required",
+        "educationRequired": "Education required"
     },
     "positions": {
         "positions":"position",

@@ -25,7 +25,9 @@ const CvDialog = ({ title, onConfirm, onClose, initialValues }: CvDialogProps) =
     return (
         <BaseDialog title={title} onClose={onClose}>
             <Form onSubmit={handleConfirm} defaultValues={initialValues} schema={getCvFormSchema()}>
-                <FormTextField type="text" label={t("cv")} name="cv" />
+                <FormTextField type="text" label={t("name")} name="name" />
+                <FormTextField type="text" label={t("education")} name="education" />
+                <FormTextField type="text" label={t("description")} name="description" />
                 <Button htmlType="button" onClick={onClose}>
                     {t("cancel")}
                 </Button>

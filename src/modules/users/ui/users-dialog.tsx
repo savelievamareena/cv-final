@@ -5,31 +5,24 @@ import { FormTextField } from "@/components/form-text-field";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
-import { getUserFormSchema } from "../shemas/user";
+import { getUserFormSchema, UserFormSchemaType } from "../shemas/user";
 import { useDepartmentsQuery, usePositionsQuery } from "@/api";
 import { FormSelect } from "@/components/form-select";
 import { mapDepartmentsToSelectOptions, mapPositionsToSelectOptions } from "@/helpers/convert/maps";
 
-interface FormData {
-    first_name: string;
-    last_name: string;
-    email: string;
-    password: string;
-    department: string;
-    position: string;
-}
 interface UserDialogProps {
     title: string;
-    onConfirm: (formData: FormData) => void;
+    onConfirm: (formData: UserFormSchemaType) => void;
     onClose: () => void;
-    initialValues: FormData;
+    initialValues: UserFormSchemaType;
 }
+
 const UserDialog = ({ title, onConfirm, onClose, initialValues }: UserDialogProps) => {
     const { t } = useTranslation();
     const departments = useDepartmentsQuery();
     const positions = usePositionsQuery();
 
-    const handleConfirm = (formData: FormData) => {
+    const handleConfirm = (formData: UserFormSchemaType) => {
         onConfirm(formData);
         onClose();
     };
