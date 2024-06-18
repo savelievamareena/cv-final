@@ -51,6 +51,20 @@
             "skills":"Skills"
         }
     },
+    "project": {
+        "fieldLabels": {
+            "name":"Name",
+            "internalName":"Internal name",
+            "domain":"Domain",
+            "teamSize":"Team size",
+            "description":"Description",
+            "startDate":"Start date",
+            "endDate":"End date"
+        },
+        "fieldErrors": {
+            "teamSize":"Team size must be an integer greater than 1"
+        }
+    },
     "submit": "Submit",
     "Welcome Back": "Welcome Back",
     "add": "Add",

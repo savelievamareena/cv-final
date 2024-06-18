@@ -51,6 +51,20 @@
             "skills":"Навыки"
         }
     },
+    "project": {
+        "fieldLabels": {
+            "name":"Название",
+            "internalName":"Внутреннее название",
+            "domain":"Домен",
+            "teamSize":"Размер команды",
+            "description":"Описание",
+            "startDate":"Дата начала",
+            "endDate":"Дата завершения"
+        },
+        "fieldErrors": {
+            "teamSize":"Размер команды должен быть целым числом больше 1"
+        }
+    },
     "submit": "Подтвердить",
     "Welcome Back": "С Возвращением",
     "add": "Добавить",

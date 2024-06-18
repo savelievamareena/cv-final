@@ -1,11 +1,7 @@
 import { DatePicker, Form } from "antd";
 import { useFormContext, Controller } from "react-hook-form";
+import { isDayjs } from "dayjs";
 import { FormDatePickerProps } from "./form-date-picker.types";
-
-import dayjs, { isDayjs } from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
-
-dayjs.extend(customParseFormat);
 
 const FormDatePicker = ({ name, label, ...props }: FormDatePickerProps) => {
     const {
@@ -16,7 +12,10 @@ const FormDatePicker = ({ name, label, ...props }: FormDatePickerProps) => {
     const errorMessage = errors[name]?.message;
     const potentialDefaultValue = defaultValues?.[name] as unknown;
 
-    const defaultValue = isDayjs(potentialDefaultValue) ? potentialDefaultValue : undefined;
+    const defaultValue =
+        potentialDefaultValue != null && isDayjs(potentialDefaultValue)
+            ? potentialDefaultValue
+            : undefined;
     const helperText = typeof errorMessage === "string" ? errorMessage : undefined;
 
     return (
