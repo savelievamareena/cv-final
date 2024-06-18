@@ -1,12 +1,12 @@
-import { RouteParams, routes } from "@/router";
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
-import { useProfileQuery } from "../api";
-import { HomeOutlined, UserOutlined } from "@ant-design/icons";
 import { Flex } from "antd";
+import { HomeOutlined, UserOutlined } from "@ant-design/icons";
 import { BreadcrumbItemType } from "antd/es/breadcrumb/Breadcrumb";
-import classNames from "classnames";
 import { useTranslation } from "react-i18next";
+import classNames from "classnames";
+import { RouteParams, routes } from "@/router";
+import { useProfileQuery } from "../api";
 import { useBreadcrumbs } from "@/helpers/breadcrumbs";
 
 import styles from "./use-user-breadcrumbs.module.scss";

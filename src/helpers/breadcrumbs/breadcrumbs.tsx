@@ -1,8 +1,8 @@
 import { PropsWithChildren, createContext, useCallback, useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Breadcrumb } from "antd";
 import { BreadcrumbItemType } from "antd/es/breadcrumb/Breadcrumb";
 import { itemRender } from "./breadcrumbs.helpers";
-import { useLocation } from "react-router-dom";
 
 import styles from "./breadcrumbs.module.scss";
 
