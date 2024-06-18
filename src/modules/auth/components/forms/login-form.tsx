@@ -29,7 +29,8 @@ export const LoginForm = () => {
             disabled={loading}
             className={styles.form}
             onSubmit={({ email, password }) => {
-                if (isExistingUserNotVerified) showNotification("warning", t("verifyEmailWarning"));
+                if (isExistingUserNotVerified && email === user.email)
+                    showNotification("warning", t("verifyEmailWarning"));
                 else void login({ variables: { authData: { email, password } } });
             }}
             schema={getLoginFormSchema()}
