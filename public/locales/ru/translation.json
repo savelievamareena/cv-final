@@ -67,7 +67,7 @@
     "Settings": "Настройки",
     "Logout": "Выйти",
     "Home": "Главная",
-    "here": "here",
+    "here": "здесь",
     "Employees": "Сотрудники",
     "Projects": "Проекты",
     "CVs": "Резюме",
@@ -91,8 +91,10 @@
         "nameRequired": "Имя обязательно",
         "nativeNameRequired": "Родное имя обязательно",
         "iso2Length": "ISO2 должно занимать 1 или 2 символа",
-        "categoryRequired": "Категория обязательна"
-            
+        "minPasswordLength": "Пароль должен былть больше 6ти символов",
+        "categoryRequired": "Категория обязательна",
+        "descriptionRequired": "Описание обязателено",
+        "educationRequired": "Образование обязателено"
     },
     "positions": {
         "positions":"Должности",
@@ -106,5 +108,17 @@
         "updateSkill": "Обновить навык",
         "deleteSkill": "Удалить навык",
         "category":"категория"
+    },
+    "cvs": {
+        "Cv":"Резюме",
+        "addCv": "Добавить резюме",
+        "updateCv": "Обновить резюме",
+        "deleteCv": "Удалить резюме"
+    },
+    "users": {
+        "user":"пользователь",
+        "addUser": "Добавить пользователя",
+        "updateUser": "Обновить пользователя",
+        "deleteUser": "Удалить пользователя"
     }
 }

@@ -6,18 +6,19 @@ import { ErrorComponent } from "@/components/error-component";
 import { AuthLayout } from "@/modules/auth/components/auth-layout";
 import { Login } from "@/pages/login";
 import { SignUp } from "@/pages/sign-up";
-import { Cvs } from "@/pages/cvs";
 import { VerifyMail } from "@/pages/verify-mail";
 import { DepartmentsPage } from "@/pages/departments";
-import { UserLayout } from "@/modules/users/components/user-layout";
-import { UserProfile } from "@/pages/user-profile";
-import { Details } from "@/modules/cvs/components/details";
 import { LanguagesPage } from "@/pages/languages";
 import { UserSkills } from "@/pages/user-skills";
 import { UserLanguages } from "@/pages/user-languages";
 import { UserCVs } from "@/pages/user-cvs";
 import { PositionsPage } from "@/pages/positions";
 import { SkillsPage } from "@/pages/skills";
+import { CvPage } from "@/pages/cvs";
+import { Details } from "@/modules/cvs/components/details";
+import { UserLayout } from "@/modules/users/components/user-layout";
+import { UserProfile } from "@/pages/user-profile";
+import { UsersPage } from "@/pages/users";
 
 export const router = createBrowserRouter([
     {
@@ -55,7 +56,7 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 index: true,
-                element: <div>Users page content (table)</div>,
+                element: <UsersPage />,
             },
             {
                 path: routes.cvs.root,
@@ -63,7 +64,7 @@ export const router = createBrowserRouter([
                     {
                         errorElement: <ErrorComponent />,
                         index: true,
-                        element: <Cvs />,
+                        element: <CvPage />,
                     },
                     {
                         errorElement: <ErrorComponent />,
@@ -111,7 +112,7 @@ export const router = createBrowserRouter([
                     {
                         errorElement: <ErrorComponent />,
                         index: true,
-                        element: <div>Users page content (table)</div>,
+                        element: <UsersPage />,
                     },
                     {
                         errorElement: <ErrorComponent />,

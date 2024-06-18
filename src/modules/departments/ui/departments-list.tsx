@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Department } from "cv-graphql";
 import { t } from "i18next";
 import ListTemplate from "@/components/list-lemplate/list-template";
@@ -9,13 +8,8 @@ import { useDepartmentCreate, useDepartmentDelete, useDepartmentUpdate } from ".
 import { useDepartmentsQuery } from "@/api";
 import { useAddDepartment } from "./departments-dialog";
 
-interface FormData {
-    department: string;
-}
-
 const DepartmentsList = () => {
     const { departments, loading } = useDepartmentsQuery();
-    const [searchQuery, setSearchQuery] = useState("");
 
     const [openConfirm] = useConfirm();
     const [openAddDepartment] = useAddDepartment();
@@ -34,7 +28,7 @@ const DepartmentsList = () => {
         onUpdate: (id: string) =>
             openAddDepartment({
                 title: t("Update department"),
-                onConfirm: (formData: FormData) =>
+                onConfirm: (formData) =>
                     void updateDepartment({
                         variables: {
                             department: {
@@ -52,7 +46,7 @@ const DepartmentsList = () => {
     const openDepartment = () =>
         openAddDepartment({
             title: t("Add department"),
-            onConfirm: (formData: FormData) =>
+            onConfirm: (formData) =>
                 void createDepartment({
                     variables: {
                         department: {
@@ -72,10 +66,8 @@ const DepartmentsList = () => {
                 onButtonClick={openDepartment}
                 menuProps={menuProps}
                 columnConfigs={columnConfigs}
-                searchQuery={searchQuery}
                 displayData={departments}
                 loading={loading}
-                setSearchQuery={setSearchQuery}
             />
         </>
     );
