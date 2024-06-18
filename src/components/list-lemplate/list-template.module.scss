@@ -1,0 +1,34 @@
+@use "@/scss" as *;
+
+.listWrapper {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.search {
+    max-width: 18.75rem;
+
+    &CreateContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 0;
+    }
+}
+
+.createButton {
+    background-color: $clr-primary;
+    border-color: $clr-primary;
+    border-radius: 10px;
+}
+
+.table {
+    background-color: $clr-secondary;
+    color: $clr-dark;
+
+    &Wrapper {
+        box-sizing: border-box;
+        width: 80%;
+        margin: 0 auto;
+    }
+}

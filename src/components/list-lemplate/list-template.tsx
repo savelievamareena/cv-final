@@ -3,12 +3,13 @@ import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { UserRole } from "cv-graphql";
 import { Button, Input } from "antd";
-import { useAuthUser } from "@/services/auth-service";
+import { Content } from "antd/es/layout/layout";
 import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
+import { useAuthUser } from "@/services/auth-service";
 import TableTemplate, { ColumnConfig } from "./table-template";
 import { Action } from "./actions-menu";
-import styles from "./list-template.module.css";
-import { Content } from "antd/es/layout/layout";
+
+import styles from "./list-template.module.scss";
 
 interface ListTemplateProps<T> {
     pageName: string;
@@ -39,7 +40,7 @@ const ListTemplate = <T extends { id: Key }>({
     };
 
     return (
-        <div style={{ width: "100vw" }}>
+        <div className={styles.listWrapper}>
             <Content className={styles.searchCreateContainer}>
                 <Input
                     type="primary"

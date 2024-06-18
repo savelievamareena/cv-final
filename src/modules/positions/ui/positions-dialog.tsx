@@ -5,23 +5,19 @@ import { FormTextField } from "@/components/form-text-field";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
-import { getPositionFormSchema } from "../shemas/position";
-
-interface FormData {
-    position: string;
-}
+import { getPositionFormSchema, PositionFormSchemaType } from "../shemas/position";
 
 interface PositionDialogProps {
     title: string;
-    onConfirm: (formData: FormData) => void;
+    onConfirm: (formData: PositionFormSchemaType) => void;
     onClose: () => void;
-    initialValues: FormData;
+    initialValues: PositionFormSchemaType;
 }
 
 const PositionDialog = ({ title, onConfirm, onClose, initialValues }: PositionDialogProps) => {
     const { t } = useTranslation();
 
-    const handleConfirm = (formData: FormData) => {
+    const handleConfirm = (formData: PositionFormSchemaType) => {
         onConfirm(formData);
         onClose();
     };

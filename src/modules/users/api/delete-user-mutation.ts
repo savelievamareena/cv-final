@@ -9,11 +9,8 @@ export const DELETE_USER = gql`
     }
 `;
 
-export const useUserDelete = (userId: string) => {
+export const useUserDelete = () => {
     return useMutation(DELETE_USER, {
-        variables: {
-            userId,
-        },
         refetchQueries: [GET_USERS_QUERY],
     });
 };
