@@ -1,3 +1,7 @@
-export const Cvs = () => {
-    return <>Search and Table components</>;
+import { CvsList } from "@/modules/cvs/";
+
+const CvsPage = () => {
+    return <CvsList />;
 };
+
+export default CvsPage;

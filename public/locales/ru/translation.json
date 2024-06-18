@@ -88,8 +88,8 @@
         "nameRequired": "Имя обязательно",
         "nativeNameRequired": "Родное имя обязательно",
         "iso2Length": "ISO2 должно занимать 1 или 2 символа",
-        "categoryRequired": "Категория обязательна"
-            
+        "categoryRequired": "Категория обязательна",
+        "descriptionRequired": "Описание обязателено"
     },
     "positions": {
         "positions":"Должности",
@@ -103,5 +103,11 @@
         "updateSkill": "Обновить навык",
         "deleteSkill": "Удалить навык",
         "category":"категория"
+    },
+    "cvs": {
+        "Cv":"Резюме",
+        "addCv": "Добавить резюме",
+        "updateCv": "Обновить резюме",
+        "deleteCv": "Удалить резюме"
     }
 }
