@@ -40,13 +40,26 @@ const ProjectsList = () => {
                     void updateProject({
                         variables: {
                             project: {
-                                name: formData.project,
                                 projectId: id,
+                                name: formData.name,
+                                internal_name: formData.internalName,
+                                team_size: formData.teamSize,
+                                domain: formData.domain,
+                                description: formData.description,
+                                start_date: formData.startDate,
+                                end_date: formData.endDate,
                             },
                         },
                     }),
                 initialValues: {
-                    project: projects.find((project) => project.id === id)?.name ?? "",
+                    name: projects.find((project) => project.id === id)?.name ?? "",
+                    internalName:
+                        projects.find((project) => project.id === id)?.internal_name ?? "",
+                    domain: projects.find((project) => project.id === id)?.domain ?? "",
+                    description: projects.find((project) => project.id === id)?.description ?? "",
+                    startDate: projects.find((project) => project.id === id)?.start_date ?? "",
+                    endDate: projects.find((project) => project.id === id)?.end_date ?? "",
+                    teamSize: projects.find((project) => project.id === id)?.team_size ?? 0,
                 },
             }),
     };
@@ -58,11 +71,25 @@ const ProjectsList = () => {
                 void createProject({
                     variables: {
                         project: {
-                            name: formData.project,
+                            name: formData.name,
+                            internal_name: formData.internalName,
+                            team_size: formData.teamSize,
+                            domain: formData.domain,
+                            description: formData.description,
+                            start_date: formData.startDate,
+                            end_date: formData.endDate,
                         },
                     },
                 }),
-            initialValues: { project: "" },
+            initialValues: {
+                name: "",
+                internalName: "",
+                domain: "",
+                description: "",
+                teamSize: 1,
+                startDate: "",
+                endDate: "",
+            },
         });
 
     return (

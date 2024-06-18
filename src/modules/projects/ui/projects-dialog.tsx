@@ -5,23 +5,19 @@ import { FormTextField } from "@/components/form-text-field";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
-import { getProjectFormSchema } from "../shemas/project";
-
-interface FormData {
-    project: string;
-}
+import { getProjectFormSchema, ProjectFormSchemaType } from "../shemas/project";
 
 interface ProjectDialogProps {
     title: string;
-    onConfirm: (formData: FormData) => void;
+    onConfirm: (formData: ProjectFormSchemaType) => void;
     onClose: () => void;
-    initialValues: FormData;
+    initialValues: ProjectFormSchemaType;
 }
 
 const ProjectDialog = ({ title, onConfirm, onClose, initialValues }: ProjectDialogProps) => {
     const { t } = useTranslation();
 
-    const handleConfirm = (formData: FormData) => {
+    const handleConfirm = (formData: ProjectFormSchemaType) => {
         onConfirm(formData);
         onClose();
     };
@@ -33,7 +29,13 @@ const ProjectDialog = ({ title, onConfirm, onClose, initialValues }: ProjectDial
                 defaultValues={initialValues}
                 schema={getProjectFormSchema()}
             >
-                <FormTextField type="text" label={t("projects.projects")} name="project" />
+                <FormTextField type="text" label={t("projects.projects")} name="name" />
+                <FormTextField type="text" label={t("projects.projects")} name="internalName" />
+                <FormTextField type="text" label={t("projects.projects")} name="domain" />
+                <FormTextField type="text" label={t("projects.projects")} name="description" />
+                <FormTextField type="text" label={t("projects.projects")} name="startDate" />
+                <FormTextField type="text" label={t("projects.projects")} name="endDate" />
+                <FormTextField type="number" label={t("projects.projects")} name="teamSize" />
                 <Button htmlType="button" onClick={onClose}>
                     {t("cancel")}
                 </Button>
