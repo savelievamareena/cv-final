@@ -5,30 +5,29 @@ import { FormTextField } from "@/components/form-text-field";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
-import { DepartmentFormSchemaType, getDepartmentFormSchema } from "../shemas/department";
+import { CvFormSchemaType, getCvFormSchema } from "../shemas/cvs";
 
-interface DepartmentDialogProps {
+interface CvDialogProps {
     title: string;
-    onConfirm: (formData: DepartmentFormSchemaType) => void;
+    onConfirm: (formData: CvFormSchemaType) => void;
     onClose: () => void;
-    initialValues: DepartmentFormSchemaType;
+    initialValues: CvFormSchemaType;
 }
-const DepartmentDialog = ({ title, onConfirm, onClose, initialValues }: DepartmentDialogProps) => {
+
+const CvDialog = ({ title, onConfirm, onClose, initialValues }: CvDialogProps) => {
     const { t } = useTranslation();
 
-    const handleConfirm = (formData: DepartmentFormSchemaType) => {
+    const handleConfirm = (formData: CvFormSchemaType) => {
         onConfirm(formData);
         onClose();
     };
 
     return (
         <BaseDialog title={title} onClose={onClose}>
-            <Form
-                onSubmit={handleConfirm}
-                defaultValues={initialValues}
-                schema={getDepartmentFormSchema()}
-            >
-                <FormTextField type="text" label={t("department")} name="department" />
+            <Form onSubmit={handleConfirm} defaultValues={initialValues} schema={getCvFormSchema()}>
+                <FormTextField type="text" label={t("name")} name="name" />
+                <FormTextField type="text" label={t("education")} name="education" />
+                <FormTextField type="text" label={t("description")} name="description" />
                 <Button htmlType="button" onClick={onClose}>
                     {t("cancel")}
                 </Button>
@@ -38,6 +37,4 @@ const DepartmentDialog = ({ title, onConfirm, onClose, initialValues }: Departme
     );
 };
 
-export const useAddDepartment = createDialogHook<DepartmentDialogProps>((props) => (
-    <DepartmentDialog {...props} />
-));
+export const useCvDialog = createDialogHook<CvDialogProps>((props) => <CvDialog {...props} />);

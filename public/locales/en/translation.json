@@ -62,14 +62,14 @@
     "confirm": "Confirm",
     "department": "department",
 
+
     "Profile": "Profile",
     "Settings": "Settings",
     "Logout": "Logout",
     "Home": "Home",
     "Employees": "Employees",
     "Projects": "Projects",
-    "CVs": "CVs",
-    "CV": "CV",
+ 
     "Departments": "Departments",
     "Skills": "Skills",
     "Languages": "Languages",
@@ -90,7 +90,10 @@
         "nameRequired": "Name is required",
         "nativeNameRequired": "Native name is required",
         "iso2Length": "ISO2 must be shorter than or equal to 2 characters",
-        "categoryRequired": "Category is required"
+        "minPasswordLength": "Password must be greater than 6 characters",
+        "categoryRequired": "Category is required",
+        "descriptionRequired": "Descripion is required",
+        "educationRequired": "Education required"
     },
     "positions": {
         "positions":"position",
@@ -106,5 +109,18 @@
         "updateSkill": "Update  skill",
         "deleteSkill": "Delete skill",
         "category":"category"
+    },
+    "users": {
+        "user":"user",
+        "addUser": "Add user",
+        "updateUser": "Update user",
+        "deleteUser": "Delete user"
+    },
+    "cvs": {
+        "cv":"cv",
+        "addCv": "Add cv",
+        "updateCv": "Update cv",
+        "deleteCv": "Delete cv"
     }
+    
 }

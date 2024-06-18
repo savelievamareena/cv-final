@@ -5,23 +5,18 @@ import { FormTextField } from "@/components/form-text-field";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
-import { getLanguageFormSchema } from "../shemas/language";
+import { getLanguageFormSchema, LanguageFormSchemaType } from "../shemas/language";
 
-interface FormData {
-    language: string;
-    native_name: string;
-    iso2: string;
-}
 interface LanguageDialogProps {
     title: string;
-    onConfirm: (formData: FormData) => void;
+    onConfirm: (formData: LanguageFormSchemaType) => void;
     onClose: () => void;
-    initialValues: FormData;
+    initialValues: LanguageFormSchemaType;
 }
 const LanguageDialog = ({ title, onConfirm, onClose, initialValues }: LanguageDialogProps) => {
     const { t } = useTranslation();
 
-    const handleConfirm = (formData: FormData) => {
+    const handleConfirm = (formData: LanguageFormSchemaType) => {
         onConfirm(formData);
         onClose();
     };
