@@ -42,12 +42,13 @@ const CvsList = () => {
                 void createCv({
                     variables: {
                         cv: {
-                            name: formData.cv,
+                            name: formData.name,
                             description: formData.description,
+                            education: formData.education,
                         },
                     },
                 }),
-            initialValues: { cv: "", description: "" },
+            initialValues: { name: "", description: "", education: "" },
         });
 
     const convertedCvs = mapCvDataToTable(cvs);

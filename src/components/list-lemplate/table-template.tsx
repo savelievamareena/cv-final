@@ -42,6 +42,17 @@ const TableTemplate = <T extends { id: Key }>({
                       return 0;
                   }
                 : undefined,
+            render:
+                config.name === "avatar"
+                    ? (text: string) =>
+                          text ? (
+                              <img
+                                  src={text}
+                                  alt="avatar"
+                                  style={{ width: 50, height: 50, borderRadius: "50%" }}
+                              />
+                          ) : null
+                    : undefined,
         }));
 
         if (isAdmin) {

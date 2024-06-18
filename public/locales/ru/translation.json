@@ -88,8 +88,10 @@
         "nameRequired": "Имя обязательно",
         "nativeNameRequired": "Родное имя обязательно",
         "iso2Length": "ISO2 должно занимать 1 или 2 символа",
+        "minPasswordLength": "Пароль должен былть больше 6ти символов",
         "categoryRequired": "Категория обязательна",
-        "descriptionRequired": "Описание обязателено"
+        "descriptionRequired": "Описание обязателено",
+        "educationRequired": "Образование обязателено"
     },
     "positions": {
         "positions":"Должности",
@@ -109,5 +111,11 @@
         "addCv": "Добавить резюме",
         "updateCv": "Обновить резюме",
         "deleteCv": "Удалить резюме"
+    },
+    "users": {
+        "user":"пользователь",
+        "addUser": "Добавить пользователя",
+        "updateUser": "Обновить пользователя",
+        "deleteUser": "Удалить пользователя"
     }
 }
