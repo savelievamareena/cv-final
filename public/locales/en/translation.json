@@ -13,7 +13,9 @@
         },
         "login": "Login",
         "signup": "Sign Up",
-        "verifyMail": "Verify Mail"
+        "verifyMail": "Verify Mail",
+        "verifyMailWarning": "It looks like you already have an account, but somehow haven't verified it yet. Please verify your email instead.",
+        "verifyMailHint": "It looks like you've not verified your email. To complete the authentication process, please verify it using the code you got by email "
     },
     "header": {
         "languageSelector": {
@@ -61,7 +63,6 @@
     "cancel": "Cancel",
     "confirm": "Confirm",
     "department": "department",
-
     "Profile": "Profile",
     "Settings": "Settings",
     "Logout": "Logout",
@@ -70,6 +71,7 @@
     "Projects": "Projects",
     "CVs": "CVs",
     "CV": "CV",
+    "here": "here",
     "Departments": "Departments",
     "Skills": "Skills",
     "Languages": "Languages",
