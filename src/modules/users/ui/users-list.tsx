@@ -7,6 +7,7 @@ import { useConfirm } from "@/components/confirm-dialog/";
 import { useUserCreate, useUserDelete, useUsersQuery } from "../api";
 import { useUserDialog } from "./users-dialog";
 import { mapUserToTable, UserTransformed } from "@/helpers/convert/maps";
+import { routes } from "@/router";
 
 const columnConfigs: ColumnConfig<UserTransformed>[] = [
     { name: "first_name", isSorted: true },
@@ -33,7 +34,7 @@ const UsersList = () => {
                 onConfirm: () => void deleteUser({ variables: { user: { userId: id } } }),
             }),
 
-        onUpdate: (id: string) => navigate(`/users/${id}`),
+        onUpdate: (id: string) => navigate(routes.users.userById(id)),
     };
 
     const openUser = () =>
