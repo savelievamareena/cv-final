@@ -6,20 +6,15 @@ import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormSelect } from "@/components/form-select";
-import { getSkillFormSchema } from "../shemas/skills";
+import { getSkillFormSchema, SkillFormSchemaType } from "../shemas/skills";
 import { useSkillCategoriesQuery } from "../api/get-skill-catigories-query";
 import { mapStringsToSelectOptions } from "@/helpers/convert/maps";
 
-interface FormData {
-    skill: string;
-    category: string;
-}
-
 interface SkillDialogProps {
     title: string;
-    onConfirm: (formData: FormData) => void;
+    onConfirm: (formData: SkillFormSchemaType) => void;
     onClose: () => void;
-    initialValues: FormData;
+    initialValues: SkillFormSchemaType;
 }
 
 const SkillDialog = ({ title, onConfirm, onClose, initialValues }: SkillDialogProps) => {
@@ -27,7 +22,7 @@ const SkillDialog = ({ title, onConfirm, onClose, initialValues }: SkillDialogPr
 
     const { skillCategories } = useSkillCategoriesQuery();
 
-    const handleConfirm = (formData: FormData) => {
+    const handleConfirm = (formData: SkillFormSchemaType) => {
         onConfirm(formData);
         onClose();
     };

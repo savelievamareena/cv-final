@@ -1,12 +1,14 @@
-import { ProfilePicture } from "../profile-picture";
 import { Link } from "react-router-dom";
 import { Dropdown, Flex, MenuProps } from "antd";
+import { useTranslation } from "react-i18next";
+import classNames from "classnames";
+
+import { ProfilePicture } from "../profile-picture";
 import { LogoutOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
 import { routes } from "@/router";
-import classNames from "classnames/bind";
-import styles from "@/modules/header/header.module.css";
 import { authService } from "@/services/auth-service";
-import { useTranslation } from "react-i18next";
+
+import styles from "./user-dropdown-menu.module.scss";
 
 interface UserDropdownMenuProps {
     userId?: string;
@@ -15,7 +17,6 @@ interface UserDropdownMenuProps {
 }
 
 const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuProps) => {
-    const cx = classNames.bind(styles);
     const { t } = useTranslation();
 
     const handleLogout = () => {
@@ -32,7 +33,7 @@ const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuPro
         {
             label: (
                 <Link to={userProfileUrl}>
-                    <Flex gap="1rem" className={cx("dropdown_menu")}>
+                    <Flex gap="1rem" className={classNames(styles.dropdownMenu)}>
                         <UserOutlined />
                         {t("Profile")}
                     </Flex>
@@ -43,7 +44,7 @@ const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuPro
         {
             label: (
                 <Link to={routes.settings}>
-                    <Flex gap="1rem" className={cx("dropdown_menu")}>
+                    <Flex gap="1rem" className={classNames(styles.dropdownMenu)}>
                         <SettingOutlined />
                         {t("Settings")}
                     </Flex>
@@ -57,7 +58,7 @@ const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuPro
         {
             label: (
                 <Link to={routes.auth.root} onClick={handleLogout}>
-                    <Flex gap="1rem" className={cx("dropdown_menu")}>
+                    <Flex gap="1rem" className={classNames(styles.dropdownMenu)}>
                         <LogoutOutlined />
                         {t("Logout")}
                     </Flex>
@@ -77,7 +78,7 @@ const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuPro
             arrow={{ pointAtCenter: true }}
             trigger={["click"]}
         >
-            <Flex className={cx("user_pic")}>
+            <Flex justify="center" align="center" className={classNames(styles.avatarWrapper)}>
                 <ProfilePicture profileLetter={profileLetter} avatar={avatar} />
             </Flex>
         </Dropdown>

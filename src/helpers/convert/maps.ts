@@ -1,9 +1,26 @@
-import { Department, Position, User } from "cv-graphql";
 import { Key } from "react";
+import { Cv, Department, Position, User } from "cv-graphql";
+
 interface SelectOption {
     label: string;
     value: string;
 }
+
+export interface CvTransformed {
+    id: Key;
+    name: string;
+    description: string;
+    employee?: string;
+}
+
+export const mapCvDataToTable = (arr: Cv[]): CvTransformed[] => {
+    return arr.map((item) => ({
+        id: item.id,
+        name: item.name,
+        description: item.description,
+        employee: item.user?.email,
+    }));
+};
 
 export interface UserTransformed {
     id: Key;
