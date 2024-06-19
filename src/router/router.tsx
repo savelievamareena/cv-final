@@ -9,6 +9,9 @@ import { SignUp } from "@/pages/sign-up";
 import { VerifyMail } from "@/pages/verify-mail";
 import { DepartmentsPage } from "@/pages/departments";
 import { LanguagesPage } from "@/pages/languages";
+import { UserSkills } from "@/pages/user-skills";
+import { UserLanguages } from "@/pages/user-languages";
+import { UserCVs } from "@/pages/user-cvs";
 import { PositionsPage } from "@/pages/positions";
 import { SkillsPage } from "@/pages/skills";
 import { ProjectDetails } from "@/pages/project-details";
@@ -125,17 +128,17 @@ export const router = createBrowserRouter([
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.users.skills(`:${RouteParams.UserId}`),
-                                element: <div>User skills content</div>,
+                                element: <UserSkills />,
                             },
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.users.languages(`:${RouteParams.UserId}`),
-                                element: <div>User languages content</div>,
+                                element: <UserLanguages />,
                             },
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.users.cvs(`:${RouteParams.UserId}`),
-                                element: <div>User CVs content</div>,
+                                element: <UserCVs />,
                             },
                             {
                                 index: true,

@@ -6,6 +6,9 @@ export interface PageTabItem {
     label: ReactNode;
 }
 
-export type PageTabsProps = Omit<TabsProps, "items" | "onChange" | "defaultActiveKey"> & {
+export type PageTabsProps = Omit<
+    TabsProps,
+    "items" | "onChange" | "defaultActiveKey" | "activeKey"
+> & {
     items: PageTabItem[];
 };
