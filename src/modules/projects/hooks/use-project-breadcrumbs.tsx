@@ -32,7 +32,7 @@ export const useProjectBreadcrumbs = () => {
                 ),
                 href: routes.root,
             },
-            { title: t("Employees"), href: routes.projects.root },
+            { title: t("Projects"), href: routes.projects.root },
             {
                 title: (
                     <Flex
