@@ -13,7 +13,9 @@
         },
         "login": "Login",
         "signup": "Sign Up",
-        "verifyMail": "Verify Mail"
+        "verifyMail": "Verify Mail",
+        "verifyMailWarning": "It looks like you already have an account, but somehow haven't verified it yet. Please verify your email instead.",
+        "verifyMailHint": "It looks like you've not verified your email. To complete the authentication process, please verify it using the code you got by email "
     },
     "header": {
         "languageSelector": {
@@ -51,6 +53,20 @@
             "skills":"Skills"
         }
     },
+    "project": {
+        "fieldLabels": {
+            "name":"Name",
+            "internalName":"Internal name",
+            "domain":"Domain",
+            "teamSize":"Team size",
+            "description":"Description",
+            "startDate":"Start date",
+            "endDate":"End date"
+        },
+        "fieldErrors": {
+            "teamSize":"Team size must be an integer greater than 1"
+        }
+    },
     "submit": "Submit",
     "Welcome Back": "Welcome Back",
     "add": "Add",
@@ -61,21 +77,21 @@
     "cancel": "Cancel",
     "confirm": "Confirm",
     "department": "department",
-
-
     "Profile": "Profile",
     "Settings": "Settings",
     "Logout": "Logout",
     "Home": "Home",
     "Employees": "Employees",
     "Projects": "Projects",
- 
+    "CVs": "CVs",
+    "CV": "CV",
     "Departments": "Departments",
     "Skills": "Skills",
     "Languages": "Languages",
     "Name": "Name",
     "Education": "Education",
     "Description": "Description",
+    "here": "here",
     "notifications": {
         "cv": {
             "updateError": "Error Updating CV",

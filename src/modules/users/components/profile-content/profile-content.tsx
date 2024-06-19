@@ -34,7 +34,7 @@ const ProfileContent = () => {
 
     return (
         <>
-            {loading && !hasData && <Spin />}
+            {loading && <Spin />}
             {hasData && (
                 <div className={styles.wrapper}>
                     <Row gutter={[16, 8]}>

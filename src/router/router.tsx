@@ -9,8 +9,12 @@ import { SignUp } from "@/pages/sign-up";
 import { VerifyMail } from "@/pages/verify-mail";
 import { DepartmentsPage } from "@/pages/departments";
 import { LanguagesPage } from "@/pages/languages";
+import { UserSkills } from "@/pages/user-skills";
+import { UserLanguages } from "@/pages/user-languages";
+import { UserCVs } from "@/pages/user-cvs";
 import { PositionsPage } from "@/pages/positions";
 import { SkillsPage } from "@/pages/skills";
+import { ProjectDetails } from "@/pages/project-details";
 import { CvPage } from "@/pages/cvs";
 import { Details } from "@/modules/cvs/components/details";
 import { UserLayout } from "@/modules/users/components/user-layout";
@@ -125,17 +129,17 @@ export const router = createBrowserRouter([
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.users.skills(`:${RouteParams.UserId}`),
-                                element: <div>User skills content</div>,
+                                element: <UserSkills />,
                             },
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.users.languages(`:${RouteParams.UserId}`),
-                                element: <div>User languages content</div>,
+                                element: <UserLanguages />,
                             },
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.users.cvs(`:${RouteParams.UserId}`),
-                                element: <div>User CVs content</div>,
+                                element: <UserCVs />,
                             },
                             {
                                 index: true,
@@ -157,7 +161,7 @@ export const router = createBrowserRouter([
                     {
                         errorElement: <ErrorComponent />,
                         path: routes.projects.details(`:${RouteParams.ProjectId}`),
-                        element: <div>Project details content</div>,
+                        element: <ProjectDetails />,
                         children: [
                             {
                                 index: true,

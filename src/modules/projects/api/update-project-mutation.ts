@@ -1,7 +1,11 @@
 import { gql, useMutation } from "@apollo/client";
 import { UpdateProjectInput } from "cv-graphql";
+import { useParams } from "react-router-dom";
 import { UpdateProjectResult } from "./projects.types";
 import { GET_PROJECTS_QUERY } from "./get-projects-query";
+import { RouteParams } from "@/router";
+import { GET_PROJECT_QUERY } from "./get-project-query";
+import { useNotificationContext } from "@/helpers/notification";
 
 export const UPDATE_PROJECT = gql`
     mutation UpdateProject($project: UpdateProjectInput!) {
@@ -19,7 +23,17 @@ export const UPDATE_PROJECT = gql`
 `;
 
 export const useProjectUpdate = () => {
+    const { [RouteParams.ProjectId]: projectId } = useParams();
+
+    const { showNotification } = useNotificationContext();
+
     return useMutation<UpdateProjectResult, { project: UpdateProjectInput }>(UPDATE_PROJECT, {
-        refetchQueries: [GET_PROJECTS_QUERY],
+        refetchQueries: [
+            GET_PROJECTS_QUERY,
+            { query: GET_PROJECT_QUERY, variables: { projectId } },
+        ],
+        onError: (error) => {
+            showNotification("error", error.message);
+        },
     });
 };
