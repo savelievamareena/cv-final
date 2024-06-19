@@ -1,29 +1,20 @@
 import { gql, useQuery } from "@apollo/client";
-import { Profile } from "cv-graphql";
 import { useNotificationContext } from "@/helpers/notification";
+import { GET_PROFILE_QUERY, ProfileQueryArgs, ProfileResult } from "./get-profile-query";
 
-export const GET_PROFILE_QUERY = gql`
-    query Profile($userId: ID!) {
+export const GET_USER_LANGUAGES_QUERY = gql`
+    query UserLanguages($userId: ID!) {
         profile(userId: $userId) {
             id
-            created_at
-            first_name
-            last_name
-            full_name
-            avatar
+            languages {
+                name
+                proficiency
+            }
         }
     }
 `;
 
-export interface ProfileQueryArgs {
-    userId?: string;
-}
-
-export interface ProfileResult {
-    profile: Profile;
-}
-
-export const useProfileQuery = ({ userId }: ProfileQueryArgs) => {
+export const useUserLanguagesQuery = ({ userId }: ProfileQueryArgs) => {
     const { showNotification } = useNotificationContext();
 
     return useQuery<ProfileResult, ProfileQueryArgs>(GET_PROFILE_QUERY, {
