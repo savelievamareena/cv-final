@@ -11,7 +11,7 @@ import { useBreadcrumbs } from "@/helpers/breadcrumbs";
 
 import styles from "./use-user-breadcrumbs.module.scss";
 
-type TabType = "profile" | "cvs" | "languages" | "skills";
+type TabType = "profile" | "cvs" | "languages" | "skills" | undefined;
 
 export const useUserBreadcrumbs = (tab: TabType = "profile") => {
     const { t } = useTranslation();

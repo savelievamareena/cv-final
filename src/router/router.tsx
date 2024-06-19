@@ -14,6 +14,7 @@ import { UserLanguages } from "@/pages/user-languages";
 import { UserCVs } from "@/pages/user-cvs";
 import { PositionsPage } from "@/pages/positions";
 import { SkillsPage } from "@/pages/skills";
+import { ProjectDetails } from "@/pages/project-details";
 import { CvPage } from "@/pages/cvs";
 import { Details } from "@/modules/cvs/components/details";
 import { UserLayout } from "@/modules/users/components/user-layout";
@@ -159,7 +160,7 @@ export const router = createBrowserRouter([
                     {
                         errorElement: <ErrorComponent />,
                         path: routes.projects.details(`:${RouteParams.ProjectId}`),
-                        element: <div>Project details content</div>,
+                        element: <ProjectDetails />,
                         children: [
                             {
                                 index: true,
