@@ -9,7 +9,7 @@ interface ProjectDetailsFormProps {
 const ProjectDetailsContent = ({ projectId }: ProjectDetailsFormProps) => {
     const { project, loading } = useProjectQuery({ projectId });
 
-    if (!project && loading) return <Spin size="large" />;
+    if (loading) return <Spin size="large" />;
 
     if (!project) return null;
 

@@ -1,9 +1,9 @@
 import { gql, useMutation } from "@apollo/client";
 import { UpdateProjectInput } from "cv-graphql";
+import { useParams } from "react-router-dom";
 import { UpdateProjectResult } from "./projects.types";
 import { GET_PROJECTS_QUERY } from "./get-projects-query";
 import { RouteParams } from "@/router";
-import { useParams } from "react-router-dom";
 import { GET_PROJECT_QUERY } from "./get-project-query";
 import { useNotificationContext } from "@/helpers/notification";
 
