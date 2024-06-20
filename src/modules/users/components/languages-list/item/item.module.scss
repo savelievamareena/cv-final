@@ -1,0 +1,32 @@
+@use "@/scss" as *;
+
+.item {
+    color: $clr-dark;
+    width: 100%;
+
+    &Wrapper {
+        width: 30%;
+        display: flex;
+        border: none;
+        justify-content: flex-start;
+        gap: 1rem;
+        margin: 6px 8px;
+    }
+}
+
+.langInt {
+    color: green;
+}
+
+.langAdv {
+    color: yellow;
+}
+
+.langNative {
+    color: $clr-primary;
+}
+
+.name {
+    width: 100%;
+    text-align: center;
+}

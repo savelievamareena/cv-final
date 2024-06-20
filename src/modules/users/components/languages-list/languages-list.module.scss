@@ -1,4 +1,6 @@
-.wrapper {
+@use "@/scss" as *;
+
+.list {
     width: min(100%, 48rem);
     margin: 1rem auto;
 }

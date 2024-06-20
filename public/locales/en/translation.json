@@ -45,6 +45,9 @@
             }
         }
     },
+    "languages":{
+        "addLanguage": "Add language"
+    },
     "user": {
         "tabLabels": {
             "cvs":"CVs",

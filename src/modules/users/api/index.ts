@@ -11,3 +11,4 @@ export { useAvatarUpload } from "./upload-avatar-mutation";
 export { useUpdateUserLanguage } from "./update-user-language-mutation";
 export { useDeleteUserLanguage } from "./delete-user-language-mutation";
 export { useCreateUserLanguage } from "./create-user-language-mutation";
+export { useUserLanguages } from "./get-user-languages-query";
