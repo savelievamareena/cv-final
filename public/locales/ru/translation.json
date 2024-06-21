@@ -67,6 +67,18 @@
             "teamSize":"Размер команды должен быть целым числом больше 1"
         }
     },
+    "languages":{
+        "addLanguage": "Добавить язык",
+        "updateLanguage": "Обновить язык",
+        "fieldLabels": {
+            "name":"Название",
+            "proficiency":"Уровень владения"
+        },
+        "fieldErrors": {
+            "nameRequired":"Название обязательно",
+            "proficiencyRequired":"Необходимо указать уровень владения"
+        }
+    },
     "submit": "Подтвердить",
     "Welcome Back": "С Возвращением",
     "add": "Добавить",

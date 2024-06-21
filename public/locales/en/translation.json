@@ -51,6 +51,10 @@
         "fieldLabels": {
             "name":"Name",
             "proficiency":"Proficiency"
+        },
+        "fieldErrors": {
+            "nameRequired":"Name is required",
+            "proficiencyRequired":"Proficiency is required"
         }
     },
     "user": {

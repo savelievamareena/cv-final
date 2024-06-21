@@ -35,9 +35,10 @@ const LanguagesDialog = ({
 
     const { languages, loading } = useLanguagesQuery();
 
-    const handleConfirm = async (formData: LanguagesFormSchemaType) => {
-        await onConfirm(formData);
-        onClose();
+    const handleConfirm = (formData: LanguagesFormSchemaType) => {
+        void onConfirm(formData).then(() => {
+            onClose();
+        });
     };
 
     const proficiencyOptions = Object.values(Proficiency).map((item) => ({
