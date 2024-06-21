@@ -5,8 +5,10 @@ import { useNotificationContext } from "@/helpers/notification";
 import { ProfileResult } from "./get-profile-query";
 
 export const DELETE_USER_LANGUAGE_QUERY = gql`
-    query DeleteUserLanguage($language: DeleteProfileLanguageInput!) {
-        deleteProfileLanguage(language: $language)
+    mutation DeleteUserLanguage($language: DeleteProfileLanguageInput!) {
+        deleteProfileLanguage(language: $language) {
+            id
+        }
     }
 `;
 

@@ -5,8 +5,10 @@ import { useNotificationContext } from "@/helpers/notification";
 import { ProfileResult } from "./get-profile-query";
 
 export const CREATE_USER_LANGUAGE_QUERY = gql`
-    query CreateUserLanguage($language: AddProfileLanguageInput!) {
-        addProfileLanguage(language: $language)
+    mutation CreateUserLanguage($language: AddProfileLanguageInput!) {
+        addProfileLanguage(language: $language) {
+            id
+        }
     }
 `;
 

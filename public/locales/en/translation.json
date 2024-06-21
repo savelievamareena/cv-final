@@ -46,7 +46,12 @@
         }
     },
     "languages":{
-        "addLanguage": "Add language"
+        "addLanguage": "Add language",
+        "updateLanguage": "Update language",
+        "fieldLabels": {
+            "name":"Name",
+            "proficiency":"Proficiency"
+        }
     },
     "user": {
         "tabLabels": {

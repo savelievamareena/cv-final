@@ -6,7 +6,9 @@ import { ProfileResult } from "./get-profile-query";
 
 const UPDATE_USER_LANGUAGE = gql`
     mutation UpdateUserLanguage($language: UpdateProfileLanguageInput!) {
-        updateProfileLanguage(language: $language)
+        updateProfileLanguage(language: $language) {
+            id
+        }
     }
 `;
 
