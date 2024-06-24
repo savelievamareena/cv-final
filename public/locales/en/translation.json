@@ -19,52 +19,83 @@
     },
     "header": {
         "languageSelector": {
-            "open":"Open language menu",
-            "close":"Close language menu"
+            "open": "Open language menu",
+            "close": "Close language menu"
         }
     },
-    "profile":{
-        "info":{
-            "createdAt":"A member since {{createdAt}}"
+    "profile": {
+        "info": {
+            "createdAt": "A member since {{createdAt}}"
         },
-        "form":{
+        "form": {
             "fieldLabels": {
-                "firstName":"First name",
-                "lastName":"Last name",
-                "department":"Department",
-                "position":"Position"
+                "firstName": "First name",
+                "lastName": "Last name",
+                "department": "Department",
+                "position": "Position"
             }
         },
         "avatarUpload": {
-            "text":"Upload avatar image",
-            "hint":"PNG, JPG or GIF and not larger than 0.5 MB",
+            "text": "Upload avatar image",
+            "hint": "PNG, JPG or GIF and not larger than 0.5 MB",
             "errors": {
-                "maxAvatarSize":"An image must be not larger than 0.5 MB",
-                "invalidFileType":"An avatar has to be of PNG, GIF or JPG format",
-                "generic":"Something went wrong"
+                "maxAvatarSize": "An image must be not larger than 0.5 MB",
+                "invalidFileType": "An avatar has to be of PNG, GIF or JPG format",
+                "generic": "Something went wrong"
             }
         }
     },
     "user": {
         "tabLabels": {
-            "cvs":"CVs",
-            "languages":"Languages",
-            "profile":"Profile",
-            "skills":"Skills"
+            "cvs": "CVs",
+            "languages": "Languages",
+            "profile": "Profile",
+            "skills": "Skills"
+        }
+    },
+    "cv": {
+        "tabLabels": {
+            "details": "Details",
+            "skills": "Skills",
+            "projects": "Projects",
+            "preview": "Preview"
+        }
+    },
+    "skills": {
+        "skill": "Skill",
+        "addSkill": "Add skill",
+        "updateSkill": "Update skill",
+        "name": "Skill",
+        "category": "Category",
+        "masteryLevel": "Skill mastery",
+        "deleteSkill": "Delete skill",
+        "categories": {
+            "sourceControlSystems": "Source control systems",
+            "programmingTechnologies": "Programming technologies",
+            "programmingLanguages": "Programming languages",
+            "databaseManagementSystem": "Database management system",
+            "other": "Other"
+        },
+        "mastery": {
+            "novice": "Novice",
+            "advanced": "Advanced",
+            "competent": "Competent",
+            "proficient": "Proficient",
+            "expert": "Expert"
         }
     },
     "project": {
         "fieldLabels": {
-            "name":"Name",
-            "internalName":"Internal name",
-            "domain":"Domain",
-            "teamSize":"Team size",
-            "description":"Description",
-            "startDate":"Start date",
-            "endDate":"End date"
+            "name": "Name",
+            "internalName": "Internal name",
+            "domain": "Domain",
+            "teamSize": "Team size",
+            "description": "Description",
+            "startDate": "Start date",
+            "endDate": "End date"
         },
         "fieldErrors": {
-            "teamSize":"Team size must be an integer greater than 1"
+            "teamSize": "Team size must be an integer greater than 1"
         }
     },
     "submit": "Submit",
@@ -98,10 +129,15 @@
             "updateSuccess": "CV updated successfully",
             "fetchingError": "Error fetching CV",
             "descriptionLength": "Description should be at least 6 symbols long"
+        },
+        "skill": {
+            "addSuccess": "Skill added successfully",
+            "updateSuccess": "Skill updated successfully",
+            "deleteSuccess": "Skill deleted successfully"
         }
     },
-    "Open language menu":"Open language menu",
-    "Close language menu":"Close language menu",
+    "Open language menu": "Open language menu",
+    "Close language menu": "Close language menu",
     "fieldErrors": {
         "nameRequired": "Name is required",
         "nativeNameRequired": "Native name is required",
@@ -112,28 +148,19 @@
         "educationRequired": "Education required"
     },
     "positions": {
-        "positions":"position",
+        "positions": "position",
         "addPosition": "Add position",
         "updatePosition": "Update  position",
         "deletePosition": "Delete position"
-        
-    },
-
-    "skills": {
-        "skill":"skill",    
-        "addSkill": "Add skill",
-        "updateSkill": "Update  skill",
-        "deleteSkill": "Delete skill",
-        "category":"category"
     },
     "users": {
-        "user":"user",
+        "user": "user",
         "addUser": "Add user",
         "updateUser": "Update user",
         "deleteUser": "Delete user"
     },
     "cvs": {
-        "cv":"cv",
+        "cv": "cv",
         "addCv": "Add cv",
         "updateCv": "Update cv",
         "deleteCv": "Delete cv"
@@ -152,5 +179,4 @@
         "stardDate": "Start date",
         "endDate": "End date"
     }
-    
 }

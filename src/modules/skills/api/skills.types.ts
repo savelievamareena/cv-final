@@ -15,3 +15,7 @@ export interface UpdateSkillResult {
 export interface SkillsCategoriesResult {
     skillCategories: string[];
 }
+
+export interface SkillCategories {
+    skillCategories: string[];
+}

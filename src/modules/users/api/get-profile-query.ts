@@ -11,6 +11,11 @@ export const GET_PROFILE_QUERY = gql`
             last_name
             full_name
             avatar
+            skills {
+                name
+                category
+                mastery
+            }
         }
     }
 `;
