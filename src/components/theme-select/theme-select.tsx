@@ -16,7 +16,7 @@ const ThemeSelect = () => {
             value={pref ?? undefined}
             options={options}
             onChange={(pref) => {
-                themeService.setThemePref(pref);
+                themeService.updateTheme(pref);
             }}
         />
     );

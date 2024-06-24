@@ -16,6 +16,27 @@ class ThemeService implements IThemeService {
         this.setTheme(themePref ?? "default");
     }
 
+    updateTheme(themePref: ThemePrefVariant) {
+        this.themePref(themePref);
+
+        localStorageService.setItem(StorageKeys.Theme, themePref);
+
+        switch (themePref) {
+            case "dark": {
+                this.theme(darkTheme);
+                break;
+            }
+            case "light": {
+                this.theme(lightTheme);
+                break;
+            }
+            default: {
+                if (window.matchMedia(THEME_PREF_MEDIA_QUERY).matches) this.theme(darkTheme);
+                else this.theme(lightTheme);
+            }
+        }
+    }
+
     setThemePref(themePref: ThemePrefVariant) {
         this.themePref(themePref);
 

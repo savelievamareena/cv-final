@@ -32,17 +32,12 @@ export const useAppTheme = () => {
                 (themePref === "default" && window.matchMedia(THEME_PREF_MEDIA_QUERY).matches)
         );
 
-        const l = window.matchMedia(THEME_PREF_MEDIA_QUERY);
+        const mediaQueryList = window.matchMedia(THEME_PREF_MEDIA_QUERY);
 
-        l.addEventListener("change", evListenner);
+        mediaQueryList.addEventListener("change", evListenner);
 
-        return () => l.removeEventListener("change", evListenner);
+        return () => mediaQueryList.removeEventListener("change", evListenner);
     }, [themePref, evListenner]);
-
-    useEffect(() => {
-        if (isDark) themeService.setTheme("dark");
-        else themeService.setTheme("light");
-    }, [isDark]);
 
     return {
         isDark,
