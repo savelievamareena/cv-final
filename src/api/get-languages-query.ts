@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { LanguagesResult } from "./languages.types";
+import { LanguagesResult } from "@/modules/languages/api/languages.types";
 
 export const GET_LANGUAGES_QUERY = gql`
     query Languages {

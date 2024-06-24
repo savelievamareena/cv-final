@@ -1,12 +1,13 @@
 import { LanguageProficiency, Proficiency } from "cv-graphql";
 import { useTranslation } from "react-i18next";
 import { Button, Flex } from "antd";
+
 import { Form } from "@/components/form";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormSelect } from "@/components/form-select";
-import { useLanguagesQuery } from "@/modules/languages/api";
+import { useLanguagesQuery } from "@/api";
 import { useDeleteUserLanguage } from "../../api";
 import { LanguagesFormSchemaType, languagesFormSchema } from "../schemas/languages";
 
@@ -92,7 +93,7 @@ const LanguagesDialog = ({
                 />
                 <Flex justify="flex-end" gap={10}>
                     {selectedLanguage && (
-                        <Button htmlType="button" onClick={handleDelete}>
+                        <Button htmlType="button" type="default" onClick={handleDelete}>
                             {t("delete")}
                         </Button>
                     )}

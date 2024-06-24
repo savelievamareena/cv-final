@@ -1,8 +1,8 @@
+import { Navigate, useParams } from "react-router-dom";
 import { LanguagesList } from "@/modules/users/components/languages-list";
 import { useUserBreadcrumbs } from "@/modules/users/hooks";
 import { RouteParams, routes } from "@/router";
 import { useAuthUser } from "@/services/auth-service";
-import { Navigate, useParams } from "react-router-dom";
 
 const UserLanguages = () => {
     useUserBreadcrumbs("languages");

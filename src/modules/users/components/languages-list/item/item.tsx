@@ -1,5 +1,5 @@
 import { Button, Flex } from "antd";
-import { LanguageProficiency, Proficiency } from "cv-graphql";
+import { LanguageProficiency } from "cv-graphql";
 import classNames from "classnames";
 
 import styles from "./item.module.scss";
@@ -21,13 +21,7 @@ const LanguagesListItem = ({ language, handleLanguageSelect }: LanguagesListItem
             <Flex gap="2rem" className={styles.item}>
                 <span
                     className={classNames({
-                        [styles.langInt]:
-                            language.proficiency === Proficiency.B1 ||
-                            language.proficiency === Proficiency.B2,
-                        [styles.langAdv]:
-                            language.proficiency === Proficiency.C1 ||
-                            language.proficiency === Proficiency.C2,
-                        [styles.langNative]: language.proficiency === Proficiency.Native,
+                        [styles[`lang_${language.proficiency}`]]: true,
                     })}
                 >
                     {language.proficiency}

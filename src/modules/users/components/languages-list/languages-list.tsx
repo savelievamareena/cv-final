@@ -1,14 +1,14 @@
+import { useCallback, useMemo } from "react";
 import { LanguageProficiency, Proficiency } from "cv-graphql";
 import { useTranslation } from "react-i18next";
 import { Button, Flex, Spin } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { useCreateUserLanguage, useUpdateUserLanguage, useUserLanguages } from "../../api";
-
-import styles from "./languages-list.module.scss";
 import { LanguagesListItem } from "./item";
 import { useLanguagesDialog } from "../languages-dialog";
 import { LanguagesFormSchemaType } from "../schemas/languages";
-import { useCallback, useMemo } from "react";
+
+import styles from "./languages-list.module.scss";
 
 interface SkillProps {
     userId: string;

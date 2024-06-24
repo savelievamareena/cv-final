@@ -24,7 +24,7 @@ export const VerifyMailForm = () => {
         >
             <h2 className={styles.title}>{t("auth.verifyMail")}</h2>
             <FormTextField type="text" name="otp" label={t("auth.fieldLabels.otp")} maxLength={6} />
-            <FormSubmitButton>{t("submit")}</FormSubmitButton>
+            <FormSubmitButton type="primary">{t("submit")}</FormSubmitButton>
         </Form>
     );
 };
