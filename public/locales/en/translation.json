@@ -149,6 +149,20 @@
         "addCv": "Add cv",
         "updateCv": "Update cv",
         "deleteCv": "Delete cv"
+    },
+
+    "projects": {
+        "projects":"project",
+        "addProject": "Add project",
+        "updateProject": "Update  project",
+        "deleteProject": "Delete project",
+        "name":"Name",
+        "internalName":"Internal Name",
+        "domain":"Domain",
+        "teamSize":"Team size",
+        "description": "Description",
+        "stardDate": "Start date",
+        "endDate": "End date"
     }
     
 }

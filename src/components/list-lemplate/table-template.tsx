@@ -31,29 +31,40 @@ const TableTemplate = <T extends { id: Key }>({
     isAdmin,
 }: TableTemplateProps<T>) => {
     const createColumnsAndData = (columnConfigs: ColumnConfig<T>[], data: T[]) => {
-        const columns: TableColumnsType<DynamicDataType<T>> = columnConfigs.map((config) => ({
-            title: config.name.toString().charAt(0).toUpperCase() + config.name.toString().slice(1),
-            dataIndex: config.name as string,
-            key: config.name as string,
-            sorter: config.isSorted
-                ? (a, b) => {
-                      if (a[config.name] < b[config.name]) return -1;
-                      if (a[config.name] > b[config.name]) return 1;
-                      return 0;
-                  }
-                : undefined,
-            render:
-                config.name === "avatar"
-                    ? (text: string) =>
-                          text ? (
-                              <img
-                                  src={text}
-                                  alt="avatar"
-                                  style={{ width: 50, height: 50, borderRadius: "50%" }}
-                              />
-                          ) : null
+        const columns: TableColumnsType<DynamicDataType<T>> = columnConfigs.map((config) => {
+            const render = (text: string | null) => {
+                switch (config.name) {
+                    case "avatar":
+                        return text ? (
+                            <img
+                                src={text}
+                                alt="avatar"
+                                style={{ width: 50, height: 50, borderRadius: "50%" }}
+                            />
+                        ) : null;
+                    case "end_date":
+                        return text ?? "Till now";
+                    default:
+                        return text;
+                }
+            };
+
+            return {
+                title:
+                    config.name.toString().charAt(0).toUpperCase() +
+                    config.name.toString().slice(1),
+                dataIndex: config.name as string,
+                key: config.name as string,
+                sorter: config.isSorted
+                    ? (a, b) => {
+                          if (a[config.name] < b[config.name]) return -1;
+                          if (a[config.name] > b[config.name]) return 1;
+                          return 0;
+                      }
                     : undefined,
-        }));
+                render,
+            };
+        });
 
         if (isAdmin) {
             columns.push({

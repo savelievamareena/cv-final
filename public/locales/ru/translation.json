@@ -146,5 +146,18 @@
         "addUser": "Добавить пользователя",
         "updateUser": "Обновить пользователя",
         "deleteUser": "Удалить пользователя"
+    },
+        "projects": {
+        "projects":"проект",
+        "addProject": "Add проект",
+        "updateProject": "Update  проект",
+        "deleteProject": "Delete проект",
+        "name":"Имя",
+        "internalName":"Внутренне Имя",
+        "domain":"Домен",
+        "teamSize":"Размер команды",
+        "description": "Описание",
+        "stardDate": "Дата начала",
+        "endDate": "Дата окончания"
     }
 }
