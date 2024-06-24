@@ -1,9 +1,10 @@
 import { useUserBreadcrumbs } from "@/modules/users/hooks";
+import { SkillsWrapper } from "@/modules/users/components/skills/skills-wrapper";
 
 const UserSkills = () => {
     useUserBreadcrumbs("skills");
 
-    return <div>User skills content</div>;
+    return <SkillsWrapper />;
 };
 
 export default UserSkills;

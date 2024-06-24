@@ -19,8 +19,8 @@ const Skills = ({ cvId, currentUser }: SkillProps) => {
     const { t } = useTranslation();
     const [openSkillDialog] = useAddSkill();
 
-    const [addCvSkill] = useAddCvSkill();
     const { data: cvData, loading: loadingCv } = useCvById(cvId);
+    const [addCvSkill] = useAddCvSkill();
     const { data: skillsData, loading: skillsLoading } = useSkills();
 
     if (loadingCv || skillsLoading) return <Spin tip="Loading" size="large" />;
@@ -59,7 +59,7 @@ const Skills = ({ cvId, currentUser }: SkillProps) => {
                 </Button>
             )}
 
-            <SkillsContainer skills={cvData ? cvData.cv.skills : []} cvId={cvId} />
+            <SkillsContainer skills={cvData?.cv?.skills ?? []} cvId={cvId} />
         </Flex>
     );
 };

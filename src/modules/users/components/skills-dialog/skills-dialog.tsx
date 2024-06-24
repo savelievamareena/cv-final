@@ -9,7 +9,7 @@ import { BaseDialog } from "@/components/base-dialog/";
 import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormSelect } from "@/components/form-select";
 import { useSkillCategories } from "@/api/get-skills-categories-query";
-import { useDeleteCvSkill } from "@/api/delete-cv-skill-mutation";
+import { useDeleteProfileSkill } from "@/modules/users/api/delete-user-skill-mutation";
 import { useSkillFormOptions, useFilterSkillNames } from "@/hooks/skills";
 import { addSkillSchema, AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
 import { SkillsDialogProps } from "@/modules/skills/skills.types";
@@ -24,11 +24,11 @@ const SkillsDialog = ({
     existingSkillsOnPage,
 }: SkillsDialogProps) => {
     const { t } = useTranslation();
-    const { cvId } = useParams<{ cvId: string }>();
+    const { userId } = useParams<{ userId: string }>();
     const formRef = useRef<FormHandle<AddSkillSchemaType>>(null);
 
+    const [deleteMutation, { loading: deleteLoading }] = useDeleteProfileSkill();
     const { data: categoriesData } = useSkillCategories();
-    const [deleteMutation, { loading: deleteLoading }] = useDeleteCvSkill();
 
     const skillNamesToShow = useFilterSkillNames(skillsData, existingSkillsOnPage);
     const { skillsOptions, categoriesOptions, masteryOptions } = useSkillFormOptions(
@@ -36,26 +36,9 @@ const SkillsDialog = ({
         categoriesData
     );
 
-    if (!cvId) {
+    if (!userId) {
         return <Navigate to={routes.auth.root} replace />;
     }
-
-    const handleDelete = () => {
-        void deleteMutation({
-            variables: {
-                skill: {
-                    cvId,
-                    name: initialValues.name ? [initialValues.name] : [],
-                },
-            },
-        });
-        onClose();
-    };
-
-    const handleConfirm = (formData: AddSkillSchemaType) => {
-        onConfirm(formData);
-        onClose();
-    };
 
     const handleSkillChange = (value: string) => {
         const skillObjSelected = skillsData?.skills.filter((skill) => skill.name === value);
@@ -64,6 +47,23 @@ const SkillsDialog = ({
             const selectedCategory = skillObjSelected[0].category;
             formRef.current?.setValue("category", selectedCategory ?? "");
         }
+    };
+
+    const handleConfirm = (formData: AddSkillSchemaType) => {
+        onConfirm(formData);
+        onClose();
+    };
+
+    const handleDelete = () => {
+        void deleteMutation({
+            variables: {
+                skill: {
+                    userId,
+                    name: initialValues.name ? [initialValues.name] : [],
+                },
+            },
+        });
+        onClose();
     };
 
     return (
