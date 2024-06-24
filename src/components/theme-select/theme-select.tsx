@@ -1,21 +1,31 @@
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
+
 import { themeService } from "@/services/theme-service/theme-service";
 import { useAppThemePref } from "@/services/theme-service/theme-service.hooks";
-import { Select } from "antd";
-
-const options = [
-    { label: "Browser pref", value: "default" },
-    { label: "Dark", value: "dark" },
-    { label: "Light", value: "light" },
-];
+import { SettingSelect } from "../setting-select";
+import { ThemePrefVariant } from "@/services/theme-service/theme-service.types";
 
 const ThemeSelect = () => {
     const pref = useAppThemePref();
 
+    const { t } = useTranslation();
+
+    const options = useMemo(
+        () => [
+            { label: t("settings.themeSelect.options.default"), value: "default" },
+            { label: t("settings.themeSelect.options.dark"), value: "dark" },
+            { label: t("settings.themeSelect.options.light"), value: "light" },
+        ],
+        [t]
+    );
+
     return (
-        <Select
+        <SettingSelect
+            label={t("settings.themeSelect.label")}
             value={pref ?? undefined}
             options={options}
-            onChange={(pref) => {
+            onChange={(pref: ThemePrefVariant) => {
                 themeService.updateTheme(pref);
             }}
         />

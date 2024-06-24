@@ -8,33 +8,17 @@ import { darkTheme, lightTheme } from "./themes";
 class ThemeService implements IThemeService {
     theme = makeVar<ThemeVariant>(null);
     themePref = makeVar<ThemePrefVariant>(null);
+    isDarkScheme = makeVar<boolean>(false);
 
     constructor() {
         const themePref = localStorageService.getItem<ThemePrefVariant>(StorageKeys.Theme);
 
-        this.setThemePref(themePref ?? "default");
-        this.setTheme(themePref ?? "default");
+        this.updateTheme(themePref ?? "default");
     }
 
     updateTheme(themePref: ThemePrefVariant) {
-        this.themePref(themePref);
-
-        localStorageService.setItem(StorageKeys.Theme, themePref);
-
-        switch (themePref) {
-            case "dark": {
-                this.theme(darkTheme);
-                break;
-            }
-            case "light": {
-                this.theme(lightTheme);
-                break;
-            }
-            default: {
-                if (window.matchMedia(THEME_PREF_MEDIA_QUERY).matches) this.theme(darkTheme);
-                else this.theme(lightTheme);
-            }
-        }
+        this.setThemePref(themePref);
+        this.setTheme(themePref);
     }
 
     setThemePref(themePref: ThemePrefVariant) {
@@ -47,15 +31,22 @@ class ThemeService implements IThemeService {
         switch (themePref) {
             case "dark": {
                 this.theme(darkTheme);
+                this.isDarkScheme(true);
                 break;
             }
             case "light": {
                 this.theme(lightTheme);
+                this.isDarkScheme(false);
                 break;
             }
             default: {
-                if (window.matchMedia(THEME_PREF_MEDIA_QUERY).matches) this.theme(darkTheme);
-                else this.theme(lightTheme);
+                if (window.matchMedia(THEME_PREF_MEDIA_QUERY).matches) {
+                    this.theme(darkTheme);
+                    this.isDarkScheme(true);
+                } else {
+                    this.theme(lightTheme);
+                    this.isDarkScheme(false);
+                }
             }
         }
     }

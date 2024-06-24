@@ -1,7 +1,10 @@
 import { useTranslation } from "react-i18next";
 
 import { useGenericBreadcrumbs } from "@/hooks";
-import ThemeSelect from "@/components/theme-select/theme-select";
+import { ThemeSelect } from "@/components/theme-select";
+import { LangSelect } from "@/components/lang-select";
+
+import styles from "./settings.module.scss";
 
 const SettingsPage = () => {
     const { t } = useTranslation();
@@ -9,8 +12,9 @@ const SettingsPage = () => {
     useGenericBreadcrumbs(t("Settings"));
 
     return (
-        <div>
+        <div className={styles.wrapper}>
             <ThemeSelect />
+            <LangSelect />
         </div>
     );
 };

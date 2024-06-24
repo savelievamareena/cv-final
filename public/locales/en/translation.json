@@ -67,6 +67,19 @@
             "teamSize":"Team size must be an integer greater than 1"
         }
     },
+    "settings": {
+        "themeSelect":{
+            "label":"Appearance",
+            "options":{
+                "default":"Device settings",
+                "dark":"Dark",
+                "light":"Light"
+            }
+        },
+        "languageSelect":{
+            "label":"Language"
+        }
+    },
     "submit": "Submit",
     "Welcome Back": "Welcome Back",
     "add": "Add",

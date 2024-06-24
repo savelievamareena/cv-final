@@ -1,46 +1,29 @@
 import { useReactiveVar } from "@apollo/client";
 import { themeService } from "./theme-service";
 import { THEME_PREF_MEDIA_QUERY } from "@/constants/theme";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export const useAppThemePref = () => useReactiveVar(themeService.themePref);
 
-export const useAppTheme = () => {
-    const themePref = useReactiveVar(themeService.themePref);
-    const theme = useReactiveVar(themeService.theme);
+export const useIsDarkAppTheme = () => useReactiveVar(themeService.isDarkScheme);
 
-    const [isDark, setIsDark] = useState(
-        themePref === "dark" ||
-            (themePref === "default" && window.matchMedia(THEME_PREF_MEDIA_QUERY).matches)
-    );
+export const useAppTheme = () => useReactiveVar(themeService.theme);
 
-    const evListenner = useCallback(
-        (e: MediaQueryListEvent) => {
-            if (themePref !== "default") return;
-
-            setIsDark(e.matches);
-
-            if (e.matches) themeService.setTheme("dark");
-            else themeService.setTheme("light");
-        },
-        [themePref]
-    );
+export const useDefaultAppThemeHandling = () => {
+    const themePref = useAppThemePref();
 
     useEffect(() => {
-        setIsDark(
-            themePref === "dark" ||
-                (themePref === "default" && window.matchMedia(THEME_PREF_MEDIA_QUERY).matches)
-        );
+        if (themePref !== "default") return;
+
+        const evListenner = (e: MediaQueryListEvent) => {
+            if (e.matches) themeService.setTheme("dark");
+            else themeService.setTheme("light");
+        };
 
         const mediaQueryList = window.matchMedia(THEME_PREF_MEDIA_QUERY);
 
         mediaQueryList.addEventListener("change", evListenner);
 
         return () => mediaQueryList.removeEventListener("change", evListenner);
-    }, [themePref, evListenner]);
-
-    return {
-        isDark,
-        theme,
-    };
+    }, [themePref]);
 };

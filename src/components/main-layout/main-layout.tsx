@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
 import { Spin } from "antd";
 import { Navigate, Outlet } from "react-router-dom";
 
@@ -9,19 +9,11 @@ import { BreadcrumbsProvider } from "@/helpers/breadcrumbs";
 import { MainHeader } from "../header";
 
 import styles from "./main-layout.module.scss";
-import { useAppTheme } from "@/services/theme-service/theme-service.hooks";
 
 export const MainLayout = () => {
     const user = useAuthUser();
 
     if (!user?.is_verified) return <Navigate to={routes.auth.root} />;
-
-    const { isDark } = useAppTheme();
-
-    useEffect(() => {
-        if (isDark) document.body.classList.add(styles.darkBody);
-        return () => document.body.classList.remove(styles.darkBody);
-    }, [isDark]);
 
     return (
         <>

@@ -1,13 +1,23 @@
 import { PropsWithChildren, useEffect } from "react";
 import { ConfigProvider } from "antd";
-import { useAppTheme } from "@/services/theme-service/theme-service.hooks";
+import {
+    useIsDarkAppTheme,
+    useAppTheme,
+    useDefaultAppThemeHandling,
+} from "@/services/theme-service/theme-service.hooks";
+
+import styles from "./theme-provider.module.scss";
 
 const ThemeProvider = ({ children }: PropsWithChildren) => {
-    const { theme, isDark } = useAppTheme();
+    useDefaultAppThemeHandling();
+
+    const isDarkTheme = useIsDarkAppTheme();
+    const theme = useAppTheme();
 
     useEffect(() => {
-        console.log(isDark);
-    }, [isDark]);
+        if (isDarkTheme) document.body.classList.add(styles.darkBody);
+        return () => document.body.classList.remove(styles.darkBody);
+    }, [isDarkTheme]);
 
     return <ConfigProvider theme={theme ?? undefined}>{children}</ConfigProvider>;
 };

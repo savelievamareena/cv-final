@@ -1,0 +1,6 @@
+@use "@/scss" as *;
+
+.darkBody {
+    color: $clr-secondary;
+    background-color: $clr-dark;
+}
