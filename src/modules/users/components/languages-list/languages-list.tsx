@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useMemo } from "react";
 import { LanguageProficiency, Proficiency } from "cv-graphql";
 import { useTranslation } from "react-i18next";
 import { Button, Flex, Spin } from "antd";
@@ -10,12 +10,12 @@ import { LanguagesFormSchemaType } from "../schemas/languages";
 
 import styles from "./languages-list.module.scss";
 
-interface SkillProps {
+interface LanguagesListProps {
     userId: string;
     canEdit: boolean;
 }
 
-const LanguagesList = ({ userId, canEdit }: SkillProps) => {
+const LanguagesList = ({ userId, canEdit }: LanguagesListProps) => {
     const { t } = useTranslation();
 
     const { data, loading } = useUserLanguages({ userId });
@@ -34,69 +34,63 @@ const LanguagesList = ({ userId, canEdit }: SkillProps) => {
         [data]
     );
 
-    const addLanguage = useCallback(
-        () =>
-            openLanguageDialog({
-                title: t("languages.addLanguage"),
-                onConfirm: async ({ name, proficiency }: LanguagesFormSchemaType) => {
-                    await createMutation({
-                        variables: {
-                            language: {
-                                userId,
-                                name,
-                                proficiency: proficiency as Proficiency,
-                            },
+    const addLanguage = () =>
+        openLanguageDialog({
+            title: t("languages.addLanguage"),
+            onConfirm: async ({ name, proficiency }: LanguagesFormSchemaType) => {
+                await createMutation({
+                    variables: {
+                        language: {
+                            userId,
+                            name,
+                            proficiency: proficiency as Proficiency,
                         },
-                    });
-                },
-                userId,
-                existingLanguages: existingLanguageLabels,
-                initialValues: {
-                    name: "",
-                    proficiency: "",
-                },
-                isSubmitting: loadingAdd,
-            }),
-        [openLanguageDialog, userId, loadingAdd, existingLanguageLabels]
-    );
+                    },
+                });
+            },
+            userId,
+            existingLanguages: existingLanguageLabels,
+            initialValues: {
+                name: "",
+                proficiency: "",
+            },
+            isSubmitting: loadingAdd,
+        });
 
-    const updateLanguage = useCallback(
-        (selectedLanguage: LanguageProficiency) =>
-            openLanguageDialog({
-                title: t("languages.updateLanguage"),
-                onConfirm: async ({ name, proficiency }: LanguagesFormSchemaType) => {
-                    await updateMutation({
-                        variables: {
-                            language: {
-                                userId,
-                                name,
-                                proficiency: proficiency as Proficiency,
-                            },
+    const updateLanguage = (selectedLanguage: LanguageProficiency) =>
+        openLanguageDialog({
+            title: t("languages.updateLanguage"),
+            onConfirm: async ({ name, proficiency }: LanguagesFormSchemaType) => {
+                await updateMutation({
+                    variables: {
+                        language: {
+                            userId,
+                            name,
+                            proficiency: proficiency as Proficiency,
                         },
-                    });
-                },
-                userId,
-                selectedLanguage,
-                existingLanguages: existingLanguageLabels,
-                initialValues: {
-                    name: selectedLanguage.name,
-                    proficiency: selectedLanguage.proficiency,
-                },
-                isSubmitting: loadingUpdate,
-            }),
-        [openLanguageDialog, userId, loadingUpdate, existingLanguageLabels]
-    );
+                    },
+                });
+            },
+            userId,
+            selectedLanguage,
+            existingLanguages: existingLanguageLabels,
+            initialValues: {
+                name: selectedLanguage.name,
+                proficiency: selectedLanguage.proficiency,
+            },
+            isSubmitting: loadingUpdate,
+        });
 
     if (loading) return <Spin size="large" />;
 
     return (
         <Flex vertical className={styles.list}>
-            {canEdit ? (
+            {canEdit && (
                 <Button size={"large"} type="text" onClick={addLanguage}>
                     <PlusOutlined />
                     {t("languages.addLanguage")}
                 </Button>
-            ) : null}
+            )}
             {data && (
                 <Flex gap="small" wrap>
                     {data.profile.languages.map((item) => {

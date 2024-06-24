@@ -4,12 +4,12 @@ import classNames from "classnames";
 
 import styles from "./item.module.scss";
 
-interface LanguagesListItem {
+interface LanguagesListItemProps {
     language: LanguageProficiency;
     handleLanguageSelect: (language: LanguageProficiency) => void;
 }
 
-const LanguagesListItem = ({ language, handleLanguageSelect }: LanguagesListItem) => {
+const LanguagesListItem = ({ language, handleLanguageSelect }: LanguagesListItemProps) => {
     return (
         <Button
             type="text"

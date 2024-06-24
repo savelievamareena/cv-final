@@ -64,8 +64,9 @@ const LanguagesDialog = ({
                     name: selectedLanguage?.name ? [selectedLanguage.name] : [],
                 },
             },
-        }).then(() => {
-            onClose();
+            onCompleted: () => {
+                onClose();
+            },
         });
     };
 
