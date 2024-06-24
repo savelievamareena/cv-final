@@ -36,6 +36,8 @@ const LanguagesDialog = ({
 
     const { languages, loading } = useLanguagesQuery();
 
+    const [deleteMutation, { loading: deleteLoading }] = useDeleteUserLanguage();
+
     const handleConfirm = (formData: LanguagesFormSchemaType) => {
         void onConfirm(formData).then(() => {
             onClose();
@@ -53,8 +55,6 @@ const LanguagesDialog = ({
             value: item.name,
         }))
         .filter((lang) => !existingLanguages.includes(lang.label));
-
-    const [deleteMutation, { loading: deleteLoading }] = useDeleteUserLanguage();
 
     const handleDelete = () => {
         void deleteMutation({
