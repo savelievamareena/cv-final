@@ -10,7 +10,6 @@ import { FormNumberInput } from "@/components/form-number-input";
 import { FormTextarea } from "@/components/form-textarea";
 
 import styles from "../components/project-details-form/project-details-form.module.scss";
-// import { getProjectFormSchema, ProjectFormSchemaType } from "../shemas/project";
 import { BaseDialog } from "@/components/base-dialog";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { updateProjectFormSchema, UpdateProjectFormSchemaType } from "../schemas";

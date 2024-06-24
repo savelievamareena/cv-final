@@ -1,5 +1,6 @@
 import { Project } from "cv-graphql";
 import { t } from "i18next";
+import dayjs from "dayjs";
 import ListTemplate from "@/components/list-lemplate/list-template";
 import { Action } from "@/components/list-lemplate/actions-menu";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
@@ -10,7 +11,6 @@ import { useProjectsQuery } from "../api/get-projects-query";
 import { useNavigate } from "react-router-dom";
 import { routes } from "@/router";
 import { DATE_FORMAT } from "@/constants";
-import dayjs from "dayjs";
 
 const columnConfigs: ColumnConfig<Project>[] = [
     { name: "name", isSorted: true },
