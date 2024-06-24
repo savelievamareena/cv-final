@@ -1,17 +1,16 @@
 import { AppRouterProvider } from "@/router";
 import { AppAPIProvider } from "@/graphql";
-import { ConfigProvider } from "antd";
-import { antdTheme } from "@/antd";
 import { NotificationContextProvider } from "@/helpers/notification";
+import { ThemeProvider } from "@/helpers/theme-provider";
 
 export const App = () => {
     return (
         <AppAPIProvider>
-            <ConfigProvider theme={antdTheme}>
+            <ThemeProvider>
                 <NotificationContextProvider>
                     <AppRouterProvider />
                 </NotificationContextProvider>
-            </ConfigProvider>
+            </ThemeProvider>
         </AppAPIProvider>
     );
 };

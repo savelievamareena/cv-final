@@ -20,6 +20,7 @@ import { Details } from "@/modules/cvs/components/details";
 import { UserLayout } from "@/modules/users/components/user-layout";
 import { UserProfile } from "@/pages/user-profile";
 import { UsersPage } from "@/pages/users";
+import { SettingsPage } from "@/pages/settings";
 
 export const router = createBrowserRouter([
     {
@@ -194,7 +195,7 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 path: routes.settings,
-                element: <div>Settings page content</div>,
+                element: <SettingsPage />,
             },
             {
                 index: true,
