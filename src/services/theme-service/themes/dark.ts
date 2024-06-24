@@ -2,17 +2,18 @@ import { ThemeConfig } from "antd";
 
 export const darkTheme: ThemeConfig = {
     token: {
-        colorBgBase: "#3E3E3E",
+        colorBgBase: "#4E4E4E",
         colorPrimary: "#C63031",
-        colorBgContainer: "#3E3E3E",
+        colorBgContainer: "#4A4A4A",
         colorTextBase: "#ffffff",
         colorLink: "#ffffff",
-        colorBgSpotlight: "#3E3E3E",
+        colorBgSpotlight: "#4A4A4A",
         colorBorder: "#A6A6A6",
+        colorIcon: "#ffffff",
     },
     components: {
         Layout: {
-            bodyBg: "#3E3E3E",
+            bodyBg: "#4E4E4E",
             headerBg: "#2E2E2E",
             headerColor: "#ffffff",
             headerPadding: "0 10%",
@@ -28,7 +29,7 @@ export const darkTheme: ThemeConfig = {
             borderColorDisabled: "transparent",
         },
         Select: {
-            optionSelectedBg: "#4E4E4E",
+            optionSelectedBg: "#5E5E5E",
         },
     },
 };

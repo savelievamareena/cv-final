@@ -7,6 +7,7 @@ export const lightTheme: ThemeConfig = {
         colorBgContainer: "#ffffff",
         colorTextBase: "#2e2e2e",
         colorLink: "#2e2e2e",
+        colorIcon: "#2e2e2e",
     },
     components: {
         Layout: {
