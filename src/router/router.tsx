@@ -20,6 +20,7 @@ import { Details } from "@/modules/cvs/components/details";
 import { UserLayout } from "@/modules/users/components/user-layout";
 import { UserProfile } from "@/pages/user-profile";
 import { UsersPage } from "@/pages/users";
+import { ProjectsPage } from "@/pages/projects";
 
 export const router = createBrowserRouter([
     {
@@ -155,7 +156,7 @@ export const router = createBrowserRouter([
                     {
                         errorElement: <ErrorComponent />,
                         index: true,
-                        element: <div>Projects page content (table)</div>,
+                        element: <ProjectsPage />,
                     },
                     {
                         errorElement: <ErrorComponent />,
