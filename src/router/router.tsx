@@ -16,7 +16,7 @@ import { PositionsPage } from "@/pages/positions";
 import { SkillsPage } from "@/pages/skills";
 import { ProjectDetails } from "@/pages/project-details";
 import { CvPage } from "@/pages/cvs";
-import { Details } from "@/modules/CVVSs/components/details";
+import { Details } from "@/modules/cvs/components/details";
 import { UserLayout } from "@/modules/users/components/user-layout";
 import { UserProfile } from "@/pages/user-profile";
 import { UsersPage } from "@/pages/users";

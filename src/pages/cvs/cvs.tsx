@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { CvsList } from "@/modules/CVVSs";
+import { CvsList } from "@/modules/cvs";
 import { useGenericBreadcrumbs } from "@/hooks";
 
 const CvsPage = () => {

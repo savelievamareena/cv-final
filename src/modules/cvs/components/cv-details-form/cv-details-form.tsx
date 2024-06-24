@@ -7,8 +7,8 @@ import { FormTextField } from "@/components/form-text-field";
 import { FormTextarea } from "@/components/form-textarea";
 import { useTranslation } from "react-i18next";
 import { FormSubmitButton } from "@/components/form-submit-button";
-import { CvDetailsSchemaType, getCvDetailsSchema } from "@/modules/CVVSs/schemas";
-import { useCvUpdate, useCvById } from "@/modules/CVVSs/api";
+import { CvDetailsSchemaType, getCvDetailsSchema } from "@/modules/cvs/schemas";
+import { useCvUpdate, useCvById } from "@/modules/cvs/api";
 import styles from "./cv-details-form.module.css";
 
 const CvDetailsForm = () => {
