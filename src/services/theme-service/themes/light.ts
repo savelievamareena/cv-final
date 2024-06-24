@@ -1,7 +1,12 @@
-const antdTheme = {
+import { ThemeConfig } from "antd";
+
+export const lightTheme: ThemeConfig = {
     token: {
+        colorBgBase: "#ffffff",
         colorPrimary: "#C63031",
         colorBgContainer: "#ffffff",
+        colorTextBase: "#2e2e2e",
+        colorLink: "#2e2e2e",
     },
     components: {
         Layout: {
@@ -12,13 +17,12 @@ const antdTheme = {
         },
         Avatar: { containerSizeLG: 44 },
         Button: {
-            contentFontSize: 16,
             defaultBg: "#C63031",
             defaultColor: "#ffffff",
             defaultHoverColor: "#ffffff",
             defaultHoverBg: "#8A2122",
+            contentFontSize: 16,
+            controlOutlineWidth: 0,
         },
     },
 };
-
-export default antdTheme;

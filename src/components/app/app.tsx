@@ -1,7 +1,7 @@
 import { AppRouterProvider } from "@/router";
 import { AppAPIProvider } from "@/graphql";
 import { NotificationContextProvider } from "@/helpers/notification";
-import { ThemeProvider } from "@/helpers/theme-provider";
+import { ThemeProvider } from "@/antd";
 
 export const App = () => {
     return (
