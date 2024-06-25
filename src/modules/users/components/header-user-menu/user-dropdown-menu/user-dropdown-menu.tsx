@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom";
+import { LogoutOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
 import { Dropdown, Flex, MenuProps } from "antd";
-import { useTranslation } from "react-i18next";
 import classNames from "classnames";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 import { ProfilePicture } from "../profile-picture";
-import { LogoutOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
+import styles from "./user-dropdown-menu.module.scss";
 import { routes } from "@/router";
 import { authService } from "@/services/auth-service";
-
-import styles from "./user-dropdown-menu.module.scss";
 
 interface UserDropdownMenuProps {
     userId?: string;

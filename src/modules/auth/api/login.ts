@@ -1,7 +1,7 @@
-import { useNotificationContext } from "@/helpers/notification";
-import { authService } from "@/services/auth-service";
 import { gql, useLazyQuery } from "@apollo/client";
 import { AuthInput, AuthResult } from "cv-graphql";
+import { useNotificationContext } from "@/helpers/notification";
+import { authService } from "@/services/auth-service";
 
 const LOGIN = gql`
     query Login($authData: AuthInput!) {

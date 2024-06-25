@@ -1,8 +1,3 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import classNames from "classnames";
-import { useTranslation } from "react-i18next";
-import { Drawer, Flex } from "antd";
 import {
     ApartmentOutlined,
     AuditOutlined,
@@ -14,10 +9,14 @@ import {
     RiseOutlined,
     UserOutlined,
 } from "@ant-design/icons";
-
-import { routes } from "@/router/constants";
+import { Drawer, Flex } from "antd";
+import classNames from "classnames";
+import { Dispatch, SetStateAction, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { NavLink, useLocation } from "react-router-dom";
 
 import styles from "./navigation.module.scss";
+import { routes } from "@/router/constants";
 
 interface NavigationProps {
     isDrawerOpen: boolean;

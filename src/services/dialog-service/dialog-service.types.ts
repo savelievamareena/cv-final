@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { ReactiveVar } from "@apollo/client";
+import { FC } from "react";
 
 export interface IDialog {
     id: string;

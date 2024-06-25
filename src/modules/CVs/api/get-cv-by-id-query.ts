@@ -1,5 +1,5 @@
-import { SkillMastery } from "cv-graphql";
 import { gql, useQuery } from "@apollo/client";
+import { SkillMastery } from "cv-graphql";
 import { useNotificationContext } from "@/helpers/notification";
 
 export const GET_CV_BY_ID = gql`
