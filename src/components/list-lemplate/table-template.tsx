@@ -1,7 +1,7 @@
 import { Key } from "react";
-import ActionsMenu, { Action } from "./actions-menu";
 import { Table, TableColumnsType } from "antd";
 import { t } from "i18next";
+import ActionsMenu, { Action } from "./actions-menu";
 
 import styles from "./list-template.module.scss";
 import ActionsMenuEmployee from "./actions-menu-employee";
