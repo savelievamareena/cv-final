@@ -38,7 +38,7 @@ export const LoginForm = () => {
             <h2 className={styles.title}>{t("auth.login")}</h2>
             <FormTextField type="text" label={t("auth.fieldLabels.email")} name="email" />
             <PasswordInput label={t("auth.fieldLabels.password")} name="password" />
-            <FormSubmitButton>{t("submit")}</FormSubmitButton>
+            <FormSubmitButton type="primary">{t("submit")}</FormSubmitButton>
             {isExistingUserNotVerified && (
                 <p>
                     {t("verifyEmailHint")} <Link to={routes.auth.verification}>{t("here")}</Link>

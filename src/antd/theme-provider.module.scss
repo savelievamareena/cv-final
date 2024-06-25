@@ -3,4 +3,7 @@
 .darkBody {
     color: $clr-secondary;
     background-color: #3e3e3e;
+
+    --clr-icon: $clr-secondary;
+    --clr-icon--hover: $clr-secondary;
 }

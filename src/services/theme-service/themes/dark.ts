@@ -10,6 +10,7 @@ export const darkTheme: ThemeConfig = {
         colorBgSpotlight: "#4A4A4A",
         colorBorder: "#A6A6A6",
         colorIcon: "#ffffff",
+        controlOutlineWidth: 0,
     },
     components: {
         Layout: {
@@ -20,16 +21,26 @@ export const darkTheme: ThemeConfig = {
         },
         Avatar: { containerSizeLG: 44 },
         Button: {
-            defaultBg: "#C63031",
+            colorPrimaryBg: "#C63031",
+            colorPrimaryBgHover: "#8A2122",
+            primaryColor: "#ffffff",
+            colorPrimaryHover: "#8A2122",
+            defaultBg: "#4e4e4e",
             defaultColor: "#ffffff",
             defaultHoverColor: "#ffffff",
-            defaultHoverBg: "#8A2122",
+            defaultHoverBg: "#3e3e3e",
+            defaultBorderColor: "#a2a2a2",
+            defaultHoverBorderColor: "#e2e2e2",
+            borderColorDisabled: "transparent",
             contentFontSize: 16,
             controlOutlineWidth: 0,
-            borderColorDisabled: "transparent",
         },
         Select: {
             optionSelectedBg: "#5E5E5E",
+        },
+        Spin: {
+            colorPrimary: "#C63031",
+            colorBgBase: "#C63031",
         },
     },
 };
