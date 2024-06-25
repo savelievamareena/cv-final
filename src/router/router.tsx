@@ -1,5 +1,4 @@
-import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
-
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import { RelativePaths, RouteParams, routes } from "./constants";
 import { MainLayout } from "@/components/main-layout";
 import { ErrorComponent } from "@/components/error-component";
@@ -16,11 +15,14 @@ import { PositionsPage } from "@/pages/positions";
 import { SkillsPage } from "@/pages/skills";
 import { ProjectDetails } from "@/pages/project-details";
 import { CvPage } from "@/pages/cvs";
-import { Details } from "@/modules/cvs/components/details";
 import { UserLayout } from "@/modules/users/components/user-layout";
 import { UserProfile } from "@/pages/user-profile";
 import { UsersPage } from "@/pages/users";
 import { SettingsPage } from "@/pages/settings";
+import { DetailsWrapper } from "@/modules/cvs/components/details/details-wrapper";
+import { SkillsWrapper } from "@/modules/cvs/components/skills/skills-wrapper";
+import { CV } from "@/modules/cvs";
+import { ProjectsPage } from "@/pages/projects";
 
 export const router = createBrowserRouter([
     {
@@ -71,22 +73,17 @@ export const router = createBrowserRouter([
                     {
                         errorElement: <ErrorComponent />,
                         path: routes.cvs.cvById(`:${RouteParams.CvId}`),
-                        element: (
-                            <div>
-                                Tabs component
-                                <Outlet />
-                            </div>
-                        ),
+                        element: <CV />,
                         children: [
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.cvs.details(`:${RouteParams.CvId}`),
-                                element: <Details />,
+                                element: <DetailsWrapper />,
                             },
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.cvs.skills(`:${RouteParams.CvId}`),
-                                element: <div>CV skills content</div>,
+                                element: <SkillsWrapper />,
                             },
                             {
                                 errorElement: <ErrorComponent />,
@@ -156,7 +153,7 @@ export const router = createBrowserRouter([
                     {
                         errorElement: <ErrorComponent />,
                         index: true,
-                        element: <div>Projects page content (table)</div>,
+                        element: <ProjectsPage />,
                     },
                     {
                         errorElement: <ErrorComponent />,
