@@ -11,9 +11,6 @@ import styles from "../header.module.scss";
 const LanguagesSelect = () => {
     const { i18n, t } = useTranslation();
     const [isLanguagesOpen, setIsLanguagesOpen] = useState(false);
-    const [language, setLanguage] = useState<Languages>(
-        (i18n.resolvedLanguage as Languages) ?? Languages.En
-    );
 
     const changeLanguage = (lang: Languages) => {
         void i18n.changeLanguage(lang);
@@ -35,7 +32,6 @@ const LanguagesSelect = () => {
     };
 
     const handleSelectLanguage: MenuProps["onClick"] = ({ key }) => {
-        setLanguage(key as Languages);
         changeLanguage(key as Languages);
         setIsLanguagesOpen(false);
     };
@@ -45,15 +41,15 @@ const LanguagesSelect = () => {
             menu={{
                 items: languages,
                 selectable: true,
-                defaultSelectedKeys: [language],
                 onClick: handleSelectLanguage,
+                selectedKeys: [i18n.language],
             }}
             onOpenChange={handleOpenLangChange}
             placement={"bottom"}
             trigger={["click"]}
         >
             <Flex gap="0.5rem" className={classNames(styles.pointer)}>
-                <div>{language.toUpperCase()}</div>
+                <div>{i18n.language.toUpperCase()}</div>
                 {isLanguagesOpen ? (
                     <CaretUpOutlined
                         aria-label={t("header.languageSelector.close")}
