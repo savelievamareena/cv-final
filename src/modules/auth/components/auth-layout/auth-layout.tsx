@@ -1,12 +1,11 @@
-import { Suspense } from "react";
 import { Spin } from "antd";
+import { Suspense } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
+import styles from "./auth-layout.module.scss";
 import { AuthHeader } from "@/components/header";
 import { routes } from "@/router";
 import { useAuthUser } from "@/services/auth-service";
-
-import styles from "./auth-layout.module.scss";
 
 export const AuthLayout = () => {
     const user = useAuthUser();

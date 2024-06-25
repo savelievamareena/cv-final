@@ -1,5 +1,5 @@
-import { Controller, useFormContext } from "react-hook-form";
 import { Form, Select } from "antd";
+import { Controller, useFormContext } from "react-hook-form";
 import { FormSelectProps } from "./form-select.types";
 
 export const FormSelect = ({ name, label, onChange, ...props }: FormSelectProps) => {

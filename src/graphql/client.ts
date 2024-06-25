@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-import { authService } from "@/services/auth-service";
 import { ApolloClient, InMemoryCache, HttpLink, from } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { onError } from "@apollo/client/link/error";
+import { authService } from "@/services/auth-service";
 
 const httpLink = new HttpLink({
     uri: import.meta.env.VITE_GRAPHQL_URL as string,

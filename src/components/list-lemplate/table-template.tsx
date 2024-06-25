@@ -1,6 +1,6 @@
+import { Table, TableColumnsType } from "antd";
 import { Key } from "react";
 import ActionsMenu, { Action } from "./actions-menu";
-import { Table, TableColumnsType } from "antd";
 
 import styles from "./list-template.module.scss";
 

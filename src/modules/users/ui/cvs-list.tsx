@@ -1,14 +1,14 @@
-import { useNavigate, useParams } from "react-router-dom";
 import { t } from "i18next";
-import ListTemplate from "@/components/list-lemplate/list-template";
-import { Action } from "@/components/list-lemplate/actions-menu";
-import { ColumnConfig } from "@/components/list-lemplate/table-template";
-import { useConfirm } from "@/components/confirm-dialog/";
+import { useNavigate, useParams } from "react-router-dom";
 import { useCvCreate, useCvDelete } from "../api";
+import { useUserCvs } from "../api/get-user-cvs";
 import { useCvDialog } from "./cvs-dialog";
+import { useConfirm } from "@/components/confirm-dialog/";
+import { Action } from "@/components/list-lemplate/actions-menu";
+import ListTemplate from "@/components/list-lemplate/list-template";
+import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { CvTransformed, mapCvDataToTable } from "@/helpers/convert/maps";
 import { routes, RouteParams } from "@/router";
-import { useUserCvs } from "../api/get-user-cvs";
 
 const columnConfigs: ColumnConfig<CvTransformed>[] = [
     { name: "name", isSorted: true },

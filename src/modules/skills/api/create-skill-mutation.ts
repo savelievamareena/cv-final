@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { CreateSkillInput } from "cv-graphql";
-import { CreateSkillResult } from "./skills.types";
 import { GET_SKILLS_QUERY } from "./get-skills-query";
+import { CreateSkillResult } from "./skills.types";
 
 export const CREATE_SKILL = gql`
     mutation CreateSkill($skill: CreateSkillInput!) {

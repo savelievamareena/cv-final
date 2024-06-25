@@ -1,14 +1,14 @@
-import { useTranslation } from "react-i18next";
 import { Button } from "antd";
-import { Form } from "@/components/form";
-import { FormTextField } from "@/components/form-text-field";
-import { createDialogHook } from "@/helpers/dialog/create-dialog";
-import { BaseDialog } from "@/components/base-dialog/";
-import { FormSubmitButton } from "@/components/form-submit-button";
+import { useTranslation } from "react-i18next";
 import { getUserFormSchema, UserFormSchemaType } from "../shemas/user";
 import { useDepartmentsQuery, usePositionsQuery } from "@/api";
+import { BaseDialog } from "@/components/base-dialog/";
+import { Form } from "@/components/form";
 import { FormSelect } from "@/components/form-select";
+import { FormSubmitButton } from "@/components/form-submit-button";
+import { FormTextField } from "@/components/form-text-field";
 import { mapDepartmentsToSelectOptions, mapPositionsToSelectOptions } from "@/helpers/convert/maps";
+import { createDialogHook } from "@/helpers/dialog/create-dialog";
 
 interface UserDialogProps {
     title: string;

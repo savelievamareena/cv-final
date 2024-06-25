@@ -1,27 +1,27 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import { RelativePaths, RouteParams, routes } from "./constants";
-import { MainLayout } from "@/components/main-layout";
-import { ErrorComponent } from "@/components/error-component";
-import { AuthLayout } from "@/modules/auth/components/auth-layout";
-import { Login } from "@/pages/login";
-import { SignUp } from "@/pages/sign-up";
-import { VerifyMail } from "@/pages/verify-mail";
-import { DepartmentsPage } from "@/pages/departments";
-import { LanguagesPage } from "@/pages/languages";
-import { UserSkills } from "@/pages/user-skills";
-import { UserLanguages } from "@/pages/user-languages";
-import { UserCVs } from "@/pages/user-cvs";
-import { PositionsPage } from "@/pages/positions";
-import { SkillsPage } from "@/pages/skills";
-import { ProjectDetails } from "@/pages/project-details";
-import { CvPage } from "@/pages/cvs";
-import { UserLayout } from "@/modules/users/components/user-layout";
-import { UserProfile } from "@/pages/user-profile";
-import { UsersPage } from "@/pages/users";
 import { DetailsWrapper } from "src/modules/cvs/components/details/details-wrapper";
 import { SkillsWrapper } from "src/modules/cvs/components/skills/skills-wrapper";
+import { RelativePaths, RouteParams, routes } from "./constants";
+import { ErrorComponent } from "@/components/error-component";
+import { MainLayout } from "@/components/main-layout";
+import { AuthLayout } from "@/modules/auth/components/auth-layout";
 import { CV } from "@/modules/cvs";
+import { UserLayout } from "@/modules/users/components/user-layout";
+import { CvPage } from "@/pages/cvs";
+import { DepartmentsPage } from "@/pages/departments";
+import { LanguagesPage } from "@/pages/languages";
+import { Login } from "@/pages/login";
+import { PositionsPage } from "@/pages/positions";
+import { ProjectDetails } from "@/pages/project-details";
 import { ProjectsPage } from "@/pages/projects";
+import { SignUp } from "@/pages/sign-up";
+import { SkillsPage } from "@/pages/skills";
+import { UserCVs } from "@/pages/user-cvs";
+import { UserLanguages } from "@/pages/user-languages";
+import { UserProfile } from "@/pages/user-profile";
+import { UserSkills } from "@/pages/user-skills";
+import { UsersPage } from "@/pages/users";
+import { VerifyMail } from "@/pages/verify-mail";
 
 export const router = createBrowserRouter([
     {

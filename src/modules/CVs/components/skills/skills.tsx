@@ -1,14 +1,14 @@
+import { PlusOutlined } from "@ant-design/icons";
+import { Button, Flex, Spin } from "antd";
 import { Mastery, User, UserRole } from "cv-graphql";
 import { useTranslation } from "react-i18next";
-import { Button, Flex, Spin } from "antd";
-import { useCvById } from "@/modules/cvs/api";
 import { SkillsContainer } from "src/components/skills-container";
-import { useAddSkill } from "@/modules/cvs/components/skills-dialog";
-import { useAddCvSkill } from "@/api/add-cv-skill-mutation";
-import { useSkills } from "@/api/get-skills-query";
-import { PlusOutlined } from "@ant-design/icons";
 import { AddSkillSchemaType } from "src/modules/cvs/components/skills-dialog/schemas";
 import styles from "./skills.module.css";
+import { useAddCvSkill } from "@/api/add-cv-skill-mutation";
+import { useSkills } from "@/api/get-skills-query";
+import { useCvById } from "@/modules/cvs/api";
+import { useAddSkill } from "@/modules/cvs/components/skills-dialog";
 
 interface SkillProps {
     cvId: string;
