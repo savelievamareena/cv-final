@@ -1,7 +1,7 @@
-import { useNotificationContext } from "@/helpers/notification";
-import { authService } from "@/services/auth-service";
 import { gql, useMutation } from "@apollo/client";
 import { VerifyMailInput } from "cv-graphql";
+import { useNotificationContext } from "@/helpers/notification";
+import { authService } from "@/services/auth-service";
 
 const VERIFY_MAIL = gql`
     mutation VerifyMail($verifyMailInput: VerifyMailInput!) {

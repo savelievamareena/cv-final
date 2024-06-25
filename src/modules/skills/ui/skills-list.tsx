@@ -1,11 +1,11 @@
 import { Skill } from "cv-graphql";
 import { t } from "i18next";
-import ListTemplate from "@/components/list-lemplate/list-template";
-import { Action } from "@/components/list-lemplate/actions-menu";
-import { ColumnConfig } from "@/components/list-lemplate/table-template";
-import { useConfirm } from "@/components/confirm-dialog/";
 import { useSkillCreate, useSkillDelete, useSkillsQuery, useSkillUpdate } from "../api";
 import { useSkillDialog } from "./skills-dialog";
+import { useConfirm } from "@/components/confirm-dialog/";
+import { Action } from "@/components/list-lemplate/actions-menu";
+import ListTemplate from "@/components/list-lemplate/list-template";
+import { ColumnConfig } from "@/components/list-lemplate/table-template";
 
 const columnConfigs: ColumnConfig<Skill>[] = [
     { name: "name", isSorted: true },

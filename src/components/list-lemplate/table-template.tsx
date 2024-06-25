@@ -1,10 +1,11 @@
-import { Key } from "react";
+import { Table, TableColumnsType } from "antd";
 import { Table, TableColumnsType } from "antd";
 import { t } from "i18next";
+import { Key } from "react";
 import ActionsMenu, { Action } from "./actions-menu";
 
-import styles from "./list-template.module.scss";
 import ActionsMenuEmployee from "./actions-menu-employee";
+import styles from "./list-template.module.scss";
 
 export interface ColumnConfig<T> {
     name: keyof T;

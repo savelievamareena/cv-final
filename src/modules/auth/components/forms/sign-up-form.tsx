@@ -1,17 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useSignUp } from "../../api";
 import { getSignUpFormSchema } from "../../schemas";
-import { FormTextField } from "@/components/form-text-field";
-import { Form } from "@/components/form";
 import { PasswordInput } from "../password-input";
-import { routes } from "@/router";
-import { FormSubmitButton } from "@/components/form-submit-button";
-import { useAuthUser } from "@/services/auth-service";
-import { useNotificationContext } from "@/helpers/notification";
-
 import styles from "./form.module.scss";
+import { Form } from "@/components/form";
+import { FormSubmitButton } from "@/components/form-submit-button";
+import { FormTextField } from "@/components/form-text-field";
+import { useNotificationContext } from "@/helpers/notification";
+import { routes } from "@/router";
+import { useAuthUser } from "@/services/auth-service";
 
 export const SignUpForm = () => {
     const user = useAuthUser();

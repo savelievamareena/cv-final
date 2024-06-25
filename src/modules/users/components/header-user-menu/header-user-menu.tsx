@@ -1,10 +1,10 @@
 import { Spin } from "antd";
 
-import { useAuthUser } from "@/services/auth-service";
-import { UserDropdownMenu } from "./user-dropdown-menu";
 import { useProfileQuery } from "../../api";
 
 import styles from "./header-user-menu.module.scss";
+import { UserDropdownMenu } from "./user-dropdown-menu";
+import { useAuthUser } from "@/services/auth-service";
 
 const HeaderUserMenu = () => {
     const user = useAuthUser();

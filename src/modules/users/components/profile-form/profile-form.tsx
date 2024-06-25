@@ -1,16 +1,15 @@
+import { Col, Row } from "antd";
 import { Profile, User } from "cv-graphql";
 import { useTranslation } from "react-i18next";
-import { Col, Row } from "antd";
 
-import { Form } from "@/components/form";
+import { useProfileUpdate, useUserUpdate } from "../../api";
 import { profileFormSchema } from "../schemas";
-import { FormTextField } from "@/components/form-text-field";
+import styles from "./profile-form.module.scss";
+import { useDepartmentsQuery, usePositionsQuery } from "@/api";
+import { Form } from "@/components/form";
 import { FormSelect } from "@/components/form-select";
 import { FormSubmitButton } from "@/components/form-submit-button/form-submit-button";
-import { useProfileUpdate, useUserUpdate } from "../../api";
-import { useDepartmentsQuery, usePositionsQuery } from "@/api";
-
-import styles from "./profile-form.module.scss";
+import { FormTextField } from "@/components/form-text-field";
 
 interface ProfileFormProps {
     profile: Profile;

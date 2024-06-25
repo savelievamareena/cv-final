@@ -1,6 +1,6 @@
 import { Mastery, SkillMastery } from "cv-graphql";
-import { SkillsByCategory } from "@/modules/cvs/cv.types";
 import { useMemo } from "react";
+import { SkillsByCategory } from "@/modules/cvs/cv.types";
 
 const useSortSkillsByCategory = (skills: SkillMastery[] | []): SkillsByCategory => {
     return useMemo(() => {

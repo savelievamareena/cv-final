@@ -1,16 +1,16 @@
-import { useMemo } from "react";
-import { useParams } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { Flex } from "antd";
 import { FolderOutlined, HomeOutlined } from "@ant-design/icons";
+import { Flex } from "antd";
 import { BreadcrumbItemType } from "antd/es/breadcrumb/Breadcrumb";
 import classNames from "classnames";
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 
 import { useProjectQuery } from "../api";
-import { RouteParams, routes } from "@/router";
-import { useBreadcrumbs } from "@/helpers/breadcrumbs";
 
 import styles from "./use-project-breadcrumbs.module.scss";
+import { useBreadcrumbs } from "@/helpers/breadcrumbs";
+import { RouteParams, routes } from "@/router";
 
 export const useProjectBreadcrumbs = () => {
     const { t } = useTranslation();

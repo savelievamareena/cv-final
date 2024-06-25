@@ -1,15 +1,14 @@
-import { ChangeEvent, Key } from "react";
-import { useSearchParams } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { UserRole } from "cv-graphql";
+import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { Button, Input } from "antd";
 import { Content } from "antd/es/layout/layout";
-import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { useAuthUser } from "@/services/auth-service";
-import TableTemplate, { ColumnConfig } from "./table-template";
+import { UserRole } from "cv-graphql";
+import { ChangeEvent, Key } from "react";
+import { useTranslation } from "react-i18next";
+import { useSearchParams } from "react-router-dom";
 import { Action } from "./actions-menu";
-
 import styles from "./list-template.module.scss";
+import TableTemplate, { ColumnConfig } from "./table-template";
+import { useAuthUser } from "@/services/auth-service";
 
 interface ListTemplateProps<T> {
     pageName: string;

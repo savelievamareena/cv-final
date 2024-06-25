@@ -1,15 +1,15 @@
+import { Flex } from "antd";
+import { Mastery, SkillMastery } from "cv-graphql";
+import { useTranslation } from "react-i18next";
+import styles from "./skills-container.module.scss";
+import type { SkillsByCategory } from "@/modules/cvs/cv.types";
+import { useSkills } from "@/api/get-skills-query";
+import { useUpdateCvSkill } from "@/api/update-cv-skill-mutation";
 import { ProgressBar } from "@/components/progress-bar";
 import { SkillsCategoryTranslation, SkillsMastery } from "@/constants";
-import { useTranslation } from "react-i18next";
-import { Mastery, SkillMastery } from "cv-graphql";
-import { Flex } from "antd";
 import { useSortSkillsByCategory } from "@/hooks";
-import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
 import { useAddSkill } from "@/modules/cvs/components/skills-dialog";
-import { useUpdateCvSkill } from "@/api/update-cv-skill-mutation";
-import { useSkills } from "@/api/get-skills-query";
-import type { SkillsByCategory } from "@/modules/cvs/cv.types";
-import styles from "./skills-container.module.scss";
+import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
 
 interface SkillsWrapperProps {
     skills: SkillMastery[];
