@@ -1,8 +1,8 @@
-import { memo, ReactNode } from "react";
-import { Space, Dropdown } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
-import { t } from "i18next";
+import { Space, Dropdown } from "antd";
 import { Content } from "antd/es/layout/layout";
+import { t } from "i18next";
+import { memo, ReactNode } from "react";
 
 export interface Action {
     onUpdate: (id: string) => void;

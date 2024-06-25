@@ -1,12 +1,12 @@
-import { useTranslation } from "react-i18next";
 import { Flex, Spin } from "antd";
-import { useCvById, useCvUpdate } from "@/modules/cvs/api";
+import { useTranslation } from "react-i18next";
 import { Form } from "@/components/form";
+import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormTextField } from "@/components/form-text-field";
 import { FormTextarea } from "@/components/form-textarea";
-import { FormSubmitButton } from "@/components/form-submit-button";
-import { CvDetailsSchemaType, getCvDetailsSchema } from "@/modules/cvs/components/details/schemas";
+import { useCvById, useCvUpdate } from "@/modules/cvs/api";
 import styles from "@/modules/cvs/components/details/details.module.css";
+import { CvDetailsSchemaType, getCvDetailsSchema } from "@/modules/cvs/components/details/schemas";
 
 interface DetailsProps {
     cvId: string;

@@ -1,7 +1,7 @@
 import { Navigate, useParams } from "react-router-dom";
-import { useAuthUser } from "@/services/auth-service";
-import { routes } from "@/router";
 import { Skills } from "@/modules/users/components/skills";
+import { routes } from "@/router";
+import { useAuthUser } from "@/services/auth-service";
 
 const SkillsWrapper = () => {
     const { userId } = useParams<{ userId: string }>();

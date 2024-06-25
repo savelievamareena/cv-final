@@ -1,8 +1,8 @@
-import { StorageKeys } from "@/constants";
 import { makeVar } from "@apollo/client";
 import { User } from "cv-graphql";
-import { IAuthService } from "./auth-service.types";
 import { localStorageService } from "../storage-service";
+import { IAuthService } from "./auth-service.types";
+import { StorageKeys } from "@/constants";
 
 class AuthService implements IAuthService {
     user = makeVar<User | null>(null);

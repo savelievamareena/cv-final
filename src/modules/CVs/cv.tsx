@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 import { PageTabs } from "@/components/page-tabs";
 import { generateCvTabs } from "@/modules/cvs/helpers/generate-cv-tabs";
 

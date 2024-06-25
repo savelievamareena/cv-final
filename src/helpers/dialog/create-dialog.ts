@@ -1,6 +1,6 @@
-import { dialogsService } from "@/services/dialog-service";
 import { FC, useCallback, useRef } from "react";
 import { v4 } from "uuid";
+import { dialogsService } from "@/services/dialog-service";
 
 export const createDialogHook =
     <T>(Component: FC<T>) =>

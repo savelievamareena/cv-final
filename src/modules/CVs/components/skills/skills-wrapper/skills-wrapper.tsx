@@ -1,7 +1,7 @@
 import { Navigate, useParams } from "react-router-dom";
+import { Skills } from "@/modules/cvs/components/skills";
 import { routes } from "@/router";
 import { useAuthUser } from "@/services/auth-service";
-import { Skills } from "@/modules/cvs/components/skills";
 
 const SkillsWrapper = () => {
     const { cvId } = useParams<{ cvId: string }>();
