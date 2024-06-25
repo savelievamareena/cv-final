@@ -90,7 +90,12 @@ const TableTemplate = <T extends { id: Key }>({
             };
         });
 
-        if (isAdmin || pageName === t("cvs.cv") || pageName === t("users.user")) {
+        if (
+            isAdmin ||
+            pageName === t("cvs.cv") ||
+            pageName === t("users.user") ||
+            pageName === t("projects.projects")
+        ) {
             columns.push(getActionColumn(pageName, menuProps, isAdmin));
         }
         const filteredData: DynamicDataType<T>[] = data
