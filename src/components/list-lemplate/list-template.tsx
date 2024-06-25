@@ -1,5 +1,5 @@
 import { ChangeEvent, Key } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { UserRole } from "cv-graphql";
 import { Button, Input } from "antd";
@@ -10,6 +10,7 @@ import TableTemplate, { ColumnConfig } from "./table-template";
 import { Action } from "./actions-menu";
 
 import styles from "./list-template.module.scss";
+import { RouteParams } from "@/router";
 
 interface ListTemplateProps<T> {
     pageName: string;
@@ -29,7 +30,9 @@ const ListTemplate = <T extends { id: Key }>({
     loading,
 }: ListTemplateProps<T>) => {
     const user = useAuthUser();
-    const isAdmin = user?.role === UserRole.Admin;
+    const { [RouteParams.UserId]: userId } = useParams();
+
+    const canEdit = user?.role === UserRole.Admin || user?.id === userId;
 
     const { t } = useTranslation();
 
@@ -50,7 +53,7 @@ const ListTemplate = <T extends { id: Key }>({
                     value={searchParams.get("search") ?? ""}
                     prefix={<SearchOutlined />}
                 />
-                {isAdmin && (
+                {canEdit && (
                     <Button
                         type="primary"
                         danger
@@ -71,7 +74,7 @@ const ListTemplate = <T extends { id: Key }>({
                 data={displayData}
                 loading={loading}
                 pageName={pageName}
-                isAdmin={isAdmin}
+                canEdit={canEdit}
             />
         </div>
     );

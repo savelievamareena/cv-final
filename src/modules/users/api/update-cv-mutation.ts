@@ -2,8 +2,8 @@ import { gql, useMutation } from "@apollo/client";
 import { UpdateCvInput } from "cv-graphql";
 import { useNotificationContext } from "@/helpers/notification";
 import i18n from "@/i18n";
-import { GET_CV_BY_ID } from "./get-cv-by-id-query";
 import { UpdateCvResult } from "./cvs.types";
+import { GET_USER_CVS_QUERY } from "./get-user-cvs";
 
 export const UPDATE_CV = gql`
     mutation UpdateCV($cv: UpdateCvInput!) {
@@ -20,7 +20,7 @@ export const useCvUpdate = () => {
     const { showNotification } = useNotificationContext();
 
     return useMutation<UpdateCvResult, { cv: UpdateCvInput }>(UPDATE_CV, {
-        refetchQueries: [{ query: GET_CV_BY_ID }],
+        refetchQueries: [{ query: GET_USER_CVS_QUERY }],
         onCompleted: () => {
             showNotification("success", i18n.t("notifications.cv.updateSuccess"));
         },
