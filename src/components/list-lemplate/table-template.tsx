@@ -1,5 +1,4 @@
 import { Table, TableColumnsType } from "antd";
-import { Table, TableColumnsType } from "antd";
 import { t } from "i18next";
 import { Key } from "react";
 import ActionsMenu, { Action } from "./actions-menu";
