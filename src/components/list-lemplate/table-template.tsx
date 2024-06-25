@@ -1,8 +1,10 @@
 import { Key } from "react";
 import ActionsMenu, { Action } from "./actions-menu";
 import { Table, TableColumnsType } from "antd";
+import { t } from "i18next";
 
 import styles from "./list-template.module.scss";
+import ActionsMenuEmployee from "./actions-menu-employee";
 
 export interface ColumnConfig<T> {
     name: keyof T;
@@ -20,6 +22,28 @@ interface TableTemplateProps<T extends { id: Key }> {
 }
 
 type DynamicDataType<T> = T & { key: Key };
+
+const getActionColumn = (pageName: string, menuProps: Action, isAdmin: boolean) => ({
+    title: "",
+    dataIndex: "",
+    key: "x",
+    width: "5%",
+    render: (record: { id: string }) =>
+        isAdmin ? (
+            <ActionsMenu
+                pageName={pageName}
+                onDelete={menuProps.onDelete}
+                onUpdate={menuProps.onUpdate}
+                record={record}
+            />
+        ) : (
+            <ActionsMenuEmployee
+                pageName={pageName}
+                onUpdate={menuProps.onUpdate}
+                record={record}
+            />
+        ),
+});
 
 const TableTemplate = <T extends { id: Key }>({
     searchQuery,
@@ -66,21 +90,8 @@ const TableTemplate = <T extends { id: Key }>({
             };
         });
 
-        if (isAdmin) {
-            columns.push({
-                title: "",
-                dataIndex: "",
-                key: "x",
-                width: "5%",
-                render: (record: { id: string }) => (
-                    <ActionsMenu
-                        pageName={pageName}
-                        onDelete={menuProps.onDelete}
-                        onUpdate={menuProps.onUpdate}
-                        record={record}
-                    />
-                ),
-            });
+        if (isAdmin || pageName === t("cvs.cv") || pageName === t("users.user")) {
+            columns.push(getActionColumn(pageName, menuProps, isAdmin));
         }
         const filteredData: DynamicDataType<T>[] = data
             .filter((item) => {
