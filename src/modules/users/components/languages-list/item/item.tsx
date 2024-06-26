@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { LanguageProficiency } from "cv-graphql";
 
 import styles from "./item.module.scss";
+import { bulkDeleteService } from "@/services/bulk-delete-service";
 
 interface LanguagesListItemProps {
     language: LanguageProficiency;
@@ -16,6 +17,10 @@ const LanguagesListItem = ({ language, handleLanguageSelect }: LanguagesListItem
             className={styles.itemWrapper}
             onClick={() => {
                 handleLanguageSelect(language);
+            }}
+            onContextMenu={(ev) => {
+                ev.preventDefault();
+                bulkDeleteService.handleItemId(language.name);
             }}
         >
             <Flex gap="2rem" className={styles.item}>

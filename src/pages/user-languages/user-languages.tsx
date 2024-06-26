@@ -1,4 +1,6 @@
+import { UserRole } from "cv-graphql";
 import { Navigate, useParams } from "react-router-dom";
+import LanguagesDeleteFooter from "@/modules/users/components/languages-delete-footer/languages-delete-footer";
 import { LanguagesList } from "@/modules/users/components/languages-list";
 import { useUserBreadcrumbs } from "@/modules/users/hooks";
 import { RouteParams, routes } from "@/router";
@@ -15,7 +17,14 @@ const UserLanguages = () => {
 
     if (!userId) return <Navigate to={routes.users.root} />;
 
-    return <LanguagesList userId={userId} canEdit={user.id === userId} />;
+    const canEdit = user.id === userId || user.role === UserRole.Admin;
+
+    return (
+        <>
+            <LanguagesList userId={userId} canEdit={canEdit} />
+            {canEdit && <LanguagesDeleteFooter userId={userId} />}
+        </>
+    );
 };
 
 export default UserLanguages;
