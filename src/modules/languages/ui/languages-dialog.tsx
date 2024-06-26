@@ -28,9 +28,17 @@ const LanguageDialog = ({ title, onConfirm, onClose, initialValues }: LanguageDi
                 defaultValues={initialValues}
                 schema={getLanguageFormSchema()}
             >
-                <FormTextField type="text" label={t("language")} name="language" />
-                <FormTextField type="text" label={t("Native name")} name="native_name" />
-                <FormTextField type="text" label={t("iso2")} name="iso2" />
+                <FormTextField
+                    type="text"
+                    label={t("languages.fieldLabels.name")}
+                    name="language"
+                />
+                <FormTextField
+                    type="text"
+                    label={t("languages.fieldLabels.nativeName")}
+                    name="native_name"
+                />
+                <FormTextField type="text" label={t("languages.fieldLabels.iso2")} name="iso2" />
                 <Button htmlType="button" onClick={onClose}>
                     {t("cancel")}
                 </Button>

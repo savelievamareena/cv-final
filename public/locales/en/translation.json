@@ -45,7 +45,18 @@
             }
         }
     },
-    "languages":{
+    "language":"language",
+    "deleteConfirm": "Are you sure you want to delete {{item}}?",
+    "languages": {
+        "addLanguage": "Add language",
+        "updateLanguage": "Update language",
+        "fieldLabels": {
+            "name":"Name",
+            "nativeName":"Native name",
+            "iso2":"ISO2"
+        }
+    },
+    "userLanguages":{
         "addLanguage": "Add language",
         "updateLanguage": "Update language",
         "fieldLabels": {

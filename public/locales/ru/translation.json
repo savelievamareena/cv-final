@@ -98,7 +98,17 @@
             "teamSize": "Размер команды должен быть целым числом больше 1"
         }
     },
-    "languages":{
+    "language":"язык",
+    "languages": {
+        "addLanguage": "Добавить язык",
+        "updateLanguage": "Обновить язык",
+        "fieldLabels": {
+            "name":"Название",
+            "nativeName":"Оригинальное название",
+            "iso2":"ISO2"
+        }
+    },
+    "userLanguages":{
         "addLanguage": "Добавить язык",
         "updateLanguage": "Обновить язык",
         "fieldLabels": {
@@ -106,10 +116,11 @@
             "proficiency":"Уровень владения"
         },
         "fieldErrors": {
-            "nameRequired":"Название обязательно",
-            "proficiencyRequired":"Необходимо указать уровень владения"
+            "nameRequired":"Выберите язык",
+            "proficiencyRequired":"Выбирите уровень владения"
         }
     },
+    "deleteConfirm": "Вы уверены, что хотите удалить {{item}}?",
     "submit": "Подтвердить",
     "Welcome Back": "С Возвращением",
     "add": "Добавить",
@@ -179,10 +190,10 @@
         "updateUser": "Обновить пользователя",
         "deleteUser": "Удалить пользователя"
     },
-        "projects": {
+    "projects": {
         "projects":"проект",
         "addProject": "Add проект",
-        "updateProject": "Update  проект",
+        "updateProject": "Update проект",
         "deleteProject": "Delete проект",
         "name":"Имя",
         "internalName":"Внутренне Имя",

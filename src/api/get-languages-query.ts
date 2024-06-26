@@ -11,6 +11,7 @@ export const GET_LANGUAGES_QUERY = gql`
         }
     }
 `;
+
 export const useLanguagesQuery = () => {
     const query = useQuery<LanguagesResult>(GET_LANGUAGES_QUERY);
     return { languages: query.data?.languages ?? [], ...query };
