@@ -1,17 +1,16 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-import { getLoginFormSchema } from "../../schemas";
 import { useLogin } from "../../api";
-import { FormTextField } from "@/components/form-text-field";
-import { Form } from "@/components/form";
+import { getLoginFormSchema } from "../../schemas";
 import { PasswordInput } from "../password-input";
+import styles from "./form.module.scss";
+import { Form } from "@/components/form";
 import { FormSubmitButton } from "@/components/form-submit-button";
-import { useAuthUser } from "@/services/auth-service";
+import { FormTextField } from "@/components/form-text-field";
 import { useNotificationContext } from "@/helpers/notification";
 import { routes } from "@/router";
-
-import styles from "./form.module.scss";
+import { useAuthUser } from "@/services/auth-service";
 
 export const LoginForm = () => {
     const user = useAuthUser();

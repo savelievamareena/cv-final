@@ -1,12 +1,12 @@
 import { Language } from "cv-graphql";
 import { t } from "i18next";
-import ListTemplate from "@/components/list-lemplate/list-template";
-import { Action } from "@/components/list-lemplate/actions-menu";
-import { ColumnConfig } from "@/components/list-lemplate/table-template";
-import { useConfirm } from "@/components/confirm-dialog/";
 import { useLanguageCreate, useLanguageDelete, useLanguageUpdate } from "../api";
 import { useLanguageDialog } from "./languages-dialog";
 import { useLanguagesQuery } from "@/api";
+import { useConfirm } from "@/components/confirm-dialog/";
+import { Action } from "@/components/list-lemplate/actions-menu";
+import ListTemplate from "@/components/list-lemplate/list-template";
+import { ColumnConfig } from "@/components/list-lemplate/table-template";
 
 const columnConfigs: ColumnConfig<Language>[] = [
     { name: "name", isSorted: true },

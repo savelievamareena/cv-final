@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
-import { useNotificationContext } from "@/helpers/notification";
 import { ProfileQueryArgs, ProfileResult } from "./get-profile-query";
+import { useNotificationContext } from "@/helpers/notification";
 
 export const GET_USER_LANGUAGES_QUERY = gql`
     query UserLanguages($userId: ID!) {

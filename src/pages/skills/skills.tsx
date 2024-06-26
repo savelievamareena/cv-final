@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { SkillsList } from "@/modules/skills/";
 import { useGenericBreadcrumbs } from "@/hooks";
+import { SkillsList } from "@/modules/skills/";
 
 const Skills = () => {
     const { t } = useTranslation();

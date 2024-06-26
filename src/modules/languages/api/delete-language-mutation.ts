@@ -1,6 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { DeleteLanguageInput } from "cv-graphql";
-import { GET_LANGUAGES_QUERY } from "./get-languages-query";
+import { GET_LANGUAGES_QUERY } from "@/api";
 
 export const DELETE_LANGUAGE = gql`
     mutation DeleteLanguage($language: DeleteLanguageInput!) {

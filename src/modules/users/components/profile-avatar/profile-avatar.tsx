@@ -1,5 +1,5 @@
-import { Profile, User } from "cv-graphql";
 import { Avatar } from "antd";
+import { Profile, User } from "cv-graphql";
 import { AvatarDeleteButton } from "../avatar-delete-button";
 
 import styles from "./profile-avatar.module.scss";

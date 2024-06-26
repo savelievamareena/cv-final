@@ -1,12 +1,12 @@
-import { useMemo } from "react";
-import { LanguageProficiency, Proficiency } from "cv-graphql";
-import { useTranslation } from "react-i18next";
-import { Button, Flex, Spin } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
+import { Button, Flex, Spin } from "antd";
+import { LanguageProficiency, Proficiency } from "cv-graphql";
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { useCreateUserLanguage, useUpdateUserLanguage, useUserLanguages } from "../../api";
-import { LanguagesListItem } from "./item";
 import { useLanguagesDialog } from "../languages-dialog";
 import { LanguagesFormSchemaType } from "../schemas/languages";
+import { LanguagesListItem } from "./item";
 
 import styles from "./languages-list.module.scss";
 

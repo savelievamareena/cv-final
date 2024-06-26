@@ -1,15 +1,15 @@
+import { Button, Flex } from "antd";
 import { LanguageProficiency, Proficiency } from "cv-graphql";
 import { useTranslation } from "react-i18next";
-import { Button, Flex } from "antd";
 
-import { Form } from "@/components/form";
-import { createDialogHook } from "@/helpers/dialog/create-dialog";
-import { BaseDialog } from "@/components/base-dialog/";
-import { FormSubmitButton } from "@/components/form-submit-button";
-import { FormSelect } from "@/components/form-select";
-import { useLanguagesQuery } from "@/api";
 import { useDeleteUserLanguage } from "../../api";
 import { LanguagesFormSchemaType, languagesFormSchema } from "../schemas/languages";
+import { useLanguagesQuery } from "@/api";
+import { BaseDialog } from "@/components/base-dialog/";
+import { Form } from "@/components/form";
+import { FormSelect } from "@/components/form-select";
+import { FormSubmitButton } from "@/components/form-submit-button";
+import { createDialogHook } from "@/helpers/dialog/create-dialog";
 
 interface LanguagesDialogProps {
     title: string;

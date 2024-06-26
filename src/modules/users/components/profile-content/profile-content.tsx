@@ -1,18 +1,18 @@
-import { useParams } from "react-router-dom";
-import { Col, Row, Spin, Typography } from "antd";
 import { SafetyOutlined } from "@ant-design/icons";
+import { Col, Row, Spin, Typography } from "antd";
 import { UserRole } from "cv-graphql";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 
-import i18n from "@/i18n";
-import { ProfileForm } from "../profile-form";
+import { useProfileQuery, useUserQuery } from "../../api";
 import { AvatarUpload } from "../avatar-upload";
 import { ProfileAvatar } from "../profile-avatar";
-import { useAuthUser } from "@/services/auth-service";
-import { RouteParams } from "@/router";
-import { useProfileQuery, useUserQuery } from "../../api";
+import { ProfileForm } from "../profile-form";
 
 import styles from "./profile-content.module.scss";
+import i18n from "@/i18n";
+import { RouteParams } from "@/router";
+import { useAuthUser } from "@/services/auth-service";
 
 const ProfileContent = () => {
     const { [RouteParams.UserId]: userId } = useParams();

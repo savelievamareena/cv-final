@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { CvsList } from "@/modules/cvs/";
 import { useGenericBreadcrumbs } from "@/hooks";
+import { CvsList } from "@/modules/cvs/";
 
 const CvsPage = () => {
     const { t } = useTranslation();

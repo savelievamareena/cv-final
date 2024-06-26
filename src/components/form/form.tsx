@@ -1,40 +1,50 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormProps } from "./form.types";
 import { Form as AntdForm } from "antd";
+import React, { forwardRef, useImperativeHandle } from "react";
+import { FieldValues, FormProvider, useForm } from "react-hook-form";
+import { FormHandle, FormProps } from "./form.types";
 
-const Form = <T extends FieldValues>({
-    schema,
-    onSubmit,
-    children,
-    defaultValues,
-    resetAfterSubmit = true,
-    layout = "vertical",
-    ...props
-}: FormProps<T>) => {
-    const formMethods = useForm({
-        resolver: zodResolver(schema),
-        defaultValues,
-    });
+const Form = forwardRef(
+    <T extends FieldValues>(
+        {
+            schema,
+            onSubmit,
+            children,
+            defaultValues,
+            resetAfterSubmit = true,
+            layout = "vertical",
+            ...props
+        }: FormProps<T>,
+        ref: React.Ref<FormHandle<T>>
+    ) => {
+        const formMethods = useForm<T>({
+            resolver: zodResolver(schema),
+            defaultValues,
+        });
 
-    return (
-        <FormProvider {...formMethods}>
-            <AntdForm
-                {...props}
-                layout={layout}
-                onFinish={formMethods.handleSubmit(async (data) => {
-                    await onSubmit(data);
+        useImperativeHandle(ref, () => ({
+            ...formMethods,
+        }));
 
-                    if (!resetAfterSubmit) return;
+        return (
+            <FormProvider {...formMethods}>
+                <AntdForm
+                    {...props}
+                    layout={layout}
+                    onFinish={formMethods.handleSubmit(async (data) => {
+                        await onSubmit(data);
 
-                    formMethods.reset(data);
-                })}
-            >
-                {children}
-            </AntdForm>
-        </FormProvider>
-    );
-};
+                        if (!resetAfterSubmit) return;
+
+                        formMethods.reset(data);
+                    })}
+                >
+                    {children}
+                </AntdForm>
+            </FormProvider>
+        );
+    }
+);
 
 export default Form;

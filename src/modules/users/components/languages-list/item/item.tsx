@@ -1,6 +1,6 @@
 import { Button, Flex } from "antd";
-import { LanguageProficiency } from "cv-graphql";
 import classNames from "classnames";
+import { LanguageProficiency } from "cv-graphql";
 
 import styles from "./item.module.scss";
 

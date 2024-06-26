@@ -1,7 +1,6 @@
 import { Flex, Layout } from "antd";
-import { AuthNavigation } from "./navigation";
-
 import styles from "./header.module.scss";
+import { AuthNavigation } from "./navigation";
 
 const AuthHeader = () => {
     return (

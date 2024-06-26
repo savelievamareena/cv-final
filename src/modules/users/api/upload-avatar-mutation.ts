@@ -1,9 +1,9 @@
 import { gql, useMutation } from "@apollo/client";
 import { UploadAvatarInput } from "cv-graphql";
 import { useParams } from "react-router-dom";
+import { GET_PROFILE_QUERY } from "./get-profile-query";
 import { useNotificationContext } from "@/helpers/notification";
 import { RouteParams } from "@/router";
-import { GET_PROFILE_QUERY } from "./get-profile-query";
 
 export const UPLOAD_AVATAR = gql`
     mutation UploadAvatar($avatar: UploadAvatarInput!) {
