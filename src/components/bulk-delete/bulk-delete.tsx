@@ -44,11 +44,11 @@ const BulkDelete = ({ onDelete }: BulkDeleteProps) => {
                     type="default"
                     onClick={handleCancel}
                 >
-                    {t("Cancel")}
+                    {t("cancel")}
                 </Button>
                 <Button type="primary" disabled={isLoading} onClick={handleDelete}>
                     <Flex gap="small" align="center">
-                        <span>{t("Delete")}</span>
+                        <span>{t("delete")}</span>
                         <span className={styles.counter}>{itemIds.length}</span>
                     </Flex>
                 </Button>

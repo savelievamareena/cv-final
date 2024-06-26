@@ -1,23 +1,36 @@
 @use "@/scss" as *;
 
 .item {
-    color: $clr-dark;
     width: 100%;
 
     align-items: center;
 
     &Wrapper {
-        width: 30%;
+        width: 100%;
         display: flex;
         border: none;
         justify-content: flex-start;
         gap: 1rem;
-        margin: 6px 8px;
 
         &_selected {
             outline: 1px solid $clr-primary;
         }
     }
+}
+
+.deleteButton {
+    position: absolute;
+    top: calc(50% - 0.625rem);
+    right: min(1.5rem, 15%);
+}
+
+.wrapper {
+    width: min(15rem, 100%);
+    position: relative;
+
+    padding: 1rem;
+
+    box-sizing: border-box;
 }
 
 .lang {

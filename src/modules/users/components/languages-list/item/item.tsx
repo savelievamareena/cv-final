@@ -18,35 +18,43 @@ const LanguagesListItem = ({ language, handleLanguageSelect, canEdit }: Language
     const isSelected = selectedItems.includes(language.name);
 
     return (
-        <Button
-            type="text"
-            className={classNames(styles.itemWrapper, {
-                [styles.itemWrapper_selected]: isSelected,
-            })}
-            onClick={
-                canEdit
-                    ? () => {
-                          if (isSelected) {
-                              bulkDeleteService.handleItemId(language.name);
-                              return;
+        <div className={styles.wrapper}>
+            <Button
+                type="text"
+                className={classNames(styles.itemWrapper, {
+                    [styles.itemWrapper_selected]: isSelected,
+                })}
+                onClick={
+                    canEdit
+                        ? () => {
+                              if (isSelected) {
+                                  bulkDeleteService.handleItemId(language.name);
+                                  return;
+                              }
+                              handleLanguageSelect(language);
                           }
-                          handleLanguageSelect(language);
-                      }
-                    : undefined
-            }
-        >
-            <Flex gap="2rem" className={styles.item}>
-                <span
-                    className={classNames({
-                        [styles[`lang_${language.proficiency}`]]: true,
-                    })}
-                >
-                    {language.proficiency}
-                </span>
-                <span className={styles.name}>{language.name}</span>
-                {canEdit && <BulkDeleteButton isSelected={isSelected} item={language.name} />}
-            </Flex>
-        </Button>
+                        : undefined
+                }
+            >
+                <Flex className={styles.item}>
+                    <span
+                        className={classNames({
+                            [styles[`lang_${language.proficiency}`]]: true,
+                        })}
+                    >
+                        {language.proficiency}
+                    </span>
+                    <span className={styles.name}>{language.name}</span>
+                </Flex>
+            </Button>
+            {canEdit && (
+                <BulkDeleteButton
+                    isSelected={isSelected}
+                    item={language.name}
+                    className={styles.deleteButton}
+                />
+            )}
+        </div>
     );
 };
 

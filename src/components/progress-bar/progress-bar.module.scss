@@ -1,12 +1,32 @@
+@use "@/scss" as *;
+
 .progress_bar_wrapper {
-    width: 30%;
+    width: 100%;
     display: flex;
     border: none;
     justify-content: flex-start;
     gap: 1rem;
-    margin: 6px 8px;
+}
+
+.selected {
+    outline: 1px solid $clr-primary;
 }
 
 .progress_bar {
-    width: 30%;
+    width: 33%;
+}
+
+.wrapper {
+    width: min(15rem, 100%);
+    position: relative;
+
+    padding: 1rem;
+
+    box-sizing: border-box;
+}
+
+.deleteButton {
+    position: absolute;
+    top: calc(50% - 0.625rem);
+    right: min(1.5rem, 7%);
 }
