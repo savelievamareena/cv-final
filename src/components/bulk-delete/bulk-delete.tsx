@@ -1,5 +1,6 @@
 import { Button, Flex, Layout } from "antd";
 import { memo, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 
 import styles from "./bulk-delete.module.scss";
@@ -34,7 +35,7 @@ const BulkDelete = ({ onDelete }: BulkDeleteProps) => {
 
     if (!itemIds.length) return null;
 
-    return (
+    return createPortal(
         <Layout.Footer className={styles.stickyFooter}>
             <Flex gap={"1rem"}>
                 <Button
@@ -52,7 +53,8 @@ const BulkDelete = ({ onDelete }: BulkDeleteProps) => {
                     </Flex>
                 </Button>
             </Flex>
-        </Layout.Footer>
+        </Layout.Footer>,
+        document.body
     );
 };
 

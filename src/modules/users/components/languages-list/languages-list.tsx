@@ -99,6 +99,7 @@ const LanguagesList = ({ userId, canEdit }: LanguagesListProps) => {
                                 key={item.name}
                                 language={item}
                                 handleLanguageSelect={handleLanguageSelected}
+                                canEdit={canEdit}
                             />
                         );
                     })}

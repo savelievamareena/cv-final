@@ -80,7 +80,7 @@ const LanguagesDialog = ({
             >
                 <FormSelect
                     name="name"
-                    label={t("languages.fieldLabels.name")}
+                    label={t("userLanguages.fieldLabels.name")}
                     options={languageOptions}
                     size="large"
                     disabled={!!selectedLanguage}
@@ -88,7 +88,7 @@ const LanguagesDialog = ({
                 />
                 <FormSelect
                     name="proficiency"
-                    label={t("languages.fieldLabels.proficiency")}
+                    label={t("userLanguages.fieldLabels.proficiency")}
                     options={proficiencyOptions}
                     size="large"
                 />
