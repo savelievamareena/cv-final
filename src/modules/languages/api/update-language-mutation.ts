@@ -13,7 +13,6 @@ export const UPDATE_LANGUAGE = gql`
         }
     }
 `;
-
 export const useLanguageUpdate = () => {
     return useMutation<UpdateLanguageResult, { language: UpdateLanguageInput }>(UPDATE_LANGUAGE, {
         refetchQueries: [GET_LANGUAGES_QUERY],
