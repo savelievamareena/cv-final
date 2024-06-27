@@ -1,5 +1,5 @@
 import { Mastery } from "cv-graphql";
-import { MasteryOptions } from "src/components/skills-container/skills-container.types";
+import { MasteryOptions } from "@/modules/cvs/components/cv-skills-container/cv-skills-container.types";
 
 export const SkillsMastery: Record<Mastery, MasteryOptions> = {
     Novice: { percent: 20, color: "#828282" },

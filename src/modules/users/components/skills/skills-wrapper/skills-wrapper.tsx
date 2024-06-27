@@ -10,7 +10,7 @@ const SkillsWrapper = () => {
         return <Navigate to={routes.auth.root} replace />;
     }
 
-    return <Skills />;
+    return <Skills userId={userId} currentUser={currentUser} />;
 };
 
 export default SkillsWrapper;

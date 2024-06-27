@@ -6,6 +6,7 @@ const useSortSkillsByCategory = (skills: SkillMastery[] | []): SkillsByCategory 
     return useMemo(() => {
         return skills.reduce((acc: SkillsByCategory, skill: SkillMastery) => {
             const category = skill.category as Mastery;
+
             return {
                 ...acc,
                 [category]: [...(acc[category] || []), skill],
