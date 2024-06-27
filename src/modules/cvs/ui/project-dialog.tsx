@@ -3,9 +3,6 @@ import { Button, Col, Row } from "antd";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import { useProjectsQuery } from "../api/get-projects-query";
-import styles from "../components/project-details-form/project-details-form.module.scss";
-import { updateProjectFormSchema, UpdateProjectFormSchemaType } from "../shemas";
 import { BaseDialog } from "@/components/base-dialog";
 import { Form } from "@/components/form";
 import { FormHandle } from "@/components/form/form.types";
@@ -18,6 +15,9 @@ import { FormTextarea } from "@/components/form-textarea";
 
 import { mapProjectsToSelectOptions } from "@/helpers/convert/maps";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
+import { useProjectsQuery } from "../api/get-projects-query";
+import { updateProjectFormSchema, UpdateProjectFormSchemaType } from "../shemas";
+import styles from "./project-details-form.module.scss";
 
 interface ProjectDialogProps {
     title: string;
