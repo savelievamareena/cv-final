@@ -23,13 +23,13 @@ interface TableTemplateProps<T extends { id: Key }> {
 
 type DynamicDataType<T> = T & { key: Key };
 
-const getActionColumn = (pageName: string, menuProps: Action, isAdmin: boolean) => ({
+const getActionColumn = (pageName: string, menuProps: Action, canEdit: boolean) => ({
     title: "",
     dataIndex: "",
     key: "x",
     width: "5%",
     render: (record: { id: string }) =>
-        isAdmin ? (
+        canEdit ? (
             <ActionsMenu
                 pageName={pageName}
                 onDelete={menuProps.onDelete}
