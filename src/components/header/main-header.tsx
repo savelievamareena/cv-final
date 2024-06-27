@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { Layout, Flex } from "antd";
 import { MenuOutlined, GlobalOutlined } from "@ant-design/icons";
+import { Layout, Flex } from "antd";
 import classNames from "classnames";
+import { useState } from "react";
 
-import { HeaderUserMenu } from "@/modules/users/components/header-user-menu";
+import styles from "./header.module.scss";
 import { LanguagesSelect } from "./languages-select";
 import { MainNavigation } from "./navigation";
 
-import styles from "./header.module.scss";
+import { HeaderUserMenu } from "@/modules/users/components/header-user-menu";
 
 const MainHeader = () => {
     const [isDrawerOpen, setDrawerOpen] = useState(false);

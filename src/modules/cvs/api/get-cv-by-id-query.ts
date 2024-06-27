@@ -1,27 +1,36 @@
 import { gql, useQuery } from "@apollo/client";
+import { SkillMastery } from "cv-graphql";
 import { useNotificationContext } from "@/helpers/notification";
 
 export const GET_CV_BY_ID = gql`
     query GetUserEmail($cvId: ID!) {
         cv(cvId: $cvId) {
             user {
+                id
                 email
             }
             name
             education
             description
+            skills {
+                name
+                category
+                mastery
+            }
         }
     }
 `;
 
-interface CvResult {
+export interface CvResult {
     cv: {
         user: {
+            id: string;
             email: string;
         };
         name: string;
         education: string;
         description: string;
+        skills: SkillMastery[];
     };
 }
 

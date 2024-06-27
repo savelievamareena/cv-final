@@ -11,3 +11,7 @@ export interface CreateUserResult {
 export interface UpdateUserResult {
     updateUser: User;
 }
+
+export interface UserResult {
+    user: User;
+}

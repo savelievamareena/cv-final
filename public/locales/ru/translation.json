@@ -17,56 +17,110 @@
         "verifyMailWarning": "Похоже, что вы ещё не подтвердили свой адрес электронной почты. Пожалуйста, подвердите",
         "verifyMailHint": "Похоже, что вы ещё не подтвердили свой адрес электронной почты. Пожалуйста, подтвердите его"
     },
-    "profile":{
-        "info":{
-            "createdAt":"Аккаунт был создан {{createdAt}}"
+    "profile": {
+        "info": {
+            "createdAt": "Аккаунт был создан {{createdAt}}"
         },
-        "form":{
+        "form": {
             "fieldLabels": {
-                "firstName":"Имя",
-                "lastName":"Фамилия",
-                "department":"Отдел",
-                "position":"Должность"
+                "firstName": "Имя",
+                "lastName": "Фамилия",
+                "department": "Отдел",
+                "position": "Должность"
             }
         },
         "avatarUpload": {
-            "text":"Загрузите изображение аватара",
-            "hint":"PNG, JPG или GIF и не более 0.5 MB",
+            "text": "Загрузите изображение аватара",
+            "hint": "PNG, JPG или GIF и не более 0.5 MB",
             "errors": {
-                "maxAvatarSize":"Изображение должно быть не более 0.5 MB",
-                "invalidFileType":"Изображение должно быть формата PNG, GIF или JPG",
-                "generic":"Что-то пошло не так..."
+                "maxAvatarSize": "Изображение должно быть не более 0.5 MB",
+                "invalidFileType": "Изображение должно быть формата PNG, GIF или JPG",
+                "generic": "Что-то пошло не так..."
             }
         }
     },
     "header": {
         "languageSelector": {
-            "open":"Открыть меню выбора языка",
-            "close":"Закрыть меню выбора языка"
+            "open": "Открыть меню выбора языка",
+            "close": "Закрыть меню выбора языка"
         }
     },
     "user": {
         "tabLabels": {
-            "cvs":"Резюме",
-            "languages":"Языки",
-            "profile":"Профиль",
-            "skills":"Навыки"
+            "cvs": "Резюме",
+            "languages": "Языки",
+            "profile": "Профиль",
+            "skills": "Навыки"
+        }
+    },
+    "cv": {
+        "tabLabels": {
+            "details": "Подробности",
+            "skills": "Навыки",
+            "projects": "Проекты",
+            "preview": "Просмотр"
+        }
+    },
+    "skills": {
+        "skill": "Навык",
+        "addSkill": "Добавить навык",
+        "updateSkill": "Обновить навык",
+        "deleteSkill": "Удалить навык",
+        "name": "Навык",
+        "category": "Категория",
+        "masteryLevel": "Уровень владения",
+        "categories": {
+            "sourceControlSystems": "Системы контроля версий",
+            "programmingTechnologies": "Технологии разработки",
+            "programmingLanguages": "Языки программирования",
+            "databaseManagementSystem": "Система управления базами данных",
+            "other": "Другое"
+        },
+        "mastery": {
+            "novice": "Новичок",
+            "advanced": "Продвинутый",
+            "competent": "Компетентный",
+            "proficient": "Опытный",
+            "expert": "Эксперт"
         }
     },
     "project": {
         "fieldLabels": {
-            "name":"Название",
-            "internalName":"Внутреннее название",
-            "domain":"Домен",
-            "teamSize":"Размер команды",
-            "description":"Описание",
-            "startDate":"Дата начала",
-            "endDate":"Дата завершения"
+            "name": "Название",
+            "internalName": "Внутреннее название",
+            "domain": "Домен",
+            "teamSize": "Размер команды",
+            "description": "Описание",
+            "startDate": "Дата начала",
+            "endDate": "Дата завершения"
         },
         "fieldErrors": {
-            "teamSize":"Размер команды должен быть целым числом больше 1"
+            "teamSize": "Размер команды должен быть целым числом больше 1"
         }
     },
+    "language":"язык",
+    "languages": {
+        "addLanguage": "Добавить язык",
+        "updateLanguage": "Обновить язык",
+        "fieldLabels": {
+            "name":"Название",
+            "nativeName":"Оригинальное название",
+            "iso2":"ISO2"
+        }
+    },
+    "userLanguages":{
+        "addLanguage": "Добавить язык",
+        "updateLanguage": "Обновить язык",
+        "fieldLabels": {
+            "name":"Название",
+            "proficiency":"Уровень владения"
+        },
+        "fieldErrors": {
+            "nameRequired":"Выберите язык",
+            "proficiencyRequired":"Выбирите уровень владения"
+        }
+    },
+    "deleteConfirm": "Вы уверены, что хотите удалить {{item}}?",
     "submit": "Подтвердить",
     "Welcome Back": "С Возвращением",
     "add": "Добавить",
@@ -77,6 +131,7 @@
     "cancel": "Отмена",
     "confirm": "Подтвердить",
     "department": "отдел",
+    "skill": "навык",
     "Profile": "Профиль",
     "Settings": "Настройки",
     "Logout": "Выйти",
@@ -87,9 +142,12 @@
     "CVs": "Резюме",
     "CV": "Резюме",
     "Departments": "Отделы",
+    "Positions": "Должности",
+    "Skills": "Навыки",
     "Languages": "Языки",
     "Name": "Имя",
     "Education": "Образование",
+    "details": "Подробности",
     "Description": "Описание",
     "notifications": {
         "cv": {
@@ -97,10 +155,15 @@
             "updateSuccess": "Резюме обновено успешно",
             "fetchingError": "Ошибка при загрукзе резюме",
             "descriptionLength": "Описание должно содержать минимум 6 симолов"
+        },
+        "skill": {
+            "addSuccess": "Навык успешно добавлен",
+            "updateSuccess": "Навык успешно обновлен",
+            "deleteSuccess": "Навык успешно удален"
         }
     },
-    "Open language menu":"Открыть меню выбора языков",
-    "Close language menu":"Закрыть меню выбора языков",
+    "Open language menu": "Открыть меню выбора языков",
+    "Close language menu": "Закрыть меню выбора языков",
     "fieldErrors": {
         "nameRequired": "Имя обязательно",
         "nativeNameRequired": "Родное имя обязательно",
@@ -111,28 +174,34 @@
         "educationRequired": "Образование обязателено"
     },
     "positions": {
-        "positions":"Должности",
+        "positions": "Должности",
         "addPosition": "Добавить должность",
         "updatePosition": "Обновить должность",
         "deletePosition": "Удалить должность"
     },
-    "skills": {
-        "skill":"навык",    
-        "addSkill": "Добавить навык",
-        "updateSkill": "Обновить навык",
-        "deleteSkill": "Удалить навык",
-        "category":"категория"
-    },
     "cvs": {
-        "Cv":"Резюме",
+        "Cv": "Резюме",
         "addCv": "Добавить резюме",
         "updateCv": "Обновить резюме",
         "deleteCv": "Удалить резюме"
     },
     "users": {
-        "user":"пользователь",
+        "user": "пользователь",
         "addUser": "Добавить пользователя",
         "updateUser": "Обновить пользователя",
         "deleteUser": "Удалить пользователя"
+    },
+    "projects": {
+        "projects":"проект",
+        "addProject": "Add проект",
+        "updateProject": "Update проект",
+        "deleteProject": "Delete проект",
+        "name":"Имя",
+        "internalName":"Внутренне Имя",
+        "domain":"Домен",
+        "teamSize":"Размер команды",
+        "description": "Описание",
+        "stardDate": "Дата начала",
+        "endDate": "Дата окончания"
     }
 }

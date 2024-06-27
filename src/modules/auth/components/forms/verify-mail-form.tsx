@@ -2,11 +2,10 @@ import { useTranslation } from "react-i18next";
 
 import { useVerifyMail } from "../../api";
 import { getVerifyMailFormSchema } from "../../schemas";
-import { Form } from "@/components/form";
-import { FormTextField } from "@/components/form-text-field";
-import { FormSubmitButton } from "@/components/form-submit-button";
-
 import styles from "./form.module.scss";
+import { Form } from "@/components/form";
+import { FormSubmitButton } from "@/components/form-submit-button";
+import { FormTextField } from "@/components/form-text-field";
 
 export const VerifyMailForm = () => {
     const [verifyMail, { loading }] = useVerifyMail();
@@ -24,7 +23,7 @@ export const VerifyMailForm = () => {
         >
             <h2 className={styles.title}>{t("auth.verifyMail")}</h2>
             <FormTextField type="text" name="otp" label={t("auth.fieldLabels.otp")} maxLength={6} />
-            <FormSubmitButton>{t("submit")}</FormSubmitButton>
+            <FormSubmitButton type="primary">{t("submit")}</FormSubmitButton>
         </Form>
     );
 };

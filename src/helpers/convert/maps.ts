@@ -1,5 +1,5 @@
-import { Key } from "react";
 import { Cv, Department, Position, User } from "cv-graphql";
+import { Key } from "react";
 
 interface SelectOption {
     label: string;

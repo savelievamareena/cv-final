@@ -1,7 +1,7 @@
-import { useNotificationContext } from "@/helpers/notification";
-import { authService } from "@/services/auth-service";
 import { gql, useMutation } from "@apollo/client";
 import { AuthInput, AuthResult } from "cv-graphql";
+import { useNotificationContext } from "@/helpers/notification";
+import { authService } from "@/services/auth-service";
 
 const SIGN_UP = gql`
     mutation SingUp($authData: AuthInput!) {

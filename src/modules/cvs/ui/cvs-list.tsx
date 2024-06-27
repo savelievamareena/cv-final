@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
 import { t } from "i18next";
-import ListTemplate from "@/components/list-lemplate/list-template";
-import { Action } from "@/components/list-lemplate/actions-menu";
-import { ColumnConfig } from "@/components/list-lemplate/table-template";
-import { useConfirm } from "@/components/confirm-dialog/";
+import { useNavigate } from "react-router-dom";
 import { useCvCreate, useCvDelete, useCvsQuery } from "../api";
 import { useCvDialog } from "./cvs-dialog";
+import { useConfirm } from "@/components/confirm-dialog/";
+import { Action } from "@/components/list-lemplate/actions-menu";
+import ListTemplate from "@/components/list-lemplate/list-template";
+import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { CvTransformed, mapCvDataToTable } from "@/helpers/convert/maps";
 import { routes } from "@/router";
 

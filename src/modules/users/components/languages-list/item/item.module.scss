@@ -1,0 +1,42 @@
+@use "@/scss" as *;
+
+.item {
+    color: $clr-dark;
+    width: 100%;
+
+    &Wrapper {
+        width: 30%;
+        display: flex;
+        border: none;
+        justify-content: flex-start;
+        gap: 1rem;
+        margin: 6px 8px;
+    }
+}
+
+.lang {
+    &_B1 {
+        color: darkgreen;
+    }
+
+    &_B2 {
+        color: steelblue;
+    }
+
+    &_C1 {
+        color: rgb(189, 143, 28);
+    }
+
+    &_C2 {
+        color: rgb(214, 162, 30);
+    }
+
+    &_Native {
+        color: $clr-primary;
+    }
+}
+
+.name {
+    width: 100%;
+    text-align: center;
+}

@@ -1,11 +1,12 @@
 import { Language } from "cv-graphql";
 import { t } from "i18next";
-import ListTemplate from "@/components/list-lemplate/list-template";
-import { Action } from "@/components/list-lemplate/actions-menu";
-import { ColumnConfig } from "@/components/list-lemplate/table-template";
-import { useConfirm } from "@/components/confirm-dialog/";
-import { useLanguageCreate, useLanguageDelete, useLanguagesQuery, useLanguageUpdate } from "../api";
+import { useLanguageCreate, useLanguageDelete, useLanguageUpdate } from "../api";
 import { useLanguageDialog } from "./languages-dialog";
+import { useLanguagesQuery } from "@/api";
+import { useConfirm } from "@/components/confirm-dialog/";
+import { Action } from "@/components/list-lemplate/actions-menu";
+import ListTemplate from "@/components/list-lemplate/list-template";
+import { ColumnConfig } from "@/components/list-lemplate/table-template";
 
 const columnConfigs: ColumnConfig<Language>[] = [
     { name: "name", isSorted: true },
@@ -24,14 +25,16 @@ const LanguagesList = () => {
     const menuProps: Action = {
         onDelete: (id: string) =>
             openConfirm({
-                title: t("delete confirmation"),
+                title: t("deleteConfirm", {
+                    item: languages.find((language) => language.id === id)?.name ?? "",
+                }),
                 onConfirm: () =>
                     void deleteLanguage({ variables: { language: { languageId: id } } }),
             }),
 
         onUpdate: (id: string) =>
             openLanguageDialog({
-                title: t("Update language"),
+                title: t("languages.updateLanguage"),
                 onConfirm: (formData) =>
                     void updateLanguage({
                         variables: {
@@ -54,7 +57,7 @@ const LanguagesList = () => {
 
     const openLanguage = () =>
         openLanguageDialog({
-            title: t("Add language"),
+            title: t("languages.addLanguage"),
             onConfirm: (formData) =>
                 void createLanguage({
                     variables: {

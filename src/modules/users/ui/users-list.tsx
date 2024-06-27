@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
 import { t } from "i18next";
-import ListTemplate from "@/components/list-lemplate/list-template";
-import { Action } from "@/components/list-lemplate/actions-menu";
-import { ColumnConfig } from "@/components/list-lemplate/table-template";
-import { useConfirm } from "@/components/confirm-dialog/";
+import { useNavigate } from "react-router-dom";
 import { useUserCreate, useUserDelete, useUsersQuery } from "../api";
 import { useUserDialog } from "./users-dialog";
+import { useConfirm } from "@/components/confirm-dialog/";
+import { Action } from "@/components/list-lemplate/actions-menu";
+import ListTemplate from "@/components/list-lemplate/list-template";
+import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { mapUserToTable, UserTransformed } from "@/helpers/convert/maps";
 import { routes } from "@/router";
 
@@ -70,7 +70,6 @@ const UsersList = () => {
         });
 
     const convertedUsers = mapUserToTable(users);
-    console.log(convertedUsers);
 
     return (
         <ListTemplate
