@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { BulkDelete } from "@/components/bulk-delete";
+import { BulkDeleteFooter } from "@/components/bulk-delete-footer";
 import { useDeleteProfileSkill } from "@/modules/users/api/delete-user-skill-mutation";
 
 interface SkillsDeleteFooterProps {
@@ -16,7 +16,7 @@ const SkillsDeleteFooter = ({ userId }: SkillsDeleteFooterProps) => {
         [deleteMutation]
     );
 
-    return <BulkDelete onDelete={handler} />;
+    return <BulkDeleteFooter onDelete={handler} />;
 };
 
 export default SkillsDeleteFooter;

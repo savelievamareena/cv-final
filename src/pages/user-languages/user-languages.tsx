@@ -1,6 +1,6 @@
 import { UserRole } from "cv-graphql";
 import { Navigate, useParams } from "react-router-dom";
-import LanguagesDeleteFooter from "@/modules/users/components/languages-delete-footer/languages-delete-footer";
+import { LanguagesDeleteFooter } from "@/modules/users/components/languages-delete-footer";
 import { LanguagesList } from "@/modules/users/components/languages-list";
 import { useUserBreadcrumbs } from "@/modules/users/hooks";
 import { RouteParams, routes } from "@/router";

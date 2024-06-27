@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDeleteUserLanguage } from "../../api";
-import { BulkDelete } from "@/components/bulk-delete";
+import { BulkDeleteFooter } from "@/components/bulk-delete-footer";
 
 interface LanguagesDeleteFooterProps {
     userId: string;
@@ -16,7 +16,7 @@ const LanguagesDeleteFooter = ({ userId }: LanguagesDeleteFooterProps) => {
         [deleteMutation]
     );
 
-    return <BulkDelete onDelete={handler} />;
+    return <BulkDeleteFooter onDelete={handler} />;
 };
 
 export default LanguagesDeleteFooter;

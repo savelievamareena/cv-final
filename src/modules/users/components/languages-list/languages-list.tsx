@@ -36,7 +36,7 @@ const LanguagesList = ({ userId, canEdit }: LanguagesListProps) => {
 
     const addLanguage = () =>
         openLanguageDialog({
-            title: t("languages.addLanguage"),
+            title: t("userLanguages.addLanguage"),
             onConfirm: async ({ name, proficiency }: LanguagesFormSchemaType) => {
                 await createMutation({
                     variables: {
@@ -59,7 +59,7 @@ const LanguagesList = ({ userId, canEdit }: LanguagesListProps) => {
 
     const updateLanguage = (selectedLanguage: LanguageProficiency) =>
         openLanguageDialog({
-            title: t("languages.updateLanguage"),
+            title: t("userLanguages.updateLanguage"),
             onConfirm: async ({ name, proficiency }: LanguagesFormSchemaType) => {
                 await updateMutation({
                     variables: {
@@ -88,7 +88,7 @@ const LanguagesList = ({ userId, canEdit }: LanguagesListProps) => {
             {canEdit && (
                 <Button size={"large"} type="text" onClick={addLanguage}>
                     <PlusOutlined />
-                    {t("languages.addLanguage")}
+                    {t("userLanguages.addLanguage")}
                 </Button>
             )}
             {data && (

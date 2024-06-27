@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDeleteCvSkill } from "@/api/delete-cv-skill-mutation";
-import { BulkDelete } from "@/components/bulk-delete";
+import { BulkDeleteFooter } from "@/components/bulk-delete-footer";
 
 interface SkillsDeleteFooterProps {
     cvId: string;
@@ -16,7 +16,7 @@ const SkillsDeleteFooter = ({ cvId }: SkillsDeleteFooterProps) => {
         [deleteMutation]
     );
 
-    return <BulkDelete onDelete={handler} />;
+    return <BulkDeleteFooter onDelete={handler} />;
 };
 
 export default SkillsDeleteFooter;

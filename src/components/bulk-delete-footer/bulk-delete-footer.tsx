@@ -1,16 +1,15 @@
 import { Button, Flex, Layout } from "antd";
-import { memo, useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import styles from "./bulk-delete.module.scss";
+import styles from "./bulk-delete-footer.module.scss";
 import { bulkDeleteService, useBulkDeleteItemIds } from "@/services/bulk-delete-service";
 
 interface BulkDeleteProps {
     onDelete(entityIds: string[]): Promise<unknown>;
 }
 
-const BulkDelete = ({ onDelete }: BulkDeleteProps) => {
+const BulkDeleteFooter = ({ onDelete }: BulkDeleteProps) => {
     const { t } = useTranslation();
     const [isLoading, setIsLoading] = useState(false);
     const itemIds = useBulkDeleteItemIds();
@@ -35,7 +34,7 @@ const BulkDelete = ({ onDelete }: BulkDeleteProps) => {
 
     if (!itemIds.length) return null;
 
-    return createPortal(
+    return (
         <Layout.Footer className={styles.stickyFooter}>
             <Flex gap={"1rem"}>
                 <Button
@@ -53,9 +52,8 @@ const BulkDelete = ({ onDelete }: BulkDeleteProps) => {
                     </Flex>
                 </Button>
             </Flex>
-        </Layout.Footer>,
-        document.body
+        </Layout.Footer>
     );
 };
 
-export default memo(BulkDelete);
+export default BulkDeleteFooter;
