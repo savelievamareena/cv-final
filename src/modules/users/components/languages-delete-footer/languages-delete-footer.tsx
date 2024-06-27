@@ -7,7 +7,7 @@ interface LanguagesDeleteFooterProps {
 }
 
 const LanguagesDeleteFooter = ({ userId }: LanguagesDeleteFooterProps) => {
-    const [deleteMutation] = useDeleteUserLanguage();
+    const [deleteMutation, { loading }] = useDeleteUserLanguage();
 
     const handler = useCallback(
         (items: string[]) => {
@@ -16,7 +16,7 @@ const LanguagesDeleteFooter = ({ userId }: LanguagesDeleteFooterProps) => {
         [deleteMutation]
     );
 
-    return <BulkDeleteFooter onDelete={handler} />;
+    return <BulkDeleteFooter onDelete={handler} loadingState={loading} />;
 };
 
 export default LanguagesDeleteFooter;

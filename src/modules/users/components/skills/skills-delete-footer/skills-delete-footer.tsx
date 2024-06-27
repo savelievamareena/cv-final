@@ -7,7 +7,7 @@ interface SkillsDeleteFooterProps {
 }
 
 const SkillsDeleteFooter = ({ userId }: SkillsDeleteFooterProps) => {
-    const [deleteMutation] = useDeleteProfileSkill();
+    const [deleteMutation, { loading }] = useDeleteProfileSkill();
 
     const handler = useCallback(
         (items: string[]) => {
@@ -16,7 +16,7 @@ const SkillsDeleteFooter = ({ userId }: SkillsDeleteFooterProps) => {
         [deleteMutation]
     );
 
-    return <BulkDeleteFooter onDelete={handler} />;
+    return <BulkDeleteFooter onDelete={handler} loadingState={loading} />;
 };
 
 export default SkillsDeleteFooter;

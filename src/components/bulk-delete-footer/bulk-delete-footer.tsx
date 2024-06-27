@@ -1,5 +1,5 @@
 import { Button, Flex, Layout } from "antd";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import styles from "./bulk-delete-footer.module.scss";
@@ -7,11 +7,11 @@ import { bulkDeleteService, useBulkDeleteItemIds } from "@/services/bulk-delete-
 
 interface BulkDeleteProps {
     onDelete(entityIds: string[]): Promise<unknown>;
+    loadingState: boolean;
 }
 
-const BulkDeleteFooter = ({ onDelete }: BulkDeleteProps) => {
+const BulkDeleteFooter = ({ onDelete, loadingState }: BulkDeleteProps) => {
     const { t } = useTranslation();
-    const [isLoading, setIsLoading] = useState(false);
     const itemIds = useBulkDeleteItemIds();
 
     useEffect(() => {
@@ -25,9 +25,7 @@ const BulkDeleteFooter = ({ onDelete }: BulkDeleteProps) => {
     };
 
     const handleDelete = () => {
-        setIsLoading(true);
         void onDelete(itemIds).then(() => {
-            setIsLoading(false);
             bulkDeleteService.reset();
         });
     };
@@ -39,13 +37,13 @@ const BulkDeleteFooter = ({ onDelete }: BulkDeleteProps) => {
             <Flex gap={"1rem"}>
                 <Button
                     color="secondary"
-                    disabled={isLoading}
+                    disabled={loadingState}
                     type="default"
                     onClick={handleCancel}
                 >
                     {t("cancel")}
                 </Button>
-                <Button type="primary" disabled={isLoading} onClick={handleDelete}>
+                <Button type="primary" disabled={loadingState} onClick={handleDelete}>
                     <Flex gap="small" align="center">
                         <span>{t("delete")}</span>
                         <span className={styles.counter}>{itemIds.length}</span>

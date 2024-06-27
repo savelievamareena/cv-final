@@ -7,7 +7,7 @@ interface SkillsDeleteFooterProps {
 }
 
 const SkillsDeleteFooter = ({ cvId }: SkillsDeleteFooterProps) => {
-    const [deleteMutation] = useDeleteCvSkill();
+    const [deleteMutation, { loading }] = useDeleteCvSkill();
 
     const handler = useCallback(
         (items: string[]) => {
@@ -16,7 +16,7 @@ const SkillsDeleteFooter = ({ cvId }: SkillsDeleteFooterProps) => {
         [deleteMutation]
     );
 
-    return <BulkDeleteFooter onDelete={handler} />;
+    return <BulkDeleteFooter onDelete={handler} loadingState={loading} />;
 };
 
 export default SkillsDeleteFooter;
