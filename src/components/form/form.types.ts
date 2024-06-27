@@ -1,5 +1,4 @@
 import { FormProps as AntdFormProps } from "antd";
-import { FormProps as AntdFormProps } from "antd";
 import { ReactNode } from "react";
 import { DefaultValues, FieldValues, SubmitHandler, UseFormReturn } from "react-hook-form";
 import { ZodSchema } from "zod";
