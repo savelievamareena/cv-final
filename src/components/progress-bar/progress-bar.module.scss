@@ -1,12 +1,25 @@
-.progress_bar_wrapper {
+.progress_bar_button_wrapper {
     width: 30%;
     display: flex;
     border: none;
+    flex-wrap: wrap;
     justify-content: flex-start;
     gap: 1rem;
     margin: 6px 8px;
 }
 
 .progress_bar {
-    width: 30%;
+    width: 50%;
+}
+
+@media only screen and (max-width: 1020px) {
+    .progress_bar_button_wrapper {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .progress_bar_button_wrapper {
+        width: 90%;
+    }
 }

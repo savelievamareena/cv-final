@@ -3,7 +3,7 @@ import { Button, Flex, Spin } from "antd";
 import { Mastery, User, UserRole } from "cv-graphql";
 import { useTranslation } from "react-i18next";
 import { CvSkillsContainer } from "../cv-skills-container";
-import styles from "./skills.module.css";
+import styles from "./skills.module.scss";
 import { useAddCvSkill } from "@/api/add-cv-skill-mutation";
 import { useSkills } from "@/api/get-skills-query";
 import { useCvById } from "@/modules/cvs/api";
