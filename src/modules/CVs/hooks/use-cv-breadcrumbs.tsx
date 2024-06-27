@@ -1,14 +1,14 @@
-import { useMemo } from "react";
-import { useParams } from "react-router-dom";
-import { Flex } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
+import { Flex } from "antd";
 import { BreadcrumbItemType } from "antd/es/breadcrumb/Breadcrumb";
-import { useTranslation } from "react-i18next";
 import classNames from "classnames";
-import { RouteParams, routes } from "@/router";
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
+import styles from "./use-cv-breadcrumbs.module.scss";
 import { useBreadcrumbs } from "@/helpers/breadcrumbs";
 import { useCvById } from "@/modules/cvs/api";
-import styles from "./use-cv-breadcrumbs.module.scss";
+import { RouteParams, routes } from "@/router";
 
 type TabType = "details" | "skills" | "projects" | "preview" | undefined;
 

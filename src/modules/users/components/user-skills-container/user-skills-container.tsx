@@ -1,15 +1,15 @@
-import { useTranslation } from "react-i18next";
-import { Mastery, SkillMastery } from "cv-graphql";
 import { Flex } from "antd";
-import { useSortSkillsByCategory } from "@/hooks/skills";
-import { SkillsCategoryTranslation, SkillsMastery } from "@/constants";
-import { ProgressBar } from "@/components/progress-bar";
-import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
-import { useAddSkill } from "@/modules/users/components/skills-dialog";
+import { Mastery, SkillMastery } from "cv-graphql";
+import { useTranslation } from "react-i18next";
+import styles from "./user-skills-container.module.scss";
+import type { SkillsByCategory } from "@/modules/cvs/cv.types";
 import { useSkills } from "@/api/get-skills-query";
 import { useUpdateProfileSkill } from "@/api/update-profile-skill-mutation";
-import type { SkillsByCategory } from "@/modules/cvs/cv.types";
-import styles from "./user-skills-container.module.scss";
+import { ProgressBar } from "@/components/progress-bar";
+import { SkillsCategoryTranslation, SkillsMastery } from "@/constants";
+import { useSortSkillsByCategory } from "@/hooks/skills";
+import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
+import { useAddSkill } from "@/modules/users/components/skills-dialog";
 
 interface UserSkillsContainerProps {
     skills: SkillMastery[];

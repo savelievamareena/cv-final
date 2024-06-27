@@ -1,6 +1,6 @@
+import { SkillMastery } from "cv-graphql";
 import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
 import { SkillsResult } from "@/modules/skills/api/skills.types.ts";
-import { SkillMastery } from "cv-graphql";
 
 export interface SkillsDialogProps {
     title: string;

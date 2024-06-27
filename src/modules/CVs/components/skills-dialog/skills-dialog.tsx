@@ -1,19 +1,19 @@
-import { useRef } from "react";
-import { Navigate, useParams } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { Button, Flex } from "antd";
-import { routes } from "@/router";
-import { Form } from "@/components/form";
-import { createDialogHook } from "@/helpers/dialog/create-dialog";
-import { BaseDialog } from "@/components/base-dialog/";
-import { FormSubmitButton } from "@/components/form-submit-button";
-import { FormSelect } from "@/components/form-select";
-import { useSkillCategories } from "@/api/get-skills-categories-query";
+import { useRef } from "react";
+import { useTranslation } from "react-i18next";
+import { Navigate, useParams } from "react-router-dom";
 import { useDeleteCvSkill } from "@/api/delete-cv-skill-mutation";
+import { useSkillCategories } from "@/api/get-skills-categories-query";
+import { BaseDialog } from "@/components/base-dialog/";
+import { Form } from "@/components/form";
+import { FormHandle } from "@/components/form/form.types";
+import { FormSelect } from "@/components/form-select";
+import { FormSubmitButton } from "@/components/form-submit-button";
+import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { useSkillFormOptions, useFilterSkillNames } from "@/hooks/skills";
 import { addSkillSchema, AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
 import { SkillsDialogProps } from "@/modules/skills/skills.types";
-import { FormHandle } from "@/components/form/form.types";
+import { routes } from "@/router";
 
 const SkillsDialog = ({
     title,

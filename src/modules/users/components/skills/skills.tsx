@@ -1,14 +1,14 @@
-import { Mastery, User, UserRole } from "cv-graphql";
-import { Button, Flex, Spin } from "antd";
-import { useTranslation } from "react-i18next";
-import { useAddSkill } from "@/modules/users/components/skills-dialog";
-import { useProfileQuery, useUserQuery } from "@/modules/users/api";
-import { useSkills } from "@/api/get-skills-query";
-import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
 import { PlusOutlined } from "@ant-design/icons";
-import { UserSkillsContainer } from "@/modules/users/components/user-skills-container";
+import { Button, Flex, Spin } from "antd";
+import { Mastery, User, UserRole } from "cv-graphql";
+import { useTranslation } from "react-i18next";
 import { useAddProfileSkill } from "@/api/add-profile-skill-mutation";
+import { useSkills } from "@/api/get-skills-query";
 import styles from "@/modules/cvs/components/skills/skills.module.css";
+import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
+import { useProfileQuery, useUserQuery } from "@/modules/users/api";
+import { useAddSkill } from "@/modules/users/components/skills-dialog";
+import { UserSkillsContainer } from "@/modules/users/components/user-skills-container";
 
 interface userSkillsProps {
     userId: string;

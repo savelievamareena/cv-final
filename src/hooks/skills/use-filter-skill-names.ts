@@ -1,5 +1,5 @@
-import { useMemo } from "react";
 import { SkillMastery } from "cv-graphql";
+import { useMemo } from "react";
 import { SkillsResult } from "@/modules/skills/api/skills.types";
 
 const useFilterSkillNames = (

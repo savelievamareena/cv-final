@@ -1,5 +1,5 @@
-import { useMemo } from "react";
 import { Mastery, Skill } from "cv-graphql";
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { SkillsCategoryTranslation } from "@/constants";
 

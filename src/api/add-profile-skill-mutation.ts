@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
-import { AddProfileSkillInput, Profile } from "cv-graphql";
 import { gql, useMutation } from "@apollo/client";
-import { RouteParams } from "@/router";
-import i18n from "@/i18n";
+import { AddProfileSkillInput, Profile } from "cv-graphql";
+import { useParams } from "react-router-dom";
 import { useNotificationContext } from "@/helpers/notification";
+import i18n from "@/i18n";
 import { GET_PROFILE_QUERY } from "@/modules/users/api/get-profile-query";
+import { RouteParams } from "@/router";
 
 export const ADD_PROFILE_SKILL = gql`
     mutation addProfileSkill($skill: AddProfileSkillInput!) {
