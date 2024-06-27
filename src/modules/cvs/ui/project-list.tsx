@@ -21,7 +21,7 @@ const columnConfigs: ColumnConfig<Project>[] = [
     { name: "team_size", isSorted: false },
 ];
 
-const ProjectsList = () => {
+const CvProjectsList = () => {
     const { projects, loading } = useProjectsQuery();
     const navigate = useNavigate();
 
@@ -80,4 +80,4 @@ const ProjectsList = () => {
     );
 };
 
-export default ProjectsList;
+export default CvProjectsList;
