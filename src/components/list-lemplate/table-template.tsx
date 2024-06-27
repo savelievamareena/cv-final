@@ -18,18 +18,18 @@ interface TableTemplateProps<T extends { id: Key }> {
     data: T[];
     loading: boolean;
     pageName: string;
-    isAdmin: boolean;
+    canEdit: boolean;
 }
 
 type DynamicDataType<T> = T & { key: Key };
 
-const getActionColumn = (pageName: string, menuProps: Action, isAdmin: boolean) => ({
+const getActionColumn = (pageName: string, menuProps: Action, canEdit: boolean) => ({
     title: "",
     dataIndex: "",
     key: "x",
     width: "5%",
     render: (record: { id: string }) =>
-        isAdmin ? (
+        canEdit ? (
             <ActionsMenu
                 pageName={pageName}
                 onDelete={menuProps.onDelete}
@@ -52,7 +52,7 @@ const TableTemplate = <T extends { id: Key }>({
     data,
     loading,
     pageName,
-    isAdmin,
+    canEdit,
 }: TableTemplateProps<T>) => {
     const createColumnsAndData = (columnConfigs: ColumnConfig<T>[], data: T[]) => {
         const columns: TableColumnsType<DynamicDataType<T>> = columnConfigs.map((config) => {
@@ -91,12 +91,12 @@ const TableTemplate = <T extends { id: Key }>({
         });
 
         if (
-            isAdmin ||
+            canEdit ||
             pageName === t("cvs.cv") ||
             pageName === t("users.user") ||
             pageName === t("projects.projects")
         ) {
-            columns.push(getActionColumn(pageName, menuProps, isAdmin));
+            columns.push(getActionColumn(pageName, menuProps, canEdit));
         }
         const filteredData: DynamicDataType<T>[] = data
             .filter((item) => {

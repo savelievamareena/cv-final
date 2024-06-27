@@ -1,9 +1,10 @@
 import { useUserBreadcrumbs } from "@/modules/users/hooks";
+import CvsList from "@/modules/users/ui/cvs-list";
 
 const UserCVs = () => {
     useUserBreadcrumbs("cvs");
 
-    return <div>User CVs content</div>;
+    return <CvsList />;
 };
 
 export default UserCVs;
