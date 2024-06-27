@@ -1,7 +1,9 @@
 import { Table, TableColumnsType } from "antd";
+import { t } from "i18next";
 import { Key } from "react";
 import ActionsMenu, { Action } from "./actions-menu";
 
+import ActionsMenuEmployee from "./actions-menu-employee";
 import styles from "./list-template.module.scss";
 
 export interface ColumnConfig<T> {
@@ -20,6 +22,28 @@ interface TableTemplateProps<T extends { id: Key }> {
 }
 
 type DynamicDataType<T> = T & { key: Key };
+
+const getActionColumn = (pageName: string, menuProps: Action, isAdmin: boolean) => ({
+    title: "",
+    dataIndex: "",
+    key: "x",
+    width: "5%",
+    render: (record: { id: string }) =>
+        isAdmin ? (
+            <ActionsMenu
+                pageName={pageName}
+                onDelete={menuProps.onDelete}
+                onUpdate={menuProps.onUpdate}
+                record={record}
+            />
+        ) : (
+            <ActionsMenuEmployee
+                pageName={pageName}
+                onUpdate={menuProps.onUpdate}
+                record={record}
+            />
+        ),
+});
 
 const TableTemplate = <T extends { id: Key }>({
     searchQuery,
@@ -66,21 +90,13 @@ const TableTemplate = <T extends { id: Key }>({
             };
         });
 
-        if (canEdit) {
-            columns.push({
-                title: "",
-                dataIndex: "",
-                key: "x",
-                width: "5%",
-                render: (record: { id: string }) => (
-                    <ActionsMenu
-                        pageName={pageName}
-                        onDelete={menuProps.onDelete}
-                        onUpdate={menuProps.onUpdate}
-                        record={record}
-                    />
-                ),
-            });
+        if (
+            canEdit ||
+            pageName === t("cvs.cv") ||
+            pageName === t("users.user") ||
+            pageName === t("projects.projects")
+        ) {
+            columns.push(getActionColumn(pageName, menuProps, canEdit));
         }
         const filteredData: DynamicDataType<T>[] = data
             .filter((item) => {

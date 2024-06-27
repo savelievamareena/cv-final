@@ -2,13 +2,13 @@ import { PlusOutlined } from "@ant-design/icons";
 import { Button, Flex, Spin } from "antd";
 import { Mastery, User, UserRole } from "cv-graphql";
 import { useTranslation } from "react-i18next";
-import { SkillsContainer } from "src/components/skills-container";
-import { AddSkillSchemaType } from "src/modules/cvs/components/skills-dialog/schemas";
+import { CvSkillsContainer } from "../cv-skills-container";
 import styles from "./skills.module.css";
 import { useAddCvSkill } from "@/api/add-cv-skill-mutation";
 import { useSkills } from "@/api/get-skills-query";
 import { useCvById } from "@/modules/cvs/api";
 import { useAddSkill } from "@/modules/cvs/components/skills-dialog";
+import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
 
 interface SkillProps {
     cvId: string;
@@ -19,8 +19,8 @@ const Skills = ({ cvId, currentUser }: SkillProps) => {
     const { t } = useTranslation();
     const [openSkillDialog] = useAddSkill();
 
-    const [addCvSkill] = useAddCvSkill();
     const { data: cvData, loading: loadingCv } = useCvById(cvId);
+    const [addCvSkill] = useAddCvSkill();
     const { data: skillsData, loading: skillsLoading } = useSkills();
 
     if (loadingCv || skillsLoading) return <Spin tip="Loading" size="large" />;
@@ -59,7 +59,7 @@ const Skills = ({ cvId, currentUser }: SkillProps) => {
                 </Button>
             )}
 
-            <SkillsContainer skills={cvData ? cvData.cv.skills : []} cvId={cvId} />
+            <CvSkillsContainer skills={cvData?.cv?.skills ?? []} cvId={cvId} />
         </Flex>
     );
 };

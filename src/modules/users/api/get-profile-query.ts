@@ -20,7 +20,7 @@ export const GET_PROFILE_QUERY = gql`
     }
 `;
 
-interface QueryArgs {
+export interface QueryArgs {
     userId?: string;
 }
 

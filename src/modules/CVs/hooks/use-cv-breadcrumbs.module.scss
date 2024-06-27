@@ -1,0 +1,9 @@
+@use "@/scss" as *;
+
+.userName {
+    color: $clr-primary;
+
+    &_last {
+        color: darken($color: $clr-primary, $amount: 7);
+    }
+}

@@ -70,7 +70,6 @@ const UsersList = () => {
         });
 
     const convertedUsers = mapUserToTable(users);
-    console.log(convertedUsers);
 
     return (
         <ListTemplate

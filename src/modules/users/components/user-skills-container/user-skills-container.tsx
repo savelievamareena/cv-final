@@ -1,24 +1,25 @@
 import { Flex } from "antd";
 import { Mastery, SkillMastery } from "cv-graphql";
 import { useTranslation } from "react-i18next";
-import styles from "./skills-container.module.scss";
+import styles from "./user-skills-container.module.scss";
 import type { SkillsByCategory } from "@/modules/cvs/cv.types";
 import { useSkills } from "@/api/get-skills-query";
-import { useUpdateCvSkill } from "@/api/update-cv-skill-mutation";
+import { useUpdateProfileSkill } from "@/api/update-profile-skill-mutation";
 import { ProgressBar } from "@/components/progress-bar";
 import { SkillsCategoryTranslation, SkillsMastery } from "@/constants";
-import { useSortSkillsByCategory } from "@/hooks";
-import { useAddSkill } from "@/modules/cvs/components/skills-dialog";
+import { useSortSkillsByCategory } from "@/hooks/skills";
 import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
+import { useAddSkill } from "@/modules/users/components/skills-dialog";
 
-interface SkillsWrapperProps {
+interface UserSkillsContainerProps {
     skills: SkillMastery[];
-    cvId: string;
+    userId: string;
 }
 
-const SkillsContainer = ({ skills, cvId }: SkillsWrapperProps) => {
+const UserSkillsContainer = ({ skills, userId }: UserSkillsContainerProps) => {
+    const { t } = useTranslation();
     const [openSkillDialog] = useAddSkill();
-    const [updateCvSkill] = useUpdateCvSkill();
+    const [updateProfileSkill] = useUpdateProfileSkill();
     const { data: skillsData } = useSkills();
 
     if (skills.length < 1) {
@@ -33,10 +34,10 @@ const SkillsContainer = ({ skills, cvId }: SkillsWrapperProps) => {
         openSkillDialog({
             title: t("skills.updateSkill"),
             onConfirm: (values: AddSkillSchemaType) => {
-                void updateCvSkill({
+                void updateProfileSkill({
                     variables: {
                         skill: {
-                            cvId,
+                            userId,
                             name: values.name,
                             category: values.category,
                             mastery: values.mastery as Mastery,
@@ -53,8 +54,6 @@ const SkillsContainer = ({ skills, cvId }: SkillsWrapperProps) => {
             existingSkillsOnPage: skills,
         });
 
-    const { t } = useTranslation();
-
     const skillsByCategory: SkillsByCategory = useSortSkillsByCategory(skills);
 
     return (
@@ -67,7 +66,7 @@ const SkillsContainer = ({ skills, cvId }: SkillsWrapperProps) => {
                     <Flex key={category} vertical>
                         <h3>{categoryName}</h3>
                         <Flex className={styles.skills_row}>
-                            {(skillList || []).map((skill) => {
+                            {skillList?.map((skill) => {
                                 return (
                                     <ProgressBar
                                         handleSkillSelected={handleSkillSelected}
@@ -86,4 +85,4 @@ const SkillsContainer = ({ skills, cvId }: SkillsWrapperProps) => {
     );
 };
 
-export default SkillsContainer;
+export default UserSkillsContainer;
