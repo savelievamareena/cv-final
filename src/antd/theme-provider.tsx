@@ -1,12 +1,11 @@
-import { PropsWithChildren, useEffect } from "react";
 import { ConfigProvider } from "antd";
+import { PropsWithChildren, useEffect } from "react";
+import styles from "./theme-provider.module.scss";
 import {
     useIsDarkAppTheme,
     useAppTheme,
     useDefaultAppThemeHandling,
 } from "@/services/theme-service/theme-service.hooks";
-
-import styles from "./theme-provider.module.scss";
 
 const ThemeProvider = ({ children }: PropsWithChildren) => {
     useDefaultAppThemeHandling();

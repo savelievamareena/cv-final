@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
+import { SettingSelect } from "../setting-select";
 import { themeService } from "@/services/theme-service/theme-service";
 import { useAppThemePref } from "@/services/theme-service/theme-service.hooks";
-import { SettingSelect } from "../setting-select";
 import { ThemePrefVariant } from "@/services/theme-service/theme-service.types";
 
 const ThemeSelect = () => {
