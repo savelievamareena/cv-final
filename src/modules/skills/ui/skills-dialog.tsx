@@ -1,14 +1,14 @@
-import { useTranslation } from "react-i18next";
 import { Button } from "antd";
-import { Form } from "@/components/form";
-import { FormTextField } from "@/components/form-text-field";
-import { createDialogHook } from "@/helpers/dialog/create-dialog";
-import { BaseDialog } from "@/components/base-dialog/";
-import { FormSubmitButton } from "@/components/form-submit-button";
-import { FormSelect } from "@/components/form-select";
-import { getSkillFormSchema, SkillFormSchemaType } from "../shemas/skills";
+import { useTranslation } from "react-i18next";
 import { useSkillCategoriesQuery } from "../api/get-skill-catigories-query";
+import { getSkillFormSchema, SkillFormSchemaType } from "../shemas/skills";
+import { BaseDialog } from "@/components/base-dialog/";
+import { Form } from "@/components/form";
+import { FormSelect } from "@/components/form-select";
+import { FormSubmitButton } from "@/components/form-submit-button";
+import { FormTextField } from "@/components/form-text-field";
 import { mapStringsToSelectOptions } from "@/helpers/convert/maps";
+import { createDialogHook } from "@/helpers/dialog/create-dialog";
 
 interface SkillDialogProps {
     title: string;

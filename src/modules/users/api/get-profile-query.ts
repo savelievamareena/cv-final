@@ -20,18 +20,18 @@ export const GET_PROFILE_QUERY = gql`
     }
 `;
 
-interface QueryArgs {
+export interface ProfileQueryArgs {
     userId?: string;
 }
 
-interface ProfileResult {
+export interface ProfileResult {
     profile: Profile;
 }
 
-export const useProfileQuery = ({ userId }: QueryArgs) => {
+export const useProfileQuery = ({ userId }: ProfileQueryArgs) => {
     const { showNotification } = useNotificationContext();
 
-    return useQuery<ProfileResult, QueryArgs>(GET_PROFILE_QUERY, {
+    return useQuery<ProfileResult, ProfileQueryArgs>(GET_PROFILE_QUERY, {
         variables: {
             userId,
         },

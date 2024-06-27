@@ -45,6 +45,29 @@
             }
         }
     },
+    "language":"language",
+    "deleteConfirm": "Are you sure you want to delete {{item}}?",
+    "languages": {
+        "addLanguage": "Add language",
+        "updateLanguage": "Update language",
+        "fieldLabels": {
+            "name":"Name",
+            "nativeName":"Native name",
+            "iso2":"ISO2"
+        }
+    },
+    "userLanguages":{
+        "addLanguage": "Add language",
+        "updateLanguage": "Update language",
+        "fieldLabels": {
+            "name":"Name",
+            "proficiency":"Proficiency"
+        },
+        "fieldErrors": {
+            "nameRequired":"Name is required",
+            "proficiencyRequired":"Proficiency is required"
+        }
+    },
     "user": {
         "tabLabels": {
             "cvs": "CVs",
@@ -134,6 +157,7 @@
     "Languages": "Languages",
     "Name": "Name",
     "Education": "Education",
+    "details": "Details",
     "Description": "Description",
     "here": "here",
     "notifications": {

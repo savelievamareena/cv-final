@@ -1,12 +1,12 @@
 import { InboxOutlined } from "@ant-design/icons";
-import Dragger from "antd/es/upload/Dragger";
 import { RcFile } from "antd/es/upload";
+import Dragger from "antd/es/upload/Dragger";
 import { User } from "cv-graphql";
 import { useTranslation } from "react-i18next";
-import { fileToBase64 } from "@/helpers/file-to-base64";
 import { useAvatarUpload } from "../../api";
-import { useNotificationContext } from "@/helpers/notification";
 import { ALLOWED_IMAGE_TYPES, MAX_AVATAR_SIZE } from "../../constants";
+import { fileToBase64 } from "@/helpers/file-to-base64";
+import { useNotificationContext } from "@/helpers/notification";
 
 const AvatarUpload = ({ user }: { user: User }) => {
     const [uploadAvatar, { loading }] = useAvatarUpload();

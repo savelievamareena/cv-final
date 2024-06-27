@@ -1,9 +1,9 @@
 import { gql, useMutation } from "@apollo/client";
 import { Profile, UpdateProfileInput } from "cv-graphql";
-import { RouteParams } from "@/router";
 import { useParams } from "react-router-dom";
 import { GET_PROFILE_QUERY } from "./get-profile-query";
 import { useNotificationContext } from "@/helpers/notification";
+import { RouteParams } from "@/router";
 
 const UPDATE_PROFILE = gql`
     mutation UpdateProfile($profile: UpdateProfileInput!) {

@@ -1,15 +1,15 @@
-import { ChangeEvent, Key } from "react";
-import { useSearchParams } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { UserRole } from "cv-graphql";
+import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { Button, Input } from "antd";
 import { Content } from "antd/es/layout/layout";
-import { PlusOutlined, SearchOutlined } from "@ant-design/icons";
-import { useAuthUser } from "@/services/auth-service";
-import TableTemplate, { ColumnConfig } from "./table-template";
+import { UserRole } from "cv-graphql";
+import { ChangeEvent, Key } from "react";
+import { useTranslation } from "react-i18next";
+import { useParams, useSearchParams } from "react-router-dom";
 import { Action } from "./actions-menu";
-
 import styles from "./list-template.module.scss";
+import TableTemplate, { ColumnConfig } from "./table-template";
+import { RouteParams } from "@/router";
+import { useAuthUser } from "@/services/auth-service";
 
 interface ListTemplateProps<T> {
     pageName: string;
@@ -29,7 +29,9 @@ const ListTemplate = <T extends { id: Key }>({
     loading,
 }: ListTemplateProps<T>) => {
     const user = useAuthUser();
-    const isAdmin = user?.role === UserRole.Admin;
+    const { [RouteParams.UserId]: userId } = useParams();
+
+    const canEdit = user?.role === UserRole.Admin || user?.id === userId;
 
     const { t } = useTranslation();
 
@@ -50,7 +52,7 @@ const ListTemplate = <T extends { id: Key }>({
                     value={searchParams.get("search") ?? ""}
                     prefix={<SearchOutlined />}
                 />
-                {isAdmin && (
+                {canEdit && (
                     <Button
                         type="primary"
                         danger
@@ -71,7 +73,7 @@ const ListTemplate = <T extends { id: Key }>({
                 data={displayData}
                 loading={loading}
                 pageName={pageName}
-                isAdmin={isAdmin}
+                canEdit={canEdit}
             />
         </div>
     );

@@ -1,11 +1,11 @@
 import { gql, useMutation } from "@apollo/client";
 import { UpdateProjectInput } from "cv-graphql";
 import { useParams } from "react-router-dom";
-import { UpdateProjectResult } from "./projects.types";
-import { GET_PROJECTS_QUERY } from "./get-projects-query";
-import { RouteParams } from "@/router";
 import { GET_PROJECT_QUERY } from "./get-project-query";
+import { GET_PROJECTS_QUERY } from "./get-projects-query";
+import { UpdateProjectResult } from "./projects.types";
 import { useNotificationContext } from "@/helpers/notification";
+import { RouteParams } from "@/router";
 
 export const UPDATE_PROJECT = gql`
     mutation UpdateProject($project: UpdateProjectInput!) {

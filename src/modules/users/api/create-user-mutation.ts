@@ -1,6 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
-import { CreateUserResult } from "./users.types";
 import { GET_USERS_QUERY } from "./get-users-query";
+import { CreateUserResult } from "./users.types";
 
 export const CREATE_USER = gql`
     mutation CreateUser($user: CreateUserInput!) {

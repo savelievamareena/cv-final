@@ -1,8 +1,8 @@
 import { gql, useMutation } from "@apollo/client";
 import { UpdateUserInput } from "cv-graphql";
-import { UpdateUserResult } from "./users.types";
-import { GET_USERS_QUERY } from "./get-users-query";
 import { GET_USER_QUERY } from "./get-user-query";
+import { GET_USERS_QUERY } from "./get-users-query";
+import { UpdateUserResult } from "./users.types";
 import { useNotificationContext } from "@/helpers/notification";
 
 const UPDATE_USER = gql`

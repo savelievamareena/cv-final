@@ -1,12 +1,10 @@
-import { useState } from "react";
-import { Dropdown, DropdownProps, Flex, MenuProps } from "antd";
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
-import { useTranslation } from "react-i18next";
-import { Languages } from "@/i18n.ts";
-
+import { Dropdown, DropdownProps, Flex, MenuProps } from "antd";
 import classNames from "classnames";
-
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "../header.module.scss";
+import { Languages } from "@/i18n.ts";
 
 const LanguagesSelect = () => {
     const { i18n, t } = useTranslation();

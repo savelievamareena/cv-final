@@ -3,18 +3,17 @@ import { Project, UserRole } from "cv-graphql";
 import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
 
-import { updateProjectFormSchema } from "../../schemas";
 import { useProjectUpdate } from "../../api";
+import { updateProjectFormSchema } from "../../schemas";
+import styles from "./project-details-form.module.scss";
 import { Form } from "@/components/form";
-import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormDatePicker } from "@/components/form-date-picker";
-import { FormTextField } from "@/components/form-text-field";
 import { FormNumberInput } from "@/components/form-number-input";
+import { FormSubmitButton } from "@/components/form-submit-button";
+import { FormTextField } from "@/components/form-text-field";
 import { FormTextarea } from "@/components/form-textarea";
 import { DATE_FORMAT } from "@/constants";
 import { useAuthUser } from "@/services/auth-service";
-
-import styles from "./project-details-form.module.scss";
 
 interface ProjectDetailsFormProps {
     project: Project;

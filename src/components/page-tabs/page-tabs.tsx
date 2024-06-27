@@ -1,5 +1,5 @@
-import { useCallback, useMemo } from "react";
 import { Tabs } from "antd";
+import { useCallback, useMemo } from "react";
 import { useLocation, useNavigate, Outlet } from "react-router-dom";
 import { PageTabsProps } from "./page-tabs.types";
 

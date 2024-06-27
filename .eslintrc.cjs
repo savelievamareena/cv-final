@@ -26,7 +26,7 @@ module.exports = {
         project: ["./tsconfig.json", "./tsconfig.node.json"],
         tsconfigRootDir: __dirname,
     },
-    plugins: ["@typescript-eslint", "prettier", "prefer-arrow"],
+    plugins: ["@typescript-eslint", "prettier", "prefer-arrow", "import"],
     rules: {
         "prettier/prettier": [
             "error",
@@ -34,6 +34,25 @@ module.exports = {
                 trailingComma: "es5",
                 jsxSingleQuote: false,
                 singleQuote: false,
+            },
+        ],
+        "import/order": [
+            "error",
+            {
+                groups: [
+                    "builtin",
+                    "external",
+                    "internal",
+                    "parent",
+                    "sibling",
+                    "index",
+                    "object",
+                    "type",
+                ],
+                alphabetize: {
+                    order: "asc",
+                    caseInsensitive: true,
+                },
             },
         ],
         "react/prop-types": "off",

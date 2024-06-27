@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { LanguagesList } from "@/modules/languages/";
 import { useGenericBreadcrumbs } from "@/hooks";
+import { LanguagesList } from "@/modules/languages/";
 
 const LanguagesPage = () => {
     const { t } = useTranslation();

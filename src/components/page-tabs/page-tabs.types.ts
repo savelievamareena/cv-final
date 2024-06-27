@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
 import { TabsProps } from "antd";
+import { ReactNode } from "react";
 
 export interface PageTabItem {
     path: string;

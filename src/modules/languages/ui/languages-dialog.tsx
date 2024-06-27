@@ -1,11 +1,11 @@
-import { useTranslation } from "react-i18next";
 import { Button } from "antd";
+import { useTranslation } from "react-i18next";
+import { getLanguageFormSchema, LanguageFormSchemaType } from "../shemas/language";
+import { BaseDialog } from "@/components/base-dialog/";
 import { Form } from "@/components/form";
+import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormTextField } from "@/components/form-text-field";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
-import { BaseDialog } from "@/components/base-dialog/";
-import { FormSubmitButton } from "@/components/form-submit-button";
-import { getLanguageFormSchema, LanguageFormSchemaType } from "../shemas/language";
 
 interface LanguageDialogProps {
     title: string;
@@ -28,9 +28,17 @@ const LanguageDialog = ({ title, onConfirm, onClose, initialValues }: LanguageDi
                 defaultValues={initialValues}
                 schema={getLanguageFormSchema()}
             >
-                <FormTextField type="text" label={t("language")} name="language" />
-                <FormTextField type="text" label={t("Native name")} name="native_name" />
-                <FormTextField type="text" label={t("iso2")} name="iso2" />
+                <FormTextField
+                    type="text"
+                    label={t("languages.fieldLabels.name")}
+                    name="language"
+                />
+                <FormTextField
+                    type="text"
+                    label={t("languages.fieldLabels.nativeName")}
+                    name="native_name"
+                />
+                <FormTextField type="text" label={t("languages.fieldLabels.iso2")} name="iso2" />
                 <Button htmlType="button" onClick={onClose}>
                     {t("cancel")}
                 </Button>
