@@ -147,6 +147,7 @@
     "Languages": "Языки",
     "Name": "Имя",
     "Education": "Образование",
+    "details": "Подробности",
     "Description": "Описание",
     "notifications": {
         "cv": {

@@ -1,11 +1,11 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import { DetailsWrapper } from "src/modules/cvs/components/details/details-wrapper";
-import { SkillsWrapper } from "src/modules/cvs/components/skills/skills-wrapper";
 import { RelativePaths, RouteParams, routes } from "./constants";
 import { ErrorComponent } from "@/components/error-component";
 import { MainLayout } from "@/components/main-layout";
 import { AuthLayout } from "@/modules/auth/components/auth-layout";
 import { CV } from "@/modules/cvs";
+import { DetailsWrapper } from "@/modules/cvs/components/details/details-wrapper";
+import { SkillsWrapper } from "@/modules/cvs/components/skills/skills-wrapper";
 import { UserLayout } from "@/modules/users/components/user-layout";
 import { CvPage } from "@/pages/cvs";
 import { DepartmentsPage } from "@/pages/departments";

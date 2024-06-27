@@ -6,7 +6,6 @@ export const GET_CV_BY_ID = gql`
     query GetUserEmail($cvId: ID!) {
         cv(cvId: $cvId) {
             user {
-                id
                 email
             }
             name
@@ -24,7 +23,6 @@ export const GET_CV_BY_ID = gql`
 export interface CvResult {
     cv: {
         user: {
-            id: string;
             email: string;
         };
         name: string;
