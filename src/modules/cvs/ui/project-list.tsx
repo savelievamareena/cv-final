@@ -33,22 +33,26 @@ const CvProjectsList = () => {
 
     const [openProjectDialog] = useProjectDialog();
     const [createProject] = useCvProjectAdd();
-    const [deleteProject] = useProjectCvRemove();
+    const [deleteProject] = useProjectCvRemove(cvId ?? "");
 
     const menuProps: Action = {
-        onDelete: (id: string) =>
+        onDelete: (id: string) => {
             openConfirm({
                 title: t("delete confirmation"),
-                onConfirm: () =>
-                    void deleteProject({
+                onConfirm: () => {
+                    const project = projects.find((proj) => proj.id === id);
+                    console.log(project?.project.id);
+                    return void deleteProject({
                         variables: {
                             project: {
-                                projectId: id,
+                                projectId: project?.project.id ?? "",
                                 cvId: cvId ?? "",
                             },
                         },
-                    }),
-            }),
+                    });
+                },
+            });
+        },
         onUpdate: (id: string) => navigate(routes.projects.details(id)),
     };
 
