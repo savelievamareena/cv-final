@@ -1,6 +1,7 @@
-import { ThemeConfig } from "antd";
+import { AppThemeConfig } from "./types";
 
-export const lightTheme: ThemeConfig = {
+export const lightTheme: AppThemeConfig = {
+    isDark: false,
     token: {
         colorBgBase: "#ffffff",
         colorPrimary: "#C63031",

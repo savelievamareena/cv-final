@@ -1,53 +1,41 @@
 import { makeVar } from "@apollo/client";
 import { localStorageService } from "../storage-service";
-import { IThemeService, ThemePrefVariant, ThemeVariant } from "./theme-service.types";
-import { darkTheme, lightTheme } from "./themes";
+import { ThemePreference, Themes } from "./theme-service.constants";
+import { IThemeService } from "./theme-service.types";
+import { AppThemeConfig } from "./themes/types";
 import { StorageKeys } from "@/constants";
 import { THEME_PREF_MEDIA_QUERY } from "@/constants/theme";
 
 class ThemeService implements IThemeService {
-    theme = makeVar<ThemeVariant>(null);
-    themePref = makeVar<ThemePrefVariant>(null);
-    isDarkScheme = makeVar<boolean>(false);
+    theme = makeVar<AppThemeConfig | null>(null);
+    userThemePreference = makeVar<ThemePreference | null>(null);
 
     constructor() {
-        const themePref = localStorageService.getItem<ThemePrefVariant>(StorageKeys.Theme);
+        const themePref = localStorageService.getItem<ThemePreference>(StorageKeys.Theme);
 
-        this.updateTheme(themePref ?? "default");
+        this.updateTheme(themePref ?? ThemePreference.Default);
     }
 
-    updateTheme(themePref: ThemePrefVariant) {
-        this.setThemePref(themePref);
-        this.setTheme(themePref);
+    updateTheme(themePreference: ThemePreference) {
+        this.setUserThemePreference(themePreference);
+        this.setTheme(themePreference);
     }
 
-    setThemePref(themePref: ThemePrefVariant) {
-        this.themePref(themePref);
+    setUserThemePreference(themePreference: ThemePreference) {
+        this.userThemePreference(themePreference);
 
-        localStorageService.setItem(StorageKeys.Theme, themePref);
+        localStorageService.setItem(StorageKeys.Theme, themePreference);
     }
 
-    setTheme(themePref: ThemePrefVariant) {
-        switch (themePref) {
-            case "dark": {
-                this.theme(darkTheme);
-                this.isDarkScheme(true);
-                break;
-            }
-            case "light": {
-                this.theme(lightTheme);
-                this.isDarkScheme(false);
-                break;
-            }
-            default: {
-                if (window.matchMedia(THEME_PREF_MEDIA_QUERY).matches) {
-                    this.theme(darkTheme);
-                    this.isDarkScheme(true);
-                } else {
-                    this.theme(lightTheme);
-                    this.isDarkScheme(false);
-                }
-            }
+    setTheme(themePreference: ThemePreference) {
+        const theme = Themes[themePreference];
+
+        if (theme) this.theme(theme);
+        else {
+            const actualTheme = window.matchMedia(THEME_PREF_MEDIA_QUERY).matches
+                ? Themes[ThemePreference.Dark]
+                : Themes[ThemePreference.Light];
+            this.theme(actualTheme);
         }
     }
 }

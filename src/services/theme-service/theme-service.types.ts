@@ -1,10 +1,6 @@
-import { ThemeConfig } from "antd";
+import { ThemePreference } from "./theme-service.constants";
 export interface IThemeService {
-    setThemePref(themePref: ThemePrefVariant): void;
-    setTheme(themePref: ThemePrefVariant): void;
-    updateTheme(themePref: ThemePrefVariant): void;
+    setUserThemePreference(themePreference: ThemePreference): void;
+    setTheme(themePreference: ThemePreference): void;
+    updateTheme(themePreference: ThemePreference): void;
 }
-
-export type ThemePrefVariant = "dark" | "light" | "default" | null;
-
-export type ThemeVariant = ThemeConfig | null;
