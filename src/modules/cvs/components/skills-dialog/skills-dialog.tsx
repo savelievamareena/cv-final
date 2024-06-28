@@ -2,7 +2,6 @@ import { Button, Flex } from "antd";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Navigate, useParams } from "react-router-dom";
-import { useDeleteCvSkill } from "@/api/delete-cv-skill-mutation";
 import { useSkillCategories } from "@/api/get-skills-categories-query";
 import { BaseDialog } from "@/components/base-dialog/";
 import { Form } from "@/components/form";
@@ -28,7 +27,6 @@ const SkillsDialog = ({
     const formRef = useRef<FormHandle<AddSkillSchemaType>>(null);
 
     const { data: categoriesData } = useSkillCategories();
-    const [deleteMutation, { loading: deleteLoading }] = useDeleteCvSkill();
 
     const skillNamesToShow = useFilterSkillNames(skillsData, existingSkillsOnPage);
     const { skillsOptions, categoriesOptions, masteryOptions } = useSkillFormOptions(
@@ -39,18 +37,6 @@ const SkillsDialog = ({
     if (!cvId) {
         return <Navigate to={routes.auth.root} replace />;
     }
-
-    const handleDelete = () => {
-        void deleteMutation({
-            variables: {
-                skill: {
-                    cvId,
-                    name: initialValues.name ? [initialValues.name] : [],
-                },
-            },
-        });
-        onClose();
-    };
 
     const handleConfirm = (formData: AddSkillSchemaType) => {
         onConfirm(formData);
@@ -97,11 +83,9 @@ const SkillsDialog = ({
                     size="large"
                 />
                 <Flex justify="flex-end" gap={10}>
-                    {initialValues.name && (
-                        <Button htmlType="button" onClick={handleDelete} disabled={deleteLoading}>
-                            {t("delete")}
-                        </Button>
-                    )}
+                    <Button htmlType="button" onClick={onClose}>
+                        {t("cancel")}
+                    </Button>
                     <FormSubmitButton disableIfNotDirty type="primary">
                         {t("confirm")}
                     </FormSubmitButton>

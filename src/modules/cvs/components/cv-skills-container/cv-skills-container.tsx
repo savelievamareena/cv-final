@@ -14,9 +14,10 @@ import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schem
 interface CvSkillsContainerProps {
     skills: SkillMastery[];
     cvId: string;
+    canEdit: boolean;
 }
 
-const CvSkillsContainer = ({ skills, cvId }: CvSkillsContainerProps) => {
+const CvSkillsContainer = ({ skills, cvId, canEdit }: CvSkillsContainerProps) => {
     const [openSkillDialog] = useAddSkill();
     const [updateCvSkill] = useUpdateCvSkill();
     const { data: skillsData } = useSkills();
@@ -75,6 +76,7 @@ const CvSkillsContainer = ({ skills, cvId }: CvSkillsContainerProps) => {
                                         skill={skill}
                                         percent={SkillsMastery[skill.mastery].percent}
                                         strokeColor={SkillsMastery[skill.mastery].color}
+                                        canEdit={canEdit}
                                     />
                                 );
                             })}

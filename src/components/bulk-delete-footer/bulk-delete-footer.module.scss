@@ -1,0 +1,43 @@
+@use "@/scss" as *;
+
+.stickyFooter {
+    height: $header-height;
+
+    background-color: transparent;
+
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    position: fixed;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    bottom: 0;
+    left: 0;
+
+    box-sizing: border-box;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    padding: 0.125rem;
+
+    background-color: $clr-secondary;
+    color: $clr-primary;
+
+    box-sizing: border-box;
+
+    width: 1.25rem;
+    height: 1.25rem;
+}

@@ -14,9 +14,10 @@ import { useAddSkill } from "@/modules/users/components/skills-dialog";
 interface UserSkillsContainerProps {
     skills: SkillMastery[];
     userId: string;
+    canEdit: boolean;
 }
 
-const UserSkillsContainer = ({ skills, userId }: UserSkillsContainerProps) => {
+const UserSkillsContainer = ({ skills, userId, canEdit }: UserSkillsContainerProps) => {
     const { t } = useTranslation();
     const [openSkillDialog] = useAddSkill();
     const [updateProfileSkill] = useUpdateProfileSkill();
@@ -74,6 +75,7 @@ const UserSkillsContainer = ({ skills, userId }: UserSkillsContainerProps) => {
                                         skill={skill}
                                         percent={SkillsMastery[skill.mastery].percent}
                                         strokeColor={SkillsMastery[skill.mastery].color}
+                                        canEdit={canEdit}
                                     />
                                 );
                             })}
