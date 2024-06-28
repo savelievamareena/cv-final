@@ -49,6 +49,39 @@ module.exports = {
                     "object",
                     "type",
                 ],
+                pathGroups: [
+                    {
+                        pattern: "react",
+                        group: "external",
+                        position: "before",
+                    },
+                    {
+                        pattern: "react-dom",
+                        group: "external",
+                        position: "before",
+                    },
+                    {
+                        pattern: "{react*,react-dom*}",
+                        group: "external",
+                        position: "before",
+                    },
+                    {
+                        pattern: "@/**",
+                        group: "internal",
+                        position: "after",
+                    },
+                    {
+                        pattern: "**/*.css",
+                        group: "index",
+                        position: "after",
+                    },
+                    {
+                        pattern: "**/*.scss",
+                        group: "index",
+                        position: "after",
+                    },
+                ],
+                pathGroupsExcludedImportTypes: ["builtin", "external"],
                 alphabetize: {
                     order: "asc",
                     caseInsensitive: true,

@@ -1,5 +1,4 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import { RelativePaths, RouteParams, routes } from "./constants";
 import { ErrorComponent } from "@/components/error-component";
 import { MainLayout } from "@/components/main-layout";
 import { AuthLayout } from "@/modules/auth/components/auth-layout";
@@ -8,6 +7,7 @@ import { DetailsWrapper } from "@/modules/cvs/components/details/details-wrapper
 import { SkillsWrapper } from "@/modules/cvs/components/skills/skills-wrapper";
 import { UserLayout } from "@/modules/users/components/user-layout";
 import { CvPage } from "@/pages/cvs";
+import CvsProjects from "@/pages/cvs-projects/cvs-project";
 import { DepartmentsPage } from "@/pages/departments";
 import { LanguagesPage } from "@/pages/languages";
 import { Login } from "@/pages/login";
@@ -22,6 +22,7 @@ import { UserProfile } from "@/pages/user-profile";
 import { UserSkills } from "@/pages/user-skills";
 import { UsersPage } from "@/pages/users";
 import { VerifyMail } from "@/pages/verify-mail";
+import { RelativePaths, RouteParams, routes } from "./constants";
 
 export const router = createBrowserRouter([
     {
@@ -92,7 +93,7 @@ export const router = createBrowserRouter([
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.cvs.projects(`:${RouteParams.CvId}`),
-                                element: <div>CV projects content</div>,
+                                element: <CvsProjects />,
                             },
                             {
                                 index: true,

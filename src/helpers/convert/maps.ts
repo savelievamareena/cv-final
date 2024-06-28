@@ -1,4 +1,4 @@
-import { Cv, Department, Position, User } from "cv-graphql";
+import { Cv, Department, Position, Project, User } from "cv-graphql";
 import { Key } from "react";
 
 interface SelectOption {
@@ -35,6 +35,13 @@ export const mapStringsToSelectOptions = (arr: string[]): SelectOption[] => {
     return arr.map((item) => ({
         label: item,
         value: item,
+    }));
+};
+
+export const mapProjectsToSelectOptions = (arr: Project[]): SelectOption[] => {
+    return arr.map((item) => ({
+        label: item.name,
+        value: item.name,
     }));
 };
 
