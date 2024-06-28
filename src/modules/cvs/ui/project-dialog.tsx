@@ -42,6 +42,8 @@ const ProjectDialog = ({ title, onConfirm, onClose, initialValues }: ProjectDial
         if (projectsSelected) {
             const selectedIternalName = projectsSelected[0].internal_name;
             formRef.current?.setValue("internal_name", selectedIternalName ?? "");
+            formRef.current?.setValue("team_size", projectsSelected[0].team_size ?? 1);
+            formRef.current?.setValue("description", selectedIternalName ?? "");
         }
     };
     const { t } = useTranslation();

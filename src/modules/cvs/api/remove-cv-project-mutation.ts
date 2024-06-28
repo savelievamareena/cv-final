@@ -1,5 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
-import { GET_PROJECTS_QUERY } from "./get-projects-query";
+import { RemoveCvProjectInput } from "cv-graphql";
+import { RemoveCvProjectResult } from "./cvs.types";
 
 export const REMOVE_CV_PROJECT = gql`
     mutation removeCvProject($project: RemoveCvProjectInput!) {
@@ -10,7 +11,5 @@ export const REMOVE_CV_PROJECT = gql`
 `;
 
 export const useProjectCvRemove = () => {
-    return useMutation(REMOVE_CV_PROJECT, {
-        refetchQueries: [GET_PROJECTS_QUERY],
-    });
+    return useMutation<RemoveCvProjectResult, { project: RemoveCvProjectInput }>(REMOVE_CV_PROJECT);
 };

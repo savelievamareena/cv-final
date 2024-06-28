@@ -5,11 +5,11 @@ import { UserRole } from "cv-graphql";
 import { ChangeEvent, Key } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams, useSearchParams } from "react-router-dom";
+import { RouteParams } from "@/router";
+import { useAuthUser } from "@/services/auth-service";
 import { Action } from "./actions-menu";
 import styles from "./list-template.module.scss";
 import TableTemplate, { ColumnConfig } from "./table-template";
-import { RouteParams } from "@/router";
-import { useAuthUser } from "@/services/auth-service";
 
 interface ListTemplateProps<T> {
     pageName: string;

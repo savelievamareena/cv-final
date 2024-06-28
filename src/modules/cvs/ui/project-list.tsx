@@ -1,4 +1,4 @@
-import { Project } from "cv-graphql";
+import { CvProject } from "cv-graphql";
 import dayjs from "dayjs";
 import { t } from "i18next";
 import { useNavigate, useParams } from "react-router-dom";
@@ -8,12 +8,12 @@ import ListTemplate from "@/components/list-lemplate/list-template";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { DATE_FORMAT } from "@/constants";
 import { RouteParams, routes } from "@/router";
-import { useCvById } from "../api";
-import { useProjectsQuery } from "../api/get-projects-query";
+import { useCvProjectAdd } from "../api/add-cv-project-mutation";
+import { useCvProjects } from "../api/get-cv-projects-query";
 import { useProjectCvRemove } from "../api/remove-cv-project-mutation";
 import { useProjectDialog } from "./project-dialog";
 
-const columnConfigs: ColumnConfig<Project>[] = [
+const columnConfigs: ColumnConfig<CvProject>[] = [
     { name: "name", isSorted: true },
     { name: "internal_name", isSorted: true },
     { name: "domain", isSorted: true },
@@ -25,24 +25,29 @@ const columnConfigs: ColumnConfig<Project>[] = [
 const CvProjectsList = () => {
     const { [RouteParams.CvId]: cvId } = useParams();
 
-    const { projects, loading } = useProjectsQuery();
-    const { cv } = useCvById(cvId ?? "");
-
-    console.log(cv);
+    const { projects, loading } = useCvProjects(cvId ?? "");
 
     const navigate = useNavigate();
 
     const [openConfirm] = useConfirm();
 
     const [openProjectDialog] = useProjectDialog();
-    const [createProject] = useProjectCvRemove();
+    const [createProject] = useCvProjectAdd();
     const [deleteProject] = useProjectCvRemove();
 
     const menuProps: Action = {
         onDelete: (id: string) =>
             openConfirm({
                 title: t("delete confirmation"),
-                onConfirm: () => void deleteProject({ variables: { project: { projectId: id } } }),
+                onConfirm: () =>
+                    void deleteProject({
+                        variables: {
+                            project: {
+                                projectId: id,
+                                cvId: cvId ?? "",
+                            },
+                        },
+                    }),
             }),
         onUpdate: (id: string) => navigate(routes.projects.details(id)),
     };
@@ -54,13 +59,12 @@ const CvProjectsList = () => {
                 void createProject({
                     variables: {
                         project: {
-                            name: formData.name,
-                            internal_name: formData.internal_name,
-                            team_size: formData.team_size,
-                            domain: formData.domain,
-                            description: formData.description,
+                            cvId: cvId ?? "",
+                            projectId: "",
                             start_date: formData.start_date.format(DATE_FORMAT),
                             end_date: formData.end_date?.format(DATE_FORMAT),
+                            responsibilities: [],
+                            roles: [],
                         },
                     },
                 });

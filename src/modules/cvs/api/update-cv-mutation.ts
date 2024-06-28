@@ -1,9 +1,9 @@
 import { gql, useMutation } from "@apollo/client";
 import { UpdateCvInput } from "cv-graphql";
-import { UpdateCvResult } from "./cvs.types";
-import { GET_CVS_QUERY } from "./get-cvs-query";
 import { useNotificationContext } from "@/helpers/notification";
 import i18n from "@/i18n";
+import { UpdateCvResult } from "./cvs.types";
+import { GET_CVS_QUERY } from "./get-cvs-query";
 
 export const UPDATE_CV = gql`
     mutation UpdateCV($cv: UpdateCvInput!) {
