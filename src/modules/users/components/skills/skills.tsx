@@ -58,7 +58,7 @@ const Skills = ({ userId, canEdit }: userSkillsProps) => {
                 </Button>
             )}
             <UserSkillsContainer
-                skills={profileData ? profileData.profile.skills : []}
+                skills={profileData?.profile?.skills ?? []}
                 userId={userId}
                 canEdit={canEdit}
             />

@@ -61,11 +61,7 @@ const Skills = ({ cvId, currentUser }: SkillProps) => {
                     {t("skills.addSkill")}
                 </Button>
             )}
-            <CvSkillsContainer
-                canEdit={canEdit}
-                skills={cvData ? cvData.cv.skills : []}
-                cvId={cvId}
-            />
+            <CvSkillsContainer canEdit={canEdit} skills={cvData?.cv?.skills ?? []} cvId={cvId} />
             {canEdit && <SkillsDeleteFooter cvId={cvId} />}
         </Flex>
     );

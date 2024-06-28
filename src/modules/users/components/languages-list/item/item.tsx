@@ -24,17 +24,14 @@ const LanguagesListItem = ({ language, handleLanguageSelect, canEdit }: Language
                 className={classNames(styles.itemWrapper, {
                     [styles.itemWrapper_selected]: isSelected,
                 })}
-                onClick={
-                    canEdit
-                        ? () => {
-                              if (isSelected) {
-                                  bulkDeleteService.handleItemId(language.name);
-                                  return;
-                              }
-                              handleLanguageSelect(language);
-                          }
-                        : undefined
-                }
+                onClick={() => {
+                    if (isSelected) {
+                        bulkDeleteService.handleItemId(language.name);
+                        return;
+                    }
+                    handleLanguageSelect(language);
+                }}
+                disabled={!canEdit}
             >
                 <Flex className={styles.item}>
                     <span
@@ -52,6 +49,7 @@ const LanguagesListItem = ({ language, handleLanguageSelect, canEdit }: Language
                     isSelected={isSelected}
                     item={language.name}
                     className={styles.deleteButton}
+                    disabled={!canEdit}
                 />
             )}
         </div>

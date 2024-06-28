@@ -24,18 +24,15 @@ const ProgressBar = ({ skill, handleSkillSelected, canEdit, ...props }: SkillPro
                 className={classNames(styles.progress_bar_wrapper, {
                     [styles.selected]: isSelected,
                 })}
-                onClick={
-                    canEdit
-                        ? () => {
-                              if (isSelected) {
-                                  bulkDeleteService.handleItemId(skill.name);
-                                  return;
-                              }
+                onClick={() => {
+                    if (isSelected) {
+                        bulkDeleteService.handleItemId(skill.name);
+                        return;
+                    }
 
-                              handleSkillSelected(skill);
-                          }
-                        : undefined
-                }
+                    handleSkillSelected(skill);
+                }}
+                disabled={!canEdit}
             >
                 <Flex className={styles.progress_bar}>
                     <Progress
