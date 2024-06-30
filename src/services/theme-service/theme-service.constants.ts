@@ -1,10 +1,10 @@
 import { darkTheme, lightTheme } from "./themes";
 import { AppThemeConfig } from "./themes/types";
 
-export const enum ThemePreference {
+export enum ThemePreference {
+    Default = "default",
     Dark = "dark",
     Light = "light",
-    Default = "default",
 }
 
 export const Themes: Record<ThemePreference, AppThemeConfig | null> = {
