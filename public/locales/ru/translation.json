@@ -98,6 +98,19 @@
             "teamSize": "Размер команды должен быть целым числом больше 1"
         }
     },
+    "settings": {
+        "themeSelect":{
+            "label":"Внешний вид",
+            "options":{
+                "default":"Настройки устройства",
+                "dark":"Тёмный",
+                "light":"Светлый"
+            }
+        },
+        "languageSelect":{
+            "label":"Язык"
+        }
+    },
     "language":"язык",
     "languages": {
         "addLanguage": "Добавить язык",

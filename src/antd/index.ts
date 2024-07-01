@@ -1,1 +1,1 @@
-export { default as antdTheme } from "./theme";
+export { default as ThemeProvider } from "./theme-provider";
