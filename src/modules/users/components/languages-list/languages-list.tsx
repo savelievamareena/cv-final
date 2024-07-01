@@ -1,5 +1,5 @@
 import { PlusOutlined } from "@ant-design/icons";
-import { Button, Flex, Spin } from "antd";
+import { Button, Flex } from "antd";
 import { LanguageProficiency, Proficiency } from "cv-graphql";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
@@ -9,6 +9,7 @@ import { LanguagesFormSchemaType } from "../schemas/languages";
 import { LanguagesListItem } from "./item";
 
 import styles from "./languages-list.module.scss";
+import { PageLoader } from "@/components/page-loader";
 
 interface LanguagesListProps {
     userId: string;
@@ -81,7 +82,7 @@ const LanguagesList = ({ userId, canEdit }: LanguagesListProps) => {
             isSubmitting: loadingUpdate,
         });
 
-    if (loading) return <Spin size="large" />;
+    if (loading) return <PageLoader />;
 
     return (
         <Flex vertical className={styles.list}>

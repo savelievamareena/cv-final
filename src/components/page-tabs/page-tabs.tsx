@@ -1,6 +1,7 @@
 import { Tabs } from "antd";
-import { useCallback, useMemo } from "react";
+import { Suspense, useCallback, useMemo } from "react";
 import { useLocation, useNavigate, Outlet } from "react-router-dom";
+import { PageLoader } from "../page-loader";
 import { PageTabsProps } from "./page-tabs.types";
 
 export const PageTabs = ({ items, ...props }: PageTabsProps) => {
@@ -8,7 +9,16 @@ export const PageTabs = ({ items, ...props }: PageTabsProps) => {
     const navigate = useNavigate();
 
     const actualItems = useMemo(
-        () => items.map(({ label, path }) => ({ label, key: path, children: <Outlet /> })),
+        () =>
+            items.map(({ label, path }) => ({
+                label,
+                key: path,
+                children: (
+                    <Suspense fallback={<PageLoader />}>
+                        <Outlet />
+                    </Suspense>
+                ),
+            })),
         [items]
     );
 

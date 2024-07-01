@@ -1,5 +1,5 @@
 import { SafetyOutlined } from "@ant-design/icons";
-import { Col, Row, Spin, Typography } from "antd";
+import { Col, Row, Typography } from "antd";
 import { UserRole } from "cv-graphql";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
@@ -10,6 +10,7 @@ import { ProfileAvatar } from "../profile-avatar";
 import { ProfileForm } from "../profile-form";
 
 import styles from "./profile-content.module.scss";
+import { PageLoader } from "@/components/page-loader";
 import i18n from "@/i18n";
 import { RouteParams } from "@/router";
 import { useAuthUser } from "@/services/auth-service";
@@ -34,7 +35,7 @@ const ProfileContent = () => {
 
     return (
         <>
-            {loading && <Spin />}
+            {loading && <PageLoader />}
             {hasData && (
                 <div className={styles.wrapper}>
                     <Row gutter={[16, 8]}>
