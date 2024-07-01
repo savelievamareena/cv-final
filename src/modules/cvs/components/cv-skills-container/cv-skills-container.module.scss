@@ -9,3 +9,13 @@
     justify-content: flex-start;
     gap: 1rem;
 }
+
+@media only screen and (max-width: 769px) {
+    .skills_row {
+        flex-direction: column;
+    }
+
+    .progress_bar_wrapper {
+        width: 90%;
+    }
+}

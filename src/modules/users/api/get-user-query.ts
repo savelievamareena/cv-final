@@ -16,6 +16,9 @@ export const GET_USER_QUERY = gql`
                 id
                 name
             }
+            profile {
+                full_name
+            }
         }
     }
 `;

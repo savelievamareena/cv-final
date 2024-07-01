@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { SkillMastery } from "cv-graphql";
+import { CvProject, SkillMastery } from "cv-graphql";
 import { useNotificationContext } from "@/helpers/notification";
 
 export const GET_CV_BY_ID = gql`
@@ -17,6 +17,15 @@ export const GET_CV_BY_ID = gql`
                 category
                 mastery
             }
+            projects {
+                name
+                description
+                roles
+                responsibilities
+                start_date
+                end_date
+                domain
+            }
         }
     }
 `;
@@ -31,6 +40,7 @@ export interface CvResult {
         education: string;
         description: string;
         skills: SkillMastery[];
+        projects: CvProject[];
     };
 }
 

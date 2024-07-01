@@ -4,7 +4,7 @@ import { Mastery, User, UserRole } from "cv-graphql";
 import { useTranslation } from "react-i18next";
 import { useAddProfileSkill } from "@/api/add-profile-skill-mutation";
 import { useSkills } from "@/api/get-skills-query";
-import styles from "@/modules/cvs/components/skills/skills.module.css";
+import styles from "@/modules/cvs/components/skills/skills.module.scss";
 import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
 import { useProfileQuery, useUserQuery } from "@/modules/users/api";
 import { useAddSkill } from "@/modules/users/components/skills-dialog";
