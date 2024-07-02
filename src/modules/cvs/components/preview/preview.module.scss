@@ -6,6 +6,7 @@
 
 .preview_basic_info {
     font-size: clamp(0.8rem, 5vw, 1.2rem);
+    page-break-after: always;
 }
 
 .preview_left_col {
@@ -77,5 +78,11 @@
     }
     .preview_left_col {
         max-width: 8rem;
+    }
+}
+
+@media print {
+    .export_button {
+        display: none;
     }
 }
