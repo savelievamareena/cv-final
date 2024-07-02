@@ -5,6 +5,7 @@ import { MainLayout } from "@/components/main-layout";
 import { AuthLayout } from "@/modules/auth/components/auth-layout";
 import { CV } from "@/modules/cvs";
 import { DetailsWrapper } from "@/modules/cvs/components/details/details-wrapper";
+import { PreviewWrapper } from "@/modules/cvs/components/preview/preview-wrapper";
 import { SkillsWrapper } from "@/modules/cvs/components/skills/skills-wrapper";
 import { UserLayout } from "@/modules/users/components/user-layout";
 import { CvPage } from "@/pages/cvs";
@@ -88,7 +89,7 @@ export const router = createBrowserRouter([
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.cvs.preview(`:${RouteParams.CvId}`),
-                                element: <div>CV preview content</div>,
+                                element: <PreviewWrapper />,
                             },
                             {
                                 errorElement: <ErrorComponent />,
