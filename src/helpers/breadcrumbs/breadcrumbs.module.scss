@@ -1,3 +1,18 @@
 .breadcrumb {
     height: 1.5rem;
+
+    ol {
+        display: flex;
+        flex-wrap: nowrap;
+
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        & > * {
+            flex-shrink: 0;
+        }
+    }
 }

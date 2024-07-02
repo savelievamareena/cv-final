@@ -38,7 +38,7 @@ const ProfileContent = () => {
             {hasData && (
                 <div className={styles.wrapper}>
                     <Row gutter={[16, 8]}>
-                        <Col span={12}>
+                        <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                             <ProfileAvatar
                                 canEdit={canEdit}
                                 user={userData.user}
@@ -64,7 +64,7 @@ const ProfileContent = () => {
                                 </span>
                             </Typography>
                         </Col>
-                        <Col span={12}>
+                        <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                             {hasData && canEdit && <AvatarUpload user={userData.user} />}
                         </Col>
                         <Col span={24}>

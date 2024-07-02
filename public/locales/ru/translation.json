@@ -98,26 +98,27 @@
             "teamSize": "Размер команды должен быть целым числом больше 1"
         }
     },
-    "language":"язык",
+    "language": "язык",
     "languages": {
         "addLanguage": "Добавить язык",
         "updateLanguage": "Обновить язык",
         "fieldLabels": {
-            "name":"Название",
-            "nativeName":"Оригинальное название",
-            "iso2":"ISO2"
+            "name": "Название",
+            "nativeName": "Оригинальное название",
+            "iso2": "ISO2"
         }
     },
-    "userLanguages":{
+    "userLanguages": {
         "addLanguage": "Добавить язык",
         "updateLanguage": "Обновить язык",
+        "langProficiency": "Владение языком",
         "fieldLabels": {
-            "name":"Название",
-            "proficiency":"Уровень владения"
+            "name": "Название",
+            "proficiency": "Уровень владения"
         },
         "fieldErrors": {
-            "nameRequired":"Выберите язык",
-            "proficiencyRequired":"Выбирите уровень владения"
+            "nameRequired": "Выберите язык",
+            "proficiencyRequired": "Выбирите уровень владения"
         }
     },
     "deleteConfirm": "Вы уверены, что хотите удалить {{item}}?",
@@ -133,6 +134,7 @@
     "department": "отдел",
     "skill": "навык",
     "Profile": "Профиль",
+    "Domains": "Домены",
     "Settings": "Настройки",
     "Logout": "Выйти",
     "Home": "Главная",
@@ -183,7 +185,8 @@
         "Cv": "Резюме",
         "addCv": "Добавить резюме",
         "updateCv": "Обновить резюме",
-        "deleteCv": "Удалить резюме"
+        "deleteCv": "Удалить резюме",
+        "exportPdf": "ЭКСПОРТ PDF"
     },
     "users": {
         "user": "пользователь",
@@ -192,16 +195,17 @@
         "deleteUser": "Удалить пользователя"
     },
     "projects": {
-        "projects":"проект",
+        "projects": "проект",
         "addProject": "Add проект",
         "updateProject": "Update проект",
         "deleteProject": "Delete проект",
-        "name":"Имя",
-        "internalName":"Внутренне Имя",
-        "domain":"Домен",
-        "teamSize":"Размер команды",
+        "name": "Имя",
+        "internalName": "Внутренне Имя",
+        "domain": "Домен",
+        "teamSize": "Размер команды",
         "description": "Описание",
-        "stardDate": "Дата начала",
-        "endDate": "Дата окончания"
+        "startDate": "Дата начала",
+        "endDate": "Дата окончания",
+        "tillNow": "По настощее время"
     }
 }

@@ -56,33 +56,33 @@ const ProjectDetailsForm = ({ project }: ProjectDetailsFormProps) => {
             className={styles.form}
         >
             <Row gutter={[16, 8]}>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormTextField label={t("project.fieldLabels.name")} name="name" />
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormTextField
                         label={t("project.fieldLabels.internalName")}
                         name="internal_name"
                     />
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormTextField label={t("project.fieldLabels.domain")} name="domain" />
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormNumberInput
                         className={styles.fullWidth}
                         label={t("project.fieldLabels.teamSize")}
                         name="team_size"
                     />
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormDatePicker
                         className={styles.fullWidth}
                         label={t("project.fieldLabels.startDate")}
                         name="start_date"
                     />
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormDatePicker
                         className={styles.fullWidth}
                         label={t("project.fieldLabels.endDate")}
