@@ -1,5 +1,9 @@
 {
     "auth": {
+        "additionalLinks": {
+            "haveAccount":"I have an account",
+            "dontHaveAccount":"I don't have an account"
+        },
         "fieldLabels": {
             "password": "Password",
             "email": "Email",

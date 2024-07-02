@@ -38,9 +38,17 @@ export const LoginForm = () => {
             <FormTextField type="text" label={t("auth.fieldLabels.email")} name="email" />
             <PasswordInput label={t("auth.fieldLabels.password")} name="password" />
             <FormSubmitButton type="primary">{t("submit")}</FormSubmitButton>
+            <p>
+                <Link to={routes.auth.signUp} className={styles.link}>
+                    {t("auth.additionalLinks.dontHaveAccount")}
+                </Link>
+            </p>
             {isExistingUserNotVerified && (
                 <p>
-                    {t("verifyEmailHint")} <Link to={routes.auth.verification}>{t("here")}</Link>
+                    {t("verifyEmailHint")}{" "}
+                    <Link className={styles.link} to={routes.auth.verification}>
+                        {t("here")}
+                    </Link>
                 </p>
             )}
         </Form>
