@@ -111,6 +111,12 @@
             "label":"Язык"
         }
     },
+    "languageSelect": {
+        "options": {
+            "english":"English",
+            "russian":"Русский"
+        }
+    },
     "language":"язык",
     "languages": {
         "addLanguage": "Добавить язык",

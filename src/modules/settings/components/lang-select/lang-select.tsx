@@ -9,10 +9,10 @@ const LangSelect = () => {
 
     const options = useMemo(
         () => [
-            { label: "English", value: Languages.En },
-            { label: "Русский", value: Languages.Ru },
+            { label: t("languageSelect.options.english"), value: Languages.En },
+            { label: t("languageSelect.options.russian"), value: Languages.Ru },
         ],
-        []
+        [t]
     );
 
     return (

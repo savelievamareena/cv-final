@@ -134,6 +134,12 @@
             "label":"Language"
         }
     },
+    "languageSelect": {
+        "options": {
+            "english":"English",
+            "russian":"Русский"
+        }
+    },
     "submit": "Submit",
     "Welcome Back": "Welcome Back",
     "add": "Add",

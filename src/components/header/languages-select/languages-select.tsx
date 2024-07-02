@@ -16,11 +16,19 @@ const LanguagesSelect = () => {
 
     const languages: MenuProps["items"] = [
         {
-            label: <span className={classNames(styles.dropdownMenu)}>English</span>,
+            label: (
+                <span className={classNames(styles.dropdownMenu)}>
+                    {t("languageSelect.options.english")}
+                </span>
+            ),
             key: Languages.En,
         },
         {
-            label: <span className={classNames(styles.dropdownMenu)}>Русский</span>,
+            label: (
+                <span className={classNames(styles.dropdownMenu)}>
+                    {t("languageSelect.options.russian")}
+                </span>
+            ),
             key: Languages.Ru,
         },
     ];
