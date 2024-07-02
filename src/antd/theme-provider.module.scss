@@ -1,9 +1,17 @@
 @use "@/scss" as *;
 
-.darkBody {
-    color: $clr-secondary;
+.dark {
+    color: #ffffff;
     background-color: #3e3e3e;
 
-    --clr-icon: $clr-secondary;
-    --clr-icon--hover: $clr-secondary;
+    --clr-icon: #dddddd;
+    --clr-icon--hover: #ffffff;
+}
+
+.light {
+    color: #2e2e2e;
+    background-color: #ffffff;
+
+    --clr-icon: #2e2e2e;
+    --clr-icon--hover: #4e4e4e;
 }

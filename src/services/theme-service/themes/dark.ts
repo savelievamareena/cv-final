@@ -1,7 +1,7 @@
 import { AppThemeConfig } from "./types";
 
 export const darkTheme: AppThemeConfig = {
-    isDark: true,
+    name: "dark",
     token: {
         colorBgBase: "#4E4E4E",
         colorPrimary: "#C63031",

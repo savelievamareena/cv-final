@@ -9,9 +9,14 @@ const ThemeProvider = ({ children }: PropsWithChildren) => {
     const theme = useAppTheme();
 
     useEffect(() => {
-        if (theme?.isDark) document.body.classList.add(styles.darkBody);
-        return () => document.body.classList.remove(styles.darkBody);
-    }, [theme?.isDark]);
+        const className = theme && styles[`${theme.name}`];
+
+        if (!className) return;
+
+        document.body.classList.add(className);
+
+        return () => document.body.classList.remove(className);
+    }, [theme?.name]);
 
     return <ConfigProvider theme={theme ?? undefined}>{children}</ConfigProvider>;
 };
