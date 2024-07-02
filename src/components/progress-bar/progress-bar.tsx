@@ -12,7 +12,7 @@ const ProgressBar = ({ skill, handleSkillSelected, ...props }: SkillProgressBarP
     return (
         <Button
             type="default"
-            className={styles.progress_bar_wrapper}
+            className={styles.progress_bar_button_wrapper}
             onClick={() => {
                 handleSkillSelected(skill);
             }}
@@ -20,7 +20,7 @@ const ProgressBar = ({ skill, handleSkillSelected, ...props }: SkillProgressBarP
             <Flex className={styles.progress_bar}>
                 <Progress {...props} size="small" showInfo={false} />
             </Flex>
-            <span>{skill.name}</span>
+            <Flex>{skill.name}</Flex>
         </Button>
     );
 };
