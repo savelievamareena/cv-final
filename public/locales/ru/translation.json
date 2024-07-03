@@ -1,5 +1,9 @@
 {
     "auth": {
+        "additionalLinks": {
+            "haveAccount":"У меня есть аккаунт",
+            "dontHaveAccount":"У меня нет аккаунта"
+        },
         "fieldLabels": {
             "password": "Пароль",
             "email": "Email",
@@ -82,7 +86,8 @@
             "competent": "Компетентный",
             "proficient": "Опытный",
             "expert": "Эксперт"
-        }
+        },
+        "noSkills": "Нет указанных языков"
     },
     "project": {
         "fieldLabels": {
@@ -125,7 +130,8 @@
             "name": "Название",
             "nativeName": "Оригинальное название",
             "iso2": "ISO2"
-        }
+        },
+        "noLanguages": "Нет указанных языков"
     },
     "userLanguages": {
         "addLanguage": "Добавить язык",

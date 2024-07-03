@@ -1,5 +1,5 @@
 import { PlusOutlined } from "@ant-design/icons";
-import { Button, Flex, Spin } from "antd";
+import { Button, Flex } from "antd";
 import { LanguageProficiency, Proficiency } from "cv-graphql";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
@@ -9,6 +9,7 @@ import { LanguagesFormSchemaType } from "../schemas/languages";
 import { LanguagesListItem } from "./item";
 
 import styles from "./languages-list.module.scss";
+import { FullsizeLoader } from "@/components/fullsize-loader";
 
 interface LanguagesListProps {
     userId: string;
@@ -33,6 +34,12 @@ const LanguagesList = ({ userId, canEdit }: LanguagesListProps) => {
         () => (data ? data?.profile.languages.map((item) => item.name) : []),
         [data]
     );
+
+    if (!loading && !data?.profile?.languages?.length) {
+        return <Flex justify="center">{t("languages.noLanguages")}</Flex>;
+    }
+
+    if (loading) return <FullsizeLoader />;
 
     const addLanguage = () =>
         openLanguageDialog({
@@ -81,8 +88,6 @@ const LanguagesList = ({ userId, canEdit }: LanguagesListProps) => {
             isSubmitting: loadingUpdate,
         });
 
-    if (loading) return <Spin size="large" />;
-
     return (
         <Flex vertical className={styles.list}>
             {canEdit && (
@@ -99,6 +104,7 @@ const LanguagesList = ({ userId, canEdit }: LanguagesListProps) => {
                                 key={item.name}
                                 language={item}
                                 handleLanguageSelect={handleLanguageSelected}
+                                canEdit={canEdit}
                             />
                         );
                     })}

@@ -2,7 +2,6 @@ import { Button, Flex } from "antd";
 import { LanguageProficiency, Proficiency } from "cv-graphql";
 import { useTranslation } from "react-i18next";
 
-import { useDeleteUserLanguage } from "../../api";
 import { LanguagesFormSchemaType, languagesFormSchema } from "../schemas/languages";
 import { useLanguagesQuery } from "@/api";
 import { BaseDialog } from "@/components/base-dialog/";
@@ -30,13 +29,10 @@ const LanguagesDialog = ({
     selectedLanguage,
     isSubmitting,
     existingLanguages,
-    userId,
 }: LanguagesDialogProps) => {
     const { t } = useTranslation();
 
     const { languages, loading } = useLanguagesQuery();
-
-    const [deleteMutation, { loading: deleteLoading }] = useDeleteUserLanguage();
 
     const handleConfirm = (formData: LanguagesFormSchemaType) => {
         void onConfirm(formData).then(() => {
@@ -56,31 +52,17 @@ const LanguagesDialog = ({
         }))
         .filter((lang) => !existingLanguages.includes(lang.label));
 
-    const handleDelete = () => {
-        void deleteMutation({
-            variables: {
-                language: {
-                    userId: userId,
-                    name: selectedLanguage?.name ? [selectedLanguage.name] : [],
-                },
-            },
-            onCompleted: () => {
-                onClose();
-            },
-        });
-    };
-
     return (
         <BaseDialog title={title} onClose={onClose}>
             <Form
                 schema={languagesFormSchema()}
                 onSubmit={handleConfirm}
                 defaultValues={initialValues}
-                disabled={deleteLoading || isSubmitting}
+                disabled={isSubmitting}
             >
                 <FormSelect
                     name="name"
-                    label={t("languages.fieldLabels.name")}
+                    label={t("userLanguages.fieldLabels.name")}
                     options={languageOptions}
                     size="large"
                     disabled={!!selectedLanguage}
@@ -88,16 +70,14 @@ const LanguagesDialog = ({
                 />
                 <FormSelect
                     name="proficiency"
-                    label={t("languages.fieldLabels.proficiency")}
+                    label={t("userLanguages.fieldLabels.proficiency")}
                     options={proficiencyOptions}
                     size="large"
                 />
                 <Flex justify="flex-end" gap={10}>
-                    {selectedLanguage && (
-                        <Button htmlType="button" type="default" onClick={handleDelete}>
-                            {t("delete")}
-                        </Button>
-                    )}
+                    <Button htmlType="button" onClick={onClose}>
+                        {t("cancel")}
+                    </Button>
                     <FormSubmitButton disableIfNotDirty type="primary" disabled={isSubmitting}>
                         {t("confirm")}
                     </FormSubmitButton>

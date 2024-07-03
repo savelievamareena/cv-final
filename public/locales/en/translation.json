@@ -1,5 +1,9 @@
 {
     "auth": {
+        "additionalLinks": {
+            "haveAccount":"I have an account",
+            "dontHaveAccount":"I don't have an account"
+        },
         "fieldLabels": {
             "password": "Password",
             "email": "Email",
@@ -54,7 +58,8 @@
             "name": "Name",
             "nativeName": "Native name",
             "iso2": "ISO2"
-        }
+        },
+        "noLanguages": "No languages specified"
     },
     "userLanguages": {
         "addLanguage": "Add language",
@@ -106,7 +111,8 @@
             "competent": "Competent",
             "proficient": "Proficient",
             "expert": "Expert"
-        }
+        },
+        "noSkills": "No skills specified"
     },
     "project": {
         "fieldLabels": {

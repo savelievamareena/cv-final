@@ -1,11 +1,12 @@
-import { Flex, Spin } from "antd";
+import { Flex } from "antd";
 import { useTranslation } from "react-i18next";
 import { Form } from "@/components/form";
 import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormTextField } from "@/components/form-text-field";
 import { FormTextarea } from "@/components/form-textarea";
+import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useCvById, useCvUpdate } from "@/modules/cvs/api";
-import styles from "@/modules/cvs/components/details/details.module.css";
+import styles from "@/modules/cvs/components/details/details.module.scss";
 import { CvDetailsSchemaType, getCvDetailsSchema } from "@/modules/cvs/components/details/schemas";
 
 interface DetailsProps {
@@ -34,7 +35,7 @@ const Details = ({ cvId, currentUserEmail }: DetailsProps) => {
         });
     };
 
-    if (loadingCv) return <Spin tip="Loading" size="large" />;
+    if (loadingCv) return <FullsizeLoader />;
 
     return (
         <Flex className={styles.cv_details_form_wrapper}>

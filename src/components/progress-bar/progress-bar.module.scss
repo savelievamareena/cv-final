@@ -1,25 +1,37 @@
-.progress_bar_button_wrapper {
-    width: 30%;
+@use "@/scss" as *;
+
+.progress_bar_wrapper {
+    width: 100%;
     display: flex;
     border: none;
     flex-wrap: wrap;
     justify-content: flex-start;
+    align-items: center;
     gap: 1rem;
-    margin: 6px 8px;
+
+    padding-right: 2rem;
+}
+
+.selected {
+    outline: 1px solid $clr-primary;
 }
 
 .progress_bar {
-    width: 50%;
+    width: 33%;
 }
 
-@media only screen and (max-width: 1020px) {
-    .progress_bar_button_wrapper {
-        width: 60%;
-    }
+.wrapper {
+    min-width: min(15rem, 100%);
+    max-width: 100%;
+    position: relative;
+
+    padding: 0.5rem;
+
+    box-sizing: border-box;
 }
 
-@media only screen and (max-width: 769px) {
-    .progress_bar_button_wrapper {
-        width: 90%;
-    }
+.deleteButton {
+    position: absolute;
+    top: calc(50% - 0.625rem);
+    right: min(1.5rem);
 }

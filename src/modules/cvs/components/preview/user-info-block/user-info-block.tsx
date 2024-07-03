@@ -1,5 +1,6 @@
-import { Flex, Spin, Typography } from "antd";
+import { Flex, Typography } from "antd";
 import styles from "../preview.module.scss";
+import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useUserQuery } from "@/modules/users/api";
 
 interface UserInfoBlockProps {
@@ -13,7 +14,7 @@ const UserInfoBlock = ({ userId }: UserInfoBlockProps) => {
         userId,
     });
 
-    if (userLoading) return <Spin size={"large"} />;
+    if (userLoading) return <FullsizeLoader />;
 
     return (
         <Flex vertical>

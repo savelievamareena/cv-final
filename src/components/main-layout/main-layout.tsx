@@ -1,7 +1,7 @@
-import { Spin } from "antd";
 import { Suspense } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
+import { FullsizeLoader } from "../fullsize-loader";
 import { MainHeader } from "../header";
 import styles from "./main-layout.module.scss";
 import { BreadcrumbsProvider } from "@/helpers/breadcrumbs";
@@ -19,7 +19,7 @@ export const MainLayout = () => {
             <MainHeader />
             <main className={styles.main}>
                 <BreadcrumbsProvider>
-                    <Suspense fallback={<Spin size="large" fullscreen />}>
+                    <Suspense fallback={<FullsizeLoader />}>
                         <Outlet />
                     </Suspense>
                 </BreadcrumbsProvider>
