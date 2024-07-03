@@ -34,6 +34,12 @@ const LanguagesList = ({ userId, canEdit }: LanguagesListProps) => {
         [data]
     );
 
+    if (!data?.profile?.languages?.length) {
+        return <Flex justify="center">{t("langauges.noLangauges")}</Flex>;
+    }
+
+    if (loading) return <Spin size="large" />;
+
     const addLanguage = () =>
         openLanguageDialog({
             title: t("userLanguages.addLanguage"),
@@ -80,8 +86,6 @@ const LanguagesList = ({ userId, canEdit }: LanguagesListProps) => {
             },
             isSubmitting: loadingUpdate,
         });
-
-    if (loading) return <Spin size="large" />;
 
     return (
         <Flex vertical className={styles.list}>

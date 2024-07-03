@@ -58,7 +58,8 @@
             "name": "Name",
             "nativeName": "Native name",
             "iso2": "ISO2"
-        }
+        },
+        "noLanguages": "No languages specified"
     },
     "userLanguages": {
         "addLanguage": "Add language",
@@ -110,7 +111,8 @@
             "competent": "Competent",
             "proficient": "Proficient",
             "expert": "Expert"
-        }
+        },
+        "noSkills": "No skills specified"
     },
     "project": {
         "fieldLabels": {

@@ -23,8 +23,10 @@ const UserSkillsContainer = ({ skills, userId, canEdit }: UserSkillsContainerPro
     const [updateProfileSkill] = useUpdateProfileSkill();
     const { data: skillsData } = useSkills();
 
-    if (skills.length < 1) {
-        return <Flex justify="center">No skills Added</Flex>;
+    const skillsByCategory: SkillsByCategory = useSortSkillsByCategory(skills);
+
+    if (!skills.length) {
+        return <Flex justify="center">{t("skills.noSkills")}</Flex>;
     }
 
     const handleSkillSelected = (skill: SkillMastery) => {
@@ -54,8 +56,6 @@ const UserSkillsContainer = ({ skills, userId, canEdit }: UserSkillsContainerPro
             skillsData: skillsData,
             existingSkillsOnPage: skills,
         });
-
-    const skillsByCategory: SkillsByCategory = useSortSkillsByCategory(skills);
 
     return (
         <>

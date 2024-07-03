@@ -22,8 +22,12 @@ const CvSkillsContainer = ({ skills, cvId, canEdit }: CvSkillsContainerProps) =>
     const [updateCvSkill] = useUpdateCvSkill();
     const { data: skillsData } = useSkills();
 
-    if (skills.length < 1) {
-        return <Flex justify="center">No skills Added</Flex>;
+    const { t } = useTranslation();
+
+    const skillsByCategory: SkillsByCategory = useSortSkillsByCategory(skills);
+
+    if (!skills.length) {
+        return <Flex justify="center">{t("skills.noSkills")}</Flex>;
     }
 
     const handleSkillSelected = (skill: SkillMastery) => {
@@ -53,10 +57,6 @@ const CvSkillsContainer = ({ skills, cvId, canEdit }: CvSkillsContainerProps) =>
             skillsData: skillsData,
             existingSkillsOnPage: skills,
         });
-
-    const { t } = useTranslation();
-
-    const skillsByCategory: SkillsByCategory = useSortSkillsByCategory(skills);
 
     return (
         <>

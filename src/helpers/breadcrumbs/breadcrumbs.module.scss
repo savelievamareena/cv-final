@@ -5,5 +5,11 @@
         & > * {
             flex-shrink: 0;
         }
+
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
