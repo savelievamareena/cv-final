@@ -13,7 +13,12 @@ const HeaderUserMenu = () => {
 
     if (!user) return null;
 
-    if (loading) return <Spin />;
+    if (loading)
+        return (
+            <div className={styles.loaderWrapper}>
+                <Spin />
+            </div>
+        );
 
     return (
         <>

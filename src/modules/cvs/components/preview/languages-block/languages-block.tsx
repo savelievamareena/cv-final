@@ -1,4 +1,5 @@
-import { Flex, Spin } from "antd";
+import { Flex } from "antd";
+import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useUserLanguages } from "@/modules/users/api";
 
 interface LanguagesBlockProps {
@@ -8,7 +9,7 @@ interface LanguagesBlockProps {
 const LanguagesBlock = ({ userId }: LanguagesBlockProps) => {
     const { data: langData, loading: langLoading } = useUserLanguages({ userId });
 
-    if (langLoading) return <Spin size="large" />;
+    if (langLoading) return <FullsizeLoader />;
 
     return (
         <Flex vertical>

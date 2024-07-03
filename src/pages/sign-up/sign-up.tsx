@@ -1,5 +1,7 @@
 import { SignUpForm } from "@/modules/auth/components/forms";
 
-export const SignUp = () => {
+const SignUp = () => {
     return <SignUpForm />;
 };
+
+export default SignUp;

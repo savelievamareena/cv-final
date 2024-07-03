@@ -1,10 +1,11 @@
 import { PlusOutlined } from "@ant-design/icons";
-import { Button, Flex, Spin } from "antd";
+import { Button, Flex } from "antd";
 import { Mastery } from "cv-graphql";
 import { useTranslation } from "react-i18next";
 import styles from "./skills.module.scss";
 import { useAddProfileSkill } from "@/api/add-profile-skill-mutation";
 import { useSkills } from "@/api/get-skills-query";
+import { FullsizeLoader } from "@/components/fullsize-loader";
 import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
 import { useProfileQuery } from "@/modules/users/api";
 import { useAddSkill } from "@/modules/users/components/skills-dialog";
@@ -23,7 +24,7 @@ const Skills = ({ userId, canEdit }: userSkillsProps) => {
     const [addProfileSkill] = useAddProfileSkill();
     const { data: skillsData, loading: skillsLoading } = useSkills();
 
-    if (loadingProfile || skillsLoading) return <Spin tip="Loading" size="large" />;
+    if (loadingProfile || skillsLoading) return <FullsizeLoader />;
 
     const openAddSkillDialog = () =>
         openSkillDialog({

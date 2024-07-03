@@ -1,9 +1,10 @@
-import { Flex, Spin } from "antd";
+import { Flex } from "antd";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { LanguagesBlock } from "./languages-block";
 import styles from "./preview.module.scss";
 import { SkillsInfoBlock } from "./skills-info-block";
+import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useCvById } from "@/modules/cvs/api";
 import { DomainBlock } from "@/modules/cvs/components/preview/domain-block";
 import { ProjectsBlock } from "@/modules/cvs/components/preview/projects-block";
@@ -22,7 +23,7 @@ const Preview = ({ cvId }: PreviewProps) => {
     const { data: cvData, loading: cvLoading } = useCvById(cvId);
     const userId = cvData?.cv.user.id;
 
-    if (cvLoading || !cvData || !userId) return <Spin size={"large"} />;
+    if (cvLoading || !cvData || !userId) return <FullsizeLoader />;
 
     return (
         <Flex className={styles.preview} vertical gap={40}>

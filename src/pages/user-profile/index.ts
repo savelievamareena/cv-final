@@ -1,1 +1,3 @@
-export { default as UserProfile } from "./user-profile";
+import { lazy } from "react";
+
+export const UserProfile = lazy(() => import("./user-profile"));
