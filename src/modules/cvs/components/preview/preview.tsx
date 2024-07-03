@@ -1,10 +1,11 @@
-import { Button, Flex, Spin } from "antd";
+import { Button, Flex } from "antd";
 import classNames from "classnames";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { LanguagesBlock } from "./languages-block";
 import styles from "./preview.module.scss";
 import { SkillsInfoBlock } from "./skills-info-block";
+import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useCvById } from "@/modules/cvs/api";
 import { usePdfExport } from "@/modules/cvs/api/export-pdf-mutation.ts";
 import { DomainBlock } from "@/modules/cvs/components/preview/domain-block";
@@ -27,6 +28,8 @@ const Preview = ({ cvId }: PreviewProps) => {
     const [exportPdf, { loading: loadingPdf }] = usePdfExport(cvData?.cv.name);
     const userId = cvData?.cv.user.id;
 
+    if (cvLoading || !cvData || !userId) return <FullsizeLoader />;
+
     const handleExportButtonClick = () => {
         if (!ref.current) {
             return;
@@ -46,8 +49,6 @@ const Preview = ({ cvId }: PreviewProps) => {
             },
         });
     };
-
-    if (cvLoading || !cvData || !userId) return <Spin size={"large"} />;
 
     return (
         <Flex className={styles.preview}>

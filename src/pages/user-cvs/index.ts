@@ -1,1 +1,3 @@
-export { default as UserCVs } from "./user-cvs";
+import { lazy } from "react";
+
+export const UserCVs = lazy(() => import("./user-cvs"));

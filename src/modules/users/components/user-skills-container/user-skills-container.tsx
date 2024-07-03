@@ -14,16 +14,19 @@ import { useAddSkill } from "@/modules/users/components/skills-dialog";
 interface UserSkillsContainerProps {
     skills: SkillMastery[];
     userId: string;
+    canEdit: boolean;
 }
 
-const UserSkillsContainer = ({ skills, userId }: UserSkillsContainerProps) => {
+const UserSkillsContainer = ({ skills, userId, canEdit }: UserSkillsContainerProps) => {
     const { t } = useTranslation();
     const [openSkillDialog] = useAddSkill();
     const [updateProfileSkill] = useUpdateProfileSkill();
     const { data: skillsData } = useSkills();
 
-    if (skills.length < 1) {
-        return <Flex justify="center">No skills Added</Flex>;
+    const skillsByCategory: SkillsByCategory = useSortSkillsByCategory(skills);
+
+    if (!skills.length) {
+        return <Flex justify="center">{t("skills.noSkills")}</Flex>;
     }
 
     const handleSkillSelected = (skill: SkillMastery) => {
@@ -54,8 +57,6 @@ const UserSkillsContainer = ({ skills, userId }: UserSkillsContainerProps) => {
             existingSkillsOnPage: skills,
         });
 
-    const skillsByCategory: SkillsByCategory = useSortSkillsByCategory(skills);
-
     return (
         <>
             {Object.entries(skillsByCategory).map(([category, skillList]) => {
@@ -74,6 +75,7 @@ const UserSkillsContainer = ({ skills, userId }: UserSkillsContainerProps) => {
                                         skill={skill}
                                         percent={SkillsMastery[skill.mastery].percent}
                                         strokeColor={SkillsMastery[skill.mastery].color}
+                                        canEdit={canEdit}
                                     />
                                 );
                             })}

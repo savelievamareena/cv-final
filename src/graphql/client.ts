@@ -24,14 +24,9 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
     if (graphQLErrors) {
         graphQLErrors.forEach(({ message }) => {
             console.error(message);
-            // TODO: Add some toasts or messages on error
             if (message.includes("duplicate key value")) {
-                // some toast or message
             } else if (message === "Unauthorized") {
-                // some toast or message
                 authService.logout();
-            } else {
-                // some toast or message
             }
         });
     }

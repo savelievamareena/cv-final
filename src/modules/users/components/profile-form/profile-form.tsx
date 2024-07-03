@@ -70,21 +70,21 @@ const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
             }
         >
             <Row gutter={[16, 8]}>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormTextField
                         name="firstName"
                         label={t("profile.form.fieldLabels.firstName")}
                         placeholder={t("profile.form.fieldLabels.firstName")}
                     />
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormTextField
                         name="lastName"
                         label={t("profile.form.fieldLabels.lastName")}
                         placeholder={t("profile.form.fieldLabels.lastName")}
                     />
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormSelect
                         name="department"
                         label={t("profile.form.fieldLabels.department")}
@@ -92,7 +92,7 @@ const ProfileForm = ({ user, profile, canEdit }: ProfileFormProps) => {
                         options={departmentOptions}
                     />
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormSelect
                         name="position"
                         label={t("profile.form.fieldLabels.position")}

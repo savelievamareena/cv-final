@@ -3,32 +3,56 @@ import classNames from "classnames";
 import { LanguageProficiency } from "cv-graphql";
 
 import styles from "./item.module.scss";
+import { BulkDeleteButton } from "@/components/bulk-delete-button";
+import { bulkDeleteService, useBulkDeleteItemIds } from "@/services/bulk-delete-service";
 
 interface LanguagesListItemProps {
     language: LanguageProficiency;
     handleLanguageSelect: (language: LanguageProficiency) => void;
+    canEdit: boolean;
 }
 
-const LanguagesListItem = ({ language, handleLanguageSelect }: LanguagesListItemProps) => {
+const LanguagesListItem = ({ language, handleLanguageSelect, canEdit }: LanguagesListItemProps) => {
+    const selectedItems = useBulkDeleteItemIds();
+
+    const isSelected = selectedItems.includes(language.name);
+
     return (
-        <Button
-            type="text"
-            className={styles.itemWrapper}
-            onClick={() => {
-                handleLanguageSelect(language);
-            }}
-        >
-            <Flex gap="2rem" className={styles.item}>
-                <span
-                    className={classNames({
-                        [styles[`lang_${language.proficiency}`]]: true,
-                    })}
-                >
-                    {language.proficiency}
-                </span>
-                <span className={styles.name}>{language.name}</span>
-            </Flex>
-        </Button>
+        <div className={styles.wrapper}>
+            <Button
+                type="text"
+                className={classNames(styles.itemWrapper, {
+                    [styles.itemWrapper_selected]: isSelected,
+                })}
+                onClick={() => {
+                    if (isSelected) {
+                        bulkDeleteService.handleItemId(language.name);
+                        return;
+                    }
+                    handleLanguageSelect(language);
+                }}
+                disabled={!canEdit}
+            >
+                <Flex className={styles.item}>
+                    <span
+                        className={classNames({
+                            [styles[`lang_${language.proficiency}`]]: true,
+                        })}
+                    >
+                        {language.proficiency}
+                    </span>
+                    <span className={styles.name}>{language.name}</span>
+                </Flex>
+            </Button>
+            {canEdit && (
+                <BulkDeleteButton
+                    isSelected={isSelected}
+                    item={language.name}
+                    className={styles.deleteButton}
+                    disabled={!canEdit}
+                />
+            )}
+        </div>
     );
 };
 

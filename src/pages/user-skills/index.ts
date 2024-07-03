@@ -1,1 +1,3 @@
-export { default as UserSkills } from "./user-skills";
+import { lazy } from "react";
+
+export const UserSkills = lazy(() => import("./user-skills"));
