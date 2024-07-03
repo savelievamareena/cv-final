@@ -1,4 +1,4 @@
-import { Flex, Typography } from "antd";
+import { Flex } from "antd";
 import styles from "../preview.module.scss";
 import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useUserQuery } from "@/modules/users/api";
@@ -6,8 +6,6 @@ import { useUserQuery } from "@/modules/users/api";
 interface UserInfoBlockProps {
     userId: string;
 }
-
-const { Text } = Typography;
 
 const UserInfoBlock = ({ userId }: UserInfoBlockProps) => {
     const { data: userData, loading: userLoading } = useUserQuery({
@@ -19,7 +17,7 @@ const UserInfoBlock = ({ userId }: UserInfoBlockProps) => {
     return (
         <Flex vertical>
             <div className={styles.preview_name}>{userData?.user.profile.full_name}</div>
-            <Text type={"secondary"}>{userData?.user.position?.name.toUpperCase()}</Text>
+            <span>{userData?.user.position?.name.toUpperCase()}</span>
         </Flex>
     );
 };

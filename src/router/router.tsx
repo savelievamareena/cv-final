@@ -16,6 +16,7 @@ import { Login } from "@/pages/login";
 import { PositionsPage } from "@/pages/positions";
 import { ProjectDetails } from "@/pages/project-details";
 import { ProjectsPage } from "@/pages/projects";
+import { SettingsPage } from "@/pages/settings";
 import { SignUp } from "@/pages/sign-up";
 import { SkillsPage } from "@/pages/skills";
 import { UserCVs } from "@/pages/user-cvs";
@@ -193,7 +194,7 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 path: routes.settings,
-                element: <div>Settings page content</div>,
+                element: <SettingsPage />,
             },
             {
                 index: true,

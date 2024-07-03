@@ -1,0 +1,6 @@
+@mixin iconColor {
+    color: var(--clr-icon);
+    &:hover {
+        color: var(--clr-icon--hover);
+    }
+}
