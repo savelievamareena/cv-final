@@ -10,7 +10,7 @@ interface ProfilePictureProps {
 const ProfilePicture = ({ profileLetter, avatar }: ProfilePictureProps) => {
     return (
         <Avatar className={styles.avatar} src={avatar} size="large">
-            {avatar ? "" : profileLetter}
+            {avatar ? "" : profileLetter?.toUpperCase()}
         </Avatar>
     );
 };

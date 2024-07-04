@@ -22,7 +22,7 @@ const PositionsList = () => {
     const menuProps: Action = {
         onDelete: (id: string) =>
             openConfirm({
-                title: t("delete confirmation"),
+                title: t("deleteConfirmation"),
                 onConfirm: () =>
                     void deletePosition({ variables: { position: { positionId: id } } }),
             }),

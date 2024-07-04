@@ -13,7 +13,6 @@ import { useCvDialog } from "./cvs-dialog";
 const columnConfigs: ColumnConfig<CvTransformed>[] = [
     { name: "name", isSorted: true },
     { name: "description", isSorted: false },
-    { name: "employee", isSorted: true },
 ];
 
 const CvsList = () => {
@@ -31,7 +30,7 @@ const CvsList = () => {
     const menuProps: Action = {
         onDelete: (id: string) =>
             openConfirm({
-                title: t("delete confirmation"),
+                title: t("deleteConfirmation"),
                 onConfirm: () => void deleteCv({ variables: { cv: { cvId: id } } }),
             }),
 
@@ -40,7 +39,7 @@ const CvsList = () => {
 
     const openCv = () =>
         openCvDialog({
-            title: t("Add cv"),
+            title: t("cvs.addCv"),
             onConfirm: (formData) =>
                 void createCv({
                     variables: {

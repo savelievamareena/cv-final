@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Flex } from "antd";
 import { useTranslation } from "react-i18next";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { BaseDialog } from "../base-dialog/";
@@ -19,12 +19,14 @@ const ConfirmDialog = ({ title, onConfirm, onClose }: ConfirmDialogProps) => {
 
     return (
         <BaseDialog title={title} onClose={onClose}>
-            <Button htmlType="button" onClick={onClose}>
-                {t("cancel")}
-            </Button>
-            <Button htmlType="button" onClick={handleConfirm}>
-                {t("submit")}
-            </Button>
+            <Flex gap={10} justify={"flex-end"}>
+                <Button htmlType="button" onClick={onClose}>
+                    {t("cancel")}
+                </Button>
+                <Button htmlType="button" onClick={handleConfirm} type="primary">
+                    {t("submit")}
+                </Button>
+            </Flex>
         </BaseDialog>
     );
 };

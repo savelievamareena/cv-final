@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Flex } from "antd";
 import { useTranslation } from "react-i18next";
 import { BaseDialog } from "@/components/base-dialog/";
 import { Form } from "@/components/form";
@@ -13,6 +13,7 @@ interface LanguageDialogProps {
     onClose: () => void;
     initialValues: LanguageFormSchemaType;
 }
+
 const LanguageDialog = ({ title, onConfirm, onClose, initialValues }: LanguageDialogProps) => {
     const { t } = useTranslation();
 
@@ -39,10 +40,14 @@ const LanguageDialog = ({ title, onConfirm, onClose, initialValues }: LanguageDi
                     name="native_name"
                 />
                 <FormTextField type="text" label={t("languages.fieldLabels.iso2")} name="iso2" />
-                <Button htmlType="button" onClick={onClose}>
-                    {t("cancel")}
-                </Button>
-                <FormSubmitButton disableIfNotDirty>{t("submit")}</FormSubmitButton>
+                <Flex gap={10} justify={"flex-end"}>
+                    <Button htmlType="button" onClick={onClose}>
+                        {t("cancel")}
+                    </Button>
+                    <FormSubmitButton disableIfNotDirty type="primary">
+                        {t("submit")}
+                    </FormSubmitButton>
+                </Flex>
             </Form>
         </BaseDialog>
     );

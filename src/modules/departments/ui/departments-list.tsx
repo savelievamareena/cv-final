@@ -20,7 +20,7 @@ const DepartmentsList = () => {
     const menuProps: Action = {
         onDelete: (id: string) =>
             openConfirm({
-                title: t("delete confirmation"),
+                title: t("deleteConfirmation"),
                 onConfirm: () =>
                     void deleteDepartment({ variables: { department: { departmentId: id } } }),
             }),

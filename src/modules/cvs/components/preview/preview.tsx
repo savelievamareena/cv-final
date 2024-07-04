@@ -87,10 +87,12 @@ const Preview = ({ cvId }: PreviewProps) => {
                         <SkillsInfoBlock skills={cvData?.cv.skills} />
                     </Flex>
                 </Flex>
-                <Flex vertical>
-                    <div className={styles.preview_name}>{t("Projects")}</div>
-                    <ProjectsBlock projects={cvData?.cv.projects} />
-                </Flex>
+                {cvData?.cv.projects && (
+                    <Flex vertical>
+                        <div className={styles.preview_name}>{t("Projects")}</div>
+                        <ProjectsBlock projects={cvData?.cv.projects} />
+                    </Flex>
+                )}
             </Flex>
         </Flex>
     );

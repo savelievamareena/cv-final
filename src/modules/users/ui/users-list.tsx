@@ -32,7 +32,7 @@ const UsersList = () => {
     const menuProps: Action = {
         onDelete: (id: string) =>
             openConfirm({
-                title: t("delete confirmation"),
+                title: t("deleteConfirmation"),
                 onConfirm: () => void deleteUser({ variables: { user: { userId: id } } }),
             }),
 
