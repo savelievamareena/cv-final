@@ -1,6 +1,6 @@
 import { Table, TableColumnsType } from "antd";
-import { t } from "i18next";
 import { Key } from "react";
+import { useTranslation } from "react-i18next";
 import ActionsMenu, { Action } from "./actions-menu";
 
 import ActionsMenuEmployee from "./actions-menu-employee";
@@ -28,7 +28,7 @@ const getActionColumn = (pageName: string, menuProps: Action, canEdit: boolean) 
     dataIndex: "",
     key: "x",
     width: "5%",
-    render: (record: { id: string }) =>
+    render: (record: { id: string; name: string }) =>
         canEdit ? (
             <ActionsMenu
                 pageName={pageName}
@@ -54,6 +54,7 @@ const TableTemplate = <T extends { id: Key }>({
     pageName,
     canEdit,
 }: TableTemplateProps<T>) => {
+    const { t } = useTranslation();
     const createColumnsAndData = (columnConfigs: ColumnConfig<T>[], data: T[]) => {
         const columns: TableColumnsType<DynamicDataType<T>> = columnConfigs.map((config) => {
             const render = (text: string | null) => {
@@ -74,9 +75,8 @@ const TableTemplate = <T extends { id: Key }>({
             };
 
             return {
-                title:
-                    config.name.toString().charAt(0).toUpperCase() +
-                    config.name.toString().slice(1),
+                title: t(config.name.toString()),
+
                 dataIndex: config.name as string,
                 key: config.name as string,
                 sorter: config.isSorted

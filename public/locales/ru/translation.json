@@ -97,7 +97,9 @@
             "teamSize": "Размер команды",
             "description": "Описание",
             "startDate": "Дата начала",
-            "endDate": "Дата завершения"
+            "endDate": "Дата завершения",
+            "responsibilities": "Задачи",
+            "roles": "Роли"
         },
         "fieldErrors": {
             "teamSize": "Размер команды должен быть целым числом больше 1"
@@ -156,7 +158,7 @@
     "search": "Поиск",
     "cancel": "Отмена",
     "confirm": "Подтвердить",
-    "department": "отдел",
+    "department": "Отдел",
     "skill": "навык",
     "Profile": "Профиль",
     "Domains": "Домены",
@@ -165,6 +167,7 @@
     "Home": "Главная",
     "here": "здесь",
     "Employees": "Сотрудники",
+    "Employee": "Сотрудник",
     "Projects": "Проекты",
     "CVs": "Резюме",
     "CV": "Резюме",
@@ -221,16 +224,29 @@
     },
     "projects": {
         "projects": "проект",
+        "cvprojects": "проект",
         "addProject": "Add проект",
         "updateProject": "Update проект",
         "deleteProject": "Delete проект",
         "name": "Имя",
-        "internalName": "Внутренне Имя",
+        "internal_name": "Внутренне Имя",
         "domain": "Домен",
         "teamSize": "Размер команды",
         "description": "Описание",
-        "startDate": "Дата начала",
-        "endDate": "Дата окончания",
+        "start_date": "Дата начала",
+        "end_date": "Дата окончания",
         "tillNow": "По настощее время"
-    }
+    },
+        "name": "Имя",
+        "internal_name": "Внутренне Имя",
+        "domain": "Домен",
+        "team_size": "Размер команды",
+        "description": "Описание",
+        "start_date": "Дата начала",
+        "end_date": "Дата окончания",
+        "first_name": "Имя",
+        "last_name": "Фамилия",
+        "email":"Почта",
+        "position":"Должность",
+         "avatar": ""
 }

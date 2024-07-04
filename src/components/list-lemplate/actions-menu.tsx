@@ -5,18 +5,18 @@ import { t } from "i18next";
 import { memo, ReactNode } from "react";
 
 export interface Action {
-    onUpdate: (id: string) => void;
+    onUpdate: (id: string, name?: string) => void;
     onDelete: (id: string) => void;
 }
 
-type ActionProps = Action & { pageName: string; record: { id: string } };
+type ActionProps = Action & { pageName: string; record: { id: string; name: string } };
 
 const ActionsMenu = ({ onUpdate, onDelete, pageName, record }: ActionProps) => {
     const onHandleDelete = () => {
         onDelete(record.id);
     };
     const onHandleUpdate = () => {
-        onUpdate(record.id);
+        onUpdate(record.id, record.name);
     };
 
     const items = [

@@ -20,7 +20,7 @@ interface ListTemplateProps<T> {
     loading: boolean;
 }
 
-const ListTemplate = <T extends { id: Key }>({
+export const ListTemplate = <T extends { id: Key }>({
     pageName,
     onButtonClick,
     menuProps,
@@ -78,5 +78,3 @@ const ListTemplate = <T extends { id: Key }>({
         </div>
     );
 };
-
-export default ListTemplate;
