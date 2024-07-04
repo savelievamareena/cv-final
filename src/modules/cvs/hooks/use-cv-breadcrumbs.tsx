@@ -5,10 +5,10 @@ import classNames from "classnames";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
-import styles from "./use-cv-breadcrumbs.module.scss";
 import { useBreadcrumbs } from "@/helpers/breadcrumbs";
 import { useCvById } from "@/modules/cvs/api";
 import { RouteParams, routes } from "@/router";
+import styles from "./use-cv-breadcrumbs.module.scss";
 
 type TabType = "details" | "skills" | "projects" | "preview" | undefined;
 

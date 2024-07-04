@@ -97,7 +97,9 @@
             "teamSize": "Размер команды",
             "description": "Описание",
             "startDate": "Дата начала",
-            "endDate": "Дата завершения"
+            "endDate": "Дата завершения",
+            "responsibilities": "Задачи",
+            "roles": "Роли"
         },
         "fieldErrors": {
             "teamSize": "Размер команды должен быть целым числом больше 1"
@@ -221,6 +223,7 @@
     },
     "projects": {
         "projects": "проект",
+        "cvprojects": "проект",
         "addProject": "Add проект",
         "updateProject": "Update проект",
         "deleteProject": "Delete проект",

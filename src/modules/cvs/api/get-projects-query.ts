@@ -22,5 +22,5 @@ export const GET_PROJECTS_QUERY = gql`
 
 export const useProjectsQuery = () => {
     const query = useQuery<ProjectsResult>(GET_PROJECTS_QUERY);
-    return { projects: query.data?.projects ?? [], ...query };
+    return { projectsList: query.data?.projects ?? [], ...query };
 };

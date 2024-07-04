@@ -28,7 +28,7 @@ const getActionColumn = (pageName: string, menuProps: Action, canEdit: boolean) 
     dataIndex: "",
     key: "x",
     width: "5%",
-    render: (record: { id: string }) =>
+    render: (record: { id: string; name: string }) =>
         canEdit ? (
             <ActionsMenu
                 pageName={pageName}

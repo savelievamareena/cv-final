@@ -6,11 +6,11 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
+import { useBreadcrumbs } from "@/helpers/breadcrumbs";
+import { RouteParams, routes } from "@/router";
 import { useProjectQuery } from "../api";
 
 import styles from "./use-project-breadcrumbs.module.scss";
-import { useBreadcrumbs } from "@/helpers/breadcrumbs";
-import { RouteParams, routes } from "@/router";
 
 export const useProjectBreadcrumbs = () => {
     const { t } = useTranslation();

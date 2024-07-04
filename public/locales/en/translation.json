@@ -122,7 +122,9 @@
             "teamSize": "Team size",
             "description": "Description",
             "startDate": "Start date",
-            "endDate": "End date"
+            "endDate": "End date",
+            "responsibilities": "Responsibilities",
+            "roles": "Roles"
         },
         "fieldErrors": {
             "teamSize": "Team size must be an integer greater than 1"
@@ -219,6 +221,7 @@
     },
     "projects": {
         "projects": "project",
+        "cvprojects": "project",
         "addProject": "Add project",
         "updateProject": "Update  project",
         "deleteProject": "Delete project",

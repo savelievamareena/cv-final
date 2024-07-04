@@ -2,15 +2,15 @@ import { Project } from "cv-graphql";
 import dayjs from "dayjs";
 import { t } from "i18next";
 import { useNavigate } from "react-router-dom";
-import { useProjectCreate, useProjectDelete } from "../api";
-import { useProjectsQuery } from "../api/get-projects-query";
-import { useProjectDialog } from "./project-dialog";
 import { useConfirm } from "@/components/confirm-dialog/";
 import { Action } from "@/components/list-lemplate/actions-menu";
 import ListTemplate from "@/components/list-lemplate/list-template";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { DATE_FORMAT } from "@/constants";
 import { routes } from "@/router";
+import { useProjectCreate, useProjectDelete } from "../api";
+import { useProjectsQuery } from "../api/get-projects-query";
+import { useProjectDialog } from "./project-dialog";
 
 const columnConfigs: ColumnConfig<Project>[] = [
     { name: "name", isSorted: true },

@@ -4,10 +4,10 @@ import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-import { ProfilePicture } from "../profile-picture";
-import styles from "./user-dropdown-menu.module.scss";
 import { routes } from "@/router";
 import { authService } from "@/services/auth-service";
+import { ProfilePicture } from "../profile-picture";
+import styles from "./user-dropdown-menu.module.scss";
 
 interface UserDropdownMenuProps {
     userId?: string;

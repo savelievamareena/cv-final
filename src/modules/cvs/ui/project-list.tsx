@@ -10,13 +10,14 @@ import { DATE_FORMAT } from "@/constants";
 import { RouteParams, routes } from "@/router";
 import { useCvProjectAdd } from "../api/add-cv-project-mutation";
 import { useCvProjects } from "../api/get-cv-projects-query";
+import { useProjectsQuery } from "../api/get-projects-query";
 import { useProjectCvRemove } from "../api/remove-cv-project-mutation";
 import { useProjectDialog } from "./project-dialog";
 
 const columnConfigs: ColumnConfig<CvProject>[] = [
     { name: "name", isSorted: true },
-    { name: "roles", isSorted: true },
-    { name: "responsibilities", isSorted: true },
+    { name: "internal_name", isSorted: true },
+    { name: "domain", isSorted: true },
     { name: "start_date", isSorted: true },
     { name: "end_date", isSorted: true },
 ];
@@ -25,6 +26,7 @@ const CvProjectsList = () => {
     const { [RouteParams.CvId]: cvId } = useParams();
 
     const { projects, loading } = useCvProjects(cvId ?? "");
+    const { projectsList } = useProjectsQuery();
 
     const navigate = useNavigate();
 
@@ -52,21 +54,27 @@ const CvProjectsList = () => {
                 },
             });
         },
-        onUpdate: (id: string) => navigate(routes.projects.details(id)),
+        onUpdate: (name?: string) => {
+            const cvId = projectsList?.filter((projects) => projects.name === name)[0].id;
+            navigate(routes.projects.details(cvId));
+        },
     };
 
     const openProject = () =>
         openProjectDialog({
+            projects: projectsList,
             title: t("projects.addProject"),
             onConfirm: (formData) => {
+                const id = projectsList?.filter((projects) => projects.name === formData.name);
+
                 void createProject({
                     variables: {
                         project: {
                             cvId: cvId ?? "",
-                            projectId: "",
+                            projectId: id[0].id,
                             start_date: formData.start_date.format(DATE_FORMAT),
                             end_date: formData.end_date?.format(DATE_FORMAT),
-                            responsibilities: [formData.responsibilities ?? ""],
+                            responsibilities: [],
                             roles: [],
                         },
                     },
@@ -82,7 +90,7 @@ const CvProjectsList = () => {
 
     return (
         <ListTemplate
-            pageName={t("projects.projects")}
+            pageName={t("projects.cvprojects")}
             onButtonClick={openProject}
             menuProps={menuProps}
             columnConfigs={columnConfigs}

@@ -3,10 +3,10 @@ import { RcFile } from "antd/es/upload";
 import Dragger from "antd/es/upload/Dragger";
 import { User } from "cv-graphql";
 import { useTranslation } from "react-i18next";
-import { useAvatarUpload } from "../../api";
-import { ALLOWED_IMAGE_TYPES, MAX_AVATAR_SIZE } from "../../constants";
 import { fileToBase64 } from "@/helpers/file-to-base64";
 import { useNotificationContext } from "@/helpers/notification";
+import { useAvatarUpload } from "../../api";
+import { ALLOWED_IMAGE_TYPES, MAX_AVATAR_SIZE } from "../../constants";
 
 const AvatarUpload = ({ user }: { user: User }) => {
     const [uploadAvatar, { loading }] = useAvatarUpload();

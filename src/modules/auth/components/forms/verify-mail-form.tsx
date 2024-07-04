@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 
-import { useVerifyMail } from "../../api";
-import { getVerifyMailFormSchema } from "../../schemas";
-import styles from "./form.module.scss";
 import { Form } from "@/components/form";
 import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormTextField } from "@/components/form-text-field";
+import { useVerifyMail } from "../../api";
+import { getVerifyMailFormSchema } from "../../schemas";
+import styles from "./form.module.scss";
 
 export const VerifyMailForm = () => {
     const [verifyMail, { loading }] = useVerifyMail();

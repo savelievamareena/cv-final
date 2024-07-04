@@ -1,7 +1,5 @@
 import { Button } from "antd";
 import { useTranslation } from "react-i18next";
-import { useSkillCategoriesQuery } from "../api/get-skill-catigories-query";
-import { getSkillFormSchema, SkillFormSchemaType } from "../shemas/skills";
 import { BaseDialog } from "@/components/base-dialog/";
 import { Form } from "@/components/form";
 import { FormSelect } from "@/components/form-select";
@@ -9,6 +7,8 @@ import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormTextField } from "@/components/form-text-field";
 import { mapStringsToSelectOptions } from "@/helpers/convert/maps";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
+import { useSkillCategoriesQuery } from "../api/get-skill-catigories-query";
+import { getSkillFormSchema, SkillFormSchemaType } from "../shemas/skills";
 
 interface SkillDialogProps {
     title: string;
