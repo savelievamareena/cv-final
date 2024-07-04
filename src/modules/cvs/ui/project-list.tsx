@@ -15,11 +15,10 @@ import { useProjectDialog } from "./project-dialog";
 
 const columnConfigs: ColumnConfig<CvProject>[] = [
     { name: "name", isSorted: true },
-    { name: "internal_name", isSorted: true },
-    { name: "domain", isSorted: true },
+    { name: "roles", isSorted: true },
+    { name: "responsibilities", isSorted: true },
     { name: "start_date", isSorted: true },
     { name: "end_date", isSorted: true },
-    { name: "team_size", isSorted: false },
 ];
 
 const CvProjectsList = () => {
@@ -67,7 +66,7 @@ const CvProjectsList = () => {
                             projectId: "",
                             start_date: formData.start_date.format(DATE_FORMAT),
                             end_date: formData.end_date?.format(DATE_FORMAT),
-                            responsibilities: [],
+                            responsibilities: [formData.responsibilities ?? ""],
                             roles: [],
                         },
                     },
@@ -75,10 +74,8 @@ const CvProjectsList = () => {
             },
             initialValues: {
                 name: "",
-                internal_name: "",
-                domain: "",
-                description: "",
-                team_size: 1,
+                responsibilities: "",
+                roles: "",
                 start_date: dayjs(),
             },
         });

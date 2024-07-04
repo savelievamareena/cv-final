@@ -11,7 +11,6 @@ import { FormNumberInput } from "@/components/form-number-input";
 import { FormSelect } from "@/components/form-select";
 import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormTextField } from "@/components/form-text-field";
-import { FormTextarea } from "@/components/form-textarea";
 
 import { mapProjectsToSelectOptions } from "@/helpers/convert/maps";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
@@ -68,13 +67,13 @@ const ProjectDialog = ({ title, onConfirm, onClose, initialValues }: ProjectDial
                         />
                     </Col>
                     <Col span={12}>
-                        <FormTextField
-                            label={t("project.fieldLabels.internalName")}
-                            name="internal_name"
-                        />
+                        <FormTextField label={t("project.fieldLabels.roles")} name="roles" />
                     </Col>
                     <Col span={12}>
-                        <FormTextField label={t("project.fieldLabels.domain")} name="domain" />
+                        <FormTextField
+                            label={t("project.fieldLabels.responsibilities")}
+                            name="responsibilities"
+                        />
                     </Col>
                     <Col span={12}>
                         <FormNumberInput
@@ -95,12 +94,6 @@ const ProjectDialog = ({ title, onConfirm, onClose, initialValues }: ProjectDial
                             className={styles.fullWidth}
                             label={t("project.fieldLabels.endDate")}
                             name="end_date"
-                        />
-                    </Col>
-                    <Col span={24}>
-                        <FormTextarea
-                            label={t("project.fieldLabels.description")}
-                            name="description"
                         />
                     </Col>
                 </Row>
