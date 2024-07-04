@@ -219,7 +219,13 @@
         "user": "пользователь",
         "addUser": "Добавить пользователя",
         "updateUser": "Обновить пользователя",
-        "deleteUser": "Удалить пользователя"
+        "deleteUser": "Удалить пользователя",
+        "first_name": "Имя",
+        "last_name": "Фамилия",
+        "email":"Почта",
+        "department":"Отдел",
+        "position":"Должность",
+         "avatar": ""
     },
     "projects": {
         "projects": "проект",
@@ -228,12 +234,19 @@
         "updateProject": "Update проект",
         "deleteProject": "Delete проект",
         "name": "Имя",
-        "internalName": "Внутренне Имя",
+        "internal_name": "Внутренне Имя",
         "domain": "Домен",
         "teamSize": "Размер команды",
         "description": "Описание",
-        "startDate": "Дата начала",
-        "endDate": "Дата окончания",
+        "start_date": "Дата начала",
+        "end_date": "Дата окончания",
         "tillNow": "По настощее время"
-    }
+    },
+        "name": "Имя",
+        "internal_name": "Внутренне Имя",
+        "domain": "Домен",
+        "teamSize": "Размер команды",
+        "description": "Описание",
+        "start_date": "Дата начала",
+        "end_date": "Дата окончания"
 }

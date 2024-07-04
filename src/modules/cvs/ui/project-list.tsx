@@ -1,6 +1,7 @@
 import { CvProject } from "cv-graphql";
 import dayjs from "dayjs";
-import { t } from "i18next";
+// import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { useConfirm } from "@/components/confirm-dialog/";
 import { Action } from "@/components/list-lemplate/actions-menu";
@@ -23,6 +24,8 @@ const columnConfigs: ColumnConfig<CvProject>[] = [
 ];
 
 const CvProjectsList = () => {
+    const { t } = useTranslation();
+
     const { [RouteParams.CvId]: cvId } = useParams();
 
     const { projects, loading } = useCvProjects(cvId ?? "");

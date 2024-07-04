@@ -1,4 +1,4 @@
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useConfirm } from "@/components/confirm-dialog/";
 import { Action } from "@/components/list-lemplate/actions-menu";
@@ -9,16 +9,18 @@ import { routes } from "@/router";
 import { useUserCreate, useUserDelete, useUsersQuery } from "../api";
 import { useUserDialog } from "./users-dialog";
 
-const columnConfigs: ColumnConfig<UserTransformed>[] = [
-    { name: "first_name", isSorted: true },
-    { name: "last_name", isSorted: true },
-    { name: "email", isSorted: true },
-    { name: "department", isSorted: true },
-    { name: "position", isSorted: true },
-    { name: "avatar", isSorted: false },
-];
-
 const UsersList = () => {
+    const { t } = useTranslation();
+
+    const columnConfigs: ColumnConfig<UserTransformed>[] = [
+        { name: t("users.first_name"), isSorted: true },
+        { name: t("users.last_name"), isSorted: true },
+        { name: t("users.email"), isSorted: true },
+        { name: t("users.department"), isSorted: true },
+        { name: t("users.position"), isSorted: true },
+        { name: t("users.avatar"), isSorted: false },
+    ];
+
     const { users, loading } = useUsersQuery();
     const navigate = useNavigate();
 
