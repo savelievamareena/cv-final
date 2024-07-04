@@ -1,10 +1,10 @@
 import { Spin } from "antd";
 
+import { useAuthUser } from "@/services/auth-service";
 import { useProfileQuery } from "../../api";
 
 import styles from "./header-user-menu.module.scss";
 import { UserDropdownMenu } from "./user-dropdown-menu";
-import { useAuthUser } from "@/services/auth-service";
 
 const HeaderUserMenu = () => {
     const user = useAuthUser();
@@ -13,7 +13,12 @@ const HeaderUserMenu = () => {
 
     if (!user) return null;
 
-    if (loading) return <Spin />;
+    if (loading)
+        return (
+            <div className={styles.loaderWrapper}>
+                <Spin />
+            </div>
+        );
 
     return (
         <>

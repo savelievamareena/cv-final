@@ -1,8 +1,6 @@
 import { Flex } from "antd";
 import { Mastery, SkillMastery } from "cv-graphql";
 import { useTranslation } from "react-i18next";
-import styles from "./cv-skills-container.module.scss";
-import type { SkillsByCategory } from "@/modules/cvs/cv.types";
 import { useSkills } from "@/api/get-skills-query";
 import { useUpdateCvSkill } from "@/api/update-cv-skill-mutation";
 import { ProgressBar } from "@/components/progress-bar";
@@ -10,19 +8,26 @@ import { SkillsCategoryTranslation, SkillsMastery } from "@/constants";
 import { useSortSkillsByCategory } from "@/hooks/skills";
 import { useAddSkill } from "@/modules/cvs/components/skills-dialog";
 import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
+import type { SkillsByCategory } from "@/modules/cvs/cv.types";
+import styles from "./cv-skills-container.module.scss";
 
 interface CvSkillsContainerProps {
     skills: SkillMastery[];
     cvId: string;
+    canEdit: boolean;
 }
 
-const CvSkillsContainer = ({ skills, cvId }: CvSkillsContainerProps) => {
+const CvSkillsContainer = ({ skills, cvId, canEdit }: CvSkillsContainerProps) => {
     const [openSkillDialog] = useAddSkill();
     const [updateCvSkill] = useUpdateCvSkill();
     const { data: skillsData } = useSkills();
 
-    if (skills.length < 1) {
-        return <Flex justify="center">No skills Added</Flex>;
+    const { t } = useTranslation();
+
+    const skillsByCategory: SkillsByCategory = useSortSkillsByCategory(skills);
+
+    if (!skills.length) {
+        return <Flex justify="center">{t("skills.noSkills")}</Flex>;
     }
 
     const handleSkillSelected = (skill: SkillMastery) => {
@@ -53,10 +58,6 @@ const CvSkillsContainer = ({ skills, cvId }: CvSkillsContainerProps) => {
             existingSkillsOnPage: skills,
         });
 
-    const { t } = useTranslation();
-
-    const skillsByCategory: SkillsByCategory = useSortSkillsByCategory(skills);
-
     return (
         <>
             {Object.entries(skillsByCategory).map(([category, skillList]) => {
@@ -75,6 +76,7 @@ const CvSkillsContainer = ({ skills, cvId }: CvSkillsContainerProps) => {
                                         skill={skill}
                                         percent={SkillsMastery[skill.mastery].percent}
                                         strokeColor={SkillsMastery[skill.mastery].color}
+                                        canEdit={canEdit}
                                     />
                                 );
                             })}

@@ -1,11 +1,11 @@
-import { Spin } from "antd";
 import { Suspense } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
-import styles from "./auth-layout.module.scss";
+import { FullsizeLoader } from "@/components/fullsize-loader";
 import { AuthHeader } from "@/components/header";
 import { routes } from "@/router";
 import { useAuthUser } from "@/services/auth-service";
+import styles from "./auth-layout.module.scss";
 
 export const AuthLayout = () => {
     const user = useAuthUser();
@@ -18,7 +18,7 @@ export const AuthLayout = () => {
         <>
             <AuthHeader />
             <main className={styles.main}>
-                <Suspense fallback={<Spin size="large" />}>
+                <Suspense fallback={<FullsizeLoader />}>
                     <Outlet />
                 </Suspense>
             </main>

@@ -12,7 +12,6 @@ import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { useSkillFormOptions, useFilterSkillNames } from "@/hooks/skills";
 import { addSkillSchema, AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
 import { SkillsDialogProps } from "@/modules/skills/skills.types";
-import { useDeleteProfileSkill } from "@/modules/users/api/delete-user-skill-mutation";
 import { routes } from "@/router";
 
 const SkillsDialog = ({
@@ -27,7 +26,6 @@ const SkillsDialog = ({
     const { userId } = useParams<{ userId: string }>();
     const formRef = useRef<FormHandle<AddSkillSchemaType>>(null);
 
-    const [deleteMutation, { loading: deleteLoading }] = useDeleteProfileSkill();
     const { data: categoriesData } = useSkillCategories();
 
     const skillNamesToShow = useFilterSkillNames(skillsData, existingSkillsOnPage);
@@ -51,18 +49,6 @@ const SkillsDialog = ({
 
     const handleConfirm = (formData: AddSkillSchemaType) => {
         onConfirm(formData);
-        onClose();
-    };
-
-    const handleDelete = () => {
-        void deleteMutation({
-            variables: {
-                skill: {
-                    userId,
-                    name: initialValues.name ? [initialValues.name] : [],
-                },
-            },
-        });
         onClose();
     };
 
@@ -97,11 +83,9 @@ const SkillsDialog = ({
                     size="large"
                 />
                 <Flex justify="flex-end" gap={10}>
-                    {initialValues.name && (
-                        <Button htmlType="button" onClick={handleDelete} disabled={deleteLoading}>
-                            {t("delete")}
-                        </Button>
-                    )}
+                    <Button htmlType="button" onClick={onClose}>
+                        {t("cancel")}
+                    </Button>
                     <FormSubmitButton disableIfNotDirty type="primary">
                         {t("confirm")}
                     </FormSubmitButton>

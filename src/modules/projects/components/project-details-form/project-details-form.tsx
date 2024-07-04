@@ -3,9 +3,6 @@ import { Project, UserRole } from "cv-graphql";
 import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
 
-import { useProjectUpdate } from "../../api";
-import { updateProjectFormSchema } from "../../schemas";
-import styles from "./project-details-form.module.scss";
 import { Form } from "@/components/form";
 import { FormDatePicker } from "@/components/form-date-picker";
 import { FormNumberInput } from "@/components/form-number-input";
@@ -14,6 +11,9 @@ import { FormTextField } from "@/components/form-text-field";
 import { FormTextarea } from "@/components/form-textarea";
 import { DATE_FORMAT } from "@/constants";
 import { useAuthUser } from "@/services/auth-service";
+import { useProjectUpdate } from "../../api";
+import { updateProjectFormSchema } from "../../schemas";
+import styles from "./project-details-form.module.scss";
 
 interface ProjectDetailsFormProps {
     project: Project;
@@ -56,33 +56,33 @@ const ProjectDetailsForm = ({ project }: ProjectDetailsFormProps) => {
             className={styles.form}
         >
             <Row gutter={[16, 8]}>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormTextField label={t("project.fieldLabels.name")} name="name" />
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormTextField
                         label={t("project.fieldLabels.internalName")}
                         name="internal_name"
                     />
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormTextField label={t("project.fieldLabels.domain")} name="domain" />
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormNumberInput
                         className={styles.fullWidth}
                         label={t("project.fieldLabels.teamSize")}
                         name="team_size"
                     />
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormDatePicker
                         className={styles.fullWidth}
                         label={t("project.fieldLabels.startDate")}
                         name="start_date"
                     />
                 </Col>
-                <Col span={12}>
+                <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <FormDatePicker
                         className={styles.fullWidth}
                         label={t("project.fieldLabels.endDate")}

@@ -3,9 +3,10 @@ import { ErrorComponent } from "@/components/error-component";
 import { MainLayout } from "@/components/main-layout";
 import { AuthLayout } from "@/modules/auth/components/auth-layout";
 import { CV } from "@/modules/cvs";
-import { DetailsWrapper } from "@/modules/cvs/components/details/details-wrapper";
-import { SkillsWrapper } from "@/modules/cvs/components/skills/skills-wrapper";
 import { UserLayout } from "@/modules/users/components/user-layout";
+import { CVDetails } from "@/pages/cv-details";
+import { CVPreview } from "@/pages/cv-preview";
+import { CVSkills } from "@/pages/cv-skills";
 import { CvPage } from "@/pages/cvs";
 import CvsProjects from "@/pages/cvs-projects/cvs-project";
 import { DepartmentsPage } from "@/pages/departments";
@@ -14,6 +15,7 @@ import { Login } from "@/pages/login";
 import { PositionsPage } from "@/pages/positions";
 import { ProjectDetails } from "@/pages/project-details";
 import { ProjectsPage } from "@/pages/projects";
+import { SettingsPage } from "@/pages/settings";
 import { SignUp } from "@/pages/sign-up";
 import { SkillsPage } from "@/pages/skills";
 import { UserCVs } from "@/pages/user-cvs";
@@ -78,17 +80,17 @@ export const router = createBrowserRouter([
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.cvs.details(`:${RouteParams.CvId}`),
-                                element: <DetailsWrapper />,
+                                element: <CVDetails />,
                             },
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.cvs.skills(`:${RouteParams.CvId}`),
-                                element: <SkillsWrapper />,
+                                element: <CVSkills />,
                             },
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.cvs.preview(`:${RouteParams.CvId}`),
-                                element: <div>CV preview content</div>,
+                                element: <CVPreview />,
                             },
                             {
                                 errorElement: <ErrorComponent />,
@@ -192,7 +194,7 @@ export const router = createBrowserRouter([
             {
                 errorElement: <ErrorComponent />,
                 path: routes.settings,
-                element: <div>Settings page content</div>,
+                element: <SettingsPage />,
             },
             {
                 index: true,

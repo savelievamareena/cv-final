@@ -1,5 +1,9 @@
 {
     "auth": {
+        "additionalLinks": {
+            "haveAccount":"I have an account",
+            "dontHaveAccount":"I don't have an account"
+        },
         "fieldLabels": {
             "password": "Password",
             "email": "Email",
@@ -45,27 +49,29 @@
             }
         }
     },
-    "language":"language",
+    "language": "language",
     "deleteConfirm": "Are you sure you want to delete {{item}}?",
     "languages": {
         "addLanguage": "Add language",
         "updateLanguage": "Update language",
         "fieldLabels": {
-            "name":"Name",
-            "nativeName":"Native name",
-            "iso2":"ISO2"
-        }
+            "name": "Name",
+            "nativeName": "Native name",
+            "iso2": "ISO2"
+        },
+        "noLanguages": "No languages specified"
     },
-    "userLanguages":{
+    "userLanguages": {
         "addLanguage": "Add language",
         "updateLanguage": "Update language",
+        "langProficiency": "Language proficiency",
         "fieldLabels": {
-            "name":"Name",
-            "proficiency":"Proficiency"
+            "name": "Name",
+            "proficiency": "Proficiency"
         },
         "fieldErrors": {
-            "nameRequired":"Name is required",
-            "proficiencyRequired":"Proficiency is required"
+            "nameRequired": "Name is required",
+            "proficiencyRequired": "Proficiency is required"
         }
     },
     "user": {
@@ -105,7 +111,8 @@
             "competent": "Competent",
             "proficient": "Proficient",
             "expert": "Expert"
-        }
+        },
+        "noSkills": "No skills specified"
     },
     "project": {
         "fieldLabels": {
@@ -121,6 +128,25 @@
             "teamSize": "Team size must be an integer greater than 1"
         }
     },
+    "settings": {
+        "themeSelect":{
+            "label":"Appearance",
+            "options":{
+                "default":"Device settings",
+                "dark":"Dark",
+                "light":"Light"
+            }
+        },
+        "languageSelect":{
+            "label":"Language"
+        }
+    },
+    "languageSelect": {
+        "options": {
+            "english":"English",
+            "russian":"Русский"
+        }
+    },
     "submit": "Submit",
     "Welcome Back": "Welcome Back",
     "add": "Add",
@@ -132,6 +158,7 @@
     "confirm": "Confirm",
     "department": "department",
     "Profile": "Profile",
+    "Domains": "Domains",
     "Settings": "Settings",
     "Logout": "Logout",
     "Home": "Home",
@@ -168,7 +195,7 @@
         "iso2Length": "ISO2 must be shorter than or equal to 2 characters",
         "minPasswordLength": "Password must be greater than 6 characters",
         "categoryRequired": "Category is required",
-        "descriptionRequired": "Descripion is required",
+        "descriptionRequired": "Description is required",
         "educationRequired": "Education required"
     },
     "positions": {
@@ -187,20 +214,21 @@
         "cv": "cv",
         "addCv": "Add cv",
         "updateCv": "Update cv",
-        "deleteCv": "Delete cv"
+        "deleteCv": "Delete cv",
+        "exportPdf": "EXPORT PDF"
     },
-
     "projects": {
-        "projects":"project",
+        "projects": "project",
         "addProject": "Add project",
         "updateProject": "Update  project",
         "deleteProject": "Delete project",
-        "name":"Name",
-        "internalName":"Internal Name",
-        "domain":"Domain",
-        "teamSize":"Team size",
+        "name": "Name",
+        "internalName": "Internal Name",
+        "domain": "Domain",
+        "teamSize": "Team size",
         "description": "Description",
-        "stardDate": "Start date",
-        "endDate": "End date"
+        "startDate": "Start date",
+        "endDate": "End date",
+        "tillNow": "Till now"
     }
 }

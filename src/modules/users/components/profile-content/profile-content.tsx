@@ -1,18 +1,19 @@
 import { SafetyOutlined } from "@ant-design/icons";
-import { Col, Row, Spin, Typography } from "antd";
+import { Col, Row, Typography } from "antd";
 import { UserRole } from "cv-graphql";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
+import { FullsizeLoader } from "@/components/fullsize-loader";
+import i18n from "@/i18n";
+import { RouteParams } from "@/router";
+import { useAuthUser } from "@/services/auth-service";
 import { useProfileQuery, useUserQuery } from "../../api";
 import { AvatarUpload } from "../avatar-upload";
 import { ProfileAvatar } from "../profile-avatar";
 import { ProfileForm } from "../profile-form";
 
 import styles from "./profile-content.module.scss";
-import i18n from "@/i18n";
-import { RouteParams } from "@/router";
-import { useAuthUser } from "@/services/auth-service";
 
 const ProfileContent = () => {
     const { [RouteParams.UserId]: userId } = useParams();
@@ -34,11 +35,11 @@ const ProfileContent = () => {
 
     return (
         <>
-            {loading && <Spin />}
+            {loading && <FullsizeLoader />}
             {hasData && (
                 <div className={styles.wrapper}>
                     <Row gutter={[16, 8]}>
-                        <Col span={12}>
+                        <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                             <ProfileAvatar
                                 canEdit={canEdit}
                                 user={userData.user}
@@ -64,7 +65,7 @@ const ProfileContent = () => {
                                 </span>
                             </Typography>
                         </Col>
-                        <Col span={12}>
+                        <Col xs={{ span: 24 }} sm={{ span: 12 }}>
                             {hasData && canEdit && <AvatarUpload user={userData.user} />}
                         </Col>
                         <Col span={24}>

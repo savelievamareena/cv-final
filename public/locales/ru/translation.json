@@ -1,5 +1,9 @@
 {
     "auth": {
+        "additionalLinks": {
+            "haveAccount":"У меня есть аккаунт",
+            "dontHaveAccount":"У меня нет аккаунта"
+        },
         "fieldLabels": {
             "password": "Пароль",
             "email": "Email",
@@ -82,7 +86,8 @@
             "competent": "Компетентный",
             "proficient": "Опытный",
             "expert": "Эксперт"
-        }
+        },
+        "noSkills": "Нет указанных языков"
     },
     "project": {
         "fieldLabels": {
@@ -98,26 +103,47 @@
             "teamSize": "Размер команды должен быть целым числом больше 1"
         }
     },
+    "settings": {
+        "themeSelect":{
+            "label":"Внешний вид",
+            "options":{
+                "default":"Настройки устройства",
+                "dark":"Тёмный",
+                "light":"Светлый"
+            }
+        },
+        "languageSelect":{
+            "label":"Язык"
+        }
+    },
+    "languageSelect": {
+        "options": {
+            "english":"English",
+            "russian":"Русский"
+        }
+    },
     "language":"язык",
     "languages": {
         "addLanguage": "Добавить язык",
         "updateLanguage": "Обновить язык",
         "fieldLabels": {
-            "name":"Название",
-            "nativeName":"Оригинальное название",
-            "iso2":"ISO2"
-        }
+            "name": "Название",
+            "nativeName": "Оригинальное название",
+            "iso2": "ISO2"
+        },
+        "noLanguages": "Нет указанных языков"
     },
-    "userLanguages":{
+    "userLanguages": {
         "addLanguage": "Добавить язык",
         "updateLanguage": "Обновить язык",
+        "langProficiency": "Владение языком",
         "fieldLabels": {
-            "name":"Название",
-            "proficiency":"Уровень владения"
+            "name": "Название",
+            "proficiency": "Уровень владения"
         },
         "fieldErrors": {
-            "nameRequired":"Выберите язык",
-            "proficiencyRequired":"Выбирите уровень владения"
+            "nameRequired": "Выберите язык",
+            "proficiencyRequired": "Выбирите уровень владения"
         }
     },
     "deleteConfirm": "Вы уверены, что хотите удалить {{item}}?",
@@ -133,6 +159,7 @@
     "department": "отдел",
     "skill": "навык",
     "Profile": "Профиль",
+    "Domains": "Домены",
     "Settings": "Настройки",
     "Logout": "Выйти",
     "Home": "Главная",
@@ -183,7 +210,8 @@
         "Cv": "Резюме",
         "addCv": "Добавить резюме",
         "updateCv": "Обновить резюме",
-        "deleteCv": "Удалить резюме"
+        "deleteCv": "Удалить резюме",
+        "exportPdf": "ЭКСПОРТ PDF"
     },
     "users": {
         "user": "пользователь",
@@ -192,16 +220,17 @@
         "deleteUser": "Удалить пользователя"
     },
     "projects": {
-        "projects":"проект",
+        "projects": "проект",
         "addProject": "Add проект",
         "updateProject": "Update проект",
         "deleteProject": "Delete проект",
-        "name":"Имя",
-        "internalName":"Внутренне Имя",
-        "domain":"Домен",
-        "teamSize":"Размер команды",
+        "name": "Имя",
+        "internalName": "Внутренне Имя",
+        "domain": "Домен",
+        "teamSize": "Размер команды",
         "description": "Описание",
-        "stardDate": "Дата начала",
-        "endDate": "Дата окончания"
+        "startDate": "Дата начала",
+        "endDate": "Дата окончания",
+        "tillNow": "По настощее время"
     }
 }

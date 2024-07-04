@@ -10,6 +10,7 @@ const AvatarDeleteButton = ({ userId, className }: { userId: string; className: 
 
     return (
         <Button
+            type="text"
             className={classNames(styles.button, className)}
             disabled={loading}
             onClick={() => {

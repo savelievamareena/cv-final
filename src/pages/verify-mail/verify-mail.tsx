@@ -1,5 +1,7 @@
 import { VerifyMailForm } from "@/modules/auth/components/forms";
 
-export const VerifyMail = () => {
+const VerifyMail = () => {
     return <VerifyMailForm />;
 };
+
+export default VerifyMail;

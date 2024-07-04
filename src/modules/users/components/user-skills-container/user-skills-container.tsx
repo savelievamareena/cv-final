@@ -1,29 +1,32 @@
 import { Flex } from "antd";
 import { Mastery, SkillMastery } from "cv-graphql";
 import { useTranslation } from "react-i18next";
-import styles from "./user-skills-container.module.scss";
-import type { SkillsByCategory } from "@/modules/cvs/cv.types";
 import { useSkills } from "@/api/get-skills-query";
 import { useUpdateProfileSkill } from "@/api/update-profile-skill-mutation";
 import { ProgressBar } from "@/components/progress-bar";
 import { SkillsCategoryTranslation, SkillsMastery } from "@/constants";
 import { useSortSkillsByCategory } from "@/hooks/skills";
 import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schemas";
+import type { SkillsByCategory } from "@/modules/cvs/cv.types";
 import { useAddSkill } from "@/modules/users/components/skills-dialog";
+import styles from "./user-skills-container.module.scss";
 
 interface UserSkillsContainerProps {
     skills: SkillMastery[];
     userId: string;
+    canEdit: boolean;
 }
 
-const UserSkillsContainer = ({ skills, userId }: UserSkillsContainerProps) => {
+const UserSkillsContainer = ({ skills, userId, canEdit }: UserSkillsContainerProps) => {
     const { t } = useTranslation();
     const [openSkillDialog] = useAddSkill();
     const [updateProfileSkill] = useUpdateProfileSkill();
     const { data: skillsData } = useSkills();
 
-    if (skills.length < 1) {
-        return <Flex justify="center">No skills Added</Flex>;
+    const skillsByCategory: SkillsByCategory = useSortSkillsByCategory(skills);
+
+    if (!skills.length) {
+        return <Flex justify="center">{t("skills.noSkills")}</Flex>;
     }
 
     const handleSkillSelected = (skill: SkillMastery) => {
@@ -54,8 +57,6 @@ const UserSkillsContainer = ({ skills, userId }: UserSkillsContainerProps) => {
             existingSkillsOnPage: skills,
         });
 
-    const skillsByCategory: SkillsByCategory = useSortSkillsByCategory(skills);
-
     return (
         <>
             {Object.entries(skillsByCategory).map(([category, skillList]) => {
@@ -74,6 +75,7 @@ const UserSkillsContainer = ({ skills, userId }: UserSkillsContainerProps) => {
                                         skill={skill}
                                         percent={SkillsMastery[skill.mastery].percent}
                                         strokeColor={SkillsMastery[skill.mastery].color}
+                                        canEdit={canEdit}
                                     />
                                 );
                             })}
