@@ -1,0 +1,12 @@
+.breadcrumb {
+    min-height: 1.5rem;
+}
+.breadcrumb ol {
+    overflow-x: scroll;
+}
+.breadcrumb ol > * {
+    flex-shrink: 0;
+}
+.breadcrumb ol::-webkit-scrollbar {
+    display: none;
+} /*# sourceMappingURL=breadcrumbs.module.css.map */
