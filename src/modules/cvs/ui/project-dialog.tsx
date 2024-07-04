@@ -1,12 +1,10 @@
 import { Button, Col, Row } from "antd";
 
 import { Project } from "cv-graphql";
-import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import { BaseDialog } from "@/components/base-dialog";
 import { Form } from "@/components/form";
-import { FormHandle } from "@/components/form/form.types";
 import { FormDatePicker } from "@/components/form-date-picker";
 import { FormSelect } from "@/components/form-select";
 import { FormSubmitButton } from "@/components/form-submit-button";
@@ -32,8 +30,6 @@ const ProjectDialog = ({
     initialValues,
     projects,
 }: ProjectDialogProps) => {
-    const formRef = useRef<FormHandle<UpdateProjectFormSchemaType>>(null);
-
     const handleConfirm = (formData: UpdateProjectFormSchemaType) => {
         onConfirm(formData);
         onClose();
@@ -46,7 +42,6 @@ const ProjectDialog = ({
     return (
         <BaseDialog title={title} onClose={onClose}>
             <Form
-                ref={formRef}
                 onSubmit={handleConfirm}
                 defaultValues={initialValues}
                 schema={updateProjectFormSchema()}

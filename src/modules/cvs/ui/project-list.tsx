@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { useConfirm } from "@/components/confirm-dialog/";
 import { Action } from "@/components/list-lemplate/actions-menu";
-import ListTemplate from "@/components/list-lemplate/list-template";
+import { ListTemplate } from "@/components/list-lemplate/list-template";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { DATE_FORMAT } from "@/constants";
 import { RouteParams, routes } from "@/router";
