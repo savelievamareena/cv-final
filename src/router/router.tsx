@@ -6,9 +6,9 @@ import { CV } from "@/modules/cvs";
 import { UserLayout } from "@/modules/users/components/user-layout";
 import { CVDetails } from "@/pages/cv-details";
 import { CVPreview } from "@/pages/cv-preview";
+import { CVProjects } from "@/pages/cv-projects";
 import { CVSkills } from "@/pages/cv-skills";
 import { CvPage } from "@/pages/cvs";
-import CvsProjects from "@/pages/cvs-projects/cvs-project";
 import { DepartmentsPage } from "@/pages/departments";
 import { LanguagesPage } from "@/pages/languages";
 import { Login } from "@/pages/login";
@@ -95,7 +95,7 @@ export const router = createBrowserRouter([
                             {
                                 errorElement: <ErrorComponent />,
                                 path: routes.cvs.projects(`:${RouteParams.CvId}`),
-                                element: <CvsProjects />,
+                                element: <CVProjects />,
                             },
                             {
                                 index: true,
