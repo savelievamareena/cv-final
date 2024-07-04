@@ -158,13 +158,14 @@
     "search": "Search",
     "cancel": "Cancel",
     "confirm": "Confirm",
-    "department": "department",
+    "department": "Department",
     "Profile": "Profile",
     "Domains": "Domains",
     "Settings": "Settings",
     "Logout": "Logout",
     "Home": "Home",
     "Employees": "Employees",
+    "Employee": "Employee",
     "Projects": "Projects",
     "CVs": "CVs",
     "CV": "CV",
@@ -210,13 +211,7 @@
         "user": "user",
         "addUser": "Add user",
         "updateUser": "Update user",
-        "deleteUser": "Delete user",
-        "first_name": "First Name",
-        "last_name": "Last Name",
-        "email":"Email",
-        "department":"Department",
-        "position":"Position",
-        "avatar": ""
+        "deleteUser": "Delete user"
     },
     "cvs": {
         "cv": "cv",
@@ -243,9 +238,14 @@
         "name": "Name",
         "internal_name": "Internal Name",
         "domain": "Domain",
-        "teamSize": "Team size",
+        "team_size": "Team size",
         "description": "Description",
         "start_date": "Start date",
         "end_date": "End date",
-        "tillNow": "Till now"
+        "tillNow": "Till now",
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "email":"Email",
+        "position":"Position",
+        "avatar": ""
 }

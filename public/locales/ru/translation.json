@@ -158,7 +158,7 @@
     "search": "Поиск",
     "cancel": "Отмена",
     "confirm": "Подтвердить",
-    "department": "отдел",
+    "department": "Отдел",
     "skill": "навык",
     "Profile": "Профиль",
     "Domains": "Домены",
@@ -167,6 +167,7 @@
     "Home": "Главная",
     "here": "здесь",
     "Employees": "Сотрудники",
+    "Employee": "Сотрудник",
     "Projects": "Проекты",
     "CVs": "Резюме",
     "CV": "Резюме",
@@ -219,13 +220,7 @@
         "user": "пользователь",
         "addUser": "Добавить пользователя",
         "updateUser": "Обновить пользователя",
-        "deleteUser": "Удалить пользователя",
-        "first_name": "Имя",
-        "last_name": "Фамилия",
-        "email":"Почта",
-        "department":"Отдел",
-        "position":"Должность",
-         "avatar": ""
+        "deleteUser": "Удалить пользователя"
     },
     "projects": {
         "projects": "проект",
@@ -245,8 +240,13 @@
         "name": "Имя",
         "internal_name": "Внутренне Имя",
         "domain": "Домен",
-        "teamSize": "Размер команды",
+        "team_size": "Размер команды",
         "description": "Описание",
         "start_date": "Дата начала",
-        "end_date": "Дата окончания"
+        "end_date": "Дата окончания",
+        "first_name": "Имя",
+        "last_name": "Фамилия",
+        "email":"Почта",
+        "position":"Должность",
+         "avatar": ""
 }
