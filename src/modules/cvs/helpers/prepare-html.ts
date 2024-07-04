@@ -6,7 +6,7 @@ const prepareStyles = (
 
     const neededSelectors = [
         ...new Set(
-            [...content.innerHTML.matchAll(/class=["']([a-zA-Z0-9_\-\s]+)["']/gm)]
+            [...content.outerHTML.matchAll(/class=["']([a-zA-Z0-9_\-\s]+)["']/gm)]
                 .map((item) => {
                     return item[1].split(" ");
                 })
