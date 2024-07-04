@@ -35,16 +35,6 @@ const ProjectDialog = ({ title, onConfirm, onClose, initialValues }: ProjectDial
     const { projects } = useProjectsQuery();
     const projectsOptions = mapProjectsToSelectOptions(projects);
 
-    const handleProjectChange = (value: string) => {
-        const projectsSelected = projects?.filter((projects) => projects.name === value);
-
-        if (projectsSelected) {
-            const selectedIternalName = projectsSelected[0].internal_name;
-            formRef.current?.setValue("internal_name", selectedIternalName ?? "");
-            formRef.current?.setValue("team_size", projectsSelected[0].team_size ?? 1);
-            formRef.current?.setValue("description", selectedIternalName ?? "");
-        }
-    };
     const { t } = useTranslation();
 
     return (
@@ -62,7 +52,6 @@ const ProjectDialog = ({ title, onConfirm, onClose, initialValues }: ProjectDial
                             label={t("project.fieldLabels.name")}
                             name="name"
                             options={projectsOptions}
-                            onChange={handleProjectChange}
                             size="large"
                         />
                     </Col>
