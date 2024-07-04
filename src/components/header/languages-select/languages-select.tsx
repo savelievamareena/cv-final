@@ -3,8 +3,8 @@ import { Dropdown, DropdownProps, Flex, MenuProps } from "antd";
 import classNames from "classnames";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import styles from "../header.module.scss";
 import { Languages } from "@/i18n.ts";
+import styles from "../header.module.scss";
 
 const LanguagesSelect = () => {
     const { i18n, t } = useTranslation();

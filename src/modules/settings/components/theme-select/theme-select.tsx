@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
-import { SettingSelect } from "../setting-select";
 import { themeService, ThemePreference, useUserThemePreference } from "@/services/theme-service";
+import { SettingSelect } from "../setting-select";
 
 const ThemeSelect = () => {
     const themePreference = useUserThemePreference();

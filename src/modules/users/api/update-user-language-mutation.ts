@@ -1,8 +1,8 @@
 import { gql, useMutation } from "@apollo/client";
 import { UpdateProfileLanguageInput } from "cv-graphql";
+import { useNotificationContext } from "@/helpers/notification";
 import { ProfileResult } from "./get-profile-query";
 import { GET_USER_LANGUAGES_QUERY } from "./get-user-languages-query";
-import { useNotificationContext } from "@/helpers/notification";
 
 const UPDATE_USER_LANGUAGE = gql`
     mutation UpdateUserLanguage($language: UpdateProfileLanguageInput!) {

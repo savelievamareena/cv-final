@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import { useTranslation } from "react-i18next";
-import { BaseDialog } from "../base-dialog/";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
+import { BaseDialog } from "../base-dialog/";
 
 interface ConfirmDialogProps {
     title: string;

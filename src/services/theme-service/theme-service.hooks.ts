@@ -1,8 +1,8 @@
 import { useReactiveVar } from "@apollo/client";
 import { useEffect } from "react";
+import { THEME_PREF_MEDIA_QUERY } from "@/constants/theme";
 import { themeService } from "./theme-service";
 import { ThemePreference } from "./theme-service.constants";
-import { THEME_PREF_MEDIA_QUERY } from "@/constants/theme";
 
 export const useUserThemePreference = () => useReactiveVar(themeService.userThemePreference);
 

@@ -15,8 +15,8 @@ import { Dispatch, SetStateAction, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink, useLocation } from "react-router-dom";
 
-import styles from "./navigation.module.scss";
 import { routes } from "@/router/constants";
+import styles from "./navigation.module.scss";
 
 interface NavigationProps {
     isDrawerOpen: boolean;

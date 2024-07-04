@@ -1,10 +1,10 @@
 import { makeVar } from "@apollo/client";
+import { StorageKeys } from "@/constants";
+import { THEME_PREF_MEDIA_QUERY } from "@/constants/theme";
 import { localStorageService } from "../storage-service";
 import { ThemePreference, Themes } from "./theme-service.constants";
 import { IThemeService } from "./theme-service.types";
 import { AppThemeConfig } from "./themes/types";
-import { StorageKeys } from "@/constants";
-import { THEME_PREF_MEDIA_QUERY } from "@/constants/theme";
 
 class ThemeService implements IThemeService {
     theme = makeVar<AppThemeConfig | null>(null);

@@ -2,9 +2,9 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Navigate, useParams } from "react-router-dom";
 
-import { generateUserTabs } from "../../helpers";
 import { PageTabs } from "@/components/page-tabs";
 import { RouteParams, routes } from "@/router";
+import { generateUserTabs } from "../../helpers";
 
 const UserLayout = () => {
     const { [RouteParams.UserId]: userId } = useParams();

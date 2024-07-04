@@ -3,8 +3,8 @@ import { Button, ButtonProps } from "antd";
 import classNames from "classnames";
 import { memo } from "react";
 
-import styles from "./bulk-delete-button.module.scss";
 import { bulkDeleteService } from "@/services/bulk-delete-service";
+import styles from "./bulk-delete-button.module.scss";
 
 interface BulkDeleteProps extends ButtonProps {
     item: string;

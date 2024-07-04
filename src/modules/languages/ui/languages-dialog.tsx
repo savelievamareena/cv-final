@@ -1,11 +1,11 @@
 import { Button } from "antd";
 import { useTranslation } from "react-i18next";
-import { getLanguageFormSchema, LanguageFormSchemaType } from "../shemas/language";
 import { BaseDialog } from "@/components/base-dialog/";
 import { Form } from "@/components/form";
 import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormTextField } from "@/components/form-text-field";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
+import { getLanguageFormSchema, LanguageFormSchemaType } from "../shemas/language";
 
 interface LanguageDialogProps {
     title: string;

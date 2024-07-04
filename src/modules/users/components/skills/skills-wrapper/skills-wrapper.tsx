@@ -1,9 +1,9 @@
 import { UserRole } from "cv-graphql";
 import { Navigate, useParams } from "react-router-dom";
-import { SkillsDeleteFooter } from "../skills-delete-footer";
 import { Skills } from "@/modules/users/components/skills";
 import { routes } from "@/router";
 import { useAuthUser } from "@/services/auth-service";
+import { SkillsDeleteFooter } from "../skills-delete-footer";
 
 const SkillsWrapper = () => {
     const { userId } = useParams<{ userId: string }>();

@@ -1,5 +1,4 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import { RelativePaths, RouteParams, routes } from "./constants";
 import { ErrorComponent } from "@/components/error-component";
 import { MainLayout } from "@/components/main-layout";
 import { AuthLayout } from "@/modules/auth/components/auth-layout";
@@ -25,6 +24,7 @@ import { UserProfile } from "@/pages/user-profile";
 import { UserSkills } from "@/pages/user-skills";
 import { UsersPage } from "@/pages/users";
 import { VerifyMail } from "@/pages/verify-mail";
+import { RelativePaths, RouteParams, routes } from "./constants";
 
 export const router = createBrowserRouter([
     {

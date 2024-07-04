@@ -2,7 +2,6 @@ import { PlusOutlined } from "@ant-design/icons";
 import { Button, Flex } from "antd";
 import { Mastery } from "cv-graphql";
 import { useTranslation } from "react-i18next";
-import styles from "./skills.module.scss";
 import { useAddProfileSkill } from "@/api/add-profile-skill-mutation";
 import { useSkills } from "@/api/get-skills-query";
 import { FullsizeLoader } from "@/components/fullsize-loader";
@@ -10,6 +9,7 @@ import { AddSkillSchemaType } from "@/modules/cvs/components/skills-dialog/schem
 import { useProfileQuery } from "@/modules/users/api";
 import { useAddSkill } from "@/modules/users/components/skills-dialog";
 import { UserSkillsContainer } from "@/modules/users/components/user-skills-container";
+import styles from "./skills.module.scss";
 
 interface userSkillsProps {
     userId: string;

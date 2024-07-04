@@ -2,8 +2,6 @@ import { Button, Col, Row } from "antd";
 
 import { useTranslation } from "react-i18next";
 
-import styles from "../components/project-details-form/project-details-form.module.scss";
-import { updateProjectFormSchema, UpdateProjectFormSchemaType } from "../schemas";
 import { BaseDialog } from "@/components/base-dialog";
 import { Form } from "@/components/form";
 import { FormDatePicker } from "@/components/form-date-picker";
@@ -13,6 +11,8 @@ import { FormTextField } from "@/components/form-text-field";
 import { FormTextarea } from "@/components/form-textarea";
 
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
+import styles from "../components/project-details-form/project-details-form.module.scss";
+import { updateProjectFormSchema, UpdateProjectFormSchemaType } from "../schemas";
 
 interface ProjectDialogProps {
     title: string;

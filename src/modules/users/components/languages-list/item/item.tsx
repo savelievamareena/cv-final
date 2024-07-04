@@ -2,9 +2,9 @@ import { Button, Flex } from "antd";
 import classNames from "classnames";
 import { LanguageProficiency } from "cv-graphql";
 
-import styles from "./item.module.scss";
 import { BulkDeleteButton } from "@/components/bulk-delete-button";
 import { bulkDeleteService, useBulkDeleteItemIds } from "@/services/bulk-delete-service";
+import styles from "./item.module.scss";
 
 interface LanguagesListItemProps {
     language: LanguageProficiency;

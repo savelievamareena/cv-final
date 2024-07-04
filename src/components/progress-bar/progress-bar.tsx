@@ -2,9 +2,9 @@ import { Button, Flex, Progress } from "antd";
 import { ProgressProps } from "antd/es/progress";
 import classNames from "classnames";
 import { SkillMastery } from "cv-graphql";
+import { bulkDeleteService, useBulkDeleteItemIds } from "@/services/bulk-delete-service";
 import { BulkDeleteButton } from "../bulk-delete-button";
 import styles from "./progress-bar.module.scss";
-import { bulkDeleteService, useBulkDeleteItemIds } from "@/services/bulk-delete-service";
 
 export interface SkillProgressBarProps extends ProgressProps {
     skill: SkillMastery;

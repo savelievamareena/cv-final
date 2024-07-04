@@ -2,9 +2,6 @@ import { Button, Flex } from "antd";
 import classNames from "classnames";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { LanguagesBlock } from "./languages-block";
-import styles from "./preview.module.scss";
-import { SkillsInfoBlock } from "./skills-info-block";
 import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useCvById } from "@/modules/cvs/api";
 import { usePdfExport } from "@/modules/cvs/api/export-pdf-mutation.ts";
@@ -12,6 +9,9 @@ import { DomainBlock } from "@/modules/cvs/components/preview/domain-block";
 import { ProjectsBlock } from "@/modules/cvs/components/preview/projects-block";
 import { UserInfoBlock } from "@/modules/cvs/components/preview/user-info-block";
 import { prepareHtml } from "@/modules/cvs/helpers/prepare-html";
+import { LanguagesBlock } from "./languages-block";
+import styles from "./preview.module.scss";
+import { SkillsInfoBlock } from "./skills-info-block";
 
 interface PreviewProps {
     cvId: string;

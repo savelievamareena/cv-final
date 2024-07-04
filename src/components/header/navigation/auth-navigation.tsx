@@ -3,8 +3,8 @@ import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 
-import styles from "./navigation.module.scss";
 import { routes } from "@/router";
+import styles from "./navigation.module.scss";
 
 const AuthNavigation = () => {
     const { t } = useTranslation();

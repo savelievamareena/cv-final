@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
-import { SettingSelect } from "../setting-select";
 import { Languages } from "@/i18n";
+import { SettingSelect } from "../setting-select";
 
 const LangSelect = () => {
     const { t, i18n } = useTranslation();

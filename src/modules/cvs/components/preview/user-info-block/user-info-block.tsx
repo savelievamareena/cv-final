@@ -1,7 +1,7 @@
 import { Flex } from "antd";
-import styles from "../preview.module.scss";
 import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useUserQuery } from "@/modules/users/api";
+import styles from "../preview.module.scss";
 
 interface UserInfoBlockProps {
     userId: string;

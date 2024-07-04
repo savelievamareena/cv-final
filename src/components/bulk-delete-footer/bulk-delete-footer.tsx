@@ -2,8 +2,8 @@ import { Button, Flex, Layout } from "antd";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-import styles from "./bulk-delete-footer.module.scss";
 import { bulkDeleteService, useBulkDeleteItemIds } from "@/services/bulk-delete-service";
+import styles from "./bulk-delete-footer.module.scss";
 
 interface BulkDeleteProps {
     onDelete(entityIds: string[]): Promise<unknown>;

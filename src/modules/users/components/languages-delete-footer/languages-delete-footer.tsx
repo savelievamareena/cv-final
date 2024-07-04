@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import { useDeleteUserLanguage } from "../../api";
 import { BulkDeleteFooter } from "@/components/bulk-delete-footer";
+import { useDeleteUserLanguage } from "../../api";
 
 interface LanguagesDeleteFooterProps {
     userId: string;

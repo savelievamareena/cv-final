@@ -3,13 +3,13 @@ import { Button, Flex } from "antd";
 import { LanguageProficiency, Proficiency } from "cv-graphql";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useCreateUserLanguage, useUpdateUserLanguage, useUserLanguages } from "../../api";
 import { useLanguagesDialog } from "../languages-dialog";
 import { LanguagesFormSchemaType } from "../schemas/languages";
 import { LanguagesListItem } from "./item";
 
 import styles from "./languages-list.module.scss";
-import { FullsizeLoader } from "@/components/fullsize-loader";
 
 interface LanguagesListProps {
     userId: string;

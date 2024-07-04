@@ -2,14 +2,14 @@ import { Col, Row } from "antd";
 import { Profile, User } from "cv-graphql";
 import { useTranslation } from "react-i18next";
 
-import { useProfileUpdate, useUserUpdate } from "../../api";
-import { profileFormSchema } from "../schemas";
-import styles from "./profile-form.module.scss";
 import { useDepartmentsQuery, usePositionsQuery } from "@/api";
 import { Form } from "@/components/form";
 import { FormSelect } from "@/components/form-select";
 import { FormSubmitButton } from "@/components/form-submit-button/form-submit-button";
 import { FormTextField } from "@/components/form-text-field";
+import { useProfileUpdate, useUserUpdate } from "../../api";
+import { profileFormSchema } from "../schemas";
+import styles from "./profile-form.module.scss";
 
 interface ProfileFormProps {
     profile: Profile;

@@ -1,9 +1,9 @@
 import { Flex } from "antd";
 import { SkillMastery } from "cv-graphql";
 import { useTranslation } from "react-i18next";
-import styles from "../preview.module.scss";
 import { SkillsCategoryTranslation } from "@/constants";
 import { useSortSkillsByCategory } from "@/hooks/skills";
+import styles from "../preview.module.scss";
 
 interface SkillsInfoBlockProps {
     skills: SkillMastery[];
