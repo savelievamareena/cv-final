@@ -4,22 +4,32 @@
     font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
+.preview_content {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+}
+
 .preview_basic_info {
+    display: flex;
     font-size: clamp(0.8rem, 5vw, 1.2rem);
     page-break-after: always;
 }
 
 .preview_left_col {
+    display: flex;
     border-right: 1px solid #c63031;
     width: 12rem;
     flex-shrink: 0;
 }
 
 .preview_right_col {
+    display: flex;
     padding-left: 30px;
 }
 
 .preview_col {
+    display: flex;
     padding-right: 30px;
     gap: 20px;
 }
@@ -34,11 +44,13 @@
 }
 
 .project_wrapper {
+    display: flex;
     margin-bottom: 25px;
     font-size: clamp(0.8rem, 5vw, 1.2rem);
 }
 
 .project_left_col {
+    display: flex;
     padding-top: 20px;
     width: 20rem;
     flex-shrink: 0;
@@ -47,6 +59,7 @@
 }
 
 .project_right_col {
+    display: flex;
     padding-top: 20px;
     padding-left: 2rem;
     gap: 20px;

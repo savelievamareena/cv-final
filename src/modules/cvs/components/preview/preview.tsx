@@ -38,7 +38,11 @@ const Preview = ({ cvId }: PreviewProps) => {
         void exportPdf({
             variables: {
                 pdf: {
-                    html: prepareHtml(ref.current),
+                    html: prepareHtml(ref.current, [
+                        styles.preview,
+                        `.${styles.preview_content}`,
+                        "body",
+                    ]),
                     margin: {
                         top: "12mm",
                         bottom: "12mm",
@@ -52,7 +56,7 @@ const Preview = ({ cvId }: PreviewProps) => {
 
     return (
         <Flex className={styles.preview}>
-            <Flex vertical gap={40} ref={ref}>
+            <Flex className={styles.preview_content} ref={ref}>
                 <Flex justify={"space-between"} align={"center"}>
                     <UserInfoBlock userId={userId} />
                     <Button
