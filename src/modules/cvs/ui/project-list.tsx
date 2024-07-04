@@ -1,6 +1,5 @@
 import { CvProject } from "cv-graphql";
 import dayjs from "dayjs";
-// import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { useConfirm } from "@/components/confirm-dialog/";
@@ -57,8 +56,8 @@ const CvProjectsList = () => {
                 },
             });
         },
-        onUpdate: (name?: string) => {
-            const cvId = projectsList?.filter((projects) => projects.name === name)[0].id;
+        onUpdate: (__id: string, name?: string) => {
+            const cvId = projectsList?.filter((projects) => projects.name == name)[0].id;
             navigate(routes.projects.details(cvId));
         },
     };
@@ -77,8 +76,8 @@ const CvProjectsList = () => {
                             projectId: id[0].id,
                             start_date: formData.start_date.format(DATE_FORMAT),
                             end_date: formData.end_date?.format(DATE_FORMAT),
-                            responsibilities: [],
-                            roles: [],
+                            responsibilities: [formData.responsibilities ?? ""],
+                            roles: [formData.responsibilities ?? ""],
                         },
                     },
                 });

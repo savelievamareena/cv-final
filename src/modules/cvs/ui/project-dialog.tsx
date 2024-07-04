@@ -66,7 +66,6 @@ const ProjectDialog = ({
                             label={t("project.fieldLabels.roles")}
                             name="roles"
                             placeholder="DO NOW WORK"
-                            disabled
                         />
                     </Col>
 
@@ -89,7 +88,6 @@ const ProjectDialog = ({
                             label={t("project.fieldLabels.responsibilities")}
                             name="responsibilities"
                             placeholder="DO NOW WORK"
-                            disabled
                         />
                     </Col>
                 </Row>
