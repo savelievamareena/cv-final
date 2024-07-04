@@ -1,3 +1,5 @@
+import { extractClasses } from "./extract-classes";
+
 const prepareStyles = (
     content: HTMLElement,
     additionalStyleSelectors: string[]
@@ -6,11 +8,7 @@ const prepareStyles = (
 
     const neededSelectors = [
         ...new Set(
-            [...content.outerHTML.matchAll(/class=["']([a-zA-Z0-9_\-\s]+)["']/gm)]
-                .map((item) => {
-                    return item[1].split(" ");
-                })
-                .flat()
+            extractClasses(content)
                 .filter((item) => !item.includes("css-dev-only"))
                 .concat(additionalStyleSelectors)
         ),
