@@ -36,6 +36,7 @@ module.exports = {
                 singleQuote: false,
             },
         ],
+        "import/no-cycle": ["error"],
         "import/order": [
             "error",
             {
