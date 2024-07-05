@@ -2,6 +2,7 @@ import { Button, Flex } from "antd";
 import classNames from "classnames";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Navigate } from "react-router-dom";
 import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useCvById } from "@/modules/cvs/api";
 import { usePdfExport } from "@/modules/cvs/api/export-pdf-mutation.ts";
@@ -9,6 +10,7 @@ import { DomainBlock } from "@/modules/cvs/components/preview/domain-block";
 import { ProjectsBlock } from "@/modules/cvs/components/preview/projects-block";
 import { UserInfoBlock } from "@/modules/cvs/components/preview/user-info-block";
 import { prepareHtml } from "@/modules/cvs/helpers/prepare-html";
+import { routes } from "@/router";
 import { LanguagesBlock } from "./languages-block";
 import styles from "./preview.module.scss";
 import { SkillsInfoBlock } from "./skills-info-block";
@@ -26,9 +28,11 @@ const Preview = ({ cvId }: PreviewProps) => {
 
     const { data: cvData, loading: cvLoading } = useCvById(cvId);
     const [exportPdf, { loading: loadingPdf }] = usePdfExport(cvData?.cv.name);
-    const userId = cvData?.cv.user.id;
+    const userId = cvData?.cv?.user?.id;
 
-    if (cvLoading || !cvData || !userId) return <FullsizeLoader />;
+    if (!userId) return <Navigate to={routes.cvs.root} />;
+
+    if (cvLoading && !cvData) return <FullsizeLoader />;
 
     const handleExportButtonClick = () => {
         if (!ref.current) {
@@ -38,7 +42,7 @@ const Preview = ({ cvId }: PreviewProps) => {
         void exportPdf({
             variables: {
                 pdf: {
-                    html: prepareHtml(ref.current),
+                    html: prepareHtml(ref.current, ["body"]),
                     margin: {
                         top: "12mm",
                         bottom: "12mm",
@@ -52,7 +56,7 @@ const Preview = ({ cvId }: PreviewProps) => {
 
     return (
         <Flex className={styles.preview}>
-            <Flex vertical gap={40} ref={ref}>
+            <Flex className={styles.preview_content} ref={ref}>
                 <Flex justify={"space-between"} align={"center"}>
                     <UserInfoBlock userId={userId} />
                     <Button
