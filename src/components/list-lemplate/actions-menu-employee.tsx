@@ -1,5 +1,5 @@
 import { MoreOutlined } from "@ant-design/icons";
-import { Space, Dropdown } from "antd";
+import { Space, Dropdown, Button } from "antd";
 import { Content } from "antd/es/layout/layout";
 import { t } from "i18next";
 import { memo, ReactNode } from "react";
@@ -27,13 +27,13 @@ const ActionsMenuEmployee = ({ onUpdate, record }: ActionProps) => {
     ];
 
     return (
-        <Dropdown menu={{ items }} trigger={["click"]}>
-            <a onClick={(e) => e.preventDefault()}>
+        <Dropdown.Button menu={{ items }} trigger={["click"]}>
+            <Button>
                 <Space>
                     <MoreOutlined />
                 </Space>
-            </a>
-        </Dropdown>
+            </Button>
+        </Dropdown.Button>
     );
 };
 
