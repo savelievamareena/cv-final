@@ -1,9 +1,6 @@
+import { lazy } from "react";
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import { ErrorComponent } from "@/components/error-component";
-import { MainLayout } from "@/components/main-layout";
-import { AuthLayout } from "@/modules/auth/components/auth-layout";
-import { CV } from "@/modules/cvs";
-import { UserLayout } from "@/modules/users/components/user-layout";
+
 import { CVDetails } from "@/pages/cv-details";
 import { CVPreview } from "@/pages/cv-preview";
 import { CVProjects } from "@/pages/cv-projects";
@@ -25,6 +22,12 @@ import { UserSkills } from "@/pages/user-skills";
 import { UsersPage } from "@/pages/users";
 import { VerifyMail } from "@/pages/verify-mail";
 import { RelativePaths, RouteParams, routes } from "./constants";
+
+const CV = lazy(() => import("@/modules/cvs"));
+const MainLayout = lazy(() => import("@/components/main-layout"));
+const AuthLayout = lazy(() => import("@/modules/auth/components/auth-layout"));
+const ErrorComponent = lazy(() => import("@/components/error-component"));
+const UserLayout = lazy(() => import("@/modules/users/components/user-layout"));
 
 export const router = createBrowserRouter([
     {
