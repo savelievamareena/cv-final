@@ -5,7 +5,9 @@ import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormTextField } from "@/components/form-text-field";
 import { FormTextarea } from "@/components/form-textarea";
 import { FullsizeLoader } from "@/components/fullsize-loader";
-import { useCvById, useCvUpdate } from "@/modules/cvs/api";
+import { useCvById } from "@/modules/cvs/api/get-cv-by-id-query";
+import { useCvUpdate } from "@/modules/cvs/api/update-cv-mutation";
+
 import styles from "@/modules/cvs/components/details/details.module.scss";
 import { CvDetailsSchemaType, getCvDetailsSchema } from "@/modules/cvs/components/details/schemas";
 
