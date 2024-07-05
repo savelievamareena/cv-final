@@ -21,12 +21,7 @@ const prepareStyles = (
             if (ownerNode instanceof HTMLStyleElement) {
                 const newStyle = document.createElement("style");
                 newStyle.innerHTML = Array.from(styleSheet.cssRules)
-                    .filter((rule) => {
-                        for (const selector of neededSelectors) {
-                            if (rule.cssText.includes(selector)) return true;
-                        }
-                        return false;
-                    })
+                    .filter((rule) => neededSelectors.some((sel) => rule.cssText.includes(sel)))
                     .map((cssRule) =>
                         cssRule.cssText.replace(/:where\(\.css-dev-only[a-zA-Z0-9-]+\)/g, "")
                     )
