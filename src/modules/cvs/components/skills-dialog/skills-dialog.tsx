@@ -35,7 +35,7 @@ const SkillsDialog = ({
     );
 
     if (!cvId) {
-        return <Navigate to={routes.auth.root} replace />;
+        return <Navigate to={routes.cvs.root} replace />;
     }
 
     const handleConfirm = (formData: AddSkillSchemaType) => {
