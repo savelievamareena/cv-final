@@ -7,7 +7,7 @@ import { routes } from "@/router";
 import { useAuthUser } from "@/services/auth-service";
 import styles from "./auth-layout.module.scss";
 
-export const AuthLayout = () => {
+const AuthLayout = () => {
     const user = useAuthUser();
 
     if (user?.is_verified) {
@@ -25,3 +25,4 @@ export const AuthLayout = () => {
         </>
     );
 };
+export default AuthLayout;
