@@ -24,7 +24,7 @@ const SkillsList = () => {
     const menuProps: Action = {
         onDelete: (id: string) =>
             openConfirm({
-                title: t("delete confirmation"),
+                title: t("deleteConfirmation"),
                 onConfirm: () => void deleteSkill({ variables: { skill: { skillId: id } } }),
             }),
 

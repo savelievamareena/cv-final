@@ -1,8 +1,8 @@
 {
     "auth": {
         "additionalLinks": {
-            "haveAccount":"I have an account",
-            "dontHaveAccount":"I don't have an account"
+            "haveAccount": "I have an account",
+            "dontHaveAccount": "I don't have an account"
         },
         "fieldLabels": {
             "password": "Password",
@@ -131,28 +131,29 @@
         }
     },
     "settings": {
-        "themeSelect":{
-            "label":"Appearance",
-            "options":{
-                "default":"Device settings",
-                "dark":"Dark",
-                "light":"Light"
+        "themeSelect": {
+            "label": "Appearance",
+            "options": {
+                "default": "Device settings",
+                "dark": "Dark",
+                "light": "Light"
             }
         },
-        "languageSelect":{
-            "label":"Language"
+        "languageSelect": {
+            "label": "Language"
         }
     },
     "languageSelect": {
         "options": {
-            "english":"English",
-            "russian":"Русский"
+            "english": "English",
+            "russian": "Русский"
         }
     },
     "submit": "Submit",
     "Welcome Back": "Welcome Back",
     "add": "Add",
     "delete": "Delete",
+    "deleteConfirmation": "Delete confirmation",
     "update": "Update",
     "loading": "Loading",
     "search": "Search",
@@ -235,17 +236,17 @@
         "end_date": "End date",
         "tillNow": "Till now"
     },
-        "name": "Name",
-        "internal_name": "Internal Name",
-        "domain": "Domain",
-        "team_size": "Team size",
-        "description": "Description",
-        "start_date": "Start date",
-        "end_date": "End date",
-        "tillNow": "Till now",
-        "first_name": "First Name",
-        "last_name": "Last Name",
-        "email":"Email",
-        "position":"Position",
-        "avatar": ""
+    "name": "Name",
+    "internal_name": "Internal Name",
+    "domain": "Domain",
+    "team_size": "Team size",
+    "description": "Description",
+    "start_date": "Start date",
+    "end_date": "End date",
+    "tillNow": "Till now",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "email": "Email",
+    "position": "Position",
+    "avatar": ""
 }

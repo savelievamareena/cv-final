@@ -28,7 +28,7 @@ const CvsList = () => {
     const menuProps: Action = {
         onDelete: (id: string) =>
             openConfirm({
-                title: t("delete confirmation"),
+                title: t("deleteConfirmation"),
                 onConfirm: () => void deleteCv({ variables: { cv: { cvId: id } } }),
             }),
 
@@ -37,7 +37,7 @@ const CvsList = () => {
 
     const openCv = () =>
         openCvDialog({
-            title: t("Add cv"),
+            title: t("cvs.addCv"),
             onConfirm: (formData) =>
                 void createCv({
                     variables: {

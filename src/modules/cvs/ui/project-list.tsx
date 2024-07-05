@@ -41,7 +41,7 @@ const CvProjectsList = () => {
     const menuProps: Action = {
         onDelete: (id: string) => {
             openConfirm({
-                title: t("delete confirmation"),
+                title: t("deleteConfirmation"),
                 onConfirm: () => {
                     const project = projects.find((proj) => proj.id === id);
                     console.log(project?.project.id);

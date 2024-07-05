@@ -51,14 +51,14 @@ const Details = ({ cvId, currentUserEmail }: DetailsProps) => {
             >
                 <FormTextField name={"name"} label={t("Name")} size="large" readOnly={isDisabled} />
                 <FormTextField
-                    name={"education"}
+                    name={"Education"}
                     label={t("Education")}
                     size="large"
                     readOnly={isDisabled}
                 />
                 <FormTextarea
                     className={styles.cv_details_form_textarea}
-                    name={"description"}
+                    name={"Description"}
                     label={t("Description")}
                     rows={4}
                     readOnly={isDisabled}

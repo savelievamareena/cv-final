@@ -7,9 +7,9 @@ import { Action } from "@/components/list-lemplate/actions-menu";
 import { ListTemplate } from "@/components/list-lemplate/list-template";
 import { ColumnConfig } from "@/components/list-lemplate/table-template";
 import { DATE_FORMAT } from "@/constants";
+import { useProjectsQuery } from "@/modules/projects/api";
 import { routes } from "@/router";
 import { useProjectCreate, useProjectDelete } from "../api";
-import { useProjectsQuery } from "../api/get-projects-query";
 import { useProjectDialog } from "./project-dialog";
 
 const columnConfigs: ColumnConfig<Project>[] = [
@@ -34,7 +34,7 @@ const ProjectsList = () => {
     const menuProps: Action = {
         onDelete: (id: string) =>
             openConfirm({
-                title: t("delete confirmation"),
+                title: t("deleteConfirmation"),
                 onConfirm: () => void deleteProject({ variables: { project: { projectId: id } } }),
             }),
         onUpdate: (id: string) => navigate(routes.projects.details(id)),

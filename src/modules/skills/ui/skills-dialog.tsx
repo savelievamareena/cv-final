@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Flex } from "antd";
 import { useTranslation } from "react-i18next";
 import { BaseDialog } from "@/components/base-dialog/";
 import { Form } from "@/components/form";
@@ -43,10 +43,14 @@ const SkillDialog = ({ title, onConfirm, onClose, initialValues }: SkillDialogPr
                     loading={false}
                     options={selectOptions}
                 />
-                <Button htmlType="button" onClick={onClose}>
-                    {t("cancel")}
-                </Button>
-                <FormSubmitButton disableIfNotDirty>{t("submit")}</FormSubmitButton>
+                <Flex gap={10} justify={"flex-end"}>
+                    <Button htmlType="button" onClick={onClose}>
+                        {t("cancel")}
+                    </Button>
+                    <FormSubmitButton disableIfNotDirty type="primary">
+                        {t("submit")}
+                    </FormSubmitButton>
+                </Flex>
             </Form>
         </BaseDialog>
     );

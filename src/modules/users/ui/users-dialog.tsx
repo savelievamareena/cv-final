@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Flex } from "antd";
 import { useTranslation } from "react-i18next";
 import { useDepartmentsQuery, usePositionsQuery } from "@/api";
 import { BaseDialog } from "@/components/base-dialog/";
@@ -47,10 +47,14 @@ const UserDialog = ({ title, onConfirm, onClose, initialValues }: UserDialogProp
                 <FormSelect name="department" options={departmentOptions} label={t("department")} />
                 <FormSelect name="position" options={positionOptions} label={t("position")} />
                 <FormSelect name="role" options={roleOptions} label={t("role")} />
-                <Button htmlType="button" onClick={onClose}>
-                    {t("cancel")}
-                </Button>
-                <FormSubmitButton disableIfNotDirty>{t("submit")}</FormSubmitButton>
+                <Flex gap={10} justify={"flex-end"}>
+                    <Button htmlType="button" onClick={onClose}>
+                        {t("cancel")}
+                    </Button>
+                    <FormSubmitButton disableIfNotDirty type="primary">
+                        {t("submit")}
+                    </FormSubmitButton>
+                </Flex>
             </Form>
         </BaseDialog>
     );

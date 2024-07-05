@@ -1,8 +1,8 @@
 {
     "auth": {
         "additionalLinks": {
-            "haveAccount":"У меня есть аккаунт",
-            "dontHaveAccount":"У меня нет аккаунта"
+            "haveAccount": "У меня есть аккаунт",
+            "dontHaveAccount": "У меня нет аккаунта"
         },
         "fieldLabels": {
             "password": "Пароль",
@@ -106,25 +106,25 @@
         }
     },
     "settings": {
-        "themeSelect":{
-            "label":"Внешний вид",
-            "options":{
-                "default":"Настройки устройства",
-                "dark":"Тёмный",
-                "light":"Светлый"
+        "themeSelect": {
+            "label": "Внешний вид",
+            "options": {
+                "default": "Настройки устройства",
+                "dark": "Тёмный",
+                "light": "Светлый"
             }
         },
-        "languageSelect":{
-            "label":"Язык"
+        "languageSelect": {
+            "label": "Язык"
         }
     },
     "languageSelect": {
         "options": {
-            "english":"English",
-            "russian":"Русский"
+            "english": "English",
+            "russian": "Русский"
         }
     },
-    "language":"язык",
+    "language": "язык",
     "languages": {
         "addLanguage": "Добавить язык",
         "updateLanguage": "Обновить язык",
@@ -153,6 +153,7 @@
     "Welcome Back": "С Возвращением",
     "add": "Добавить",
     "delete": "Удалить",
+    "deleteConfirmation": "Подтвердить удаление",
     "update": "Обновить",
     "loading": "Загрузка",
     "search": "Поиск",
@@ -237,16 +238,16 @@
         "end_date": "Дата окончания",
         "tillNow": "По настощее время"
     },
-        "name": "Имя",
-        "internal_name": "Внутренне Имя",
-        "domain": "Домен",
-        "team_size": "Размер команды",
-        "description": "Описание",
-        "start_date": "Дата начала",
-        "end_date": "Дата окончания",
-        "first_name": "Имя",
-        "last_name": "Фамилия",
-        "email":"Почта",
-        "position":"Должность",
-         "avatar": ""
+    "name": "Имя",
+    "internal_name": "Внутренне Имя",
+    "domain": "Домен",
+    "team_size": "Размер команды",
+    "description": "Описание",
+    "start_date": "Дата начала",
+    "end_date": "Дата окончания",
+    "first_name": "Имя",
+    "last_name": "Фамилия",
+    "email": "Почта",
+    "position": "Должность",
+    "avatar": ""
 }

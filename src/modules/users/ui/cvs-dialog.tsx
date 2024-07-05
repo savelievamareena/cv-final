@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Flex } from "antd";
 import { useTranslation } from "react-i18next";
 import { BaseDialog } from "@/components/base-dialog/";
 import { Form } from "@/components/form";
@@ -25,13 +25,17 @@ const CvDialog = ({ title, onConfirm, onClose, initialValues }: CvDialogProps) =
     return (
         <BaseDialog title={title} onClose={onClose}>
             <Form onSubmit={handleConfirm} defaultValues={initialValues} schema={getCvFormSchema()}>
-                <FormTextField type="text" label={t("name")} name="name" />
-                <FormTextField type="text" label={t("education")} name="education" />
-                <FormTextField type="text" label={t("description")} name="description" />
-                <Button htmlType="button" onClick={onClose}>
-                    {t("cancel")}
-                </Button>
-                <FormSubmitButton disableIfNotDirty>{t("submit")}</FormSubmitButton>
+                <FormTextField type="text" label={t("Name")} name="name" />
+                <FormTextField type="text" label={t("Education")} name="education" />
+                <FormTextField type="text" label={t("Description")} name="description" />
+                <Flex gap={10} justify={"flex-end"}>
+                    <Button htmlType="button" onClick={onClose}>
+                        {t("cancel")}
+                    </Button>
+                    <FormSubmitButton disableIfNotDirty type="primary">
+                        {t("submit")}
+                    </FormSubmitButton>
+                </Flex>
             </Form>
         </BaseDialog>
     );

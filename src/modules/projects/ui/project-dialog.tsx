@@ -1,4 +1,4 @@
-import { Button, Col, Row } from "antd";
+import { Button, Col, Flex, Row } from "antd";
 
 import { useTranslation } from "react-i18next";
 
@@ -78,10 +78,14 @@ const ProjectDialog = ({ title, onConfirm, onClose, initialValues }: ProjectDial
                         />
                     </Col>
                 </Row>
-                <Button htmlType="button" onClick={onClose}>
-                    {t("cancel")}
-                </Button>
-                <FormSubmitButton disableIfNotDirty>{t("submit")}</FormSubmitButton>
+                <Flex gap={10} justify={"flex-end"}>
+                    <Button htmlType="button" onClick={onClose}>
+                        {t("cancel")}
+                    </Button>
+                    <FormSubmitButton disableIfNotDirty type="primary">
+                        {t("submit")}
+                    </FormSubmitButton>
+                </Flex>
             </Form>
         </BaseDialog>
     );

@@ -23,7 +23,7 @@ const HeaderUserMenu = () => {
     return (
         <>
             <span className={styles.userName}>
-                {data?.profile ? data?.profile.full_name : user.email}
+                {data?.profile.full_name ? data?.profile.full_name : user.email}
             </span>
             <UserDropdownMenu
                 userId={user.id}

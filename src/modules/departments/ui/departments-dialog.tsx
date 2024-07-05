@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Flex } from "antd";
 import { useTranslation } from "react-i18next";
 import { BaseDialog } from "@/components/base-dialog/";
 import { Form } from "@/components/form";
@@ -13,6 +13,7 @@ interface DepartmentDialogProps {
     onClose: () => void;
     initialValues: DepartmentFormSchemaType;
 }
+
 const DepartmentDialog = ({ title, onConfirm, onClose, initialValues }: DepartmentDialogProps) => {
     const { t } = useTranslation();
 
@@ -29,10 +30,14 @@ const DepartmentDialog = ({ title, onConfirm, onClose, initialValues }: Departme
                 schema={getDepartmentFormSchema()}
             >
                 <FormTextField type="text" label={t("department")} name="department" />
-                <Button htmlType="button" onClick={onClose}>
-                    {t("cancel")}
-                </Button>
-                <FormSubmitButton disableIfNotDirty>{t("submit")}</FormSubmitButton>
+                <Flex gap={10} justify={"flex-end"}>
+                    <Button htmlType="button" onClick={onClose}>
+                        {t("cancel")}
+                    </Button>
+                    <FormSubmitButton disableIfNotDirty type="primary">
+                        {t("submit")}
+                    </FormSubmitButton>
+                </Flex>
             </Form>
         </BaseDialog>
     );

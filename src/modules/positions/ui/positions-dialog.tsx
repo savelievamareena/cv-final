@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, Flex } from "antd";
 import { useTranslation } from "react-i18next";
 import { BaseDialog } from "@/components/base-dialog/";
 import { Form } from "@/components/form";
@@ -30,10 +30,14 @@ const PositionDialog = ({ title, onConfirm, onClose, initialValues }: PositionDi
                 schema={getPositionFormSchema()}
             >
                 <FormTextField type="text" label={t("positions.positions")} name="position" />
-                <Button htmlType="button" onClick={onClose}>
-                    {t("cancel")}
-                </Button>
-                <FormSubmitButton disableIfNotDirty>{t("submit")}</FormSubmitButton>
+                <Flex gap={10} justify={"flex-end"}>
+                    <Button htmlType="button" onClick={onClose}>
+                        {t("cancel")}
+                    </Button>
+                    <FormSubmitButton disableIfNotDirty type="primary">
+                        {t("submit")}
+                    </FormSubmitButton>
+                </Flex>
             </Form>
         </BaseDialog>
     );

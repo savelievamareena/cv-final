@@ -1,4 +1,4 @@
-import { Button, Col, Row } from "antd";
+import { Button, Col, Flex, Row } from "antd";
 
 import { Project } from "cv-graphql";
 import { useTranslation } from "react-i18next";
@@ -57,11 +57,7 @@ const ProjectDialog = ({
                         />
                     </Col>
                     <Col span={12}>
-                        <FormTextField
-                            label={t("project.fieldLabels.roles")}
-                            name="roles"
-                            placeholder="DO NOW WORK"
-                        />
+                        <FormTextField label={t("project.fieldLabels.roles")} name="roles" />
                     </Col>
 
                     <Col span={12}>
@@ -82,14 +78,17 @@ const ProjectDialog = ({
                         <FormTextField
                             label={t("project.fieldLabels.responsibilities")}
                             name="responsibilities"
-                            placeholder="DO NOW WORK"
                         />
                     </Col>
                 </Row>
-                <Button htmlType="button" onClick={onClose}>
-                    {t("cancel")}
-                </Button>
-                <FormSubmitButton disableIfNotDirty>{t("submit")}</FormSubmitButton>
+                <Flex gap={10} justify={"flex-end"}>
+                    <Button htmlType="button" onClick={onClose}>
+                        {t("cancel")}
+                    </Button>
+                    <FormSubmitButton disableIfNotDirty type="primary">
+                        {t("submit")}
+                    </FormSubmitButton>
+                </Flex>
             </Form>
         </BaseDialog>
     );
