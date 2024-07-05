@@ -1,5 +1,5 @@
-import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
-import { Dropdown, DropdownProps, Flex, MenuProps } from "antd";
+import { CaretDownOutlined, CaretUpOutlined, GlobalOutlined } from "@ant-design/icons";
+import { Button, Dropdown, Flex, MenuProps } from "antd";
 import classNames from "classnames";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -33,13 +33,8 @@ const LanguagesSelect = () => {
         },
     ];
 
-    const handleOpenLangChange: DropdownProps["onOpenChange"] = (nextOpen) => {
-        setIsLanguagesOpen(nextOpen);
-    };
-
-    const handleSelectLanguage: MenuProps["onClick"] = ({ key }) => {
+    const handleSelectLanguage: MenuProps["onSelect"] = ({ key }) => {
         changeLanguage(key as Languages);
-        setIsLanguagesOpen(false);
     };
 
     return (
@@ -47,27 +42,35 @@ const LanguagesSelect = () => {
             menu={{
                 items: languages,
                 selectable: true,
-                onClick: handleSelectLanguage,
+                onSelect: handleSelectLanguage,
                 selectedKeys: [i18n.language],
             }}
-            onOpenChange={handleOpenLangChange}
+            open={isLanguagesOpen}
+            onOpenChange={(open) => {
+                setIsLanguagesOpen(open);
+            }}
             placement={"bottom"}
             trigger={["click"]}
         >
-            <Flex gap="0.5rem" className={classNames(styles.pointer)}>
-                <div>{i18n.language.toUpperCase()}</div>
-                {isLanguagesOpen ? (
-                    <CaretUpOutlined
-                        aria-label={t("header.languageSelector.close")}
-                        className={classNames(styles.headerIcons)}
+            <Button type="text" className={styles.white}>
+                <Flex gap={"small"}>
+                    <GlobalOutlined
+                        className={classNames(styles.headerIcons, styles.grey, styles.big)}
                     />
-                ) : (
-                    <CaretDownOutlined
-                        aria-label={t("header.languageSelector.open")}
-                        className={classNames(styles.headerIcons)}
-                    />
-                )}
-            </Flex>
+                    <span className={styles.white}>{i18n.language.toUpperCase()}</span>
+                    {isLanguagesOpen ? (
+                        <CaretUpOutlined
+                            aria-label={t("header.languageSelector.close")}
+                            className={classNames(styles.headerIcons)}
+                        />
+                    ) : (
+                        <CaretDownOutlined
+                            aria-label={t("header.languageSelector.open")}
+                            className={classNames(styles.headerIcons, styles.white)}
+                        />
+                    )}
+                </Flex>
+            </Button>
         </Dropdown>
     );
 };

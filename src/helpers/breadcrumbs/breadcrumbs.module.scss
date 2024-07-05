@@ -1,5 +1,18 @@
+@use "@/scss" as *;
+
 .breadcrumb {
-    min-height: 1.5rem;
+    position: sticky;
+    top: $header-height;
+    z-index: 3;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    background-color: var(--clr-bg);
+
+    padding: 1rem 0;
 
     ol {
         & > * {

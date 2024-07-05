@@ -51,6 +51,7 @@
     },
     "language": "language",
     "deleteConfirm": "Are you sure you want to delete {{item}}?",
+    "deleteConfirmBulk": "Are you sure you want to delete {{num}} item(s)?",
     "languages": {
         "addLanguage": "Add language",
         "updateLanguage": "Update language",

@@ -8,6 +8,10 @@
     color: $clr-grey;
 }
 
+.white {
+    color: #ffffff;
+}
+
 .big {
     font-size: 1.3rem;
 }
@@ -43,13 +47,8 @@
 
     width: 100%;
     top: 0;
-    left: 0;
 
     box-sizing: border-box;
-}
-
-.headerIcons {
-    cursor: pointer;
 }
 
 .pointer {

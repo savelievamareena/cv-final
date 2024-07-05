@@ -14,6 +14,10 @@ a:hover {
     text-decoration: none;
 }
 
+a:focus-visible {
+    outline: 1px solid currentColor;
+}
+
 #root {
     box-sizing: border-box;
     width: 100%;
