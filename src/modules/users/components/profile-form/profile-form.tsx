@@ -7,7 +7,8 @@ import { Form } from "@/components/form";
 import { FormSelect } from "@/components/form-select";
 import { FormSubmitButton } from "@/components/form-submit-button/form-submit-button";
 import { FormTextField } from "@/components/form-text-field";
-import { useProfileUpdate, useUserUpdate } from "../../api";
+import { useProfileUpdate } from "@/modules/users/api/update-profile-mutation";
+import { useUserUpdate } from "@/modules/users/api/update-user-mutation";
 import { profileFormSchema } from "../schemas";
 import styles from "./profile-form.module.scss";
 

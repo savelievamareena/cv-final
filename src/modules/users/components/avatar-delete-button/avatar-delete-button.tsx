@@ -1,7 +1,7 @@
 import { DeleteFilled } from "@ant-design/icons";
 import { Button } from "antd";
 import classNames from "classnames";
-import { useAvatarDelete } from "../../api";
+import { useAvatarDelete } from "@/modules/users/api/delete-avatar-mutation";
 
 import styles from "./avatar-delete-button.module.scss";
 
