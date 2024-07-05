@@ -1,3 +1,4 @@
+import { Spin } from "antd";
 import { Suspense } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
@@ -5,7 +6,6 @@ import { BreadcrumbsProvider } from "@/helpers/breadcrumbs";
 import { DialogsContainer } from "@/helpers/dialog/dialog-container";
 import { routes } from "@/router";
 import { useAuthUser } from "@/services/auth-service";
-import { FullsizeLoader } from "../fullsize-loader";
 import { MainHeader } from "../header";
 import styles from "./main-layout.module.scss";
 
@@ -19,7 +19,7 @@ export const MainLayout = () => {
             <MainHeader />
             <main className={styles.main}>
                 <BreadcrumbsProvider>
-                    <Suspense fallback={<FullsizeLoader />}>
+                    <Suspense fallback={<Spin fullscreen size="large" />}>
                         <Outlet />
                     </Suspense>
                 </BreadcrumbsProvider>

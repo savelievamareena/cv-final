@@ -1,9 +1,8 @@
-import { Button, Flex } from "antd";
+import { Button, Flex, Spin } from "antd";
 import classNames from "classnames";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Navigate } from "react-router-dom";
-import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useCvById } from "@/modules/cvs/api";
 import { usePdfExport } from "@/modules/cvs/api/export-pdf-mutation.ts";
 import { DomainBlock } from "@/modules/cvs/components/preview/domain-block";
@@ -32,7 +31,7 @@ const Preview = ({ cvId }: PreviewProps) => {
 
     if (!userId) return <Navigate to={routes.cvs.root} />;
 
-    if (cvLoading && !cvData) return <FullsizeLoader />;
+    if (cvLoading && !cvData) return <Spin fullscreen size="large" />;
 
     const handleExportButtonClick = () => {
         if (!ref.current) {

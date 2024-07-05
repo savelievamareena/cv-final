@@ -1,10 +1,9 @@
 import { SafetyOutlined } from "@ant-design/icons";
-import { Col, Row, Typography } from "antd";
+import { Col, Row, Spin, Typography } from "antd";
 import { UserRole } from "cv-graphql";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
-import { FullsizeLoader } from "@/components/fullsize-loader";
 import i18n from "@/i18n";
 import { RouteParams } from "@/router";
 import { useAuthUser } from "@/services/auth-service";
@@ -35,7 +34,7 @@ const ProfileContent = () => {
 
     return (
         <>
-            {loading && <FullsizeLoader />}
+            {loading && <Spin fullscreen size="large" />}
             {hasData && (
                 <div className={styles.wrapper}>
                     <Row gutter={[16, 8]}>
