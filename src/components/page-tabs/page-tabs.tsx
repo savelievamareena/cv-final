@@ -1,7 +1,6 @@
-import { Tabs } from "antd";
+import { Spin, Tabs } from "antd";
 import { Suspense, useCallback, useMemo } from "react";
 import { useLocation, useNavigate, Outlet } from "react-router-dom";
-import { FullsizeLoader } from "../fullsize-loader";
 import { PageTabsProps } from "./page-tabs.types";
 
 export const PageTabs = ({ items, ...props }: PageTabsProps) => {
@@ -14,7 +13,7 @@ export const PageTabs = ({ items, ...props }: PageTabsProps) => {
                 label,
                 key: path,
                 children: (
-                    <Suspense fallback={<FullsizeLoader />}>
+                    <Suspense fallback={<Spin fullscreen size="large" />}>
                         <Outlet />
                     </Suspense>
                 ),

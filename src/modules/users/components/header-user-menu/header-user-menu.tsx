@@ -1,4 +1,4 @@
-import { Spin } from "antd";
+import { Flex, Spin } from "antd";
 
 import { useAuthUser } from "@/services/auth-service";
 import { useProfileQuery } from "../../api";
@@ -21,7 +21,7 @@ const HeaderUserMenu = () => {
         );
 
     return (
-        <>
+        <Flex align="center">
             <span className={styles.userName}>
                 {data?.profile.full_name ? data?.profile.full_name : user.email}
             </span>
@@ -30,7 +30,7 @@ const HeaderUserMenu = () => {
                 profileLetter={data?.profile.full_name ? data?.profile.full_name[0] : user.email[0]}
                 avatar={data?.profile.avatar}
             />
-        </>
+        </Flex>
     );
 };
 

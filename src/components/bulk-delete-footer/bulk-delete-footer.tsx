@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import { bulkDeleteService, useBulkDeleteItemIds } from "@/services/bulk-delete-service";
+import { useConfirm } from "../confirm-dialog";
 import styles from "./bulk-delete-footer.module.scss";
 
 interface BulkDeleteProps {
@@ -14,23 +15,30 @@ const BulkDeleteFooter = ({ onDelete, loadingState }: BulkDeleteProps) => {
     const { t } = useTranslation();
     const itemIds = useBulkDeleteItemIds();
 
+    const [openConfirm] = useConfirm();
+
     useEffect(() => {
         return () => {
             bulkDeleteService.reset();
         };
     }, []);
 
+    if (!itemIds.length) return null;
+
     const handleCancel = () => {
         bulkDeleteService.reset();
     };
 
     const handleDelete = () => {
-        void onDelete(itemIds).then(() => {
-            bulkDeleteService.reset();
+        openConfirm({
+            title: t("deleteConfirmBulk", { num: itemIds.length }),
+            onConfirm: () => {
+                void onDelete(itemIds).then(() => {
+                    bulkDeleteService.reset();
+                });
+            },
         });
     };
-
-    if (!itemIds.length) return null;
 
     return (
         <Layout.Footer className={styles.stickyFooter}>

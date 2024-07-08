@@ -1,11 +1,10 @@
 import { PlusOutlined } from "@ant-design/icons";
-import { Button, Flex } from "antd";
+import { Button, Flex, Spin } from "antd";
 import { Mastery, User, UserRole } from "cv-graphql";
 import { useTranslation } from "react-i18next";
 import { AddSkillSchemaType } from "src/modules/cvs/components/skills-dialog/schemas";
 import { useAddCvSkill } from "@/api/add-cv-skill-mutation";
 import { useSkills } from "@/api/get-skills-query";
-import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useCvById } from "@/modules/cvs/api";
 import { useAddSkill } from "@/modules/cvs/components/skills-dialog";
 import { CvSkillsContainer } from "../cv-skills-container";
@@ -25,7 +24,7 @@ const Skills = ({ cvId, currentUser }: SkillProps) => {
     const [addCvSkill] = useAddCvSkill();
     const { data: skillsData, loading: skillsLoading } = useSkills();
 
-    if (loadingCv || skillsLoading) return <FullsizeLoader />;
+    if (loadingCv || skillsLoading) return <Spin fullscreen size="large" />;
 
     const openAddSkillDialog = () =>
         openSkillDialog({

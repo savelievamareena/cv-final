@@ -1,5 +1,5 @@
 import { LogoutOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
-import { Dropdown, Flex, MenuProps } from "antd";
+import { Button, Dropdown, Flex, MenuProps } from "antd";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -77,8 +77,10 @@ const UserDropdownMenu = ({ userId, profileLetter, avatar }: UserDropdownMenuPro
             arrow={{ pointAtCenter: true }}
             trigger={["click"]}
         >
-            <Flex justify="center" align="center" className={classNames(styles.avatarWrapper)}>
-                <ProfilePicture profileLetter={profileLetter} avatar={avatar} />
+            <Flex justify="center" align="center" className={styles.avatarWrapper}>
+                <Button type="text" className={styles.avatarWrapper}>
+                    <ProfilePicture profileLetter={profileLetter} avatar={avatar} />
+                </Button>
             </Flex>
         </Dropdown>
     );

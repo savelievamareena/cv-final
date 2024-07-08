@@ -1,6 +1,5 @@
 import { MoreOutlined } from "@ant-design/icons";
 import { Space, Dropdown, Button } from "antd";
-import { Content } from "antd/es/layout/layout";
 import { t } from "i18next";
 import { memo, ReactNode } from "react";
 
@@ -17,18 +16,28 @@ const ActionsMenuEmployee = ({ onUpdate, record }: ActionProps) => {
 
     const items = [
         {
-            key: "0",
-            label: (
-                <Content key="update" onClick={onHandleUpdate}>
-                    {t("details")}
-                </Content>
-            ) as ReactNode,
+            key: "update",
+            label: (<span>{t("details")}</span>) as ReactNode,
         },
     ];
 
     return (
-        <Dropdown menu={{ items }} trigger={["click"]}>
-            <Button type={"text"}>
+        <Dropdown
+            menu={{
+                items,
+                selectable: true,
+                onSelect: ({ key }) => {
+                    switch (key) {
+                        case "update": {
+                            onHandleUpdate();
+                            return;
+                        }
+                    }
+                },
+            }}
+            trigger={["click"]}
+        >
+            <Button type="text">
                 <Space>
                     <MoreOutlined />
                 </Space>

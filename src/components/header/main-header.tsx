@@ -1,5 +1,5 @@
-import { MenuOutlined, GlobalOutlined } from "@ant-design/icons";
-import { Layout, Flex } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
+import { Layout, Flex, Button } from "antd";
 import classNames from "classnames";
 import { useState } from "react";
 
@@ -14,17 +14,13 @@ const MainHeader = () => {
     return (
         <Layout.Header className={styles.fixedHeader}>
             <Flex className={styles.spreadFlex}>
-                <MenuOutlined
-                    className={classNames(styles.headerIcons, styles.red, styles.big)}
-                    onClick={() => setDrawerOpen(true)}
-                />
-                <Flex gap="3rem">
-                    <Flex gap="small">
-                        <GlobalOutlined
-                            className={classNames(styles.headerIcons, styles.grey, styles.big)}
-                        />
-                        <LanguagesSelect />
-                    </Flex>
+                <Button type="text" onClick={() => setDrawerOpen(true)}>
+                    <MenuOutlined
+                        className={classNames(styles.headerIcons, styles.red, styles.big)}
+                    />
+                </Button>
+                <Flex gap="3rem" align="center">
+                    <LanguagesSelect />
                     <Flex gap="small">
                         <HeaderUserMenu />
                     </Flex>

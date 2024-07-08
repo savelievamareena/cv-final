@@ -1,8 +1,7 @@
-import { Button, Flex } from "antd";
+import { Button, Flex, Spin } from "antd";
 import classNames from "classnames";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useCvById } from "@/modules/cvs/api";
 import { usePdfExport } from "@/modules/cvs/api/export-pdf-mutation.ts";
 import { DomainBlock } from "@/modules/cvs/components/preview/domain-block";
@@ -27,7 +26,7 @@ const Preview = ({ cvId }: PreviewProps) => {
     const { data: cvData, loading: cvLoading } = useCvById(cvId);
     const [exportPdf, { loading: loadingPdf }] = usePdfExport(cvData?.cv.name);
 
-    if (cvLoading && !cvData) return <FullsizeLoader />;
+    if (cvLoading && !cvData) return <Spin fullscreen size="large" />;
 
     if (!cvData) return null;
 

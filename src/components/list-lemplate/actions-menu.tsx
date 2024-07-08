@@ -1,8 +1,7 @@
 import { MoreOutlined } from "@ant-design/icons";
 import { Space, Dropdown, Button } from "antd";
-import { Content } from "antd/es/layout/layout";
 import { t } from "i18next";
-import { memo, ReactNode } from "react";
+import { memo } from "react";
 
 export interface Action {
     onUpdate: (id: string, name?: string) => void;
@@ -21,26 +20,43 @@ const ActionsMenu = ({ onUpdate, onDelete, pageName, record }: ActionProps) => {
 
     const items = [
         {
-            key: "0",
+            key: "update",
             label: (
-                <Content key="update" onClick={onHandleUpdate}>
+                <span>
                     {t("update")} {pageName}
-                </Content>
-            ) as ReactNode,
+                </span>
+            ),
         },
         {
-            key: "1",
+            key: "delete",
             label: (
-                <Content key="delete" onClick={onHandleDelete}>
+                <span>
                     {t("delete")} {pageName}
-                </Content>
-            ) as ReactNode,
+                </span>
+            ),
         },
     ];
 
     return (
-        <Dropdown menu={{ items }} trigger={["click"]}>
-            <Button>
+        <Dropdown
+            menu={{
+                items,
+                selectable: true,
+                onSelect: ({ key }) => {
+                    switch (key) {
+                        case "update": {
+                            onHandleUpdate();
+                            return;
+                        }
+                        case "delete": {
+                            onHandleDelete();
+                        }
+                    }
+                },
+            }}
+            trigger={["click"]}
+        >
+            <Button type="text">
                 <Space>
                     <MoreOutlined />
                 </Space>

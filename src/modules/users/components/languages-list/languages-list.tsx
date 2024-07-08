@@ -1,9 +1,8 @@
 import { PlusOutlined } from "@ant-design/icons";
-import { Button, Flex } from "antd";
+import { Button, Flex, Spin } from "antd";
 import { LanguageProficiency, Proficiency } from "cv-graphql";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { FullsizeLoader } from "@/components/fullsize-loader";
 import { useCreateUserLanguage, useUpdateUserLanguage, useUserLanguages } from "../../api";
 import { useLanguagesDialog } from "../languages-dialog";
 import { LanguagesFormSchemaType } from "../schemas/languages";
@@ -39,7 +38,7 @@ const LanguagesList = ({ userId, canEdit }: LanguagesListProps) => {
         return <Flex justify="center">{t("languages.noLanguages")}</Flex>;
     }
 
-    if (loading) return <FullsizeLoader />;
+    if (loading) return <Spin fullscreen size="large" />;
 
     const addLanguage = () =>
         openLanguageDialog({

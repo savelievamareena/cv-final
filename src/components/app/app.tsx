@@ -1,3 +1,5 @@
+import { Spin } from "antd";
+import { Suspense } from "react";
 import { ThemeProvider } from "@/antd";
 import { AppAPIProvider } from "@/graphql";
 import { NotificationContextProvider } from "@/helpers/notification";
@@ -7,9 +9,11 @@ export const App = () => {
     return (
         <AppAPIProvider>
             <ThemeProvider>
-                <NotificationContextProvider>
-                    <AppRouterProvider />
-                </NotificationContextProvider>
+                <Suspense fallback={<Spin fullscreen size="large" />}>
+                    <NotificationContextProvider>
+                        <AppRouterProvider />
+                    </NotificationContextProvider>
+                </Suspense>
             </ThemeProvider>
         </AppAPIProvider>
     );
