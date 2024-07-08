@@ -119,7 +119,7 @@ const TableTemplate = <T extends { id: Key }>({
     return (
         <div className={styles.tableWrapper}>
             <Table
-                scroll={{ x: 800 }}
+                scroll={{ x: true }}
                 columns={columns}
                 dataSource={filteredData}
                 pagination={{ hideOnSinglePage: true }}
