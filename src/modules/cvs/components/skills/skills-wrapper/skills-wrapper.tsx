@@ -8,9 +8,9 @@ const SkillsWrapper = () => {
     useCvBreadcrumbs("skills");
     const { cvId } = useParams<{ cvId: string }>();
     const currentUser = useAuthUser();
-    if (!cvId || !currentUser) {
-        return <Navigate to={routes.auth.root} replace />;
-    }
+    if (!cvId) return <Navigate to={routes.cvs.root} replace />;
+
+    if (!currentUser) return <Navigate to={routes.auth.root} replace />;
 
     return <Skills cvId={cvId} currentUser={currentUser} />;
 };

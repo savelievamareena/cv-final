@@ -8,7 +8,7 @@ const PreviewWrapper = () => {
 
     const { cvId } = useParams<{ cvId: string }>();
     if (!cvId) {
-        return <Navigate to={routes.auth.root} replace />;
+        return <Navigate to={routes.cvs.root} replace />;
     }
 
     return <Preview cvId={cvId} />;
