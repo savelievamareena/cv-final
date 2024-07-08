@@ -27,13 +27,13 @@ const ActionsMenuEmployee = ({ onUpdate, record }: ActionProps) => {
     ];
 
     return (
-        <Dropdown.Button menu={{ items }} trigger={["click"]}>
-            <Button>
+        <Dropdown menu={{ items }} trigger={["click"]}>
+            <Button type={"text"}>
                 <Space>
                     <MoreOutlined />
                 </Space>
             </Button>
-        </Dropdown.Button>
+        </Dropdown>
     );
 };
 
