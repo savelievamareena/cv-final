@@ -8,6 +8,7 @@ import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormTextField } from "@/components/form-text-field";
 import { mapDepartmentsToSelectOptions, mapPositionsToSelectOptions } from "@/helpers/convert/maps";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
+import { PasswordInput } from "@/modules/auth/components/password-input";
 import { getUserFormSchema, UserFormSchemaType } from "../shemas/user";
 
 interface UserDialogProps {
@@ -41,7 +42,7 @@ const UserDialog = ({ title, onConfirm, onClose, initialValues }: UserDialogProp
                 schema={getUserFormSchema()}
             >
                 <FormTextField type="text" label={t("email")} name="email" />
-                <FormTextField type="text" label={t("password")} name="password" />
+                <PasswordInput label={t("password")} name="password" />
                 <FormTextField type="text" label={t("first name")} name="first_name" />
                 <FormTextField type="text" label={t("last name")} name="last_name" />
                 <FormSelect name="department" options={departmentOptions} label={t("department")} />

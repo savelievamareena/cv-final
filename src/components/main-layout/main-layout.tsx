@@ -9,7 +9,7 @@ import { useAuthUser } from "@/services/auth-service";
 import { MainHeader } from "../header";
 import styles from "./main-layout.module.scss";
 
-export const MainLayout = () => {
+const MainLayout = () => {
     const user = useAuthUser();
 
     if (!user?.is_verified) return <Navigate to={routes.auth.root} />;
@@ -28,3 +28,4 @@ export const MainLayout = () => {
         </>
     );
 };
+export default MainLayout;

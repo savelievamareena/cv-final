@@ -10,7 +10,7 @@ const DetailsWrapper = () => {
     useCvBreadcrumbs("details");
 
     if (!cvId || !currentUser) {
-        return <Navigate to={routes.auth.root} replace />;
+        return <Navigate to={routes.cvs.root} replace />;
     }
 
     return <Details cvId={cvId} currentUserEmail={currentUser.email} />;
