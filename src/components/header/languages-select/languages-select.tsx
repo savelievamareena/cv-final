@@ -52,7 +52,7 @@ const LanguagesSelect = () => {
             placement={"bottom"}
             trigger={["click"]}
         >
-            <Button type="text" className={styles.white}>
+            <Button type="text" className={classNames(styles.white, styles.hiddenSmall)}>
                 <Flex gap={"small"}>
                     <GlobalOutlined
                         className={classNames(styles.headerIcons, styles.grey, styles.big)}
