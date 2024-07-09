@@ -26,7 +26,13 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: min(3%, 1.5rem);
+}
+
+.hiddenSmall {
+    @media screen and (max-width: 400px) {
+        display: none;
+    }
 }
 
 .fixedHeader {

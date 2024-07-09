@@ -19,7 +19,7 @@ const MainHeader = () => {
                         className={classNames(styles.headerIcons, styles.red, styles.big)}
                     />
                 </Button>
-                <Flex gap="3rem" align="center">
+                <Flex gap="5%" align="center">
                     <LanguagesSelect />
                     <Flex gap="small">
                         <HeaderUserMenu />
