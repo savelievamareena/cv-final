@@ -7,9 +7,7 @@ import { itemRender } from "./breadcrumbs.helpers";
 import styles from "./breadcrumbs.module.scss";
 
 const initialValue = {
-    setPaths: (paths: BreadcrumbItemType[]) => {
-        console.log(paths.length);
-    },
+    setPaths: (() => undefined) as (paths: BreadcrumbItemType[]) => void,
 };
 
 export const BreadcrumbsContext = createContext(initialValue);

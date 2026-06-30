@@ -3,9 +3,9 @@ import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { useConfirm } from "@/components/confirm-dialog/";
-import { Action } from "@/components/list-lemplate/actions-menu";
-import { ListTemplate } from "@/components/list-lemplate/list-template";
-import { ColumnConfig } from "@/components/list-lemplate/table-template";
+import { Action } from "@/components/list-template/actions-menu";
+import { ListTemplate } from "@/components/list-template/list-template";
+import { ColumnConfig } from "@/components/list-template/table-template";
 import { DATE_FORMAT } from "@/constants";
 import { RouteParams, routes } from "@/router";
 import { useCvProjectAdd } from "../api/add-cv-project-mutation";
@@ -44,7 +44,6 @@ const CvProjectsList = () => {
                 title: t("deleteConfirmation"),
                 onConfirm: () => {
                     const project = projects.find((proj) => proj.id === id);
-                    console.log(project?.project.id);
                     return void deleteProject({
                         variables: {
                             project: {

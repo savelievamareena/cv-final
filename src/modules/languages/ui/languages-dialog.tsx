@@ -5,7 +5,7 @@ import { Form } from "@/components/form";
 import { FormSubmitButton } from "@/components/form-submit-button";
 import { FormTextField } from "@/components/form-text-field";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
-import { getLanguageFormSchema, LanguageFormSchemaType } from "../shemas/language";
+import { getLanguageFormSchema, LanguageFormSchemaType } from "../schemas/language";
 
 interface LanguageDialogProps {
     title: string;

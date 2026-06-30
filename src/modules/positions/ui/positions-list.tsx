@@ -2,9 +2,9 @@ import { Position } from "cv-graphql";
 import { t } from "i18next";
 import { usePositionsQuery } from "@/api";
 import { useConfirm } from "@/components/confirm-dialog/";
-import { Action } from "@/components/list-lemplate/actions-menu";
-import { ListTemplate } from "@/components/list-lemplate/list-template";
-import { ColumnConfig } from "@/components/list-lemplate/table-template";
+import { Action } from "@/components/list-template/actions-menu";
+import { ListTemplate } from "@/components/list-template/list-template";
+import { ColumnConfig } from "@/components/list-template/table-template";
 import { usePositionCreate, usePositionDelete, usePositionUpdate } from "../api";
 import { usePositionDialog } from "./positions-dialog";
 

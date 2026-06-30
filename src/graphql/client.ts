@@ -24,8 +24,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
     if (graphQLErrors) {
         graphQLErrors.forEach(({ message }) => {
             console.error(message);
-            if (message.includes("duplicate key value")) {
-            } else if (message === "Unauthorized") {
+            if (message === "Unauthorized") {
                 authService.logout();
             }
         });

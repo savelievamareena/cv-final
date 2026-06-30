@@ -12,7 +12,7 @@ import { FormTextField } from "@/components/form-text-field";
 
 import { mapProjectsToSelectOptions } from "@/helpers/convert/maps";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
-import { updateProjectFormSchema, UpdateProjectFormSchemaType } from "../shemas";
+import { updateProjectFormSchema, UpdateProjectFormSchemaType } from "../schemas";
 import styles from "./project-details-form.module.scss";
 
 interface ProjectDialogProps {
