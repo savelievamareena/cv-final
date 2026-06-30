@@ -1,1 +1,1 @@
-export * from "./use-generic-breadgrumbs";
+export * from "./use-generic-breadcrumbs";

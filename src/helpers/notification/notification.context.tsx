@@ -2,17 +2,11 @@ import { notification } from "antd";
 import { IconType } from "antd/es/notification/interface";
 import { PropsWithChildren, createContext, useCallback, useMemo } from "react";
 
+const noop = () => undefined;
+
 const initialValue = {
-    showNotification: (type: IconType, message: string, key?: string | number) => {
-        console.log({
-            type,
-            message,
-            key,
-        });
-    },
-    closeNotification: (key?: string | number) => {
-        console.log(key);
-    },
+    showNotification: noop as (type: IconType, message: string, key?: string | number) => void,
+    closeNotification: noop as (key?: string | number) => void,
 };
 
 export const NotificationContext = createContext(initialValue);

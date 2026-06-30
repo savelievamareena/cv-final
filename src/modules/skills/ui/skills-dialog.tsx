@@ -8,7 +8,7 @@ import { FormTextField } from "@/components/form-text-field";
 import { mapStringsToSelectOptions } from "@/helpers/convert/maps";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { useSkillCategoriesQuery } from "../api/get-skill-catigories-query";
-import { getSkillFormSchema, SkillFormSchemaType } from "../shemas/skills";
+import { getSkillFormSchema, SkillFormSchemaType } from "../schemas/skills";
 
 interface SkillDialogProps {
     title: string;

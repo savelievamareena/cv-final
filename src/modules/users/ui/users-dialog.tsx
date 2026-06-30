@@ -9,7 +9,7 @@ import { FormTextField } from "@/components/form-text-field";
 import { mapDepartmentsToSelectOptions, mapPositionsToSelectOptions } from "@/helpers/convert/maps";
 import { createDialogHook } from "@/helpers/dialog/create-dialog";
 import { PasswordInput } from "@/modules/auth/components/password-input";
-import { getUserFormSchema, UserFormSchemaType } from "../shemas/user";
+import { getUserFormSchema, UserFormSchemaType } from "../schemas/user";
 
 interface UserDialogProps {
     title: string;
